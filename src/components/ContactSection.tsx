@@ -1,15 +1,13 @@
-
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Plus } from "lucide-react";
-
 interface ContactSectionProps {
   onBooking: () => void;
 }
-
-const ContactSection = ({ onBooking }: ContactSectionProps) => {
-  return (
-    <section className="py-24 relative">
+const ContactSection = ({
+  onBooking
+}: ContactSectionProps) => {
+  return <section className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         <Card className="bg-gradient-to-r from-gray-800/80 to-gray-900/80 border-gray-700 p-16 text-center backdrop-blur-sm relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/10 to-brand-green/10"></div>
@@ -25,11 +23,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-              <Button 
-                onClick={onBooking}
-                size="lg"
-                className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-12 py-6 text-xl flex items-center space-x-3 transition-all duration-300 transform hover:scale-105 shadow-2xl"
-              >
+              <Button onClick={onBooking} size="lg" className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-12 py-6 text-xl flex items-center space-x-3 transition-all duration-300 transform hover:scale-105 shadow-2xl">
                 <span>Book Free Consultation</span>
                 <Plus size={24} />
               </Button>
@@ -56,18 +50,12 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
       {/* Footer */}
       <footer className="mt-24 border-t border-gray-800 pt-12">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <img 
-            src="/lovable-uploads/3f806d3d-5974-43de-a754-d838661a004d.png" 
-            alt="Crux Consulting" 
-            className="h-12 w-auto mx-auto mb-6 opacity-80"
-          />
+          
           <p className="text-gray-500">
             © 2024 Crux Consulting. Transforming SMEs with AI.
           </p>
         </div>
       </footer>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
