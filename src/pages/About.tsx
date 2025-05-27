@@ -31,23 +31,36 @@ const About = () => {
         </div>
         
         {/* Fixed image - right side (40% width) */}
-        <div className="w-2/5 fixed right-0 top-0 h-screen overflow-hidden">
-          <img 
-            src="/lovable-uploads/Climber%201.png" 
-            alt="Mountain climber reaching the summit" 
-            className="w-full h-full object-cover"
-            loading="eager"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              console.log('Image failed to load:', target.src);
-              target.style.display = 'none';
-            }}
-          />
+        <div className="w-2/5 fixed right-0 top-0 h-screen z-0 overflow-hidden">
+          <div className="relative w-full h-full">
+            <img 
+              src="/lovable-uploads/Climber%201.png" 
+              alt="Mountain climber reaching the summit" 
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+              style={{ 
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                zIndex: 1
+              }}
+              onLoad={() => console.log('Climber image loaded successfully')}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                console.error('Climber image failed to load:', target.src);
+                // Try alternative path
+                target.src = '/lovable-uploads/Climber 1.png';
+              }}
+            />
+          </div>
         </div>
       </div>
 
       {/* Footer with higher z-index to stay in front */}
-      <div className="relative z-20">
+      <div className="relative z-30 bg-gray-900">
         <Footer />
       </div>
     </div>
