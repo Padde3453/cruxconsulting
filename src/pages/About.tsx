@@ -2,19 +2,15 @@
 import { Linkedin, MapPin, Rocket, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import FloatingElements from "@/components/FloatingElements";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Mobile layout - image at top */}
+    <div className="min-h-screen bg-gray-900 text-white relative overflow-x-hidden">
+      <FloatingElements />
+      
+      {/* Mobile layout - no image */}
       <div className="lg:hidden">
-        <div className="w-full h-64 md:h-80 overflow-hidden">
-          <img 
-            src="/lovable-uploads/Climber 1.png" 
-            alt="Climber" 
-            className="w-full h-full object-cover object-top"
-          />
-        </div>
         <div className="px-6 py-12">
           <AboutContent />
         </div>
@@ -88,7 +84,14 @@ const AboutContent = () => {
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2 text-brand-blue">
               <Linkedin size={18} />
-              <span>[LinkedIn]</span>
+              <a 
+                href="https://www.linkedin.com/in/patrick-reverchon/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                LinkedIn
+              </a>
             </div>
             <div className="flex items-center gap-2 text-gray-400">
               <MapPin size={18} />
