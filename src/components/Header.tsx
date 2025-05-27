@@ -18,7 +18,7 @@ const Header = ({ onBooking }: HeaderProps) => {
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
-      // Navigate to home page with hash and scroll after navigation
+      // If not on home page, navigate to home with hash
       window.location.href = `/#${sectionId}`;
       return;
     }
@@ -26,20 +26,6 @@ const Header = ({ onBooking }: HeaderProps) => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
-    }
-    setMobileMenuOpen(false);
-  };
-
-  const handleServicesClick = () => {
-    if (location.pathname !== '/') {
-      // Navigate to home page and then scroll to services
-      window.location.href = '/#services';
-    } else {
-      // Already on home page, just scroll to services
-      const section = document.getElementById('services');
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
     }
     setMobileMenuOpen(false);
   };
@@ -71,7 +57,7 @@ const Header = ({ onBooking }: HeaderProps) => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <button 
-            onClick={handleServicesClick} 
+            onClick={() => scrollToSection('services')} 
             className="text-gray-300 hover:text-white transition-colors"
           >
             Services
@@ -129,7 +115,7 @@ const Header = ({ onBooking }: HeaderProps) => {
         <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-gray-800">
           <div className="px-6 py-4 space-y-4">
             <button 
-              onClick={handleServicesClick} 
+              onClick={() => scrollToSection('services')} 
               className="block text-gray-300 hover:text-white transition-colors"
             >
               Services
