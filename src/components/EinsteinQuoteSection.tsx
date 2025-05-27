@@ -4,7 +4,7 @@ const EinsteinQuoteSection = () => {
     <section 
       className="py-32 relative overflow-hidden"
       style={{
-        backgroundImage: `url('/lovable-uploads/computer_hand.png')`,
+        backgroundImage: `url('/public/lovable-uploads/Computer_hand.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
