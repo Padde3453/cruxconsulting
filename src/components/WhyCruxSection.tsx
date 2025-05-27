@@ -3,11 +3,11 @@ import { Card } from "@/components/ui/card";
 
 const WhyCruxSection = () => {
   return (
-    <section className="py-24 relative">
+    <section className="py-16 relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 items-center">
+          {/* Text Content - 70% width */}
+          <div className="lg:col-span-7">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               Why Crux Consulting?
             </h2>
@@ -24,12 +24,12 @@ const WhyCruxSection = () => {
             </div>
           </div>
 
-          {/* Image */}
-          <div className="relative">
-            <Card className="bg-gradient-to-r from-gray-800/80 to-gray-900/80 border-gray-700 p-8 backdrop-blur-sm">
+          {/* Image - 30% width */}
+          <div className="lg:col-span-3">
+            <Card className="bg-gradient-to-r from-gray-800/80 to-gray-900/80 border-gray-700 p-4 backdrop-blur-sm">
               <img 
-                src="/lovable-uploads/09abf764-8eec-4d74-9f6a-9483d4e0f84f.png" 
-                alt="European SMEs and AI Innovation" 
+                src="/lovable-uploads/3f806d3d-5974-43de-a754-d838661a004d.png" 
+                alt="AI and Business Innovation" 
                 className="w-full h-auto rounded-lg"
               />
             </Card>
