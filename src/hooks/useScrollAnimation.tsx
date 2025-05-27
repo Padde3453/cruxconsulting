@@ -1,7 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export const useScrollAnimation = (threshold = 0.6) => {
+export const useScrollAnimation = (threshold = 0.3) => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
