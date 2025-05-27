@@ -1,22 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Plus, Target, Zap, Shield, Cog } from "lucide-react";
-
 interface ServicesSectionProps {
   onBooking: () => void;
 }
-
-const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
-  return (
-    <section id="services" className="py-24 relative">
+const ServicesSection = ({
+  onBooking
+}: ServicesSectionProps) => {
+  return <section id="services" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
             Our Services
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We offer a range of AI-powered solutions designed to transform your SME, streamline operations, and drive growth.
-          </p>
+          <p className="text-gray-300 max-w-3xl mx-auto text-center text-xl font-bold">AI Solutions Built Around Your Business – Not the Other Way Around</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -132,8 +129,6 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ServicesSection;
