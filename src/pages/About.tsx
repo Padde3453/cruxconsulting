@@ -1,9 +1,11 @@
+
 import { Linkedin, MapPin, Rocket, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import FloatingElements from "@/components/FloatingElements";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const About = () => {
   return (
@@ -32,8 +34,9 @@ const About = () => {
         <div className="w-2/5 fixed right-0 top-0 h-screen overflow-hidden">
           <img 
             src="/lovable-uploads/Climber%201.png" 
-            alt="Climber" 
+            alt="Mountain climber reaching the summit" 
             className="w-full h-full object-cover"
+            loading="eager"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               console.log('Image failed to load:', target.src);
@@ -52,34 +55,68 @@ const About = () => {
 };
 
 const AboutContent = () => {
+  const titleRef = useScrollAnimation();
+  const whyCruxRef = useScrollAnimation();
+  const whoWeAreRef = useScrollAnimation();
+  const patrickRef = useScrollAnimation();
+  const nabitRef = useScrollAnimation();
+  const howWeWorkRef = useScrollAnimation();
+  const joinUsRef = useScrollAnimation();
+
   const handleApplicationClick = () => {
     window.location.href = 'mailto:careers@crux-consulting.ai?subject=Application%20-%20Join%20Crux%20Consulting';
   };
 
   return (
     <>
-      <h1 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-        About Us
-      </h1>
+      <div 
+        ref={titleRef.elementRef}
+        className={`transition-all duration-1000 ${
+          titleRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
+        <h1 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+          About Us
+        </h1>
+      </div>
 
       {/* Why CRUX Consulting Section */}
       <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-6 text-brand-blue">
-          Why 'CRUX Consulting'
-        </h2>
-        <p className="text-gray-300 text-lg leading-relaxed">
-          In climbing, the crux is the most challenging and decisive part of the route — the point that demands focus, skill, and the right strategy to succeed. I believe AI represents the crux moment for businesses today. It holds immense promise, but also complexity. Navigating this shift without the right support can feel like facing a steep wall alone — risky, overwhelming, and easy to fall behind. Crux Consulting is here to guide SMEs through this pivotal climb, helping them harness AI with clarity, confidence, and purpose.
-        </p>
+        <div 
+          ref={whyCruxRef.elementRef}
+          className={`transition-all duration-1000 ${
+            whyCruxRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <h2 className="text-3xl font-bold mb-6 text-brand-blue">
+            Why 'CRUX Consulting'
+          </h2>
+          <p className="text-gray-300 text-lg leading-relaxed">
+            In climbing, the crux is the most challenging and decisive part of the route — the point that demands focus, skill, and the right strategy to succeed. I believe AI represents the crux moment for businesses today. It holds immense promise, but also complexity. Navigating this shift without the right support can feel like facing a steep wall alone — risky, overwhelming, and easy to fall behind. Crux Consulting is here to guide SMEs through this pivotal climb, helping them harness AI with clarity, confidence, and purpose.
+          </p>
+        </div>
       </section>
 
       {/* Who we are Section */}
       <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-8 text-brand-green">
-          Who we are
-        </h2>
+        <div 
+          ref={whoWeAreRef.elementRef}
+          className={`transition-all duration-1000 ${
+            whoWeAreRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <h2 className="text-3xl font-bold mb-8 text-brand-green">
+            Who we are
+          </h2>
+        </div>
 
         {/* Patrick Reverchon */}
-        <div className="mb-12">
+        <div 
+          ref={patrickRef.elementRef}
+          className={`mb-12 transition-all duration-1000 ${
+            patrickRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="flex flex-col md:flex-row items-start gap-6 mb-6">
             <div className="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center text-gray-400">
               [Photo Placeholder]
@@ -114,7 +151,12 @@ const AboutContent = () => {
         </div>
 
         {/* Nabit Mikan */}
-        <div className="mb-16">
+        <div 
+          ref={nabitRef.elementRef}
+          className={`mb-16 transition-all duration-1000 ${
+            nabitRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="flex flex-col md:flex-row items-start gap-6 mb-6">
             <div className="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center text-gray-400">
               [Photo Placeholder]
@@ -151,82 +193,96 @@ const AboutContent = () => {
 
       {/* How We Work Section */}
       <section className="mb-16">
-        <div className="flex items-center gap-3 mb-8">
-          <Rocket className="text-brand-blue" size={32} />
-          <h2 className="text-3xl font-bold text-white">
-            How We Work
-          </h2>
-        </div>
+        <div 
+          ref={howWeWorkRef.elementRef}
+          className={`transition-all duration-1000 ${
+            howWeWorkRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <Rocket className="text-brand-blue" size={32} />
+            <h2 className="text-3xl font-bold text-white">
+              How We Work
+            </h2>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
-            <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-lg transition-all duration-300">
-              Tailored First
-            </h3>
-            <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
-              No cookie-cutter solutions. We start with your goals.
-            </p>
-          </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
+              <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-lg transition-all duration-300">
+                Tailored First
+              </h3>
+              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+                No cookie-cutter solutions. We start with your goals.
+              </p>
+            </Card>
 
-          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
-            <h3 className="text-xl font-bold text-brand-green mb-3 group-hover:text-lg transition-all duration-300">
-              Fast, But Thoughtful
-            </h3>
-            <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
-              We prioritize speed of execution <em>and</em> quality of outcome.
-            </p>
-          </Card>
+            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
+              <h3 className="text-xl font-bold text-brand-green mb-3 group-hover:text-lg transition-all duration-300">
+                Fast, But Thoughtful
+              </h3>
+              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+                We prioritize speed of execution <em>and</em> quality of outcome.
+              </p>
+            </Card>
 
-          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
-            <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-lg transition-all duration-300">
-              AI-Native, Business-Led
-            </h3>
-            <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
-              Every project balances innovation with ROI.
-            </p>
-          </Card>
+            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
+              <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-lg transition-all duration-300">
+                AI-Native, Business-Led
+              </h3>
+              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+                Every project balances innovation with ROI.
+              </p>
+            </Card>
 
-          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
-            <h3 className="text-xl font-bold text-brand-green mb-3 group-hover:text-lg transition-all duration-300">
-              Privacy and Compliance by Design
-            </h3>
-            <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
-              We bake regulatory readiness into every system.
-            </p>
-          </Card>
+            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
+              <h3 className="text-xl font-bold text-brand-green mb-3 group-hover:text-lg transition-all duration-300">
+                Privacy and Compliance by Design
+              </h3>
+              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+                We bake regulatory readiness into every system.
+              </p>
+            </Card>
+          </div>
         </div>
       </section>
 
       {/* Want to Join Us Section */}
       <section className="mb-16">
-        <div className="flex items-center gap-3 mb-8">
-          <Users className="text-brand-green" size={32} />
-          <h2 className="text-3xl font-bold text-white">
-            Want to Join Us?
-          </h2>
-        </div>
-
-        <div className="p-8">
-          <p className="text-gray-300 text-lg leading-relaxed mb-6">
-            We are always interested to work with smart and ambitious people who have their heart in the right place and share the mission with us to support German and European businesses with automation and AI, always focussing on the ideal client outcomes and their ROI in the process.
-          </p>
-          
-          <p className="text-gray-300 text-lg leading-relaxed mb-8">
-            If that sounds like you, just reach out to us via the contact form, we look forward to hearing from you.
-          </p>
-
-          <div className="border border-gray-600 rounded-lg p-6 mb-6">
-            <p className="text-brand-blue font-semibold mb-2">💡 Are you a developer, consultant, or designer who shares our mission?</p>
-            <p className="text-gray-300">Drop us a message and tell us how you'd like to contribute.</p>
+        <div 
+          ref={joinUsRef.elementRef}
+          className={`transition-all duration-1000 ${
+            joinUsRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <Users className="text-brand-green" size={32} />
+            <h2 className="text-3xl font-bold text-white">
+              Want to Join Us?
+            </h2>
           </div>
 
-          <Button 
-            onClick={handleApplicationClick}
-            className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
-          >
-            <span>Send Us Your Application</span>
-            <ArrowRight size={16} />
-          </Button>
+          <div className="p-8">
+            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+              We are always interested to work with smart and ambitious people who have their heart in the right place and share the mission with us to support German and European businesses with automation and AI, always focussing on the ideal client outcomes and their ROI in the process.
+            </p>
+            
+            <p className="text-gray-300 text-lg leading-relaxed mb-8">
+              If that sounds like you, just reach out to us via the contact form, we look forward to hearing from you.
+            </p>
+
+            <div className="border border-gray-600 rounded-lg p-6 mb-6">
+              <p className="text-brand-blue font-semibold mb-2">💡 Are you a developer, consultant, or designer who shares our mission?</p>
+              <p className="text-gray-300">Drop us a message and tell us how you'd like to contribute.</p>
+            </div>
+
+            <Button 
+              onClick={handleApplicationClick}
+              className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
+            >
+              <span>Send Us Your Application</span>
+              <ArrowRight size={16} />
+            </Button>
+          </div>
         </div>
       </section>
     </>

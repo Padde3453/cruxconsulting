@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, Plus } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   onBooking?: () => void;
@@ -11,6 +11,7 @@ interface HeaderProps {
 const Header = ({ onBooking }: HeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -18,15 +19,30 @@ const Header = ({ onBooking }: HeaderProps) => {
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
-      // If not on home page, navigate to home with hash
-      window.location.href = `/#${sectionId}`;
-      return;
+      // Navigate to home first, then scroll to section
+      navigate('/');
+      // Use a timeout to ensure the page has loaded before scrolling
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-    
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
+    setMobileMenuOpen(false);
+  };
+
+  const handleBlogNavigation = () => {
+    navigate('/blog');
+    // Ensure we scroll to top when navigating to blog
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
     setMobileMenuOpen(false);
   };
 
@@ -62,8 +78,8 @@ const Header = ({ onBooking }: HeaderProps) => {
           >
             Services
           </button>
-          <Link 
-            to="/blog" 
+          <button 
+            onClick={handleBlogNavigation}
             className={`transition-colors ${
               isActivePage('/blog') 
                 ? 'text-white border-b-2 border-brand-blue' 
@@ -71,7 +87,7 @@ const Header = ({ onBooking }: HeaderProps) => {
             }`}
           >
             Blog
-          </Link>
+          </button>
           <Link 
             to="/about" 
             className={`transition-colors ${
@@ -120,17 +136,16 @@ const Header = ({ onBooking }: HeaderProps) => {
             >
               Services
             </button>
-            <Link 
-              to="/blog" 
+            <button 
+              onClick={handleBlogNavigation}
               className={`block transition-colors ${
                 isActivePage('/blog') 
                   ? 'text-white' 
                   : 'text-gray-300 hover:text-white'
               }`}
-              onClick={() => setMobileMenuOpen(false)}
             >
               Blog
-            </Link>
+            </button>
             <Link 
               to="/about" 
               className={`block transition-colors ${
