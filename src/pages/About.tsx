@@ -1,3 +1,4 @@
+
 import { Linkedin, MapPin, Rocket, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -63,8 +64,9 @@ const About = () => {
             alt="Climber" 
             className="w-full h-full object-cover"
             onError={(e) => {
-              console.log('Image failed to load:', e.target.src);
-              e.target.style.display = 'none';
+              const target = e.target as HTMLImageElement;
+              console.log('Image failed to load:', target.src);
+              target.style.display = 'none';
             }}
           />
         </div>
