@@ -13,11 +13,21 @@ import FloatingElements from "@/components/FloatingElements";
 import WhyCruxSection from "@/components/WhyCruxSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toast } = useToast();
+
+  // Scroll animations for each section
+  const whyCruxAnimation = useScrollAnimation();
+  const servicesAnimation = useScrollAnimation();
+  const statsAnimation = useScrollAnimation();
+  const processAnimation = useScrollAnimation();
+  const testimonialAnimation = useScrollAnimation();
+  const blogAnimation = useScrollAnimation();
+  const contactAnimation = useScrollAnimation();
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -140,25 +150,88 @@ const Index = () => {
       <HeroSection onBooking={handleBooking} />
 
       {/* Why Crux Section */}
-      <WhyCruxSection />
+      <div 
+        ref={whyCruxAnimation.elementRef}
+        className={`transition-all duration-1000 ${
+          whyCruxAnimation.isVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <WhyCruxSection />
+      </div>
 
       {/* Services Section */}
-      <ServicesSection onBooking={handleBooking} />
+      <div 
+        ref={servicesAnimation.elementRef}
+        className={`transition-all duration-1000 ${
+          servicesAnimation.isVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <ServicesSection onBooking={handleBooking} />
+      </div>
 
       {/* Stats Section */}
-      <StatsSection />
+      <div 
+        ref={statsAnimation.elementRef}
+        className={`transition-all duration-1000 ${
+          statsAnimation.isVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <StatsSection />
+      </div>
 
       {/* Process Section */}
-      <ProcessSection />
+      <div 
+        ref={processAnimation.elementRef}
+        className={`transition-all duration-1000 ${
+          processAnimation.isVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <ProcessSection />
+      </div>
 
       {/* Testimonial Section */}
-      <TestimonialSection />
+      <div 
+        ref={testimonialAnimation.elementRef}
+        className={`transition-all duration-1000 ${
+          testimonialAnimation.isVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <TestimonialSection />
+      </div>
 
       {/* Blog Preview Section */}
-      <BlogPreviewSection />
+      <div 
+        ref={blogAnimation.elementRef}
+        className={`transition-all duration-1000 ${
+          blogAnimation.isVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <BlogPreviewSection />
+      </div>
 
       {/* Contact Section */}
-      <ContactSection onBooking={handleBooking} />
+      <div 
+        ref={contactAnimation.elementRef}
+        className={`transition-all duration-1000 ${
+          contactAnimation.isVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <ContactSection onBooking={handleBooking} />
+      </div>
     </div>
   );
 };
