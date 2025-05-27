@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Plus } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
+import ServicesSection from "@/components/ServicesSection";
 import StatsSection from "@/components/StatsSection";
 import ProcessSection from "@/components/ProcessSection";
 import TestimonialSection from "@/components/TestimonialSection";
@@ -50,6 +51,9 @@ const Index = () => {
 
       {/* Hero Section */}
       <HeroSection onBooking={handleBooking} />
+
+      {/* Services Section */}
+      <ServicesSection onBooking={handleBooking} />
 
       {/* Stats Section */}
       <StatsSection />
