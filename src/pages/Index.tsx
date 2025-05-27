@@ -58,15 +58,15 @@ const Index = () => {
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
       <FloatingElements />
       
-      {/* Navigation - Reduced size */}
+      {/* Navigation - Updated logo */}
       <nav className="fixed top-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 py-1 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <img 
               alt="Crux Consulting" 
               onClick={scrollToTop} 
-              src="/lovable-uploads/e1b261ac-11fc-46a6-b20a-d6c57514756e.png" 
-              className="h-16 w-auto cursor-pointer object-contain" 
+              src="/lovable-uploads/Logotext.png" 
+              className="h-20 w-auto cursor-pointer object-contain" 
             />
           </div>
 

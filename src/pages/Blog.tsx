@@ -3,14 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Menu, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+
 const Blog = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   };
+
   const blogPosts = [{
     id: 1,
     category: "AI STRATEGY",
@@ -60,6 +63,7 @@ const Blog = () => {
     date: "April 2, 2024",
     author: "Patrick Müller"
   }];
+
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "AI STRATEGY":
@@ -74,12 +78,18 @@ const Blog = () => {
         return "text-gray-400";
     }
   };
-  return <div className="min-h-screen bg-gray-900 text-white">
-      {/* Navigation */}
+
+  return (
+    <div className="min-h-screen bg-gray-900 text-white">
+      {/* Navigation - Updated to match Index page */}
       <nav className="fixed top-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 py-1 flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <img alt="Crux Consulting" className="h-20 w-auto cursor-pointer" src="/lovable-uploads/f49642b4-2233-452a-b1ef-2fdf2c83db44.png" />
+            <img 
+              alt="Crux Consulting" 
+              className="h-20 w-auto cursor-pointer object-contain" 
+              src="/lovable-uploads/Logotext.png" 
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -102,31 +112,53 @@ const Blog = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-white">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+              className="text-white"
+            >
               <Menu size={24} />
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {mobileMenuOpen && <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-gray-800">
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-gray-800">
             <div className="px-6 py-4 space-y-4">
-              <Link to="/#services" className="block text-gray-300 hover:text-white transition-colors" onClick={() => setMobileMenuOpen(false)}>
+              <Link 
+                to="/#services" 
+                className="block text-gray-300 hover:text-white transition-colors" 
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Services
               </Link>
-              <Link to="/blog" className="block text-white" onClick={() => setMobileMenuOpen(false)}>
+              <Link 
+                to="/blog" 
+                className="block text-white" 
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Blog
               </Link>
-              <Link to="/#contact" className="block text-gray-300 hover:text-white transition-colors" onClick={() => setMobileMenuOpen(false)}>
+              <Link 
+                to="/#contact" 
+                className="block text-gray-300 hover:text-white transition-colors" 
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Contact Us
               </Link>
               <Link to="/#contact">
-                <Button className="w-full bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-6 py-2" onClick={() => setMobileMenuOpen(false)}>
+                <Button 
+                  className="w-full bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-6 py-2" 
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Book Consultation
                 </Button>
               </Link>
             </div>
-          </div>}
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -186,6 +218,8 @@ const Blog = () => {
           </p>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Blog;
