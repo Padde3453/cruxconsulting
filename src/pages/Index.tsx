@@ -10,77 +10,62 @@ import TestimonialSection from "@/components/TestimonialSection";
 import ContactSection from "@/components/ContactSection";
 import FloatingElements from "@/components/FloatingElements";
 import { useToast } from "@/hooks/use-toast";
-
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const handleBooking = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
     setMobileMenuOpen(false);
   };
-
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
+  return <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
       <FloatingElements />
       
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <img 
-              src="/lovable-uploads/3f806d3d-5974-43de-a754-d838661a004d.png" 
-              alt="Crux Consulting" 
-              className="h-20 w-auto cursor-pointer" 
-              onClick={scrollToTop}
-            />
+            <img alt="Crux Consulting" onClick={scrollToTop} src="/lovable-uploads/e1b261ac-11fc-46a6-b20a-d6c57514756e.png" className="h-30 w-auto cursor-pointer" />
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
+            <button onClick={() => scrollToSection('services')} className="text-gray-300 hover:text-white transition-colors">
               Services
             </button>
-            <a 
-              href="/blog"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
+            <a href="/blog" className="text-gray-300 hover:text-white transition-colors">
               Blog
             </a>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
+            <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-white transition-colors">
               Contact Us
             </button>
-            <Button 
-              onClick={handleBooking} 
-              className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-6 py-2 flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
-            >
+            <Button onClick={handleBooking} className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-6 py-2 flex items-center space-x-2 transition-all duration-300 transform hover:scale-105">
               <span>Book Consultation</span>
               <Plus size={16} />
             </Button>
@@ -88,49 +73,30 @@ const Index = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-white"
-            >
+            <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-white">
               <Menu size={24} />
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-gray-800">
+        {mobileMenuOpen && <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-gray-800">
             <div className="px-6 py-4 space-y-4">
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="block text-gray-300 hover:text-white transition-colors"
-              >
+              <button onClick={() => scrollToSection('services')} className="block text-gray-300 hover:text-white transition-colors">
                 Services
               </button>
-              <a 
-                href="/blog"
-                className="block text-gray-300 hover:text-white transition-colors"
-              >
+              <a href="/blog" className="block text-gray-300 hover:text-white transition-colors">
                 Blog
               </a>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="block text-gray-300 hover:text-white transition-colors"
-              >
+              <button onClick={() => scrollToSection('contact')} className="block text-gray-300 hover:text-white transition-colors">
                 Contact Us
               </button>
-              <Button 
-                onClick={handleBooking} 
-                className="w-full bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-6 py-2 flex items-center justify-center space-x-2"
-              >
+              <Button onClick={handleBooking} className="w-full bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-6 py-2 flex items-center justify-center space-x-2">
                 <span>Book Consultation</span>
                 <Plus size={16} />
               </Button>
             </div>
-          </div>
-        )}
+          </div>}
       </nav>
 
       {/* Hero Section */}
@@ -150,8 +116,6 @@ const Index = () => {
 
       {/* Contact Section */}
       <ContactSection onBooking={handleBooking} />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
