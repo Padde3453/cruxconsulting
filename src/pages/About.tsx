@@ -19,17 +19,17 @@ const About = () => {
         </div>
       </div>
 
-      {/* Desktop layout - fixed image on right */}
-      <div className="hidden lg:flex h-screen">
-        {/* Content area - left side */}
-        <div className="w-1/2 overflow-y-auto">
-          <div className="px-12 py-16 pt-32">
+      {/* Desktop layout - fixed image on right with adjusted proportions */}
+      <div className="hidden lg:flex min-h-screen">
+        {/* Content area - left side (60% width) */}
+        <div className="w-3/5 overflow-y-auto relative z-10">
+          <div className="px-12 py-16 pt-32 pb-24">
             <AboutContent />
           </div>
         </div>
         
-        {/* Fixed image - right side */}
-        <div className="w-1/2 fixed right-0 top-0 h-full">
+        {/* Fixed image - right side (40% width) */}
+        <div className="w-2/5 fixed right-0 top-0 h-screen overflow-hidden">
           <img 
             src="/lovable-uploads/Climber%201.png" 
             alt="Climber" 
@@ -43,7 +43,10 @@ const About = () => {
         </div>
       </div>
 
-      <Footer />
+      {/* Footer with higher z-index to stay in front */}
+      <div className="relative z-20">
+        <Footer />
+      </div>
     </div>
   );
 };
