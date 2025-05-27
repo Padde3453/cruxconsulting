@@ -1,13 +1,15 @@
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Plus, Target, Zap, Shield, Cog } from "lucide-react";
+
 interface ServicesSectionProps {
   onBooking: () => void;
 }
-const ServicesSection = ({
-  onBooking
-}: ServicesSectionProps) => {
-  return <section id="services" className="py-24 relative">
+
+const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
+  return (
+    <section id="services" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
@@ -16,7 +18,7 @@ const ServicesSection = ({
           <p className="text-gray-300 max-w-3xl mx-auto text-center text-xl font-bold">AI Solutions Built Around Your Business – Not the Other Way Around</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {/* Service Card 1 */}
           <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300">
             <div className="flex items-center space-x-4 mb-4">
@@ -122,13 +124,15 @@ const ServicesSection = ({
           </Card>
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 flex justify-center">
           <Button onClick={onBooking} size="lg" className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-2xl">
             <span>Explore All Services</span>
             <Plus size={20} />
           </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ServicesSection;

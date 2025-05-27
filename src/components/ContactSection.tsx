@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -51,6 +52,22 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
             More efficiency, more focus, more revenue, more available time. 
             Let's find out together how.
           </p>
+        </div>
+
+        {/* Stats Grid - moved to top */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-16">
+          <div>
+            <div className="text-3xl font-bold text-brand-blue mb-2">Free</div>
+            <div className="text-gray-400">Initial Consultation</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-brand-green mb-2">24h</div>
+            <div className="text-gray-400">Response Guarantee</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-white mb-2">ROI</div>
+            <div className="text-gray-400">Guaranteed Results</div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
@@ -130,41 +147,25 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
             </form>
           </div>
 
-          {/* Stats Grid - moved here between form and calendar */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-brand-blue mb-2">Free</div>
-              <div className="text-gray-400">Initial Consultation</div>
+          {/* Google Calendar - moved to right column */}
+          <div className="border border-gray-700 p-8 backdrop-blur-sm bg-transparent rounded-lg">
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold text-white mb-4">Book a Free Call</h3>
+              <p className="text-gray-300">
+                Schedule your free consultation directly in our calendar.
+              </p>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-brand-green mb-2">24h</div>
-              <div className="text-gray-400">Response Guarantee</div>
+            
+            <div className="bg-white rounded-lg overflow-hidden">
+              <iframe 
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CvWlWHmw2s_eiyyKGgTLaQt26VWP1pB2vD5dc3HbUeCGwCDoSqq7n96brdFeh3kRFgKff0cd7?gv=true" 
+                style={{ border: 0 }} 
+                width="100%" 
+                height="500" 
+                frameBorder="0" 
+                title="Book a consultation" 
+              />
             </div>
-            <div>
-              <div className="text-3xl font-bold text-white mb-2">ROI</div>
-              <div className="text-gray-400">Guaranteed Results</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Google Calendar */}
-        <div className="border border-gray-700 p-8 backdrop-blur-sm bg-transparent rounded-lg mb-16">
-          <div className="mb-6">
-            <h3 className="text-2xl font-bold text-white mb-4">Book a Free Call</h3>
-            <p className="text-gray-300">
-              Schedule your free consultation directly in our calendar.
-            </p>
-          </div>
-          
-          <div className="bg-white rounded-lg overflow-hidden">
-            <iframe 
-              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CvWlWHmw2s_eiyyKGgTLaQt26VWP1pB2vD5dc3HbUeCGwCDoSqq7n96brdFeh3kRFgKff0cd7?gv=true" 
-              style={{ border: 0 }} 
-              width="100%" 
-              height="500" 
-              frameBorder="0" 
-              title="Book a consultation" 
-            />
           </div>
         </div>
       </div>

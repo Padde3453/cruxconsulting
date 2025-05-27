@@ -1,6 +1,9 @@
+
 import { Card } from "@/components/ui/card";
+
 const WhyCruxSection = () => {
-  return <section className="py-16 relative">
+  return (
+    <section className="py-16 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 items-center">
           {/* Text Content - 70% width */}
@@ -22,11 +25,17 @@ const WhyCruxSection = () => {
           </div>
 
           {/* Image - 30% width */}
-          <div className="lg:col-span-3">
-            
+          <div className="lg:col-span-3 flex justify-center">
+            <img 
+              src="/lovable-uploads/europe_flag.png" 
+              alt="European Union Flag" 
+              className="w-full h-auto max-w-sm object-contain rounded-lg shadow-lg"
+            />
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default WhyCruxSection;
