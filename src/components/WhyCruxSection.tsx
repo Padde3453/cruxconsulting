@@ -1,9 +1,6 @@
-
 import { Card } from "@/components/ui/card";
-
 const WhyCruxSection = () => {
-  return (
-    <section className="py-16 relative">
+  return <section className="py-16 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 items-center">
           {/* Text Content - 70% width */}
@@ -26,18 +23,10 @@ const WhyCruxSection = () => {
 
           {/* Image - 30% width */}
           <div className="lg:col-span-3">
-            <Card className="bg-gradient-to-r from-gray-800/80 to-gray-900/80 border-gray-700 p-4 backdrop-blur-sm">
-              <img 
-                src="/lovable-uploads/3f806d3d-5974-43de-a754-d838661a004d.png" 
-                alt="AI and Business Innovation" 
-                className="w-full h-auto rounded-lg"
-              />
-            </Card>
+            
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default WhyCruxSection;
