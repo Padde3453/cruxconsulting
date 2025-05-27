@@ -1,9 +1,6 @@
-
 import { Card } from "@/components/ui/card";
-
 const TestimonialSection = () => {
-  return (
-    <section className="py-24 relative">
+  return <section className="py-24 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -13,46 +10,28 @@ const TestimonialSection = () => {
           </h2>
         </div>
 
-        <Card className="bg-gray-800/50 border-gray-700 p-12 backdrop-blur-sm max-w-4xl mx-auto">
-          <div className="text-center">
-            <div className="text-6xl text-brand-blue mb-6">"</div>
-            <blockquote className="text-2xl md:text-3xl font-light text-gray-200 mb-8 leading-relaxed">
-              Crux transformed our entire operation in just 48 hours. Our efficiency increased by 300% 
-              and we're now processing customer queries in real-time with AI.
-            </blockquote>
-            <div className="flex items-center justify-center space-x-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-brand-blue to-brand-green rounded-full flex items-center justify-center text-white font-bold text-xl">
-                MK
-              </div>
-              <div>
-                <div className="font-semibold text-white">Marcus Klein</div>
-                <div className="text-gray-400">CEO, TechFlow Solutions</div>
-              </div>
-            </div>
-          </div>
-        </Card>
+        
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { company: "RetailMax", improvement: "+250% Sales" },
-            { company: "LogiCorp", improvement: "-60% Costs" },
-            { company: "FinanceHub", improvement: "+400% Efficiency" }
-          ].map((result, index) => (
-            <Card 
-              key={index}
-              className="bg-gray-800/30 border-gray-700 p-6 text-center animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
+          {[{
+          company: "RetailMax",
+          improvement: "+250% Sales"
+        }, {
+          company: "LogiCorp",
+          improvement: "-60% Costs"
+        }, {
+          company: "FinanceHub",
+          improvement: "+400% Efficiency"
+        }].map((result, index) => <Card key={index} className="bg-gray-800/30 border-gray-700 p-6 text-center animate-fade-in-up" style={{
+          animationDelay: `${index * 0.2}s`
+        }}>
               <div className="text-2xl font-bold text-white mb-2">{result.company}</div>
               <div className="text-3xl font-bold bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
                 {result.improvement}
               </div>
-            </Card>
-          ))}
+            </Card>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default TestimonialSection;
