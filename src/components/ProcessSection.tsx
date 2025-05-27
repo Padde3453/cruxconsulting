@@ -68,10 +68,12 @@ const ProcessSection = () => {
                 />
               </div>
               <div className="p-6">
-                <div className="text-6xl font-bold bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent mb-4 opacity-50">
-                  {step.number}
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent opacity-50">
+                    {step.number}
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">{step.title}</h3>
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-white">{step.title}</h3>
                 <p className="text-gray-400">{step.description}</p>
               </div>
             </Card>
