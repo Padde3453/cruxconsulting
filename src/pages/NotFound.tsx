@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, ArrowLeft, Home, Linkedin, Instagram } from "lucide-react";
@@ -35,6 +34,9 @@ const NotFound = () => {
             </Link>
             <Link to="/blog" className="text-gray-300 hover:text-white transition-colors">
               Blog
+            </Link>
+            <Link to="/about" className="text-gray-300 hover:text-white transition-colors">
+              About Us
             </Link>
             <Link to="/#contact" className="text-gray-300 hover:text-white transition-colors">
               Contact Us
@@ -76,6 +78,13 @@ const NotFound = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Blog
+              </Link>
+              <Link 
+                to="/about" 
+                className="block text-gray-300 hover:text-white transition-colors" 
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About Us
               </Link>
               <Link 
                 to="/#contact" 

@@ -1,5 +1,7 @@
 
-import { Linkedin, MapPin } from "lucide-react";
+import { Linkedin, MapPin, Rocket, Users, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const About = () => {
   return (
@@ -41,6 +43,16 @@ const About = () => {
 };
 
 const AboutContent = () => {
+  const handleApplicationClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // If on about page, navigate to home page contact section
+      window.location.href = '/#contact';
+    }
+  };
+
   return (
     <>
       <h1 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
@@ -58,7 +70,7 @@ const AboutContent = () => {
       </section>
 
       {/* Who we are Section */}
-      <section>
+      <section className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-brand-green">
           Who we are
         </h2>
@@ -92,7 +104,7 @@ const AboutContent = () => {
         </div>
 
         {/* Nabit Mikan */}
-        <div className="mb-12">
+        <div className="mb-16">
           <div className="flex flex-col md:flex-row items-start gap-6 mb-6">
             <div className="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center text-gray-400">
               [Photo Placeholder]
@@ -125,6 +137,77 @@ const AboutContent = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* How We Work Section */}
+      <section className="mb-16">
+        <div className="flex items-center gap-3 mb-8">
+          <Rocket className="text-brand-blue" size={32} />
+          <h2 className="text-3xl font-bold text-white">
+            How We Work
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6">
+            <h3 className="text-xl font-bold text-brand-blue mb-3">Tailored First</h3>
+            <p className="text-gray-300">No cookie-cutter solutions. We start with your goals.</p>
+          </Card>
+
+          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6">
+            <h3 className="text-xl font-bold text-brand-green mb-3">Fast, But Thoughtful</h3>
+            <p className="text-gray-300">We prioritize speed of execution <em>and</em> quality of outcome.</p>
+          </Card>
+
+          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6">
+            <h3 className="text-xl font-bold text-brand-blue mb-3">AI-Native, Business-Led</h3>
+            <p className="text-gray-300">Every project balances innovation with ROI.</p>
+          </Card>
+
+          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6">
+            <h3 className="text-xl font-bold text-brand-green mb-3">Privacy and Compliance by Design</h3>
+            <p className="text-gray-300">We bake regulatory readiness into every system.</p>
+          </Card>
+        </div>
+      </section>
+
+      {/* Want to Join Us Section */}
+      <section className="mb-16">
+        <div className="flex items-center gap-3 mb-8">
+          <Users className="text-brand-green" size={32} />
+          <h2 className="text-3xl font-bold text-white">
+            Want to Join Us?
+          </h2>
+        </div>
+
+        <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-8">
+          <p className="text-gray-300 text-lg leading-relaxed mb-6">
+            We are always interested to work with smart and ambitious people who have their heart in the right place and share the mission with us to support German and European businesses with automation and AI, always focussing on the ideal client outcomes and their ROI in the process.
+          </p>
+          
+          <p className="text-gray-300 text-lg leading-relaxed mb-8">
+            If that sounds like you, just reach out to us via the contact form, we look forward to hearing from you.
+          </p>
+
+          <div className="bg-gray-900/50 border border-gray-600 rounded-lg p-6 mb-6">
+            <p className="text-brand-blue font-semibold mb-2">💡 Are you a developer, consultant, or designer who shares our mission?</p>
+            <p className="text-gray-300">Drop us a message and tell us how you'd like to contribute.</p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <Button 
+              onClick={handleApplicationClick}
+              className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
+            >
+              <span>Send Us Your Application</span>
+              <ArrowRight size={16} />
+            </Button>
+            
+            <div className="text-gray-400">
+              Email: <span className="text-brand-blue">info@crux-consulting.ai</span>
+            </div>
+          </div>
+        </Card>
       </section>
     </>
   );

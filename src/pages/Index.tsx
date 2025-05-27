@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -84,6 +83,12 @@ const Index = () => {
             >
               Blog
             </a>
+            <a 
+              href="/about" 
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              About Us
+            </a>
             <button 
               onClick={() => scrollToSection('contact')} 
               className="text-gray-300 hover:text-white transition-colors"
@@ -127,6 +132,12 @@ const Index = () => {
                 className="block text-gray-300 hover:text-white transition-colors"
               >
                 Blog
+              </a>
+              <a 
+                href="/about" 
+                className="block text-gray-300 hover:text-white transition-colors"
+              >
+                About Us
               </a>
               <button 
                 onClick={() => scrollToSection('contact')} 
