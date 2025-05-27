@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 const TestimonialSection = () => {
   return <section className="py-24 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900"></div>
+      
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
