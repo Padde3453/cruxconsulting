@@ -5,7 +5,7 @@ const WhyCruxSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 items-center">
           {/* Text Content - 70% width */}
           <div className="lg:col-span-7">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent py-[5px] text-center md:text-5xl">
               Why Crux Consulting?
             </h2>
             <div className="text-lg text-gray-300 leading-relaxed space-y-6">
