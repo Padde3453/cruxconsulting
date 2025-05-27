@@ -34,7 +34,7 @@ const About = () => {
         <div className="w-2/5 fixed right-0 top-0 h-screen z-0 overflow-hidden">
           <div className="relative w-full h-full">
             <img 
-              src="/lovable-uploads/Climber%201.png" 
+              src="/lovable-uploads/Climber1.png" 
               alt="Mountain climber reaching the summit" 
               className="absolute inset-0 w-full h-full object-cover"
               loading="eager"
@@ -52,7 +52,7 @@ const About = () => {
                 const target = e.target as HTMLImageElement;
                 console.error('Climber image failed to load:', target.src);
                 // Try alternative path
-                target.src = '/lovable-uploads/Climber 1.png';
+                target.src = '/lovable-uploads/Climber1.png';
               }}
             />
           </div>
