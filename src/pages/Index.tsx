@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -66,13 +65,12 @@ const Index = () => {
             >
               Services
             </button>
-            <button 
-              onClick={() => {}}
-              className="text-gray-500 cursor-not-allowed"
-              disabled
+            <a 
+              href="/blog"
+              className="text-gray-300 hover:text-white transition-colors"
             >
               Blog
-            </button>
+            </a>
             <button 
               onClick={() => scrollToSection('contact')}
               className="text-gray-300 hover:text-white transition-colors"
@@ -111,13 +109,12 @@ const Index = () => {
               >
                 Services
               </button>
-              <button 
-                onClick={() => {}}
-                className="block text-gray-500 cursor-not-allowed"
-                disabled
+              <a 
+                href="/blog"
+                className="block text-gray-300 hover:text-white transition-colors"
               >
                 Blog
-              </button>
+              </a>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="block text-gray-300 hover:text-white transition-colors"
