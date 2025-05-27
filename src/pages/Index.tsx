@@ -7,11 +7,11 @@ import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import StatsSection from "@/components/StatsSection";
 import ProcessSection from "@/components/ProcessSection";
-import TestimonialSection from "@/components/TestimonialSection";
 import ContactSection from "@/components/ContactSection";
 import FloatingElements from "@/components/FloatingElements";
 import WhyCruxSection from "@/components/WhyCruxSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
+import EinsteinQuoteSection from "@/components/EinsteinQuoteSection";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -23,9 +23,9 @@ const Index = () => {
   // Scroll animations for each section
   const whyCruxAnimation = useScrollAnimation();
   const servicesAnimation = useScrollAnimation();
+  const einsteinAnimation = useScrollAnimation();
   const statsAnimation = useScrollAnimation();
   const processAnimation = useScrollAnimation();
-  const testimonialAnimation = useScrollAnimation();
   const blogAnimation = useScrollAnimation();
   const contactAnimation = useScrollAnimation();
 
@@ -173,6 +173,18 @@ const Index = () => {
         <ServicesSection onBooking={handleBooking} />
       </div>
 
+      {/* Einstein Quote Section */}
+      <div 
+        ref={einsteinAnimation.elementRef}
+        className={`transition-all duration-1000 ${
+          einsteinAnimation.isVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <EinsteinQuoteSection />
+      </div>
+
       {/* Stats Section */}
       <div 
         ref={statsAnimation.elementRef}
@@ -195,18 +207,6 @@ const Index = () => {
         }`}
       >
         <ProcessSection />
-      </div>
-
-      {/* Testimonial Section */}
-      <div 
-        ref={testimonialAnimation.elementRef}
-        className={`transition-all duration-1000 ${
-          testimonialAnimation.isVisible 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-10'
-        }`}
-      >
-        <TestimonialSection />
       </div>
 
       {/* Blog Preview Section */}
