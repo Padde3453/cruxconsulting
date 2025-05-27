@@ -1,13 +1,44 @@
-
 import { Linkedin, MapPin, Rocket, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import FloatingElements from "@/components/FloatingElements";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white relative overflow-x-hidden">
       <FloatingElements />
+      
+      {/* Header */}
+      <header className="relative z-50 px-6 py-4">
+        <nav className="flex items-center justify-between max-w-7xl mx-auto">
+          <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src="/lovable-uploads/Logotext.png" 
+              alt="Crux Consulting" 
+              className="h-8 w-auto"
+            />
+          </Link>
+          
+          <div className="hidden md:flex items-center space-x-8">
+            <Link to="/" className="text-gray-300 hover:text-white transition-colors">
+              Home
+            </Link>
+            <Link to="/about" className="text-white font-semibold">
+              About Us
+            </Link>
+            <Link to="/blog" className="text-gray-300 hover:text-white transition-colors">
+              Blog
+            </Link>
+            <a 
+              href="#contact" 
+              className="bg-gradient-to-r from-brand-blue to-brand-green text-white px-6 py-2 rounded-full hover:opacity-90 transition-opacity"
+            >
+              Contact Us
+            </a>
+          </div>
+        </nav>
+      </header>
       
       {/* Mobile layout - no image */}
       <div className="lg:hidden">
@@ -28,12 +59,69 @@ const About = () => {
         {/* Fixed image - right side */}
         <div className="w-1/2 fixed right-0 top-0 h-full">
           <img 
-            src="/lovable-uploads/Climber 1.png" 
+            src="/lovable-uploads/Climber%201.png" 
             alt="Climber" 
             className="w-full h-full object-cover"
+            onError={(e) => {
+              console.log('Image failed to load:', e.target.src);
+              e.target.style.display = 'none';
+            }}
           />
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <img 
+                src="/lovable-uploads/Logotext.png" 
+                alt="Crux Consulting" 
+                className="h-8 w-auto mb-4"
+              />
+              <p className="text-gray-400">
+                Empowering SMEs with AI and automation solutions.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/" className="text-gray-400 hover:text-white transition-colors">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="text-gray-400 hover:text-white transition-colors">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/blog" className="text-gray-400 hover:text-white transition-colors">
+                    Blog
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Contact</h3>
+              <p className="text-gray-400">
+                Ready to transform your business with AI?
+              </p>
+              <Button className="mt-4 bg-gradient-to-r from-brand-blue to-brand-green hover:opacity-90">
+                Get Started
+              </Button>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 Crux Consulting. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
@@ -202,7 +290,7 @@ const AboutContent = () => {
             If that sounds like you, just reach out to us via the contact form, we look forward to hearing from you.
           </p>
 
-          <div className="bg-gray-900/50 border border-gray-600 rounded-lg p-6 mb-6">
+          <div className="border border-gray-600 rounded-lg p-6 mb-6">
             <p className="text-brand-blue font-semibold mb-2">💡 Are you a developer, consultant, or designer who shares our mission?</p>
             <p className="text-gray-300">Drop us a message and tell us how you'd like to contribute.</p>
           </div>
