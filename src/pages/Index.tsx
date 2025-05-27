@@ -51,7 +51,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <img alt="Crux Consulting" onClick={scrollToTop} src="/lovable-uploads/e1b261ac-11fc-46a6-b20a-d6c57514756e.png" className="h-30 w-auto cursor-pointer" />
+            <img alt="Crux Consulting" onClick={scrollToTop} src="/lovable-uploads/e1b261ac-11fc-46a6-b20a-d6c57514756e.png" className="h-30 w-auto cursor-pointer object-fill" />
           </div>
 
           {/* Desktop Navigation */}
