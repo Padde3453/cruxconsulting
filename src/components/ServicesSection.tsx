@@ -20,105 +20,113 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {/* Service Card 1 */}
-          <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300">
+          <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300 flex flex-col h-full">
             <div className="flex items-center space-x-4 mb-4">
               <Target className="text-brand-blue h-8 w-8" />
               <h3 className="text-2xl font-bold text-white">AI Strategy Consulting</h3>
             </div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-6 flex-grow">
               Develop a tailored AI strategy to align with your business goals and identify key opportunities for implementation.
             </p>
-            <div className="flex items-center space-x-2 text-gray-300 mb-2">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>Personalized AI Roadmaps</span>
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>Personalized AI Roadmaps</span>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>Opportunity Assessments</span>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>ROI-Focused Strategies</span>
+              </div>
             </div>
-            <div className="flex items-center space-x-2 text-gray-300 mb-2">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>Opportunity Assessments</span>
-            </div>
-            <div className="flex items-center space-x-2 text-gray-300 mb-4">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>ROI-Focused Strategies</span>
-            </div>
-            <Button onClick={onBooking} variant="secondary" className="w-full">
+            <Button onClick={onBooking} variant="secondary" className="w-full mt-auto">
               Learn More <Plus className="ml-2 h-4 w-4" />
             </Button>
           </Card>
 
           {/* Service Card 2 */}
-          <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300">
+          <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300 flex flex-col h-full">
             <div className="flex items-center space-x-4 mb-4">
               <Zap className="text-brand-green h-8 w-8" />
               <h3 className="text-2xl font-bold text-white">AI Implementation</h3>
             </div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-6 flex-grow">
               Seamlessly integrate AI solutions into your existing infrastructure with our expert implementation services.
             </p>
-            <div className="flex items-center space-x-2 text-gray-300 mb-2">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>Custom AI Development</span>
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>Custom AI Development</span>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>System Integration</span>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>Ongoing Support & Maintenance</span>
+              </div>
             </div>
-            <div className="flex items-center space-x-2 text-gray-300 mb-2">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>System Integration</span>
-            </div>
-            <div className="flex items-center space-x-2 text-gray-300 mb-4">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>Ongoing Support & Maintenance</span>
-            </div>
-            <Button onClick={onBooking} variant="secondary" className="w-full">
+            <Button onClick={onBooking} variant="secondary" className="w-full mt-auto">
               Explore Solutions <Plus className="ml-2 h-4 w-4" />
             </Button>
           </Card>
 
           {/* Service Card 3 */}
-          <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300">
+          <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300 flex flex-col h-full">
             <div className="flex items-center space-x-4 mb-4">
               <Shield className="text-brand-blue h-8 w-8" />
               <h3 className="text-2xl font-bold text-white">AI Security & Compliance</h3>
             </div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-6 flex-grow">
               Ensure the security and compliance of your AI systems with our comprehensive security solutions.
             </p>
-            <div className="flex items-center space-x-2 text-gray-300 mb-2">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>Data Protection</span>
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>Data Protection</span>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>Risk Management</span>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>Compliance Audits</span>
+              </div>
             </div>
-            <div className="flex items-center space-x-2 text-gray-300 mb-2">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>Risk Management</span>
-            </div>
-            <div className="flex items-center space-x-2 text-gray-300 mb-4">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>Compliance Audits</span>
-            </div>
-            <Button onClick={onBooking} variant="secondary" className="w-full">
+            <Button onClick={onBooking} variant="secondary" className="w-full mt-auto">
               Secure Your AI <Plus className="ml-2 h-4 w-4" />
             </Button>
           </Card>
 
           {/* Service Card 4 */}
-          <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300">
+          <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300 flex flex-col h-full">
             <div className="flex items-center space-x-4 mb-4">
               <Cog className="text-brand-green h-8 w-8" />
               <h3 className="text-2xl font-bold text-white">AI Automation</h3>
             </div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-6 flex-grow">
               Automate repetitive tasks and optimize workflows with our AI-powered automation solutions.
             </p>
-            <div className="flex items-center space-x-2 text-gray-300 mb-2">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>Process Optimization</span>
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>Process Optimization</span>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>Robotic Process Automation (RPA)</span>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300">
+                <CheckCircle className="text-brand-green h-4 w-4" />
+                <span>Custom Automation Tools</span>
+              </div>
             </div>
-            <div className="flex items-center space-x-2 text-gray-300 mb-2">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>Robotic Process Automation (RPA)</span>
-            </div>
-            <div className="flex items-center space-x-2 text-gray-300 mb-4">
-              <CheckCircle className="text-brand-green h-4 w-4" />
-              <span>Custom Automation Tools</span>
-            </div>
-            <Button onClick={onBooking} variant="secondary" className="w-full">
+            <Button onClick={onBooking} variant="secondary" className="w-full mt-auto">
               Automate Now <Plus className="ml-2 h-4 w-4" />
             </Button>
           </Card>
