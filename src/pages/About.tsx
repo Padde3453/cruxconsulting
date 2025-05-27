@@ -8,11 +8,11 @@ const About = () => {
     <div className="min-h-screen bg-black text-white">
       {/* Mobile layout - image at top */}
       <div className="lg:hidden">
-        <div className="w-full h-64 md:h-80">
+        <div className="w-full h-64 md:h-80 overflow-hidden">
           <img 
             src="/lovable-uploads/Climber 1.png" 
             alt="Climber" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
         </div>
         <div className="px-6 py-12">
@@ -44,13 +44,7 @@ const About = () => {
 
 const AboutContent = () => {
   const handleApplicationClick = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      // If on about page, navigate to home page contact section
-      window.location.href = '/#contact';
-    }
+    window.location.href = 'mailto:careers@crux-consulting.ai?subject=Application%20-%20Join%20Crux%20Consulting';
   };
 
   return (
@@ -149,24 +143,40 @@ const AboutContent = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6">
-            <h3 className="text-xl font-bold text-brand-blue mb-3">Tailored First</h3>
-            <p className="text-gray-300">No cookie-cutter solutions. We start with your goals.</p>
+          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
+            <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-lg transition-all duration-300">
+              Tailored First
+            </h3>
+            <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+              No cookie-cutter solutions. We start with your goals.
+            </p>
           </Card>
 
-          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6">
-            <h3 className="text-xl font-bold text-brand-green mb-3">Fast, But Thoughtful</h3>
-            <p className="text-gray-300">We prioritize speed of execution <em>and</em> quality of outcome.</p>
+          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
+            <h3 className="text-xl font-bold text-brand-green mb-3 group-hover:text-lg transition-all duration-300">
+              Fast, But Thoughtful
+            </h3>
+            <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+              We prioritize speed of execution <em>and</em> quality of outcome.
+            </p>
           </Card>
 
-          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6">
-            <h3 className="text-xl font-bold text-brand-blue mb-3">AI-Native, Business-Led</h3>
-            <p className="text-gray-300">Every project balances innovation with ROI.</p>
+          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
+            <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-lg transition-all duration-300">
+              AI-Native, Business-Led
+            </h3>
+            <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+              Every project balances innovation with ROI.
+            </p>
           </Card>
 
-          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6">
-            <h3 className="text-xl font-bold text-brand-green mb-3">Privacy and Compliance by Design</h3>
-            <p className="text-gray-300">We bake regulatory readiness into every system.</p>
+          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
+            <h3 className="text-xl font-bold text-brand-green mb-3 group-hover:text-lg transition-all duration-300">
+              Privacy and Compliance by Design
+            </h3>
+            <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+              We bake regulatory readiness into every system.
+            </p>
           </Card>
         </div>
       </section>
@@ -180,7 +190,7 @@ const AboutContent = () => {
           </h2>
         </div>
 
-        <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-8">
+        <div className="p-8">
           <p className="text-gray-300 text-lg leading-relaxed mb-6">
             We are always interested to work with smart and ambitious people who have their heart in the right place and share the mission with us to support German and European businesses with automation and AI, always focussing on the ideal client outcomes and their ROI in the process.
           </p>
@@ -194,20 +204,14 @@ const AboutContent = () => {
             <p className="text-gray-300">Drop us a message and tell us how you'd like to contribute.</p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Button 
-              onClick={handleApplicationClick}
-              className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
-            >
-              <span>Send Us Your Application</span>
-              <ArrowRight size={16} />
-            </Button>
-            
-            <div className="text-gray-400">
-              Email: <span className="text-brand-blue">info@crux-consulting.ai</span>
-            </div>
-          </div>
-        </Card>
+          <Button 
+            onClick={handleApplicationClick}
+            className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
+          >
+            <span>Send Us Your Application</span>
+            <ArrowRight size={16} />
+          </Button>
+        </div>
       </section>
     </>
   );
