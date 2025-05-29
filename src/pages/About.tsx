@@ -175,7 +175,7 @@ const AboutContent = () => {
               [Photo Placeholder]
             </div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-2">Nabit Mikan</h3>
+              <h3 className="text-2xl font-bold mb-2">First and last name</h3>
               <p className="text-brand-green font-semibold mb-4">Co-Founder & CTO</p>
             </div>
           </div>
@@ -185,9 +185,9 @@ const AboutContent = () => {
           </blockquote>
           
           <div className="text-gray-300 leading-relaxed mb-4">
-            <p className="mb-2">I am an AI Automation Specialist and full stack developer with 15 years experience.</p>
+            <p className="mb-2">I am an AI Automation Specialist and full stack developer with XX years experience.</p>
             <p className="mb-2">From smart agents to matching systems, I design scalable solutions that cut manual work, boost productivity & drive growth.</p>
-            <p className="mb-4">Collaborating with Europe & LATAM.</p>
+            <p className="mb-4">Collaborating across XX.</p>
             <p className="text-brand-blue font-semibold">#GenerativeAI #Automation #RPA #n8n #Voiceflow #WorkflowOptimization</p>
           </div>
           
@@ -198,7 +198,7 @@ const AboutContent = () => {
             </div>
             <div className="flex items-center gap-2 text-gray-400">
               <MapPin size={18} />
-              <span>Based in Berlin</span>
+              <span>Based in XX</span>
             </div>
           </div>
         </div>
