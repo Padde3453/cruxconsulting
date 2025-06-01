@@ -43,14 +43,14 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
       </div>
 
       {/* Piggy bank container */}
-      <div className="relative w-12 h-10 z-10">
-        <svg viewBox="0 0 48 40" className="w-full h-full">
+      <div className="relative w-14 h-12 z-10">
+        <svg viewBox="0 0 56 48" className="w-full h-full">
           {/* Piggy bank body */}
           <ellipse
-            cx="24"
-            cy="24"
-            rx="16"
-            ry="12"
+            cx="28"
+            cy="28"
+            rx="18"
+            ry="13"
             className="transition-all duration-1000 ease-in-out"
             fill={isSaving ? "#10b981" : "#6b7280"}
             style={{
@@ -60,12 +60,32 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             }}
           />
           
+          {/* Piggy bank ears */}
+          <ellipse
+            cx="22"
+            cy="18"
+            rx="3"
+            ry="5"
+            className="transition-all duration-1000 ease-in-out"
+            fill={isSaving ? "#059669" : "#4b5563"}
+            transform="rotate(-20 22 18)"
+          />
+          <ellipse
+            cx="34"
+            cy="18"
+            rx="3"
+            ry="5"
+            className="transition-all duration-1000 ease-in-out"
+            fill={isSaving ? "#059669" : "#4b5563"}
+            transform="rotate(20 34 18)"
+          />
+          
           {/* Piggy bank snout */}
           <ellipse
-            cx="38"
-            cy="24"
-            rx="6"
-            ry="4"
+            cx="42"
+            cy="28"
+            rx="7"
+            ry="5"
             className="transition-all duration-1000 ease-in-out"
             fill={isSaving ? "#059669" : "#4b5563"}
             style={{
@@ -75,19 +95,26 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             }}
           />
           
-          {/* Snout nostril */}
+          {/* Snout nostrils */}
           <ellipse
-            cx="40"
-            cy="24"
-            rx="1.5"
-            ry="1"
+            cx="44"
+            cy="26"
+            rx="1"
+            ry="0.8"
+            fill={isSaving ? "#047857" : "#374151"}
+          />
+          <ellipse
+            cx="44"
+            cy="30"
+            rx="1"
+            ry="0.8"
             fill={isSaving ? "#047857" : "#374151"}
           />
           
           {/* Coin slot */}
           <rect
-            x="20"
-            y="14"
+            x="24"
+            y="16"
             width="8"
             height="2"
             rx="1"
@@ -97,8 +124,8 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           
           {/* Legs */}
           <rect
-            x="12"
-            y="32"
+            x="14"
+            y="38"
             width="3"
             height="6"
             rx="1.5"
@@ -106,17 +133,8 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             fill={isSaving ? "#059669" : "#4b5563"}
           />
           <rect
-            x="18"
-            y="32"
-            width="3"
-            height="6"
-            rx="1.5"
-            className="transition-all duration-1000 ease-in-out"
-            fill={isSaving ? "#059669" : "#4b5563"}
-          />
-          <rect
-            x="27"
-            y="32"
+            x="20"
+            y="38"
             width="3"
             height="6"
             rx="1.5"
@@ -125,7 +143,16 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           />
           <rect
             x="33"
-            y="32"
+            y="38"
+            width="3"
+            height="6"
+            rx="1.5"
+            className="transition-all duration-1000 ease-in-out"
+            fill={isSaving ? "#059669" : "#4b5563"}
+          />
+          <rect
+            x="39"
+            y="38"
             width="3"
             height="6"
             rx="1.5"
@@ -135,15 +162,15 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           
           {/* Eye */}
           <circle
-            cx="20"
-            cy="20"
+            cx="24"
+            cy="24"
             r="1.5"
             fill="#1f2937"
           />
           
           {/* Tail */}
           <path
-            d="M8,20 Q4,16 6,12 Q8,14 10,18"
+            d="M10,24 Q6,20 8,16 Q10,18 12,22"
             fill="none"
             strokeWidth="2"
             strokeLinecap="round"
@@ -154,10 +181,10 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           {/* Falling coins when saving */}
           {isSaving && (
             <g>
-              {/* Coin 1 */}
+              {/* Coin 1 - falls from top left */}
               <circle
-                cx="24"
-                cy="8"
+                cx="16"
+                cy="2"
                 r="2"
                 fill="#fbbf24"
                 className="animate-coin-fall-1"
@@ -166,8 +193,8 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
                 }}
               />
               <text
-                x="24"
-                y="10"
+                x="16"
+                y="4"
                 fontSize="2"
                 textAnchor="middle"
                 fill="#f59e0b"
@@ -176,10 +203,10 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
                 $
               </text>
               
-              {/* Coin 2 */}
+              {/* Coin 2 - falls from top center */}
               <circle
-                cx="20"
-                cy="4"
+                cx="28"
+                cy="0"
                 r="1.5"
                 fill="#fbbf24"
                 className="animate-coin-fall-2"
@@ -188,8 +215,8 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
                 }}
               />
               <text
-                x="20"
-                y="5.5"
+                x="28"
+                y="1.5"
                 fontSize="1.5"
                 textAnchor="middle"
                 fill="#f59e0b"
@@ -198,10 +225,10 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
                 $
               </text>
               
-              {/* Coin 3 */}
+              {/* Coin 3 - falls from top right */}
               <circle
-                cx="28"
-                cy="6"
+                cx="40"
+                cy="1"
                 r="1.5"
                 fill="#fbbf24"
                 className="animate-coin-fall-3"
@@ -210,8 +237,8 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
                 }}
               />
               <text
-                x="28"
-                y="7.5"
+                x="40"
+                y="2.5"
                 fontSize="1.5"
                 textAnchor="middle"
                 fill="#f59e0b"
@@ -226,8 +253,8 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           {isSaving && (
             <g className="opacity-80 animate-fade-in">
               <text
-                x="32"
-                y="12"
+                x="36"
+                y="14"
                 fontSize="4"
                 fill="#10b981"
                 className="text-[4px] font-medium"
@@ -243,10 +270,10 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           {/* Gentle pulse effect when saving */}
           {isSaving && (
             <ellipse
-              cx="24"
-              cy="24"
-              rx="18"
-              ry="14"
+              cx="28"
+              cy="28"
+              rx="20"
+              ry="15"
               fill="none"
               strokeWidth="1"
               stroke="#10b981"
@@ -276,8 +303,11 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             transform: translateY(0) rotate(0deg);
             opacity: 1;
           }
+          80% {
+            opacity: 1;
+          }
           100% {
-            transform: translateY(20px) rotate(360deg);
+            transform: translateY(30px) rotate(360deg);
             opacity: 0;
           }
         }
@@ -287,8 +317,11 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             transform: translateY(0) rotate(0deg);
             opacity: 1;
           }
+          75% {
+            opacity: 1;
+          }
           100% {
-            transform: translateY(22px) rotate(-360deg);
+            transform: translateY(32px) rotate(-360deg);
             opacity: 0;
           }
         }
@@ -298,8 +331,11 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             transform: translateY(0) rotate(0deg);
             opacity: 1;
           }
+          85% {
+            opacity: 1;
+          }
           100% {
-            transform: translateY(24px) rotate(360deg);
+            transform: translateY(28px) rotate(360deg);
             opacity: 0;
           }
         }
