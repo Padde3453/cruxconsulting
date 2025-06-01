@@ -62,30 +62,30 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           
           {/* Piggy bank ears */}
           <ellipse
-            cx="22"
-            cy="18"
+            cx="20"
+            cy="16"
             rx="3"
-            ry="5"
+            ry="4"
             className="transition-all duration-1000 ease-in-out"
             fill={isSaving ? "#059669" : "#4b5563"}
-            transform="rotate(-20 22 18)"
+            transform="rotate(-15 20 16)"
           />
           <ellipse
-            cx="34"
-            cy="18"
+            cx="36"
+            cy="16"
             rx="3"
-            ry="5"
+            ry="4"
             className="transition-all duration-1000 ease-in-out"
             fill={isSaving ? "#059669" : "#4b5563"}
-            transform="rotate(20 34 18)"
+            transform="rotate(15 36 16)"
           />
           
           {/* Piggy bank snout */}
           <ellipse
-            cx="42"
+            cx="44"
             cy="28"
-            rx="7"
-            ry="5"
+            rx="6"
+            ry="4"
             className="transition-all duration-1000 ease-in-out"
             fill={isSaving ? "#059669" : "#4b5563"}
             style={{
@@ -97,17 +97,17 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           
           {/* Snout nostrils */}
           <ellipse
-            cx="44"
+            cx="46"
             cy="26"
-            rx="1"
-            ry="0.8"
+            rx="0.8"
+            ry="0.6"
             fill={isSaving ? "#047857" : "#374151"}
           />
           <ellipse
-            cx="44"
+            cx="46"
             cy="30"
-            rx="1"
-            ry="0.8"
+            rx="0.8"
+            ry="0.6"
             fill={isSaving ? "#047857" : "#374151"}
           />
           
@@ -178,71 +178,71 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             stroke={isSaving ? "#059669" : "#4b5563"}
           />
           
-          {/* Falling coins when saving */}
+          {/* Falling coins when saving - positioned to fall into the coin slot */}
           {isSaving && (
             <g>
-              {/* Coin 1 - falls from top left */}
+              {/* Coin 1 - falls into slot from left */}
               <circle
-                cx="16"
-                cy="2"
-                r="2"
+                cx="22"
+                cy="-4"
+                r="1.5"
                 fill="#fbbf24"
-                className="animate-coin-fall-1"
+                className="animate-coin-fall-slot-1"
                 style={{
                   filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
                 }}
               />
               <text
-                x="16"
-                y="4"
-                fontSize="2"
+                x="22"
+                y="-2.5"
+                fontSize="1.2"
                 textAnchor="middle"
                 fill="#f59e0b"
-                className="animate-coin-fall-1"
+                className="animate-coin-fall-slot-1"
               >
                 $
               </text>
               
-              {/* Coin 2 - falls from top center */}
+              {/* Coin 2 - falls into slot from center */}
               <circle
                 cx="28"
-                cy="0"
+                cy="-6"
                 r="1.5"
                 fill="#fbbf24"
-                className="animate-coin-fall-2"
+                className="animate-coin-fall-slot-2"
                 style={{
                   filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
                 }}
               />
               <text
                 x="28"
-                y="1.5"
-                fontSize="1.5"
+                y="-4.5"
+                fontSize="1.2"
                 textAnchor="middle"
                 fill="#f59e0b"
-                className="animate-coin-fall-2"
+                className="animate-coin-fall-slot-2"
               >
                 $
               </text>
               
-              {/* Coin 3 - falls from top right */}
+              {/* Coin 3 - falls into slot from right */}
               <circle
-                cx="40"
-                cy="1"
+                cx="30"
+                cy="-2"
                 r="1.5"
                 fill="#fbbf24"
-                className="animate-coin-fall-3"
+                className="animate-coin-fall-slot-3"
                 style={{
                   filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
                 }}
               />
               <text
-                x="40"
-                y="2.5"
-                fontSize="1.5"
+                x="30"
+                y="-0.5"
+                fontSize="1.2"
                 textAnchor="middle"
                 fill="#f59e0b"
-                className="animate-coin-fall-3"
+                className="animate-coin-fall-slot-3"
               >
                 $
               </text>
@@ -298,21 +298,24 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           }
         }
         
-        @keyframes coin-fall-1 {
+        @keyframes coin-fall-slot-1 {
           0% {
             transform: translateY(0) rotate(0deg);
             opacity: 1;
           }
-          80% {
+          70% {
             opacity: 1;
           }
+          85% {
+            opacity: 0.7;
+          }
           100% {
-            transform: translateY(30px) rotate(360deg);
+            transform: translateY(22px) rotate(180deg);
             opacity: 0;
           }
         }
         
-        @keyframes coin-fall-2 {
+        @keyframes coin-fall-slot-2 {
           0% {
             transform: translateY(0) rotate(0deg);
             opacity: 1;
@@ -320,22 +323,28 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           75% {
             opacity: 1;
           }
+          90% {
+            opacity: 0.6;
+          }
           100% {
-            transform: translateY(32px) rotate(-360deg);
+            transform: translateY(24px) rotate(-180deg);
             opacity: 0;
           }
         }
         
-        @keyframes coin-fall-3 {
+        @keyframes coin-fall-slot-3 {
           0% {
             transform: translateY(0) rotate(0deg);
             opacity: 1;
           }
-          85% {
+          65% {
             opacity: 1;
           }
+          80% {
+            opacity: 0.8;
+          }
           100% {
-            transform: translateY(28px) rotate(360deg);
+            transform: translateY(20px) rotate(180deg);
             opacity: 0;
           }
         }
@@ -355,19 +364,19 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           animation: fade-in 0.5s ease-out;
         }
         
-        .animate-coin-fall-1 {
-          animation: coin-fall-1 2s infinite ease-in;
-          animation-delay: 0.2s;
+        .animate-coin-fall-slot-1 {
+          animation: coin-fall-slot-1 3s infinite ease-in;
+          animation-delay: 0.5s;
         }
         
-        .animate-coin-fall-2 {
-          animation: coin-fall-2 2.5s infinite ease-in;
-          animation-delay: 0.7s;
+        .animate-coin-fall-slot-2 {
+          animation: coin-fall-slot-2 3.5s infinite ease-in;
+          animation-delay: 1s;
         }
         
-        .animate-coin-fall-3 {
-          animation: coin-fall-3 2.2s infinite ease-in;
-          animation-delay: 1.2s;
+        .animate-coin-fall-slot-3 {
+          animation: coin-fall-slot-3 3.2s infinite ease-in;
+          animation-delay: 1.8s;
         }
       `}</style>
     </div>
