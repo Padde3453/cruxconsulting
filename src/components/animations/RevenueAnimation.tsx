@@ -85,7 +85,7 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
         </svg>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes revenueDown {
           0%, 28% {
             transform: translateY(8px) scaleY(0.8);
