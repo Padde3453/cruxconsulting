@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Plus, Minus, TrendingUp, Clock, Users, DollarSign, CheckCircle, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,7 +10,7 @@ import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Services = () => {
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [openSections, setOpenSections] = useState<Record<number, boolean>>({});
   
   // Scroll animations
   const heroAnimation = useScrollAnimation();
@@ -20,8 +21,11 @@ const Services = () => {
     window.location.href = '/#contact';
   };
 
-  const toggleCard = (cardIndex: number) => {
-    setExpandedCard(expandedCard === cardIndex ? null : cardIndex);
+  const toggleSection = (index: number) => {
+    setOpenSections(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
   };
 
   const valueCards = [
@@ -107,6 +111,105 @@ const Services = () => {
     }
   ];
 
+  const AnimatedIcon = ({ index, icon: IconComponent }: { index: number; icon: any }) => {
+    const isOpen = openSections[index];
+    
+    return (
+      <div className="w-16 h-16 relative overflow-hidden rounded-lg bg-gray-800/50 flex items-center justify-center">
+        {/* Revenue Animation - Chart going up */}
+        {index === 0 && (
+          <div className="relative w-12 h-12">
+            <svg viewBox="0 0 100 100" className="w-full h-full">
+              <polyline
+                points="10,80 30,60 50,70 70,40 90,20"
+                fill="none"
+                stroke={isOpen ? "#10b981" : "#ef4444"}
+                strokeWidth="3"
+                className={`transition-all duration-1000 ${isOpen ? 'animate-pulse' : ''}`}
+              />
+              <circle
+                cx="90"
+                cy="20"
+                r="3"
+                fill={isOpen ? "#10b981" : "#ef4444"}
+                className={`transition-all duration-500 ${isOpen ? 'animate-bounce' : ''}`}
+              />
+            </svg>
+          </div>
+        )}
+        
+        {/* Time Animation - Clock */}
+        {index === 1 && (
+          <div className="relative w-12 h-12">
+            <div className="w-full h-full border-2 border-gray-400 rounded-full relative">
+              <div 
+                className={`absolute top-1 left-1/2 w-0.5 h-4 bg-gray-400 origin-bottom transition-transform duration-1000 ${
+                  isOpen ? 'rotate-90' : 'rotate-[270deg] animate-spin'
+                }`}
+                style={{ transformOrigin: 'bottom center', marginLeft: '-1px' }}
+              />
+              <div 
+                className={`absolute top-2 left-1/2 w-0.5 h-3 bg-gray-600 origin-bottom transition-transform duration-500 ${
+                  isOpen ? 'rotate-180' : 'rotate-[450deg] animate-spin'
+                }`}
+                style={{ transformOrigin: 'bottom center', marginLeft: '-1px' }}
+              />
+            </div>
+          </div>
+        )}
+        
+        {/* Client Experience Animation - Smiley */}
+        {index === 2 && (
+          <div className="relative w-12 h-12">
+            <div 
+              className={`w-full h-full rounded-full border-2 transition-all duration-1000 ${
+                isOpen ? 'bg-brand-green border-brand-green' : 'bg-amber-500 border-amber-500'
+              }`}
+            >
+              <div className="flex items-center justify-center h-full">
+                <div className="flex space-x-1 mb-1">
+                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                </div>
+              </div>
+              <div 
+                className={`absolute bottom-2 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ${
+                  isOpen ? 'w-6 h-3' : 'w-4 h-0.5'
+                }`}
+              >
+                <div 
+                  className={`w-full border-b-2 border-white transition-all duration-1000 ${
+                    isOpen ? 'rounded-b-full' : 'rounded-none'
+                  }`}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Cost Savings Animation - Piggy Bank */}
+        {index === 3 && (
+          <div className="relative w-12 h-12">
+            <div className="w-full h-8 bg-pink-300 rounded-full relative mt-2">
+              <div className="absolute -top-1 left-8 w-2 h-2 bg-pink-300 rounded-full"></div>
+              <div className="absolute top-1 left-1 w-1 h-1 bg-black rounded-full"></div>
+              <div className="absolute top-2 left-2 w-3 h-1 bg-pink-400 rounded-full"></div>
+              <div className="absolute top-1 right-2 w-1 h-1 bg-pink-400 rounded-full"></div>
+              {/* Coins animation */}
+              {isOpen && (
+                <>
+                  <div className="absolute -top-2 left-4 w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                  <div className="absolute -top-1 left-6 w-1.5 h-1.5 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
+                  <div className="absolute -top-3 left-2 w-1.5 h-1.5 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                </>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
       <FloatingElements />
@@ -138,53 +241,48 @@ const Services = () => {
             </p>
           </div>
 
-          {/* Value Cards Grid - Full Width */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-none">
-            {valueCards.map((card, index) => {
-              const IconComponent = card.icon;
-              const isExpanded = expandedCard === index;
-              
-              return (
-                <Card 
-                  key={index}
-                  className={`bg-gray-800/50 border-gray-700 cursor-pointer transition-all duration-500 hover:bg-gray-800/70 ${
-                    isExpanded ? 'ring-2 ring-brand-blue/50' : ''
-                  }`}
-                  onClick={() => toggleCard(index)}
-                >
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className={`p-3 rounded-full bg-gradient-to-r ${card.color}`}>
-                        <IconComponent size={24} className="text-white" />
-                      </div>
-                      <div className="transition-transform duration-300">
-                        {isExpanded ? <Minus size={20} /> : <Plus size={20} />}
-                      </div>
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold mb-2">{card.title}</h3>
-                    <p className="text-gray-400 mb-4">{card.subtitle}</p>
-                    
-                    {/* Expandable Services */}
-                    <div className={`overflow-hidden transition-all duration-500 ${
-                      isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                    }`}>
-                      <div className="border-t border-gray-700 pt-4 mt-4">
-                        <h4 className="font-semibold mb-3 text-brand-blue">Services we offer:</h4>
-                        <ul className="space-y-2">
-                          {card.services.map((service, serviceIndex) => (
-                            <li key={serviceIndex} className="flex items-center text-gray-300">
-                              <CheckCircle size={16} className="text-brand-green mr-2 flex-shrink-0" />
-                              {service}
-                            </li>
-                          ))}
-                        </ul>
+          {/* Value Sections - 1x4 Layout */}
+          <div className="space-y-4 w-full max-w-7xl mx-auto">
+            {valueCards.map((card, index) => (
+              <Collapsible
+                key={index}
+                open={openSections[index]}
+                onOpenChange={() => toggleSection(index)}
+              >
+                <Card className="bg-gray-800/50 border-gray-700 hover:bg-gray-800/70 transition-all duration-300">
+                  <CollapsibleTrigger asChild>
+                    <div className="w-full p-6 cursor-pointer">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-6">
+                          <AnimatedIcon index={index} icon={card.icon} />
+                          <div className="flex-1">
+                            <h3 className="text-2xl font-bold mb-2">{card.title}</h3>
+                            <p className="text-gray-400">{card.subtitle}</p>
+                          </div>
+                        </div>
+                        <div className="transition-transform duration-300">
+                          {openSections[index] ? <Minus size={24} /> : <Plus size={24} />}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </CollapsibleTrigger>
+                  
+                  <CollapsibleContent className="overflow-hidden transition-all duration-500">
+                    <div className="px-6 pb-6 border-t border-gray-700 pt-4">
+                      <h4 className="font-semibold mb-3 text-brand-blue">Services we offer:</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {card.services.map((service, serviceIndex) => (
+                          <div key={serviceIndex} className="flex items-center text-gray-300">
+                            <CheckCircle size={16} className="text-brand-green mr-3 flex-shrink-0" />
+                            {service}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </CollapsibleContent>
                 </Card>
-              );
-            })}
+              </Collapsible>
+            ))}
           </div>
         </div>
       </section>
