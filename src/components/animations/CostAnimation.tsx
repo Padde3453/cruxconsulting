@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 
 interface CostAnimationProps {
@@ -34,7 +33,7 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
   }, []);
 
   return (
-    <div className="w-16 h-16 relative overflow-hidden rounded-lg bg-gray-900/90 flex items-center justify-center border border-gray-700/30 backdrop-blur-sm">
+    <div className="w-20 h-20 relative overflow-hidden rounded-lg bg-gray-900/90 flex items-center justify-center border border-gray-700/30 backdrop-blur-sm">
       {/* Subtle grid background */}
       <div className="absolute inset-0 opacity-15">
         <svg width="100%" height="100%" className="w-full h-full">
@@ -48,24 +47,24 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
       </div>
 
       {/* Animation container */}
-      <div className="relative w-14 h-14 z-10">
-        <svg viewBox="0 0 56 56" className="w-full h-full">
-          {/* Base 3 coins - start red, turn gold */}
+      <div className="relative w-16 h-16 z-10">
+        <svg viewBox="0 0 64 64" className="w-full h-full">
+          {/* Base 3 coins - start red, turn gold, more spread out */}
           <g>
             {/* Left coin */}
             <circle
-              cx="18"
-              cy="46"
-              r="7"
+              cx="16"
+              cy="52"
+              r="8"
               fill={animationPhase === 'red' ? '#dc2626' : '#fbbf24'}
               stroke={animationPhase === 'red' ? '#991b1b' : '#f59e0b'}
-              strokeWidth="1"
+              strokeWidth="1.5"
               className={animationPhase === 'turning-gold' ? 'animate-color-transition' : ''}
             />
             <text
-              x="18"
-              y="50"
-              fontSize="5"
+              x="16"
+              y="57"
+              fontSize="6"
               textAnchor="middle"
               fill={animationPhase === 'red' ? '#7f1d1d' : '#92400e'}
               fontWeight="bold"
@@ -76,18 +75,18 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             
             {/* Center coin */}
             <circle
-              cx="28"
-              cy="46"
-              r="7"
+              cx="32"
+              cy="52"
+              r="8"
               fill={animationPhase === 'red' ? '#dc2626' : '#fbbf24'}
               stroke={animationPhase === 'red' ? '#991b1b' : '#f59e0b'}
-              strokeWidth="1"
+              strokeWidth="1.5"
               className={animationPhase === 'turning-gold' ? 'animate-color-transition' : ''}
             />
             <text
-              x="28"
-              y="50"
-              fontSize="5"
+              x="32"
+              y="57"
+              fontSize="6"
               textAnchor="middle"
               fill={animationPhase === 'red' ? '#7f1d1d' : '#92400e'}
               fontWeight="bold"
@@ -98,18 +97,18 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             
             {/* Right coin */}
             <circle
-              cx="38"
-              cy="46"
-              r="7"
+              cx="48"
+              cy="52"
+              r="8"
               fill={animationPhase === 'red' ? '#dc2626' : '#fbbf24'}
               stroke={animationPhase === 'red' ? '#991b1b' : '#f59e0b'}
-              strokeWidth="1"
+              strokeWidth="1.5"
               className={animationPhase === 'turning-gold' ? 'animate-color-transition' : ''}
             />
             <text
-              x="38"
-              y="50"
-              fontSize="5"
+              x="48"
+              y="57"
+              fontSize="6"
               textAnchor="middle"
               fill={animationPhase === 'red' ? '#7f1d1d' : '#92400e'}
               fontWeight="bold"
@@ -123,72 +122,80 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           {(animationPhase === 'stacking') && (
             <g>
               {/* Left column stacked coins */}
-              <circle cx="18" cy="38" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-1" />
-              <text x="18" y="42" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-1">€</text>
+              <circle cx="16" cy="44" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" className="animate-stack-1" />
+              <text x="16" y="49" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-1">€</text>
               
-              <circle cx="18" cy="30" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-2" />
-              <text x="18" y="34" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-2">€</text>
+              <circle cx="16" cy="36" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" className="animate-stack-2" />
+              <text x="16" y="41" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-2">€</text>
               
-              <circle cx="18" cy="22" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-3" />
-              <text x="18" y="26" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-3">€</text>
+              <circle cx="16" cy="28" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" className="animate-stack-3" />
+              <text x="16" y="33" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-3">€</text>
 
               {/* Center column stacked coins */}
-              <circle cx="28" cy="38" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-4" />
-              <text x="28" y="42" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-4">€</text>
+              <circle cx="32" cy="44" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" className="animate-stack-4" />
+              <text x="32" y="49" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-4">€</text>
               
-              <circle cx="28" cy="30" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-5" />
-              <text x="28" y="34" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-5">€</text>
+              <circle cx="32" cy="36" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" className="animate-stack-5" />
+              <text x="32" y="41" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-5">€</text>
               
-              <circle cx="28" cy="22" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-6" />
-              <text x="28" y="26" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-6">€</text>
+              <circle cx="32" cy="28" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" className="animate-stack-6" />
+              <text x="32" y="33" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-6">€</text>
               
-              <circle cx="28" cy="14" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-7" />
-              <text x="28" y="18" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-7">€</text>
+              <circle cx="32" cy="20" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" className="animate-stack-7" />
+              <text x="32" y="25" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-7">€</text>
+              
+              <circle cx="32" cy="12" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" className="animate-stack-8" />
+              <text x="32" y="17" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-8">€</text>
 
               {/* Right column stacked coins */}
-              <circle cx="38" cy="38" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-8" />
-              <text x="38" y="42" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-8">€</text>
+              <circle cx="48" cy="44" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" className="animate-stack-9" />
+              <text x="48" y="49" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-9">€</text>
               
-              <circle cx="38" cy="30" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-9" />
-              <text x="38" y="34" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-9">€</text>
+              <circle cx="48" cy="36" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" className="animate-stack-10" />
+              <text x="48" y="41" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-10">€</text>
               
-              <circle cx="38" cy="22" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-10" />
-              <text x="38" y="26" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-10">€</text>
+              <circle cx="48" cy="28" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" className="animate-stack-11" />
+              <text x="48" y="33" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-11">€</text>
 
               {/* Falling coins */}
               <g className="animate-coin-fall-1">
-                <circle cx="18" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="18" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="16" cy="-8" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" />
+                <text x="16" y="-3" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
               
               <g className="animate-coin-fall-2">
-                <circle cx="28" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="28" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="32" cy="-8" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" />
+                <text x="32" y="-3" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
               
               <g className="animate-coin-fall-3">
-                <circle cx="38" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="38" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="48" cy="-8" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" />
+                <text x="48" y="-3" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
               
               <g className="animate-coin-fall-4">
-                <circle cx="18" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="18" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="16" cy="-8" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" />
+                <text x="16" y="-3" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
               
               <g className="animate-coin-fall-5">
-                <circle cx="28" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="28" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="32" cy="-8" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" />
+                <text x="32" y="-3" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
               
               <g className="animate-coin-fall-6">
-                <circle cx="38" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="38" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="48" cy="-8" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" />
+                <text x="48" y="-3" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
               
               <g className="animate-coin-fall-7">
-                <circle cx="28" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="28" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="32" cy="-8" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" />
+                <text x="32" y="-3" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+              </g>
+              
+              <g className="animate-coin-fall-8">
+                <circle cx="32" cy="-8" r="8" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1.5" />
+                <text x="32" y="-3" fontSize="6" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
             </g>
           )}
@@ -213,7 +220,7 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             opacity: 1;
           }
           100% {
-            transform: translateY(53px);
+            transform: translateY(60px);
             opacity: 0;
           }
         }
@@ -277,17 +284,23 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
         
         .animate-stack-8 {
           animation: stack-appear 0.3s ease-out;
-          animation-delay: 0.7s;
+          animation-delay: 2.5s;
           animation-fill-mode: both;
         }
         
         .animate-stack-9 {
           animation: stack-appear 0.3s ease-out;
-          animation-delay: 1.2s;
+          animation-delay: 0.7s;
           animation-fill-mode: both;
         }
         
         .animate-stack-10 {
+          animation: stack-appear 0.3s ease-out;
+          animation-delay: 1.2s;
+          animation-fill-mode: both;
+        }
+        
+        .animate-stack-11 {
           animation: stack-appear 0.3s ease-out;
           animation-delay: 1.7s;
           animation-fill-mode: both;
@@ -326,6 +339,11 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
         .animate-coin-fall-7 {
           animation: coin-fall 0.7s ease-in;
           animation-delay: 1.6s;
+        }
+        
+        .animate-coin-fall-8 {
+          animation: coin-fall 0.7s ease-in;
+          animation-delay: 1.9s;
         }
       `}</style>
     </div>

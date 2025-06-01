@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 
 interface ExperienceAnimationProps {
@@ -29,7 +28,7 @@ const ExperienceAnimation = ({ isOpen }: ExperienceAnimationProps) => {
   }, []);
 
   return (
-    <div className="w-16 h-16 relative overflow-hidden rounded-lg bg-gray-900/90 flex items-center justify-center border border-gray-700/30 backdrop-blur-sm">
+    <div className="w-20 h-20 relative overflow-hidden rounded-lg bg-gray-900/90 flex items-center justify-center border border-gray-700/30 backdrop-blur-sm">
       {/* Subtle grid background */}
       <div className="absolute inset-0 opacity-15">
         <svg width="100%" height="100%" className="w-full h-full">
@@ -43,15 +42,15 @@ const ExperienceAnimation = ({ isOpen }: ExperienceAnimationProps) => {
       </div>
 
       {/* Smiley face container */}
-      <div className="relative w-12 h-12 z-10">
-        <svg viewBox="0 0 48 48" className="w-full h-full">
+      <div className="relative w-14 h-14 z-10">
+        <svg viewBox="0 0 56 56" className="w-full h-full">
           {/* Face circle */}
           <circle
-            cx="24"
-            cy="24"
-            r="20"
+            cx="28"
+            cy="28"
+            r="24"
             fill="none"
-            strokeWidth="2.5"
+            strokeWidth="3"
             className="transition-all duration-1000 ease-in-out"
             stroke={isHappy ? "#10b981" : "#f59e0b"}
             style={{
@@ -63,9 +62,9 @@ const ExperienceAnimation = ({ isOpen }: ExperienceAnimationProps) => {
           
           {/* Left eye */}
           <circle
-            cx="18"
-            cy="18"
-            r="2"
+            cx="21"
+            cy="21"
+            r="2.5"
             className="transition-all duration-1000 ease-in-out"
             fill={isHappy ? "#10b981" : "#f59e0b"}
             style={{
@@ -77,9 +76,9 @@ const ExperienceAnimation = ({ isOpen }: ExperienceAnimationProps) => {
           
           {/* Right eye */}
           <circle
-            cx="30"
-            cy="18"
-            r="2"
+            cx="35"
+            cy="21"
+            r="2.5"
             className="transition-all duration-1000 ease-in-out"
             fill={isHappy ? "#10b981" : "#f59e0b"}
             style={{
@@ -92,11 +91,11 @@ const ExperienceAnimation = ({ isOpen }: ExperienceAnimationProps) => {
           {/* Mouth - transitions from neutral line to smile */}
           <path
             d={isHappy 
-              ? "M 16 28 Q 24 36 32 28" // Smile curve
-              : "M 18 30 L 30 30"       // Neutral line
+              ? "M 18 33 Q 28 42 38 33" // Smile curve
+              : "M 21 35 L 35 35"       // Neutral line
             }
             fill="none"
-            strokeWidth="2.5"
+            strokeWidth="3"
             strokeLinecap="round"
             className="transition-all duration-1000 ease-in-out"
             stroke={isHappy ? "#10b981" : "#f59e0b"}
@@ -111,11 +110,11 @@ const ExperienceAnimation = ({ isOpen }: ExperienceAnimationProps) => {
           {isHappy && (
             <g className="opacity-80 animate-fade-in">
               <text
-                x="32"
-                y="12"
-                fontSize="4"
+                x="38"
+                y="14"
+                fontSize="5"
                 fill="#10b981"
-                className="text-[4px] font-medium"
+                className="text-[5px] font-medium"
                 style={{
                   filter: "drop-shadow(0 0 2px rgba(16, 185, 129, 0.4))"
                 }}
@@ -128,11 +127,11 @@ const ExperienceAnimation = ({ isOpen }: ExperienceAnimationProps) => {
           {/* Gentle pulse effect when happy */}
           {isHappy && (
             <circle
-              cx="24"
-              cy="24"
-              r="22"
+              cx="28"
+              cy="28"
+              r="26"
               fill="none"
-              strokeWidth="1"
+              strokeWidth="1.5"
               stroke="#10b981"
               opacity="0.3"
               style={{

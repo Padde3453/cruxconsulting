@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 
 interface TimeAnimationProps {
@@ -29,7 +28,7 @@ const TimeAnimation = ({ isOpen }: TimeAnimationProps) => {
   }, []);
 
   return (
-    <div className="w-16 h-16 relative overflow-hidden rounded-lg bg-gray-900/90 flex items-center justify-center border border-gray-700/30 backdrop-blur-sm">
+    <div className="w-20 h-20 relative overflow-hidden rounded-lg bg-gray-900/90 flex items-center justify-center border border-gray-700/30 backdrop-blur-sm">
       {/* Subtle grid background */}
       <div className="absolute inset-0 opacity-15">
         <svg width="100%" height="100%" className="w-full h-full">
@@ -43,15 +42,15 @@ const TimeAnimation = ({ isOpen }: TimeAnimationProps) => {
       </div>
 
       {/* Watch container */}
-      <div className="relative w-12 h-12 z-10">
-        <svg viewBox="0 0 48 48" className="w-full h-full">
+      <div className="relative w-14 h-14 z-10">
+        <svg viewBox="0 0 56 56" className="w-full h-full">
           {/* Watch face */}
           <circle
-            cx="24"
-            cy="24"
-            r="20"
+            cx="28"
+            cy="28"
+            r="24"
             fill="none"
-            strokeWidth="2"
+            strokeWidth="2.5"
             className="transition-all duration-1000 ease-in-out"
             stroke={isSlowTime ? "#10b981" : "#ef4444"}
             style={{
@@ -65,14 +64,14 @@ const TimeAnimation = ({ isOpen }: TimeAnimationProps) => {
           {[0, 1, 2, 3].map((i) => (
             <line
               key={i}
-              x1="24"
+              x1="28"
               y1="6"
-              x2="24"
-              y2="10"
-              strokeWidth="1.5"
+              x2="28"
+              y2="12"
+              strokeWidth="2"
               className="transition-all duration-1000 ease-in-out"
               stroke={isSlowTime ? "#10b981" : "#ef4444"}
-              transform={`rotate(${i * 90} 24 24)`}
+              transform={`rotate(${i * 90} 28 28)`}
               style={{
                 filter: isSlowTime 
                   ? "drop-shadow(0 0 2px rgba(16, 185, 129, 0.3))" 
@@ -83,13 +82,13 @@ const TimeAnimation = ({ isOpen }: TimeAnimationProps) => {
           
           {/* Hour hand - moves slower, logical rotation */}
           <line
-            x1="24"
-            y1="24"
-            x2="24"
-            y2="14"
-            strokeWidth="2.5"
+            x1="28"
+            y1="28"
+            x2="28"
+            y2="16"
+            strokeWidth="3"
             strokeLinecap="round"
-            className="transition-all duration-1000 ease-in-out origin-[24px_24px]"
+            className="transition-all duration-1000 ease-in-out origin-[28px_28px]"
             stroke={isSlowTime ? "#10b981" : "#ef4444"}
             style={{
               filter: isSlowTime 
@@ -98,19 +97,19 @@ const TimeAnimation = ({ isOpen }: TimeAnimationProps) => {
               animation: isSlowTime 
                 ? "hour-hand-slow 12s linear infinite" 
                 : "hour-hand-fast 2s linear infinite",
-              transformOrigin: "24px 24px"
+              transformOrigin: "28px 28px"
             }}
           />
           
           {/* Minute hand - moves faster, logical rotation */}
           <line
-            x1="24"
-            y1="24"
-            x2="24"
+            x1="28"
+            y1="28"
+            x2="28"
             y2="8"
-            strokeWidth="2"
+            strokeWidth="2.5"
             strokeLinecap="round"
-            className="transition-all duration-1000 ease-in-out origin-[24px_24px]"
+            className="transition-all duration-1000 ease-in-out origin-[28px_28px]"
             stroke={isSlowTime ? "#10b981" : "#ef4444"}
             style={{
               filter: isSlowTime 
@@ -119,15 +118,15 @@ const TimeAnimation = ({ isOpen }: TimeAnimationProps) => {
               animation: isSlowTime 
                 ? "minute-hand-slow 4s linear infinite" 
                 : "minute-hand-fast 0.5s linear infinite",
-              transformOrigin: "24px 24px"
+              transformOrigin: "28px 28px"
             }}
           />
           
           {/* Center dot */}
           <circle
-            cx="24"
-            cy="24"
-            r="1.5"
+            cx="28"
+            cy="28"
+            r="2"
             className="transition-all duration-1000 ease-in-out"
             fill={isSlowTime ? "#10b981" : "#ef4444"}
             style={{
@@ -142,11 +141,11 @@ const TimeAnimation = ({ isOpen }: TimeAnimationProps) => {
           {isSlowTime && (
             <g className="opacity-80 animate-fade-in">
               <text
-                x="32"
-                y="12"
-                fontSize="4"
+                x="38"
+                y="14"
+                fontSize="5"
                 fill="#10b981"
-                className="text-[4px] font-medium"
+                className="text-[5px] font-medium"
                 style={{
                   filter: "drop-shadow(0 0 2px rgba(16, 185, 129, 0.4))"
                 }}

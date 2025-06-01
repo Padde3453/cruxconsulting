@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 
 interface RevenueAnimationProps {
@@ -29,7 +28,7 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
   }, []);
 
   return (
-    <div className="w-16 h-16 relative overflow-hidden rounded-lg bg-gray-900/90 flex items-center justify-center border border-gray-700/30 backdrop-blur-sm">
+    <div className="w-20 h-20 relative overflow-hidden rounded-lg bg-gray-900/90 flex items-center justify-center border border-gray-700/30 backdrop-blur-sm">
       {/* Subtle grid background */}
       <div className="absolute inset-0 opacity-15">
         <svg width="100%" height="100%" className="w-full h-full">
@@ -43,16 +42,16 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
       </div>
 
       {/* Main chart container */}
-      <div className="relative w-12 h-8 z-10">
-        <svg viewBox="0 0 48 32" className="w-full h-full">
+      <div className="relative w-14 h-10 z-10">
+        <svg viewBox="0 0 56 40" className="w-full h-full">
           {/* Chart line path */}
           <path
             d={isPositive 
-              ? "M4,24 Q12,20 20,16 Q28,12 32,8 L44,4" 
-              : "M4,8 Q12,12 20,16 Q28,20 32,24 L44,28"
+              ? "M4,30 Q14,24 24,20 Q34,16 40,10 L52,5" 
+              : "M4,10 Q14,16 24,20 Q34,24 40,30 L52,35"
             }
             fill="none"
-            strokeWidth="1.5"
+            strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
             className="transition-all duration-1000 ease-in-out"
@@ -67,8 +66,8 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
           {/* Data points */}
           <circle
             cx="4"
-            cy={isPositive ? "24" : "8"}
-            r="1.5"
+            cy={isPositive ? "30" : "10"}
+            r="2"
             className="transition-all duration-1000 ease-in-out"
             fill={isPositive ? "#10b981" : "#ef4444"}
             style={{
@@ -79,9 +78,9 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
           />
           
           <circle
-            cx="20"
-            cy="16"
-            r="1.2"
+            cx="24"
+            cy="20"
+            r="1.5"
             className="transition-all duration-1000 ease-in-out"
             fill={isPositive ? "#10b981" : "#ef4444"}
             style={{
@@ -92,9 +91,9 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
           />
           
           <circle
-            cx="44"
-            cy={isPositive ? "4" : "28"}
-            r="1.5"
+            cx="52"
+            cy={isPositive ? "5" : "35"}
+            r="2"
             className="transition-all duration-1000 ease-in-out"
             fill={isPositive ? "#10b981" : "#ef4444"}
             style={{
@@ -109,11 +108,11 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
           {isPositive && (
             <g className="opacity-80 animate-fade-in">
               <text
-                x="40"
-                y="2"
-                fontSize="4"
+                x="48"
+                y="3"
+                fontSize="5"
                 fill="#10b981"
-                className="text-[4px] font-medium"
+                className="text-[5px] font-medium"
                 style={{
                   filter: "drop-shadow(0 0 2px rgba(16, 185, 129, 0.4))"
                 }}
@@ -121,10 +120,10 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
                 +21%
               </text>
               <path
-                d="M42,6 L44,4 L46,6"
+                d="M50,7 L52,5 L54,7"
                 fill="none"
                 stroke="#10b981"
-                strokeWidth="0.8"
+                strokeWidth="1"
                 strokeLinecap="round"
                 style={{
                   animation: "arrow-glow 1.5s infinite ease-in-out"
