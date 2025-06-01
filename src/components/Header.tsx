@@ -46,6 +46,14 @@ const Header = ({ onBooking }: HeaderProps) => {
     setMobileMenuOpen(false);
   };
 
+  const handleServicesNavigation = () => {
+    navigate('/services');
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+    setMobileMenuOpen(false);
+  };
+
   const handleBooking = () => {
     if (onBooking) {
       onBooking();
@@ -73,8 +81,12 @@ const Header = ({ onBooking }: HeaderProps) => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <button 
-            onClick={() => scrollToSection('services')} 
-            className="text-gray-300 hover:text-white transition-colors"
+            onClick={handleServicesNavigation}
+            className={`transition-colors ${
+              isActivePage('/services') 
+                ? 'text-white font-semibold' 
+                : 'text-gray-300 hover:text-white'
+            }`}
           >
             Services
           </button>
@@ -131,8 +143,12 @@ const Header = ({ onBooking }: HeaderProps) => {
         <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-gray-800">
           <div className="px-6 py-4 space-y-4">
             <button 
-              onClick={() => scrollToSection('services')} 
-              className="block text-gray-300 hover:text-white transition-colors"
+              onClick={handleServicesNavigation}
+              className={`block transition-colors ${
+                isActivePage('/services') 
+                  ? 'text-white font-semibold' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
             >
               Services
             </button>
