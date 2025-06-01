@@ -19,13 +19,24 @@ const Services = () => {
   const deliveryAnimation = useScrollAnimation();
   const ctaAnimation = useScrollAnimation();
 
-  // Handle URL parameter to expand specific section
+  // Handle URL parameter to expand specific section and scroll to it
   useEffect(() => {
     const expandParam = searchParams.get('expand');
     if (expandParam) {
       const sectionIndex = parseInt(expandParam, 10);
       if (!isNaN(sectionIndex) && sectionIndex >= 0 && sectionIndex < valueCards.length) {
         setOpenSections({ [sectionIndex]: true });
+        
+        // Scroll to the specific section after a brief delay to ensure DOM is updated
+        setTimeout(() => {
+          const sectionElement = document.getElementById(`value-card-${sectionIndex}`);
+          if (sectionElement) {
+            sectionElement.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'center' 
+            });
+          }
+        }, 100);
       }
     }
   }, [searchParams]);
@@ -126,16 +137,17 @@ const Services = () => {
           {/* Value Sections - 1x4 Layout */}
           <div className="space-y-4 w-full max-w-7xl mx-auto">
             {valueCards.map((card, index) => (
-              <ValueCard
-                key={index}
-                index={index}
-                title={card.title}
-                subtitle={card.subtitle}
-                animationType={card.animationType}
-                services={card.services}
-                isOpen={openSections[index]}
-                onToggle={() => toggleSection(index)}
-              />
+              <div key={index} id={`value-card-${index}`}>
+                <ValueCard
+                  index={index}
+                  title={card.title}
+                  subtitle={card.subtitle}
+                  animationType={card.animationType}
+                  services={card.services}
+                  isOpen={openSections[index]}
+                  onToggle={() => toggleSection(index)}
+                />
+              </div>
             ))}
           </div>
         </div>
