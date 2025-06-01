@@ -108,15 +108,13 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
       <FloatingElements />
       
       <Header onBooking={handleBooking} />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center pt-24 pb-12">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
-        
+      <section className="min-h-screen flex items-center justify-center pt-24 pb-12 relative">
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl animate-float"></div>
@@ -125,7 +123,7 @@ const Services = () => {
 
         <div 
           ref={heroAnimation.elementRef}
-          className={`relative z-10 max-w-7xl mx-auto px-6 transition-all duration-1000 ${
+          className={`relative z-10 w-full px-6 transition-all duration-1000 ${
             heroAnimation.isVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-10'
@@ -136,12 +134,12 @@ const Services = () => {
               Our Services
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-              Discover how we transform your business through automation, AI, and tailored consulting
+              Value 24/7 for you, even in your sleep
             </p>
           </div>
 
-          {/* Value Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Value Cards Grid - Full Width */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-none">
             {valueCards.map((card, index) => {
               const IconComponent = card.icon;
               const isExpanded = expandedCard === index;
