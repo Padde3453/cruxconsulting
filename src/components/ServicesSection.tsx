@@ -15,6 +15,14 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
     navigate(`/services?expand=${serviceIndex}`);
   };
 
+  const handleExploreAllServices = () => {
+    navigate('/services');
+    // Ensure we scroll to top when navigating to services
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+  };
+
   const services = [
     {
       icon: TrendingUp,
@@ -110,7 +118,7 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
 
         <div className="mt-12 flex justify-center">
           <Button 
-            onClick={() => navigate('/services')} 
+            onClick={handleExploreAllServices} 
             size="lg" 
             className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-2xl"
           >

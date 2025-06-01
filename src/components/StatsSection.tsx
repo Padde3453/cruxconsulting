@@ -27,7 +27,7 @@ const StatsSection = () => {
       delay: "0s"
     },
     {
-      value: "48h",
+      value: "4 Weeks",
       label: "Implementation Time",
       delay: "0.2s"
     },
@@ -37,7 +37,7 @@ const StatsSection = () => {
       delay: "0.4s"
     },
     {
-      value: "50+",
+      value: "500+",
       label: "SMEs Transformed",
       delay: "0.6s"
     }

@@ -179,7 +179,7 @@ const Services = () => {
         >
           <div className="bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 p-12 rounded-lg">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-              Ready to Transform Your Business?
+              Ready to discover the next level of value creation?
             </h2>
             <p className="text-xl text-white mb-8">
               Let's explore what we could automate for you
