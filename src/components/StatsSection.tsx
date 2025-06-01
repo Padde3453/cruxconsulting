@@ -27,7 +27,7 @@ const StatsSection = () => {
       delay: "0s"
     },
     {
-      value: "4 Weeks",
+      value: "4 W",
       label: "Implementation Time",
       delay: "0.2s"
     },

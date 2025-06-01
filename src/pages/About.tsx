@@ -72,7 +72,7 @@ const AboutContent = () => {
   const whyCruxRef = useScrollAnimation();
   const whoWeAreRef = useScrollAnimation();
   const patrickRef = useScrollAnimation();
-  const nabitRef = useScrollAnimation();
+  const teamRef = useScrollAnimation();
   const howWeWorkRef = useScrollAnimation();
   const joinUsRef = useScrollAnimation();
 
@@ -131,9 +131,11 @@ const AboutContent = () => {
           }`}
         >
           <div className="flex flex-col md:flex-row items-start gap-6 mb-6">
-            <div className="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center text-gray-400">
-              [Photo Placeholder]
-            </div>
+            <img 
+              src="/lovable-uploads/a2be320d-a273-485b-9a21-dcf991d7d542.png" 
+              alt="Patrick Reverchon" 
+              className="w-32 h-32 rounded-lg object-cover"
+            />
             <div className="flex-1">
               <h3 className="text-2xl font-bold mb-2">Patrick Reverchon</h3>
               <p className="text-brand-blue font-semibold mb-4">(Founder and CEO)</p>
@@ -163,42 +165,27 @@ const AboutContent = () => {
           </div>
         </div>
 
-        {/* Nabit Mikan */}
+        {/* Team and CTO Section */}
         <div 
-          ref={nabitRef.elementRef}
+          ref={teamRef.elementRef}
           className={`mb-16 transition-all duration-1000 ${
-            nabitRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            teamRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="flex flex-col md:flex-row items-start gap-6 mb-6">
-            <div className="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center text-gray-400">
-              [Photo Placeholder]
-            </div>
-            <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-2">First and last name</h3>
-              <p className="text-brand-green font-semibold mb-4">Co-Founder & CTO</p>
-            </div>
-          </div>
-          
-          <blockquote className="text-gray-300 text-lg leading-relaxed mb-4 italic">
-            "I help SMEs streamline business processes with Generative AI & Robotic Process Automation."
-          </blockquote>
-          
-          <div className="text-gray-300 leading-relaxed mb-4">
-            <p className="mb-2">I am an AI Automation Specialist and full stack developer with XX years experience.</p>
-            <p className="mb-2">From smart agents to matching systems, I design scalable solutions that cut manual work, boost productivity & drive growth.</p>
-            <p className="mb-4">Collaborating across XX.</p>
-            <p className="text-brand-blue font-semibold">#GenerativeAI #Automation #RPA #n8n #Voiceflow #WorkflowOptimization</p>
-          </div>
-          
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2 text-brand-blue">
-              <Linkedin size={18} />
-              <span>[LinkedIn]</span>
-            </div>
-            <div className="flex items-center gap-2 text-gray-400">
-              <MapPin size={18} />
-              <span>Based in XX</span>
+          <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-8">
+            <h3 className="text-2xl font-bold mb-6 text-brand-green">Our Team & Network</h3>
+            
+            <div className="text-gray-300 leading-relaxed space-y-4">
+              <p>
+                At Crux Consulting, we collaborate with a trusted network of experienced developers, AI engineers, and automation experts — tailored to each client's needs. This flexible model ensures we always bring the right expertise to the table.
+              </p>
+              
+              <div className="border-l-4 border-brand-blue pl-6 bg-gray-900/50 p-4 rounded-r-lg">
+                <p className="text-brand-blue font-semibold mb-2">🚀 Looking for a Co-Founder & CTO</p>
+                <p>
+                  I'm actively looking for a full-time CTO and co-founder to shape and scale our technical vision long-term.
+                </p>
+              </div>
             </div>
           </div>
         </div>
