@@ -1,9 +1,33 @@
 
+import { useEffect, useState } from 'react';
+
 interface RevenueAnimationProps {
   isOpen: boolean;
 }
 
 const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
+  const [isPositive, setIsPositive] = useState(false);
+
+  useEffect(() => {
+    const loop = () => {
+      // Start with negative state (2 seconds)
+      setIsPositive(false);
+      
+      setTimeout(() => {
+        // Transition to positive (1 second transition time)
+        setIsPositive(true);
+        
+        setTimeout(() => {
+          // Stay positive for 5 seconds, then restart loop
+          loop();
+        }, 5000);
+      }, 2000);
+    };
+
+    // Start the loop
+    loop();
+  }, []);
+
   return (
     <div className="w-16 h-16 relative overflow-hidden rounded-lg bg-gray-900/90 flex items-center justify-center border border-gray-700/30 backdrop-blur-sm">
       {/* Subtle grid background */}
@@ -23,7 +47,7 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
         <svg viewBox="0 0 48 32" className="w-full h-full">
           {/* Chart line path */}
           <path
-            d={isOpen 
+            d={isPositive 
               ? "M4,24 Q12,20 20,16 Q28,12 32,8 L44,4" 
               : "M4,8 Q12,12 20,16 Q28,20 32,24 L44,28"
             }
@@ -32,9 +56,9 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
             strokeLinecap="round"
             strokeLinejoin="round"
             className="transition-all duration-1000 ease-in-out"
-            stroke={isOpen ? "#10b981" : "#ef4444"}
+            stroke={isPositive ? "#10b981" : "#ef4444"}
             style={{
-              filter: isOpen 
+              filter: isPositive 
                 ? "drop-shadow(0 0 3px rgba(16, 185, 129, 0.4))" 
                 : "drop-shadow(0 0 3px rgba(239, 68, 68, 0.4))"
             }}
@@ -43,12 +67,12 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
           {/* Data points */}
           <circle
             cx="4"
-            cy={isOpen ? "24" : "8"}
+            cy={isPositive ? "24" : "8"}
             r="1.5"
             className="transition-all duration-1000 ease-in-out"
-            fill={isOpen ? "#10b981" : "#ef4444"}
+            fill={isPositive ? "#10b981" : "#ef4444"}
             style={{
-              filter: isOpen 
+              filter: isPositive 
                 ? "drop-shadow(0 0 4px rgba(16, 185, 129, 0.6))" 
                 : "drop-shadow(0 0 4px rgba(239, 68, 68, 0.6))"
             }}
@@ -59,9 +83,9 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
             cy="16"
             r="1.2"
             className="transition-all duration-1000 ease-in-out"
-            fill={isOpen ? "#10b981" : "#ef4444"}
+            fill={isPositive ? "#10b981" : "#ef4444"}
             style={{
-              filter: isOpen 
+              filter: isPositive 
                 ? "drop-shadow(0 0 4px rgba(16, 185, 129, 0.5))" 
                 : "drop-shadow(0 0 4px rgba(239, 68, 68, 0.5))"
             }}
@@ -69,20 +93,20 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
           
           <circle
             cx="44"
-            cy={isOpen ? "4" : "28"}
+            cy={isPositive ? "4" : "28"}
             r="1.5"
             className="transition-all duration-1000 ease-in-out"
-            fill={isOpen ? "#10b981" : "#ef4444"}
+            fill={isPositive ? "#10b981" : "#ef4444"}
             style={{
-              filter: isOpen 
+              filter: isPositive 
                 ? "drop-shadow(0 0 4px rgba(16, 185, 129, 0.6))" 
                 : "drop-shadow(0 0 4px rgba(239, 68, 68, 0.6))",
-              animation: isOpen ? "gentle-pulse 2s infinite ease-in-out" : "none"
+              animation: isPositive ? "gentle-pulse 2s infinite ease-in-out" : "none"
             }}
           />
           
           {/* Growth indicator when positive */}
-          {isOpen && (
+          {isPositive && (
             <g className="opacity-80 animate-fade-in">
               <text
                 x="40"
