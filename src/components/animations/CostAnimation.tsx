@@ -6,21 +6,26 @@ interface CostAnimationProps {
 }
 
 const CostAnimation = ({ isOpen }: CostAnimationProps) => {
-  const [isSaving, setIsSaving] = useState(false);
+  const [animationPhase, setAnimationPhase] = useState<'red' | 'turning-gold' | 'stacking'>('red');
 
   useEffect(() => {
     const loop = () => {
-      // Start with grey state (2 seconds)
-      setIsSaving(false);
+      // Phase 1: Red coins (2 seconds)
+      setAnimationPhase('red');
       
       setTimeout(() => {
-        // Transition to gold coin stacking state (6 seconds)
-        setIsSaving(true);
+        // Phase 2: Turn gold (1 second)
+        setAnimationPhase('turning-gold');
         
         setTimeout(() => {
-          // Loop restarts after 6 seconds of stacking
-          loop();
-        }, 6000);
+          // Phase 3: Gold stacking (5 seconds)
+          setAnimationPhase('stacking');
+          
+          setTimeout(() => {
+            // Loop restarts after total 8 seconds
+            loop();
+          }, 5000);
+        }, 1000);
       }, 2000);
     };
 
@@ -42,125 +47,148 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
         </svg>
       </div>
 
-      {/* Coin stacking container */}
+      {/* Animation container */}
       <div className="relative w-14 h-14 z-10">
         <svg viewBox="0 0 56 56" className="w-full h-full">
-          {/* Base red coins (negative state) */}
-          {!isSaving && (
-            <g>
-              {/* Red coin 1 */}
-              <circle
-                cx="28"
-                cy="48"
-                r="6"
-                fill="#dc2626"
-                stroke="#991b1b"
-                strokeWidth="1"
-                className="animate-fade-in"
-              />
-              <text
-                x="28"
-                y="51"
-                fontSize="4"
-                textAnchor="middle"
-                fill="#7f1d1d"
-                fontWeight="bold"
-              >
-                €
-              </text>
-              
-              {/* Red coin 2 */}
-              <circle
-                cx="18"
-                cy="48"
-                r="5"
-                fill="#dc2626"
-                stroke="#991b1b"
-                strokeWidth="1"
-                className="animate-fade-in"
-                style={{ animationDelay: '0.2s' }}
-              />
-              <text
-                x="18"
-                y="50.5"
-                fontSize="3.5"
-                textAnchor="middle"
-                fill="#7f1d1d"
-                fontWeight="bold"
-              >
-                €
-              </text>
-              
-              {/* Red coin 3 */}
-              <circle
-                cx="38"
-                cy="48"
-                r="5"
-                fill="#dc2626"
-                stroke="#991b1b"
-                strokeWidth="1"
-                className="animate-fade-in"
-                style={{ animationDelay: '0.4s' }}
-              />
-              <text
-                x="38"
-                y="50.5"
-                fontSize="3.5"
-                textAnchor="middle"
-                fill="#7f1d1d"
-                fontWeight="bold"
-              >
-                €
-              </text>
-            </g>
-          )}
+          {/* Base 3 coins - start red, turn gold */}
+          <g>
+            {/* Left coin */}
+            <circle
+              cx="18"
+              cy="46"
+              r="7"
+              fill={animationPhase === 'red' ? '#dc2626' : '#fbbf24'}
+              stroke={animationPhase === 'red' ? '#991b1b' : '#f59e0b'}
+              strokeWidth="1"
+              className={animationPhase === 'turning-gold' ? 'animate-color-transition' : ''}
+            />
+            <text
+              x="18"
+              y="50"
+              fontSize="5"
+              textAnchor="middle"
+              fill={animationPhase === 'red' ? '#7f1d1d' : '#92400e'}
+              fontWeight="bold"
+              className={animationPhase === 'turning-gold' ? 'animate-color-transition' : ''}
+            >
+              €
+            </text>
+            
+            {/* Center coin */}
+            <circle
+              cx="28"
+              cy="46"
+              r="7"
+              fill={animationPhase === 'red' ? '#dc2626' : '#fbbf24'}
+              stroke={animationPhase === 'red' ? '#991b1b' : '#f59e0b'}
+              strokeWidth="1"
+              className={animationPhase === 'turning-gold' ? 'animate-color-transition' : ''}
+            />
+            <text
+              x="28"
+              y="50"
+              fontSize="5"
+              textAnchor="middle"
+              fill={animationPhase === 'red' ? '#7f1d1d' : '#92400e'}
+              fontWeight="bold"
+              className={animationPhase === 'turning-gold' ? 'animate-color-transition' : ''}
+            >
+              €
+            </text>
+            
+            {/* Right coin */}
+            <circle
+              cx="38"
+              cy="46"
+              r="7"
+              fill={animationPhase === 'red' ? '#dc2626' : '#fbbf24'}
+              stroke={animationPhase === 'red' ? '#991b1b' : '#f59e0b'}
+              strokeWidth="1"
+              className={animationPhase === 'turning-gold' ? 'animate-color-transition' : ''}
+            />
+            <text
+              x="38"
+              y="50"
+              fontSize="5"
+              textAnchor="middle"
+              fill={animationPhase === 'red' ? '#7f1d1d' : '#92400e'}
+              fontWeight="bold"
+              className={animationPhase === 'turning-gold' ? 'animate-color-transition' : ''}
+            >
+              €
+            </text>
+          </g>
 
-          {/* Gold coins stacking when saving */}
-          {isSaving && (
+          {/* Stacked coins - only show during stacking phase */}
+          {(animationPhase === 'stacking') && (
             <g>
-              {/* Stacked gold coins at bottom */}
-              <circle cx="28" cy="48" r="6" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-              <text x="28" y="51" fontSize="4" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+              {/* Left column stacked coins */}
+              <circle cx="18" cy="38" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-1" />
+              <text x="18" y="42" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-1">€</text>
               
-              <circle cx="28" cy="42" r="6" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-1" />
-              <text x="28" y="45" fontSize="4" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-1">€</text>
+              <circle cx="18" cy="30" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-2" />
+              <text x="18" y="34" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-2">€</text>
               
-              <circle cx="28" cy="36" r="6" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-2" />
-              <text x="28" y="39" fontSize="4" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-2">€</text>
+              <circle cx="18" cy="22" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-3" />
+              <text x="18" y="26" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-3">€</text>
+
+              {/* Center column stacked coins */}
+              <circle cx="28" cy="38" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-4" />
+              <text x="28" y="42" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-4">€</text>
               
-              <circle cx="28" cy="30" r="6" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-3" />
-              <text x="28" y="33" fontSize="4" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-3">€</text>
+              <circle cx="28" cy="30" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-5" />
+              <text x="28" y="34" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-5">€</text>
               
-              <circle cx="28" cy="24" r="6" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-4" />
-              <text x="28" y="27" fontSize="4" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-4">€</text>
+              <circle cx="28" cy="22" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-6" />
+              <text x="28" y="26" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-6">€</text>
               
-              <circle cx="28" cy="18" r="6" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-5" />
-              <text x="28" y="21" fontSize="4" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-5">€</text>
+              <circle cx="28" cy="14" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-7" />
+              <text x="28" y="18" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-7">€</text>
+
+              {/* Right column stacked coins */}
+              <circle cx="38" cy="38" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-8" />
+              <text x="38" y="42" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-8">€</text>
+              
+              <circle cx="38" cy="30" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-9" />
+              <text x="38" y="34" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-9">€</text>
+              
+              <circle cx="38" cy="22" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" className="animate-stack-10" />
+              <text x="38" y="26" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold" className="animate-stack-10">€</text>
 
               {/* Falling coins */}
               <g className="animate-coin-fall-1">
-                <circle cx="28" cy="-10" r="6" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="28" y="-7" fontSize="4" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="18" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
+                <text x="18" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
               
               <g className="animate-coin-fall-2">
-                <circle cx="28" cy="-10" r="6" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="28" y="-7" fontSize="4" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="28" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
+                <text x="28" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
               
               <g className="animate-coin-fall-3">
-                <circle cx="28" cy="-10" r="6" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="28" y="-7" fontSize="4" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="38" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
+                <text x="38" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
               
               <g className="animate-coin-fall-4">
-                <circle cx="28" cy="-10" r="6" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="28" y="-7" fontSize="4" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="18" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
+                <text x="18" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
               
               <g className="animate-coin-fall-5">
-                <circle cx="28" cy="-10" r="6" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
-                <text x="28" y="-7" fontSize="4" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+                <circle cx="28" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
+                <text x="28" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+              </g>
+              
+              <g className="animate-coin-fall-6">
+                <circle cx="38" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
+                <text x="38" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
+              </g>
+              
+              <g className="animate-coin-fall-7">
+                <circle cx="28" cy="-7" r="7" fill="#fbbf24" stroke="#f59e0b" strokeWidth="1" />
+                <text x="28" y="-3" fontSize="5" textAnchor="middle" fill="#92400e" fontWeight="bold">€</text>
               </g>
             </g>
           )}
@@ -168,14 +196,14 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
       </div>
 
       <style>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(5px);
+        @keyframes color-transition {
+          0% {
+            fill: #dc2626;
+            stroke: #991b1b;
           }
-          to {
-            opacity: 1;
-            transform: translateY(0);
+          100% {
+            fill: #fbbf24;
+            stroke: #f59e0b;
           }
         }
         
@@ -185,7 +213,7 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             opacity: 1;
           }
           100% {
-            transform: translateY(58px);
+            transform: translateY(53px);
             opacity: 0;
           }
         }
@@ -201,63 +229,103 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           }
         }
         
-        .animate-fade-in {
-          animation: fade-in 0.5s ease-out;
+        .animate-color-transition {
+          animation: color-transition 1s ease-out;
         }
         
         .animate-stack-1 {
           animation: stack-appear 0.3s ease-out;
-          animation-delay: 0.8s;
+          animation-delay: 0.3s;
           animation-fill-mode: both;
         }
         
         .animate-stack-2 {
           animation: stack-appear 0.3s ease-out;
-          animation-delay: 1.6s;
+          animation-delay: 0.8s;
           animation-fill-mode: both;
         }
         
         .animate-stack-3 {
           animation: stack-appear 0.3s ease-out;
-          animation-delay: 2.4s;
+          animation-delay: 1.3s;
           animation-fill-mode: both;
         }
         
         .animate-stack-4 {
           animation: stack-appear 0.3s ease-out;
-          animation-delay: 3.2s;
+          animation-delay: 0.5s;
           animation-fill-mode: both;
         }
         
         .animate-stack-5 {
           animation: stack-appear 0.3s ease-out;
-          animation-delay: 4s;
+          animation-delay: 1.0s;
+          animation-fill-mode: both;
+        }
+        
+        .animate-stack-6 {
+          animation: stack-appear 0.3s ease-out;
+          animation-delay: 1.5s;
+          animation-fill-mode: both;
+        }
+        
+        .animate-stack-7 {
+          animation: stack-appear 0.3s ease-out;
+          animation-delay: 2.0s;
+          animation-fill-mode: both;
+        }
+        
+        .animate-stack-8 {
+          animation: stack-appear 0.3s ease-out;
+          animation-delay: 0.7s;
+          animation-fill-mode: both;
+        }
+        
+        .animate-stack-9 {
+          animation: stack-appear 0.3s ease-out;
+          animation-delay: 1.2s;
+          animation-fill-mode: both;
+        }
+        
+        .animate-stack-10 {
+          animation: stack-appear 0.3s ease-out;
+          animation-delay: 1.7s;
           animation-fill-mode: both;
         }
         
         .animate-coin-fall-1 {
-          animation: coin-fall 0.8s ease-in;
-          animation-delay: 0.5s;
+          animation: coin-fall 0.7s ease-in;
+          animation-delay: 0.2s;
         }
         
         .animate-coin-fall-2 {
-          animation: coin-fall 0.8s ease-in;
-          animation-delay: 1.3s;
+          animation: coin-fall 0.7s ease-in;
+          animation-delay: 0.4s;
         }
         
         .animate-coin-fall-3 {
-          animation: coin-fall 0.8s ease-in;
-          animation-delay: 2.1s;
+          animation: coin-fall 0.7s ease-in;
+          animation-delay: 0.6s;
         }
         
         .animate-coin-fall-4 {
-          animation: coin-fall 0.8s ease-in;
-          animation-delay: 2.9s;
+          animation: coin-fall 0.7s ease-in;
+          animation-delay: 0.9s;
         }
         
         .animate-coin-fall-5 {
-          animation: coin-fall 0.8s ease-in;
-          animation-delay: 3.7s;
+          animation: coin-fall 0.7s ease-in;
+          animation-delay: 1.1s;
+        }
+        
+        .animate-coin-fall-6 {
+          animation: coin-fall 0.7s ease-in;
+          animation-delay: 1.3s;
+        }
+        
+        .animate-coin-fall-7 {
+          animation: coin-fall 0.7s ease-in;
+          animation-delay: 1.6s;
         }
       `}</style>
     </div>
