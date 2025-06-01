@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
@@ -8,14 +8,27 @@ import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ValueCard from "@/components/ValueCard";
 import DeliveryPromise from "@/components/DeliveryPromise";
+import { useSearchParams } from "react-router-dom";
 
 const Services = () => {
   const [openSections, setOpenSections] = useState<Record<number, boolean>>({});
+  const [searchParams] = useSearchParams();
   
   // Scroll animations
   const heroAnimation = useScrollAnimation();
   const deliveryAnimation = useScrollAnimation();
   const ctaAnimation = useScrollAnimation();
+
+  // Handle URL parameter to expand specific section
+  useEffect(() => {
+    const expandParam = searchParams.get('expand');
+    if (expandParam) {
+      const sectionIndex = parseInt(expandParam, 10);
+      if (!isNaN(sectionIndex) && sectionIndex >= 0 && sectionIndex < valueCards.length) {
+        setOpenSections({ [sectionIndex]: true });
+      }
+    }
+  }, [searchParams]);
 
   const handleBooking = () => {
     window.location.href = '/#contact';
