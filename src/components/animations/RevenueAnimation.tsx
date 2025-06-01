@@ -5,79 +5,105 @@ interface RevenueAnimationProps {
 
 const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
   return (
-    <div className="w-16 h-16 relative overflow-hidden rounded-lg bg-gray-900/80 flex items-center justify-center border border-gray-700/50">
-      {/* Background grid pattern */}
-      <div className="absolute inset-0 opacity-20">
+    <div className="w-16 h-16 relative overflow-hidden rounded-lg bg-gray-900/90 flex items-center justify-center border border-gray-700/30 backdrop-blur-sm">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 opacity-15">
         <svg width="100%" height="100%" className="w-full h-full">
           <defs>
-            <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
-              <path d="M 8 0 L 0 0 0 8" fill="none" stroke="#374151" strokeWidth="0.5"/>
+            <pattern id="revenue-grid" width="4" height="4" patternUnits="userSpaceOnUse">
+              <path d="M 4 0 L 0 0 0 4" fill="none" stroke="#374151" strokeWidth="0.3"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
+          <rect width="100%" height="100%" fill="url(#revenue-grid)" />
         </svg>
       </div>
 
-      {/* Chart container */}
-      <div className="relative w-14 h-10 z-10">
-        <svg viewBox="0 0 100 60" className="w-full h-full">
-          {/* Animated chart line */}
-          <polyline
-            points="10,45 25,40 40,50 55,45 70,25 85,15"
+      {/* Main chart container */}
+      <div className="relative w-12 h-8 z-10">
+        <svg viewBox="0 0 48 32" className="w-full h-full">
+          {/* Chart line path */}
+          <path
+            d={isOpen 
+              ? "M4,24 Q12,20 20,16 Q28,12 32,8 L44,4" 
+              : "M4,8 Q12,12 20,16 Q28,20 32,24 L44,28"
+            }
             fill="none"
-            strokeWidth="2"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="transition-all duration-1000 ease-in-out"
             stroke={isOpen ? "#10b981" : "#ef4444"}
             style={{
-              filter: isOpen ? 
-                "drop-shadow(0 0 4px #10b98150)" : 
-                "drop-shadow(0 0 4px #ef444450)",
-              animation: isOpen ? 
-                "revenueUp 7s infinite" : 
-                "revenueDown 7s infinite"
+              filter: isOpen 
+                ? "drop-shadow(0 0 3px rgba(16, 185, 129, 0.4))" 
+                : "drop-shadow(0 0 3px rgba(239, 68, 68, 0.4))"
             }}
           />
           
-          {/* Animated data points */}
+          {/* Data points */}
           <circle
-            cx="10" cy="45" r="2"
-            className="transition-all duration-1000"
+            cx="4"
+            cy={isOpen ? "24" : "8"}
+            r="1.5"
+            className="transition-all duration-1000 ease-in-out"
             fill={isOpen ? "#10b981" : "#ef4444"}
             style={{
-              filter: isOpen ? 
-                "drop-shadow(0 0 6px #10b98180)" : 
-                "drop-shadow(0 0 6px #ef444480)",
-              animation: isOpen ? 
-                "pointPulse 2s infinite ease-in-out" :
-                "pointPulse 2s infinite ease-in-out 0.5s"
-            }}
-          />
-          <circle
-            cx="85" cy="15" r="2"
-            className="transition-all duration-1000"
-            fill={isOpen ? "#10b981" : "#ef4444"}
-            style={{
-              filter: isOpen ? 
-                "drop-shadow(0 0 6px #10b98180)" : 
-                "drop-shadow(0 0 6px #ef444480)",
-              animation: isOpen ? 
-                "pointPulse 2s infinite ease-in-out 0.3s" :
-                "pointPulse 2s infinite ease-in-out 0.8s"
+              filter: isOpen 
+                ? "drop-shadow(0 0 4px rgba(16, 185, 129, 0.6))" 
+                : "drop-shadow(0 0 4px rgba(239, 68, 68, 0.6))"
             }}
           />
           
-          {/* Growth indicator arrow (only when positive) */}
+          <circle
+            cx="20"
+            cy="16"
+            r="1.2"
+            className="transition-all duration-1000 ease-in-out"
+            fill={isOpen ? "#10b981" : "#ef4444"}
+            style={{
+              filter: isOpen 
+                ? "drop-shadow(0 0 4px rgba(16, 185, 129, 0.5))" 
+                : "drop-shadow(0 0 4px rgba(239, 68, 68, 0.5))"
+            }}
+          />
+          
+          <circle
+            cx="44"
+            cy={isOpen ? "4" : "28"}
+            r="1.5"
+            className="transition-all duration-1000 ease-in-out"
+            fill={isOpen ? "#10b981" : "#ef4444"}
+            style={{
+              filter: isOpen 
+                ? "drop-shadow(0 0 4px rgba(16, 185, 129, 0.6))" 
+                : "drop-shadow(0 0 4px rgba(239, 68, 68, 0.6))",
+              animation: isOpen ? "gentle-pulse 2s infinite ease-in-out" : "none"
+            }}
+          />
+          
+          {/* Growth indicator when positive */}
           {isOpen && (
-            <g className="opacity-80">
+            <g className="opacity-80 animate-fade-in">
+              <text
+                x="40"
+                y="2"
+                fontSize="4"
+                fill="#10b981"
+                className="text-[4px] font-medium"
+                style={{
+                  filter: "drop-shadow(0 0 2px rgba(16, 185, 129, 0.4))"
+                }}
+              >
+                +21%
+              </text>
               <path
-                d="M75,20 L80,15 L85,20 M80,15 L80,25"
+                d="M42,6 L44,4 L46,6"
                 fill="none"
                 stroke="#10b981"
-                strokeWidth="1.5"
+                strokeWidth="0.8"
                 strokeLinecap="round"
                 style={{
-                  animation: "arrowGlow 2s infinite ease-in-out",
-                  filter: "drop-shadow(0 0 3px #10b98150)"
+                  animation: "arrow-glow 1.5s infinite ease-in-out"
                 }}
               />
             </g>
@@ -86,50 +112,41 @@ const RevenueAnimation = ({ isOpen }: RevenueAnimationProps) => {
       </div>
 
       <style>{`
-        @keyframes revenueDown {
-          0%, 28% {
-            transform: translateY(8px) scaleY(0.8);
-          }
-          43%, 71% {
-            transform: translateY(8px) scaleY(0.8);
-          }
-          85%, 100% {
-            transform: translateY(-4px) scaleY(1.1);
-          }
-        }
-        
-        @keyframes revenueUp {
-          0%, 28% {
-            transform: translateY(-4px) scaleY(1.1);
-          }
-          43%, 71% {
-            transform: translateY(-4px) scaleY(1.1);
-          }
-          85%, 100% {
-            transform: translateY(-4px) scaleY(1.1);
-          }
-        }
-        
-        @keyframes pointPulse {
+        @keyframes gentle-pulse {
           0%, 100% {
             transform: scale(1);
-            opacity: 0.8;
+            opacity: 0.9;
           }
           50% {
-            transform: scale(1.4);
+            transform: scale(1.2);
             opacity: 1;
           }
         }
         
-        @keyframes arrowGlow {
+        @keyframes arrow-glow {
           0%, 100% {
-            opacity: 0.6;
+            opacity: 0.7;
             transform: translateY(0);
           }
           50% {
             opacity: 1;
-            transform: translateY(-1px);
+            transform: translateY(-0.5px);
           }
+        }
+        
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(2px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 0.5s ease-out;
         }
       `}</style>
     </div>
