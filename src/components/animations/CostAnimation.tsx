@@ -62,22 +62,22 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           
           {/* Piggy bank ears */}
           <ellipse
-            cx="20"
-            cy="16"
+            cx="18"
+            cy="18"
             rx="3"
             ry="4"
             className="transition-all duration-1000 ease-in-out"
             fill={isSaving ? "#059669" : "#4b5563"}
-            transform="rotate(-15 20 16)"
+            transform="rotate(-20 18 18)"
           />
           <ellipse
-            cx="36"
-            cy="16"
+            cx="38"
+            cy="18"
             rx="3"
             ry="4"
             className="transition-all duration-1000 ease-in-out"
             fill={isSaving ? "#059669" : "#4b5563"}
-            transform="rotate(15 36 16)"
+            transform="rotate(20 38 18)"
           />
           
           {/* Piggy bank snout */}
@@ -178,38 +178,60 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
             stroke={isSaving ? "#059669" : "#4b5563"}
           />
           
-          {/* Falling coins when saving - positioned to fall into the coin slot */}
+          {/* 9 Falling coins when saving */}
           {isSaving && (
             <g>
-              {/* Coin 1 - falls into slot from left */}
+              {/* Coin 1 */}
               <circle
-                cx="22"
-                cy="-4"
+                cx="20"
+                cy="-2"
                 r="1.5"
                 fill="#fbbf24"
-                className="animate-coin-fall-slot-1"
+                className="animate-coin-fall-1"
                 style={{
                   filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
                 }}
               />
               <text
-                x="22"
-                y="-2.5"
+                x="20"
+                y="-0.5"
                 fontSize="1.2"
                 textAnchor="middle"
                 fill="#f59e0b"
-                className="animate-coin-fall-slot-1"
+                className="animate-coin-fall-1"
               >
                 $
               </text>
               
-              {/* Coin 2 - falls into slot from center */}
+              {/* Coin 2 */}
+              <circle
+                cx="24"
+                cy="-4"
+                r="1.5"
+                fill="#fbbf24"
+                className="animate-coin-fall-2"
+                style={{
+                  filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
+                }}
+              />
+              <text
+                x="24"
+                y="-2.5"
+                fontSize="1.2"
+                textAnchor="middle"
+                fill="#f59e0b"
+                className="animate-coin-fall-2"
+              >
+                $
+              </text>
+              
+              {/* Coin 3 */}
               <circle
                 cx="28"
                 cy="-6"
                 r="1.5"
                 fill="#fbbf24"
-                className="animate-coin-fall-slot-2"
+                className="animate-coin-fall-3"
                 style={{
                   filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
                 }}
@@ -220,29 +242,139 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
                 fontSize="1.2"
                 textAnchor="middle"
                 fill="#f59e0b"
-                className="animate-coin-fall-slot-2"
+                className="animate-coin-fall-3"
               >
                 $
               </text>
               
-              {/* Coin 3 - falls into slot from right */}
+              {/* Coin 4 */}
               <circle
-                cx="30"
-                cy="-2"
+                cx="32"
+                cy="-3"
                 r="1.5"
                 fill="#fbbf24"
-                className="animate-coin-fall-slot-3"
+                className="animate-coin-fall-4"
+                style={{
+                  filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
+                }}
+              />
+              <text
+                x="32"
+                y="-1.5"
+                fontSize="1.2"
+                textAnchor="middle"
+                fill="#f59e0b"
+                className="animate-coin-fall-4"
+              >
+                $
+              </text>
+              
+              {/* Coin 5 */}
+              <circle
+                cx="22"
+                cy="-8"
+                r="1.5"
+                fill="#fbbf24"
+                className="animate-coin-fall-5"
+                style={{
+                  filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
+                }}
+              />
+              <text
+                x="22"
+                y="-6.5"
+                fontSize="1.2"
+                textAnchor="middle"
+                fill="#f59e0b"
+                className="animate-coin-fall-5"
+              >
+                $
+              </text>
+              
+              {/* Coin 6 */}
+              <circle
+                cx="26"
+                cy="-10"
+                r="1.5"
+                fill="#fbbf24"
+                className="animate-coin-fall-6"
+                style={{
+                  filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
+                }}
+              />
+              <text
+                x="26"
+                y="-8.5"
+                fontSize="1.2"
+                textAnchor="middle"
+                fill="#f59e0b"
+                className="animate-coin-fall-6"
+              >
+                $
+              </text>
+              
+              {/* Coin 7 */}
+              <circle
+                cx="30"
+                cy="-1"
+                r="1.5"
+                fill="#fbbf24"
+                className="animate-coin-fall-7"
                 style={{
                   filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
                 }}
               />
               <text
                 x="30"
-                y="-0.5"
+                y="0.5"
                 fontSize="1.2"
                 textAnchor="middle"
                 fill="#f59e0b"
-                className="animate-coin-fall-slot-3"
+                className="animate-coin-fall-7"
+              >
+                $
+              </text>
+              
+              {/* Coin 8 */}
+              <circle
+                cx="25"
+                cy="-12"
+                r="1.5"
+                fill="#fbbf24"
+                className="animate-coin-fall-8"
+                style={{
+                  filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
+                }}
+              />
+              <text
+                x="25"
+                y="-10.5"
+                fontSize="1.2"
+                textAnchor="middle"
+                fill="#f59e0b"
+                className="animate-coin-fall-8"
+              >
+                $
+              </text>
+              
+              {/* Coin 9 */}
+              <circle
+                cx="29"
+                cy="-14"
+                r="1.5"
+                fill="#fbbf24"
+                className="animate-coin-fall-9"
+                style={{
+                  filter: "drop-shadow(0 0 2px rgba(251, 191, 36, 0.6))"
+                }}
+              />
+              <text
+                x="29"
+                y="-12.5"
+                fontSize="1.2"
+                textAnchor="middle"
+                fill="#f59e0b"
+                className="animate-coin-fall-9"
               >
                 $
               </text>
@@ -298,24 +430,7 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           }
         }
         
-        @keyframes coin-fall-slot-1 {
-          0% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 1;
-          }
-          70% {
-            opacity: 1;
-          }
-          85% {
-            opacity: 0.7;
-          }
-          100% {
-            transform: translateY(22px) rotate(180deg);
-            opacity: 0;
-          }
-        }
-        
-        @keyframes coin-fall-slot-2 {
+        @keyframes coin-fall {
           0% {
             transform: translateY(0) rotate(0deg);
             opacity: 1;
@@ -323,28 +438,11 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           75% {
             opacity: 1;
           }
-          90% {
-            opacity: 0.6;
+          85% {
+            opacity: 0.5;
           }
           100% {
-            transform: translateY(24px) rotate(-180deg);
-            opacity: 0;
-          }
-        }
-        
-        @keyframes coin-fall-slot-3 {
-          0% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 1;
-          }
-          65% {
-            opacity: 1;
-          }
-          80% {
-            opacity: 0.8;
-          }
-          100% {
-            transform: translateY(20px) rotate(180deg);
+            transform: translateY(18px) rotate(180deg);
             opacity: 0;
           }
         }
@@ -364,18 +462,48 @@ const CostAnimation = ({ isOpen }: CostAnimationProps) => {
           animation: fade-in 0.5s ease-out;
         }
         
-        .animate-coin-fall-slot-1 {
-          animation: coin-fall-slot-1 3s infinite ease-in;
-          animation-delay: 0.5s;
+        .animate-coin-fall-1 {
+          animation: coin-fall 2s infinite ease-in;
+          animation-delay: 0.2s;
         }
         
-        .animate-coin-fall-slot-2 {
-          animation: coin-fall-slot-2 3.5s infinite ease-in;
+        .animate-coin-fall-2 {
+          animation: coin-fall 2.2s infinite ease-in;
+          animation-delay: 0.4s;
+        }
+        
+        .animate-coin-fall-3 {
+          animation: coin-fall 2.4s infinite ease-in;
+          animation-delay: 0.6s;
+        }
+        
+        .animate-coin-fall-4 {
+          animation: coin-fall 2.1s infinite ease-in;
+          animation-delay: 0.8s;
+        }
+        
+        .animate-coin-fall-5 {
+          animation: coin-fall 2.3s infinite ease-in;
           animation-delay: 1s;
         }
         
-        .animate-coin-fall-slot-3 {
-          animation: coin-fall-slot-3 3.2s infinite ease-in;
+        .animate-coin-fall-6 {
+          animation: coin-fall 2.5s infinite ease-in;
+          animation-delay: 1.2s;
+        }
+        
+        .animate-coin-fall-7 {
+          animation: coin-fall 2.1s infinite ease-in;
+          animation-delay: 1.4s;
+        }
+        
+        .animate-coin-fall-8 {
+          animation: coin-fall 2.3s infinite ease-in;
+          animation-delay: 1.6s;
+        }
+        
+        .animate-coin-fall-9 {
+          animation: coin-fall 2.2s infinite ease-in;
           animation-delay: 1.8s;
         }
       `}</style>
