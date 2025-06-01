@@ -130,7 +130,6 @@ const Services = () => {
 
       {/* How We Work Section */}
       <section className="py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800"></div>
         <div 
           ref={deliveryAnimation.elementRef}
           className={`relative z-10 max-w-7xl mx-auto px-6 transition-all duration-1000 ${
