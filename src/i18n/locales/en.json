@@ -1,4 +1,3 @@
-
 {
   "hero": {
     "title": "AI-Powered",
@@ -102,7 +101,33 @@
     "servicesWeOffer": "Services we offer:",
     "readyToDiscover": "Ready to discover the next level of value creation?",
     "exploreAutomation": "Let's explore what we could automate for you",
-    "bookConsultation": "Book Your Consultation"
+    "bookConsultation": "Book Your Consultation",
+    "deliveryPromise": {
+      "title": "Our Delivery Promise",
+      "subtitle": "How we ensure your success with every project",
+      "promises": {
+        "fastDevelopment": {
+          "title": "Fast Development",
+          "description": "Rapid prototyping and deployment"
+        },
+        "clientsFirst": {
+          "title": "Clients Always First",
+          "description": "Aiming for 300% ROI on every solution"
+        },
+        "measuredPerformance": {
+          "title": "Measured Performance",
+          "description": "Clear metrics for each delivered solution"
+        },
+        "seamlessIntegration": {
+          "title": "Seamless Integration",
+          "description": "Little effort required from your team"
+        },
+        "payForResults": {
+          "title": "Pay for Results",
+          "description": "You only pay for what works"
+        }
+      }
+    }
   },
   "einstein": {
     "quote": "We cannot solve problems with the same thinking we used when we created them.",

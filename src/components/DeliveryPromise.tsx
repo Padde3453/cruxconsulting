@@ -1,33 +1,36 @@
 
 import { Card } from "@/components/ui/card";
 import { CheckCircle, TrendingUp, Clock, Users, DollarSign } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 const DeliveryPromise = () => {
+  const { t } = useTranslation();
+
   const deliveryPromises = [
     {
       icon: CheckCircle,
-      title: "Fast Development",
-      description: "Rapid prototyping and deployment"
+      title: t('services.deliveryPromise.promises.fastDevelopment.title'),
+      description: t('services.deliveryPromise.promises.fastDevelopment.description')
     },
     {
       icon: TrendingUp,
-      title: "Clients Always First",
-      description: "Aiming for 300% ROI on every solution"
+      title: t('services.deliveryPromise.promises.clientsFirst.title'),
+      description: t('services.deliveryPromise.promises.clientsFirst.description')
     },
     {
       icon: Users,
-      title: "Measured Performance",
-      description: "Clear metrics for each delivered solution"
+      title: t('services.deliveryPromise.promises.measuredPerformance.title'),
+      description: t('services.deliveryPromise.promises.measuredPerformance.description')
     },
     {
       icon: Clock,
-      title: "Seamless Integration",
-      description: "Little effort required from your team"
+      title: t('services.deliveryPromise.promises.seamlessIntegration.title'),
+      description: t('services.deliveryPromise.promises.seamlessIntegration.description')
     },
     {
       icon: DollarSign,
-      title: "Pay for Results",
-      description: "You only pay for what works"
+      title: t('services.deliveryPromise.promises.payForResults.title'),
+      description: t('services.deliveryPromise.promises.payForResults.description')
     }
   ];
 
@@ -35,10 +38,10 @@ const DeliveryPromise = () => {
     <>
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-          Our Delivery Promise
+          {t('services.deliveryPromise.title')}
         </h2>
         <p className="text-xl text-white max-w-2xl mx-auto">
-          How we ensure your success with every project
+          {t('services.deliveryPromise.subtitle')}
         </p>
       </div>
 

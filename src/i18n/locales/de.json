@@ -1,4 +1,3 @@
-
 {
   "hero": {
     "title": "KI-gestütztes",
@@ -102,7 +101,33 @@
     "servicesWeOffer": "Services, die wir anbieten:",
     "readyToDiscover": "Bereit, die nächste Stufe der Wertschöpfung zu entdecken?",
     "exploreAutomation": "Lassen Sie uns erkunden, was wir für Sie automatisieren könnten",
-    "bookConsultation": "Buchen Sie Ihre Beratung"
+    "bookConsultation": "Buchen Sie Ihre Beratung",
+    "deliveryPromise": {
+      "title": "Unser Lieferversprechen",
+      "subtitle": "Wie wir Ihren Erfolg bei jedem Projekt sicherstellen",
+      "promises": {
+        "fastDevelopment": {
+          "title": "Schnelle Entwicklung",
+          "description": "Schnelle Prototypenerstellung und Bereitstellung"
+        },
+        "clientsFirst": {
+          "title": "Kunden stehen an erster Stelle",
+          "description": "Anstreben von 300% ROI bei jeder Lösung"
+        },
+        "measuredPerformance": {
+          "title": "Gemessene Leistung",
+          "description": "Klare Metriken für jede gelieferte Lösung"
+        },
+        "seamlessIntegration": {
+          "title": "Nahtlose Integration",
+          "description": "Geringer Aufwand für Ihr Team erforderlich"
+        },
+        "payForResults": {
+          "title": "Bezahlung für Ergebnisse",
+          "description": "Sie zahlen nur für das, was funktioniert"
+        }
+      }
+    }
   },
   "einstein": {
     "quote": "Wir können Probleme nicht mit der gleichen Denkweise lösen, mit der wir sie geschaffen haben.",
