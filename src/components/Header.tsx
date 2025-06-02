@@ -84,7 +84,7 @@ const Header = ({ onBooking }: HeaderProps) => {
             onClick={handleServicesNavigation}
             className={`transition-colors ${
               isActivePage('/services') 
-                ? 'text-white font-semibold' 
+                ? 'text-white border-b-2 border-brand-blue' 
                 : 'text-gray-300 hover:text-white'
             }`}
           >
@@ -93,7 +93,7 @@ const Header = ({ onBooking }: HeaderProps) => {
           <button 
             onClick={handleBlogNavigation}
             className={`transition-colors ${
-              isActivePage('/blog') 
+              isActivePage('/blog') || location.pathname.startsWith('/blog/') 
                 ? 'text-white border-b-2 border-brand-blue' 
                 : 'text-gray-300 hover:text-white'
             }`}
@@ -104,7 +104,7 @@ const Header = ({ onBooking }: HeaderProps) => {
             to="/about" 
             className={`transition-colors ${
               isActivePage('/about') 
-                ? 'text-white font-semibold' 
+                ? 'text-white border-b-2 border-brand-blue' 
                 : 'text-gray-300 hover:text-white'
             }`}
           >
@@ -146,7 +146,7 @@ const Header = ({ onBooking }: HeaderProps) => {
               onClick={handleServicesNavigation}
               className={`block transition-colors ${
                 isActivePage('/services') 
-                  ? 'text-white font-semibold' 
+                  ? 'text-white border-b-2 border-brand-blue' 
                   : 'text-gray-300 hover:text-white'
               }`}
             >
@@ -155,8 +155,8 @@ const Header = ({ onBooking }: HeaderProps) => {
             <button 
               onClick={handleBlogNavigation}
               className={`block transition-colors ${
-                isActivePage('/blog') 
-                  ? 'text-white' 
+                isActivePage('/blog') || location.pathname.startsWith('/blog/') 
+                  ? 'text-white border-b-2 border-brand-blue' 
                   : 'text-gray-300 hover:text-white'
               }`}
             >
@@ -166,7 +166,7 @@ const Header = ({ onBooking }: HeaderProps) => {
               to="/about" 
               className={`block transition-colors ${
                 isActivePage('/about') 
-                  ? 'text-white font-semibold' 
+                  ? 'text-white border-b-2 border-brand-blue' 
                   : 'text-gray-300 hover:text-white'
               }`}
               onClick={() => setMobileMenuOpen(false)}
