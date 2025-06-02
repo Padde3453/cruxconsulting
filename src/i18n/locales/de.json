@@ -27,6 +27,8 @@
   "services": {
     "title": "Unsere Dienstleistungen",
     "subtitle": "KI-Lösungen, die um Ihr Unternehmen herum entwickelt werden – nicht umgekehrt",
+    "pageTitle": "Unsere Dienstleistungen",
+    "pageSubtitle": "Wert 24/7 für Sie, auch im Schlaf",
     "moreRevenue": {
       "title": "Mehr Umsatz",
       "subtitle": "durch hochwertige Kunden",
@@ -35,6 +37,13 @@
         "Automatisierte Lead-Generierung",
         "Kundenbeziehungsmanagement",
         "Optimierung des Vertriebstrichters"
+      ],
+      "services": [
+        "Automatisierung der Lead-Generierung",
+        "Kundenbeziehungsmanagementsysteme",
+        "Optimierung des Verkaufstrichters",
+        "Marktanalyse und Zielgruppenfindung",
+        "Umsatzverfolgung und Prognosen"
       ]
     },
     "moreFreeTime": {
@@ -45,6 +54,13 @@
         "Prozessautomatisierungslösungen",
         "Workflow-Optimierung",
         "Aufgabenplanungssysteme"
+      ],
+      "services": [
+        "Prozessautomatisierungslösungen",
+        "Dokumentenmanagementsysteme",
+        "Workflow-Optimierung",
+        "Aufgabenplanung und -delegation",
+        "Qualitätskontrollautomatisierung"
       ]
     },
     "betterClientExperience": {
@@ -55,6 +71,13 @@
         "Automatisierung des Kundenservice",
         "Entwicklung von Kundenportalen",
         "Verfolgung der Servicebereitstellung"
+      ],
+      "services": [
+        "Kundenservice-Chatbots",
+        "Automatisierte Antwortsysteme",
+        "Entwicklung von Kundenportalen",
+        "Verfolgung der Servicebereitstellung",
+        "Automatisierung der Feedbacksammlung"
       ]
     },
     "lessCost": {
@@ -65,10 +88,21 @@
         "Kostenanalyse und -optimierung",
         "Automatisierte Marktforschung",
         "ROI-Tracking und Berichterstattung"
+      ],
+      "services": [
+        "Kostenanalyse und -optimierung",
+        "Anbietervergleichssysteme",
+        "Automatisierung der Marktforschung",
+        "Preisüberwachungstools",
+        "ROI-Tracking und Berichterstattung"
       ]
     },
     "learnMore": "Mehr erfahren",
-    "exploreAll": "Alle Services erkunden"
+    "exploreAll": "Alle Services erkunden",
+    "servicesWeOffer": "Services, die wir anbieten:",
+    "readyToDiscover": "Bereit, die nächste Stufe der Wertschöpfung zu entdecken?",
+    "exploreAutomation": "Lassen Sie uns erkunden, was wir für Sie automatisieren könnten",
+    "bookConsultation": "Buchen Sie Ihre Beratung"
   },
   "einstein": {
     "quote": "Wir können Probleme nicht mit der gleichen Denkweise lösen, mit der wir sie geschaffen haben.",

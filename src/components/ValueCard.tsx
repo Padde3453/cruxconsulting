@@ -6,6 +6,7 @@ import RevenueAnimation from "./animations/RevenueAnimation";
 import TimeAnimation from "./animations/TimeAnimation";
 import ExperienceAnimation from "./animations/ExperienceAnimation";
 import CostAnimation from "./animations/CostAnimation";
+import { useTranslation } from 'react-i18next';
 
 interface ValueCardProps {
   index: number;
@@ -26,6 +27,8 @@ const ValueCard = ({
   isOpen, 
   onToggle 
 }: ValueCardProps) => {
+  const { t } = useTranslation();
+  
   const AnimationComponent = {
     revenue: RevenueAnimation,
     time: TimeAnimation,
@@ -55,7 +58,7 @@ const ValueCard = ({
         
         <CollapsibleContent className="overflow-hidden transition-all duration-500">
           <div className="px-6 pb-6 border-t border-gray-700 pt-4">
-            <h4 className="font-semibold mb-3 text-brand-blue">Services we offer:</h4>
+            <h4 className="font-semibold mb-3 text-brand-blue">{t('services.servicesWeOffer')}</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {services.map((service, serviceIndex) => (
                 <div key={serviceIndex} className="flex items-center text-white">

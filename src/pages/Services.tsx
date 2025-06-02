@@ -9,8 +9,10 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ValueCard from "@/components/ValueCard";
 import DeliveryPromise from "@/components/DeliveryPromise";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const Services = () => {
+  const { t } = useTranslation();
   const [openSections, setOpenSections] = useState<Record<number, boolean>>({});
   const [searchParams] = useSearchParams();
   
@@ -54,51 +56,51 @@ const Services = () => {
 
   const valueCards = [
     {
-      title: "More Revenue",
-      subtitle: "through more high value clients",
+      title: t('services.moreRevenue.title'),
+      subtitle: t('services.moreRevenue.subtitle'),
       animationType: "revenue" as const,
       services: [
-        "Lead generation automation",
-        "Client relationship management systems",
-        "Sales funnel optimization",
-        "Market analysis and targeting",
-        "Revenue tracking and forecasting"
+        t('services.moreRevenue.services.0'),
+        t('services.moreRevenue.services.1'),
+        t('services.moreRevenue.services.2'),
+        t('services.moreRevenue.services.3'),
+        t('services.moreRevenue.services.4')
       ]
     },
     {
-      title: "More Free Time",
-      subtitle: "thanks to automation of manual and repetitive tasks",
+      title: t('services.moreFreeTime.title'),
+      subtitle: t('services.moreFreeTime.subtitle'),
       animationType: "time" as const,
       services: [
-        "Process automation solutions",
-        "Document management systems",
-        "Workflow optimization",
-        "Task scheduling and delegation",
-        "Quality control automation"
+        t('services.moreFreeTime.services.0'),
+        t('services.moreFreeTime.services.1'),
+        t('services.moreFreeTime.services.2'),
+        t('services.moreFreeTime.services.3'),
+        t('services.moreFreeTime.services.4')
       ]
     },
     {
-      title: "Better Client Experience",
-      subtitle: "through fast, reliable service even when you are busy",
+      title: t('services.betterClientExperience.title'),
+      subtitle: t('services.betterClientExperience.subtitle'),
       animationType: "experience" as const,
       services: [
-        "Customer service chatbots",
-        "Automated response systems",
-        "Client portal development",
-        "Service delivery tracking",
-        "Feedback collection automation"
+        t('services.betterClientExperience.services.0'),
+        t('services.betterClientExperience.services.1'),
+        t('services.betterClientExperience.services.2'),
+        t('services.betterClientExperience.services.3'),
+        t('services.betterClientExperience.services.4')
       ]
     },
     {
-      title: "Less Cost, Better Solution",
-      subtitle: "through information and offer gathering like never before",
+      title: t('services.lessCost.title'),
+      subtitle: t('services.lessCost.subtitle'),
       animationType: "cost" as const,
       services: [
-        "Cost analysis and optimization",
-        "Vendor comparison systems",
-        "Market research automation",
-        "Price monitoring tools",
-        "ROI tracking and reporting"
+        t('services.lessCost.services.0'),
+        t('services.lessCost.services.1'),
+        t('services.lessCost.services.2'),
+        t('services.lessCost.services.3'),
+        t('services.lessCost.services.4')
       ]
     }
   ];
@@ -127,10 +129,10 @@ const Services = () => {
         >
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-              Our Services
+              {t('services.pageTitle')}
             </h1>
             <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
-              Value 24/7 for you, even in your sleep
+              {t('services.pageSubtitle')}
             </p>
           </div>
 
@@ -179,17 +181,17 @@ const Services = () => {
         >
           <div className="bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 p-12 rounded-lg">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-              Ready to discover the next level of value creation?
+              {t('services.readyToDiscover')}
             </h2>
             <p className="text-xl text-white mb-8">
-              Let's explore what we could automate for you
+              {t('services.exploreAutomation')}
             </p>
             <Button 
               onClick={handleBooking}
               size="lg" 
               className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 mx-auto transition-all duration-300 transform hover:scale-105"
             >
-              <span>Book Your Consultation</span>
+              <span>{t('services.bookConsultation')}</span>
               <ArrowRight size={20} />
             </Button>
           </div>

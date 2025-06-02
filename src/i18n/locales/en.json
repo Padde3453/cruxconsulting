@@ -27,6 +27,8 @@
   "services": {
     "title": "Our Services",
     "subtitle": "AI solutions built around your business — not the other way around",
+    "pageTitle": "Our Services",
+    "pageSubtitle": "Value 24/7 for you, even in your sleep",
     "moreRevenue": {
       "title": "More Revenue",
       "subtitle": "through high-quality customers",
@@ -35,6 +37,13 @@
         "Automated lead generation",
         "Customer relationship management",
         "Sales funnel optimization"
+      ],
+      "services": [
+        "Lead generation automation",
+        "Client relationship management systems",
+        "Sales funnel optimization",
+        "Market analysis and targeting",
+        "Revenue tracking and forecasting"
       ]
     },
     "moreFreeTime": {
@@ -45,6 +54,13 @@
         "Process automation solutions",
         "Workflow optimization",
         "Task scheduling systems"
+      ],
+      "services": [
+        "Process automation solutions",
+        "Document management systems",
+        "Workflow optimization",
+        "Task scheduling and delegation",
+        "Quality control automation"
       ]
     },
     "betterClientExperience": {
@@ -55,6 +71,13 @@
         "Customer service automation",
         "Client portal development",
         "Service delivery tracking"
+      ],
+      "services": [
+        "Customer service chatbots",
+        "Automated response systems",
+        "Client portal development",
+        "Service delivery tracking",
+        "Feedback collection automation"
       ]
     },
     "lessCost": {
@@ -65,10 +88,21 @@
         "Cost analysis and optimization",
         "Automated market research",
         "ROI tracking and reporting"
+      ],
+      "services": [
+        "Cost analysis and optimization",
+        "Vendor comparison systems",
+        "Market research automation",
+        "Price monitoring tools",
+        "ROI tracking and reporting"
       ]
     },
     "learnMore": "Learn More",
-    "exploreAll": "Explore All Services"
+    "exploreAll": "Explore All Services",
+    "servicesWeOffer": "Services we offer:",
+    "readyToDiscover": "Ready to discover the next level of value creation?",
+    "exploreAutomation": "Let's explore what we could automate for you",
+    "bookConsultation": "Book Your Consultation"
   },
   "einstein": {
     "quote": "We cannot solve problems with the same thinking we used when we created them.",
