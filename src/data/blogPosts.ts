@@ -53,7 +53,7 @@ export const blogPosts: BlogPost[] = [
 
 <br>The good news? <strong>Smart automation isn't just for big tech companies anymore.</strong> Thanks to easy-to-use tools and custom solutions, small and mid-sized companies can now automate key parts of their operations without hiring a developer or changing everything overnight.</br>
 
-<p>Here are five common tasks that <em>SMEs like yours</em> can start automating right away — and how it can help you save time, reduce errors, and focus on what really matters: your clients.</p>
+<br>Here are five common tasks that <em>SMEs like yours</em> can start automating right away — and how it can help you save time, reduce errors, and focus on what really matters: your clients.</br>
 
 <h3>1. Client Onboarding</h3>
 <p>Whether you're a law firm, tax consultant, or logistics provider — onboarding new clients often means repeating the same steps: sending welcome emails, requesting documents, filling out forms. These steps can all be <strong>automated into a smooth, digital workflow</strong>.</p>
