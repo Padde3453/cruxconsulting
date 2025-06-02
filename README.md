@@ -79,10 +79,21 @@ Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-trick
 
 ### Blog System Overview
 
-The blog system consists of:
-- **Blog Preview Section**: Shows the 3 most recent posts on the homepage
+The blog system uses a **centralized data structure** that automatically keeps all blog components in sync. The system consists of:
+
+- **Blog Preview Section**: Automatically shows the 3 most recent posts on the homepage
 - **Blog Overview Page** (`/blog`): Displays all blog posts in a grid layout
 - **Dynamic Blog Post Pages** (`/blog/:id`): Individual reading pages for each blog post with full content
+
+### Centralized Blog Data Management
+
+All blog data is managed in **ONE LOCATION**: `src/data/blogPosts.ts`
+
+**Key Benefits:**
+- ✅ Add a blog post once, it appears everywhere automatically
+- ✅ Homepage preview automatically shows the 3 most recent posts by date
+- ✅ All pages stay in sync automatically
+- ✅ No duplication or manual updates needed
 
 ### Blog Navigation Structure
 
@@ -92,136 +103,182 @@ Homepage → Blog Preview (3 latest posts) → Individual Post Page
 Blog Overview Page (all posts) → Individual Post Page
 ```
 
-### How to Manage Blog Content
+### How to Add New Blog Posts
 
-### 1. Uploading Images for Blog Posts
+**Single Source Management:**
+1. Edit `src/data/blogPosts.ts`
+2. Add new blog post objects to the `blogPosts` array
+3. That's it! The entire website updates automatically
 
-**Via Lovable Interface:**
-1. Open your project in Lovable
-2. Upload images through the interface - they will be automatically placed in `/public/lovable-uploads/`
-3. Reference uploaded images using the path: `/lovable-uploads/your-image-filename.png`
+### Blog Post Format
 
-**Via Direct File Upload:**
-1. Place images in the `/public/lovable-uploads/` directory
-2. Reference them in your blog posts using the relative path: `/lovable-uploads/filename.png`
+Add new blog posts using this exact structure in `src/data/blogPosts.ts`:
 
-### 2. Adding New Blog Posts
-
-Blog posts are currently managed in two main files that must be kept in sync:
-
-**For Blog Preview Section (Homepage):**
-1. Edit `src/components/BlogPreviewSection.tsx`
-2. Locate the `blogPosts` array
-3. Add new blog post objects with the following structure:
-
-**For Blog Overview and Individual Pages:**
-1. Edit `src/pages/Blog.tsx`
-2. Locate the `blogPosts` array
-3. Add new blog post objects with the following structure:
-
-```javascript
+```typescript
 {
-  id: 7, // Must be unique
-  category: "AI STRATEGY", // See categories below
-  title: "Your Blog Post Title",
-  summary: "A brief description of your blog post content...",
-  image: "/lovable-uploads/your-image.png",
-  date: "April 19, 2024",
-  author: "Patrick Müller",
+  id: 7, // Must be unique - increment from highest existing ID
+  category: "AI STRATEGY", // Choose from available categories (see below)
+  title: "Your Blog Post Title Here",
+  summary: "A compelling 2-3 sentence summary that appears on preview cards and overview page...",
+  image: "/lovable-uploads/your-image-filename.png", // Path to uploaded image
+  date: "June 15, 2024", // Format: "Month DD, YYYY"
+  author: "Patrick Müller", // Author name
   content: `
-    <p>Your full blog post content goes here.</p>
-    <p>You can use HTML tags for formatting:</p>
+    <p>Your full blog post content goes here. Use HTML formatting for rich content.</p>
+    
+    <h2>Section Heading</h2>
+    <p>More content with <strong>bold text</strong> and <em>italic text</em>.</p>
+    
     <ul>
-      <li>Bullet points</li>
-      <li>Bold text with <strong>strong tags</strong></li>
-      <li>Links with <a href="#">anchor tags</a></li>
+      <li>Bullet point one</li>
+      <li>Bullet point two</li>
+      <li>Bullet point three</li>
     </ul>
-    <h2>Section Headers</h2>
-    <p>More content...</p>
+    
+    <p>You can include <a href="https://example.com" target="_blank">external links</a> and other HTML elements.</p>
+    
+    <blockquote>
+      <p>Important quotes or callouts can be formatted like this.</p>
+    </blockquote>
+    
+    <h3>Subsection</h3>
+    <p>Continue with more detailed content...</p>
   `
 }
 ```
 
-**Important**: Make sure to add the same blog post to both files with identical `id`, `category`, `title`, `summary`, `image`, `date`, and `author` fields. Only the `content` field is used in the individual blog post page.
+### Field Requirements and Guidelines
 
-### 3. Blog Post Content Guidelines
+**Required Fields:**
+- `id`: Unique number (increment from highest existing)
+- `category`: Must match available categories
+- `title`: Descriptive title (keep under 60 characters for best display)
+- `summary`: 2-3 sentences for preview cards
+- `image`: Path to image file in `/lovable-uploads/`
+- `date`: Human-readable date format
+- `author`: Author name
+- `content`: Full HTML content for the blog post
 
-**Content Field**: 
+**Content Field Formatting:**
 - Use HTML markup for rich formatting
 - Supported tags: `<p>`, `<h2>`, `<h3>`, `<strong>`, `<em>`, `<ul>`, `<ol>`, `<li>`, `<a>`, `<blockquote>`
-- Keep paragraphs well-structured with `<p>` tags
+- Structure content with clear paragraphs using `<p>` tags
 - Use heading tags (`<h2>`, `<h3>`) for section breaks
+- Include `target="_blank"` for external links
+- Keep content well-structured and readable
 
-**Summary Field**:
-- Keep concise (2-3 sentences)
-- Use as a preview/teaser for the full content
-- This appears on both homepage preview and blog overview
+### Image Management
 
-### 4. Blog Categories and Styling
+**Uploading Images:**
 
-Available categories with their color schemes:
+**Via Lovable Interface:**
+1. Open your project in Lovable
+2. Upload images through the interface
+3. Images are automatically placed in `/public/lovable-uploads/`
+4. Reference using: `/lovable-uploads/filename.png`
+
+**Via Direct Upload:**
+1. Place images in `/public/lovable-uploads/` directory
+2. Reference using: `/lovable-uploads/filename.png`
+3. Keep files optimized (under 500KB recommended)
+
+### Available Categories and Colors
+
+Categories with their automatic color themes:
 - **"AI STRATEGY"** - Blue theme (`text-brand-blue`)
 - **"PROCESS AUTOMATION"** - Green theme (`text-brand-green`)  
 - **"AI EDUCATION"** - Purple theme (`text-purple-400`)
 - **"AUTOMATION"** - Cyan theme (`text-cyan-400`)
 
-To add new categories:
-1. Add the category name to blog post objects
-2. Update the `getCategoryColor` function in both `BlogPreviewSection.tsx` and `Blog.tsx`
-3. Choose an appropriate color class from the Tailwind palette
+**Adding New Categories:**
+1. Add category name to your blog post
+2. Update `getCategoryColor` function in `src/data/blogPosts.ts`
+3. Choose appropriate Tailwind color class
 
-### 5. Blog URL Structure
+### Automatic Features
 
-- Homepage: `/` (shows 3 latest posts in preview section)
+**Most Recent Posts:**
+- Homepage automatically shows 3 most recent posts by date
+- Posts are sorted automatically using the `getMostRecentPosts` function
+- No manual selection needed
+
+**URL Structure:**
+- Homepage: `/` (shows 3 latest posts in preview)
 - Blog overview: `/blog` (shows all posts)
 - Individual posts: `/blog/:id` (e.g., `/blog/1`, `/blog/2`)
 
-### 6. Navigation Features
+**Navigation Features:**
+- Back to Home link on blog overview page
+- Back to Blog links on individual post pages
+- Automatic linking between all blog components
 
-- **Back to Home**: Available on blog overview page
-- **Back to Blog**: Available on individual blog post pages
-- **Read More**: Links from preview cards to full posts
-- **View All Articles**: Link from homepage preview to blog overview
+### Responsive Design
 
-### 7. Responsive Design
+The system is fully responsive across all devices:
+- **Desktop**: 3-column grid, full-width content
+- **Tablet**: 2-column grid
+- **Mobile**: 1-column layout
 
-The blog system is fully responsive:
-- **Desktop**: 3-column grid on overview, full-width content on individual posts
-- **Tablet**: 2-column grid on overview
-- **Mobile**: 1-column layout throughout
+### Best Practices
 
-### 8. Best Practices
-
-**Content Management:**
-- Always update both `BlogPreviewSection.tsx` and `Blog.tsx` when adding new posts
-- Use consistent ID numbering (increment from highest existing ID)
-- Keep image files optimized (under 500KB recommended)
-- Use descriptive filenames for images
-
-**Writing Guidelines:**
-- Write engaging titles (keep under 60 characters for best display)
+**Content Creation:**
+- Write engaging titles under 60 characters
 - Create compelling summaries that encourage clicks
 - Structure content with clear headings and paragraphs
-- Include relevant links and formatting in content
+- Use proper HTML formatting for readability
+- Include relevant links and formatting
 
-**Technical Considerations:**
-- Ensure all image paths are correct and files exist
-- Test blog posts on different screen sizes
-- Verify all links work correctly
-- Keep HTML content properly formatted
+**Technical Guidelines:**
+- Always increment ID numbers from the highest existing ID
+- Ensure image paths are correct and files exist
+- Test content on different screen sizes
+- Use consistent date formatting
+- Keep HTML content properly structured
 
-### 9. Future Enhancements
+**Writing Tips:**
+- Start with a strong opening paragraph
+- Use subheadings to break up long content
+- Include actionable insights and practical advice
+- End with clear takeaways or next steps
+- Proofread for grammar and clarity
 
-For a more advanced blog system, consider:
-- Content Management System (CMS) integration
-- Markdown support for easier content creation
-- Blog post search and filtering functionality
-- Comments system
-- Social sharing buttons
-- SEO optimization with meta tags
-- Blog post scheduling
-- Author profiles and multiple authors
+### Example Complete Blog Post
+
+```typescript
+{
+  id: 8,
+  category: "AI STRATEGY",
+  title: "Implementing AI in Small Business Operations",
+  summary: "Learn practical steps to integrate AI tools into your small business operations without overwhelming your team or budget.",
+  image: "/lovable-uploads/ai-small-business.png",
+  date: "June 20, 2024",
+  author: "Patrick Müller",
+  content: `
+    <p>Small businesses today have unprecedented access to AI tools that were once reserved for large corporations. The key is knowing where to start and how to implement these tools effectively.</p>
+    
+    <h2>Start Small, Think Big</h2>
+    <p>The most successful AI implementations begin with <strong>small, focused projects</strong> that address specific pain points. Rather than trying to automate everything at once, identify one or two processes that could benefit immediately from AI assistance.</p>
+    
+    <h3>Best Areas to Begin</h3>
+    <ul>
+      <li>Customer service with chatbots</li>
+      <li>Email marketing automation</li>
+      <li>Basic data analysis and reporting</li>
+      <li>Social media scheduling</li>
+    </ul>
+    
+    <h2>Budget-Friendly Implementation</h2>
+    <p>You don't need a massive budget to get started. Many AI tools offer <em>freemium models</em> or affordable monthly subscriptions that scale with your business needs.</p>
+    
+    <blockquote>
+      <p>"The best time to plant a tree was 20 years ago. The second-best time is now." - This applies perfectly to AI adoption in small businesses.</p>
+    </blockquote>
+    
+    <p>For more resources on AI implementation, visit <a href="https://example.com" target="_blank">our comprehensive guide</a>.</p>
+  `
+}
+```
 
 ---
 
-Need help with any of these processes? Contact the development team or refer to the Lovable documentation for additional guidance.
+*The blog system is designed for simplicity and efficiency. Add your content once, and it appears everywhere automatically!*
