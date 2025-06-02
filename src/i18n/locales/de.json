@@ -148,5 +148,55 @@
     "about": "Über uns",
     "contact": "Kontakt",
     "bookConsultation": "Beratung buchen"
+  },
+  "about": {
+    "title": "Über uns",
+    "whyCrux": {
+      "title": "Warum 'CRUX Consulting'",
+      "description": "Beim Klettern ist der Crux der anspruchsvollste und entscheidende Teil der Route – der Punkt, der Fokus, Können und die richtige Strategie erfordert, um erfolgreich zu sein. Ich glaube, dass KI den Crux-Moment für Unternehmen heute darstellt. Sie birgt enormes Potenzial, aber auch Komplexität. Diese Veränderung ohne die richtige Unterstützung zu bewältigen, kann sich anfühlen, als würde man allein vor einer steilen Wand stehen – riskant, überwältigend und leicht zurückzufallen. Crux Consulting ist hier, um KMU durch diesen entscheidenden Aufstieg zu führen und ihnen zu helfen, KI mit Klarheit, Vertrauen und Zielstrebigkeit zu nutzen."
+    },
+    "whoWeAre": {
+      "title": "Wer wir sind"
+    },
+    "patrick": {
+      "title": "Patrick Reverchon",
+      "subtitle": "(Gründer und CEO)",
+      "quote": "Ich habe Crux Consulting gegründet, um die Möglichkeiten der Automatisierung und KI auch jenen Unternehmen zu bringen, die nicht unbedingt die Kapazitäten und das Budget haben, ihr volles Potenzial zu nutzen. KMU sind das Rückgrat unserer Gesellschaft und Wirtschaft und ich möchte sie so sehr wie möglich stärken.",
+      "linkedIn": "LinkedIn",
+      "location": "Ansässig in München & Sofia"
+    },
+    "team": {
+      "title": "Unser Team & Netzwerk",
+      "description": "Bei Crux Consulting arbeiten wir mit einem vertrauenswürdigen Netzwerk aus erfahrenen Entwicklern, KI-Ingenieuren und Automatisierungsexperten zusammen – maßgeschneidert für die Bedürfnisse jedes Kunden. Dieses flexible Modell stellt sicher, dass wir immer die richtige Expertise einbringen.",
+      "ctoSearch": "🚀 Auf der Suche nach einem Co-Founder & CTO",
+      "ctoDescription": "Ich suche aktiv nach einem Vollzeit-CTO und Co-Founder, um unsere technische Vision langfristig zu gestalten und zu skalieren."
+    },
+    "howWeWork": {
+      "title": "Wie wir arbeiten",
+      "tailoredFirst": {
+        "title": "Maßgeschneidert an erster Stelle",
+        "description": "Keine Standardlösungen. Wir beginnen mit Ihren Zielen."
+      },
+      "fastButThoughtful": {
+        "title": "Schnell, aber durchdacht",
+        "description": "Wir priorisieren Ausführungsgeschwindigkeit und Ergebnisqualität."
+      },
+      "aiNativeBusinessLed": {
+        "title": "KI-nativ, geschäftsorientiert",
+        "description": "Jedes Projekt balanciert Innovation mit ROI."
+      },
+      "privacyCompliance": {
+        "title": "Datenschutz und Compliance von Grund auf",
+        "description": "Wir integrieren regulatorische Bereitschaft in jedes System."
+      }
+    },
+    "joinUs": {
+      "title": "Möchten Sie sich uns anschließen?",
+      "description": "Wir sind immer daran interessiert, mit intelligenten und ehrgeizigen Menschen zu arbeiten, die ihr Herz am rechten Fleck haben und unsere Mission teilen, deutsche und europäische Unternehmen mit Automatisierung und KI zu unterstützen, wobei wir uns immer auf die idealen Kundenergebnisse und deren ROI im Prozess konzentrieren.",
+      "encouragement": "Wenn das nach Ihnen klingt, wenden Sie sich einfach über das Kontaktformular an uns, wir freuen uns darauf, von Ihnen zu hören.",
+      "developerQuestion": "💡 Sind Sie ein Entwickler, Berater oder Designer, der unsere Mission teilt?",
+      "developerDescription": "Schicken Sie uns eine Nachricht und erzählen Sie uns, wie Sie gerne beitragen möchten.",
+      "sendApplication": "Senden Sie uns Ihre Bewerbung"
+    }
   }
 }

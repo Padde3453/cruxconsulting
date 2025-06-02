@@ -6,6 +6,7 @@ import FloatingElements from "@/components/FloatingElements";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
   return (
@@ -68,6 +69,7 @@ const About = () => {
 };
 
 const AboutContent = () => {
+  const { t } = useTranslation();
   const titleRef = useScrollAnimation();
   const whyCruxRef = useScrollAnimation();
   const whoWeAreRef = useScrollAnimation();
@@ -89,7 +91,7 @@ const AboutContent = () => {
         }`}
       >
         <h1 className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-          About Us
+          {t('about.title')}
         </h1>
       </div>
 
@@ -102,10 +104,10 @@ const AboutContent = () => {
           }`}
         >
           <h2 className="text-3xl font-bold mb-6 text-brand-blue">
-            Why 'CRUX Consulting'
+            {t('about.whyCrux.title')}
           </h2>
           <p className="text-gray-300 text-lg leading-relaxed">
-            In climbing, the crux is the most challenging and decisive part of the route — the point that demands focus, skill, and the right strategy to succeed. I believe AI represents the crux moment for businesses today. It holds immense promise, but also complexity. Navigating this shift without the right support can feel like facing a steep wall alone — risky, overwhelming, and easy to fall behind. Crux Consulting is here to guide SMEs through this pivotal climb, helping them harness AI with clarity, confidence, and purpose.
+            {t('about.whyCrux.description')}
           </p>
         </div>
       </section>
@@ -119,7 +121,7 @@ const AboutContent = () => {
           }`}
         >
           <h2 className="text-3xl font-bold mb-8 text-brand-green">
-            Who we are
+            {t('about.whoWeAre.title')}
           </h2>
         </div>
 
@@ -137,13 +139,13 @@ const AboutContent = () => {
               className="w-32 h-32 rounded-lg object-cover"
             />
             <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-2">Patrick Reverchon</h3>
-              <p className="text-brand-blue font-semibold mb-4">(Founder and CEO)</p>
+              <h3 className="text-2xl font-bold mb-2">{t('about.patrick.title')}</h3>
+              <p className="text-brand-blue font-semibold mb-4">{t('about.patrick.subtitle')}</p>
             </div>
           </div>
           
           <blockquote className="text-gray-300 text-lg leading-relaxed mb-4 italic">
-            "I founded Crux Consulting to bring the opportunities of automation and AI also to those companies that do not necessarily have the capacity and budget to use their full potential. SMEs are the backbone of our society and economy and I want to strengthen them as much as I can."
+            "{t('about.patrick.quote')}"
           </blockquote>
           
           <div className="flex flex-col gap-2">
@@ -155,12 +157,12 @@ const AboutContent = () => {
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
               >
-                LinkedIn
+                {t('about.patrick.linkedIn')}
               </a>
             </div>
             <div className="flex items-center gap-2 text-gray-400">
               <MapPin size={18} />
-              <span>Based in Munich & Sofia</span>
+              <span>{t('about.patrick.location')}</span>
             </div>
           </div>
         </div>
@@ -173,17 +175,17 @@ const AboutContent = () => {
           }`}
         >
           <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-8">
-            <h3 className="text-2xl font-bold mb-6 text-brand-green">Our Team & Network</h3>
+            <h3 className="text-2xl font-bold mb-6 text-brand-green">{t('about.team.title')}</h3>
             
             <div className="text-gray-300 leading-relaxed space-y-4">
               <p>
-                At Crux Consulting, we collaborate with a trusted network of experienced developers, AI engineers, and automation experts — tailored to each client's needs. This flexible model ensures we always bring the right expertise to the table.
+                {t('about.team.description')}
               </p>
               
               <div className="border-l-4 border-brand-blue pl-6 bg-gray-900/50 p-4 rounded-r-lg">
-                <p className="text-brand-blue font-semibold mb-2">🚀 Looking for a Co-Founder & CTO</p>
+                <p className="text-brand-blue font-semibold mb-2">{t('about.team.ctoSearch')}</p>
                 <p>
-                  I'm actively looking for a full-time CTO and co-founder to shape and scale our technical vision long-term.
+                  {t('about.team.ctoDescription')}
                 </p>
               </div>
             </div>
@@ -202,44 +204,44 @@ const AboutContent = () => {
           <div className="flex items-center gap-3 mb-8">
             <Rocket className="text-brand-blue" size={32} />
             <h2 className="text-3xl font-bold text-white">
-              How We Work
+              {t('about.howWeWork.title')}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
               <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-lg transition-all duration-300">
-                Tailored First
+                {t('about.howWeWork.tailoredFirst.title')}
               </h3>
               <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
-                No cookie-cutter solutions. We start with your goals.
+                {t('about.howWeWork.tailoredFirst.description')}
               </p>
             </Card>
 
             <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
               <h3 className="text-xl font-bold text-brand-green mb-3 group-hover:text-lg transition-all duration-300">
-                Fast, But Thoughtful
+                {t('about.howWeWork.fastButThoughtful.title')}
               </h3>
               <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
-                We prioritize speed of execution <em>and</em> quality of outcome.
+                {t('about.howWeWork.fastButThoughtful.description')}
               </p>
             </Card>
 
             <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
               <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-lg transition-all duration-300">
-                AI-Native, Business-Led
+                {t('about.howWeWork.aiNativeBusinessLed.title')}
               </h3>
               <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
-                Every project balances innovation with ROI.
+                {t('about.howWeWork.aiNativeBusinessLed.description')}
               </p>
             </Card>
 
             <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
               <h3 className="text-xl font-bold text-brand-green mb-3 group-hover:text-lg transition-all duration-300">
-                Privacy and Compliance by Design
+                {t('about.howWeWork.privacyCompliance.title')}
               </h3>
               <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
-                We bake regulatory readiness into every system.
+                {t('about.howWeWork.privacyCompliance.description')}
               </p>
             </Card>
           </div>
@@ -257,29 +259,29 @@ const AboutContent = () => {
           <div className="flex items-center gap-3 mb-8">
             <Users className="text-brand-green" size={32} />
             <h2 className="text-3xl font-bold text-white">
-              Want to Join Us?
+              {t('about.joinUs.title')}
             </h2>
           </div>
 
           <div className="p-8">
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              We are always interested to work with smart and ambitious people who have their heart in the right place and share the mission with us to support German and European businesses with automation and AI, always focussing on the ideal client outcomes and their ROI in the process.
+              {t('about.joinUs.description')}
             </p>
             
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
-              If that sounds like you, just reach out to us via the contact form, we look forward to hearing from you.
+              {t('about.joinUs.encouragement')}
             </p>
 
             <div className="border border-gray-600 rounded-lg p-6 mb-6">
-              <p className="text-brand-blue font-semibold mb-2">💡 Are you a developer, consultant, or designer who shares our mission?</p>
-              <p className="text-gray-300">Drop us a message and tell us how you'd like to contribute.</p>
+              <p className="text-brand-blue font-semibold mb-2">{t('about.joinUs.developerQuestion')}</p>
+              <p className="text-gray-300">{t('about.joinUs.developerDescription')}</p>
             </div>
 
             <Button 
               onClick={handleApplicationClick}
               className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
             >
-              <span>Send Us Your Application</span>
+              <span>{t('about.joinUs.sendApplication')}</span>
               <ArrowRight size={16} />
             </Button>
           </div>
