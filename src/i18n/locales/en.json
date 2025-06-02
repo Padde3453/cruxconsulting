@@ -1,0 +1,126 @@
+
+{
+  "hero": {
+    "title": "AI-Powered",
+    "subtitle": "Business Growth",
+    "description": "Transform your SME with cutting-edge AI solutions. Fast, precise, transformative.",
+    "cta": "Start Your Transformation",
+    "responseTime": "24h",
+    "responseTimeLabel": "Response Time"
+  },
+  "whyCrux": {
+    "title": "Why Crux Consulting?",
+    "subtitle": "We don't just implement AI - we transform your business with precision and expertise.",
+    "experience": {
+      "title": "Deep AI Expertise",
+      "description": "Years of experience in AI implementation across diverse industries and use cases."
+    },
+    "results": {
+      "title": "Proven Results",
+      "description": "Track record of delivering measurable improvements in efficiency and revenue."
+    },
+    "support": {
+      "title": "Ongoing Support",
+      "description": "Continuous optimization and support to ensure your AI solutions evolve with your business."
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive AI solutions tailored to your business needs",
+    "automation": {
+      "title": "Process Automation",
+      "description": "Streamline operations with intelligent automation solutions"
+    },
+    "analytics": {
+      "title": "AI Analytics",
+      "description": "Turn data into actionable insights with advanced AI analytics"
+    },
+    "chatbots": {
+      "title": "AI Chatbots",
+      "description": "Enhance customer service with intelligent conversational AI"
+    },
+    "consulting": {
+      "title": "AI Strategy",
+      "description": "Strategic AI consulting to guide your digital transformation"
+    },
+    "learnMore": "Learn More"
+  },
+  "einstein": {
+    "quote": "Everything should be made as simple as possible, but not simpler.",
+    "author": "Albert Einstein"
+  },
+  "stats": {
+    "efficiency": "40%",
+    "efficiencyLabel": "Efficiency Increase",
+    "cost": "30%",
+    "costLabel": "Cost Reduction",
+    "revenue": "25%",
+    "revenueLabel": "Revenue Growth",
+    "time": "50%",
+    "timeLabel": "Time Saved"
+  },
+  "process": {
+    "title": "Our Process",
+    "subtitle": "Simple, effective, results-driven approach",
+    "consultation": {
+      "title": "1. Consultation",
+      "description": "We analyze your business needs and identify AI opportunities"
+    },
+    "strategy": {
+      "title": "2. Strategy",
+      "description": "Develop a customized AI implementation roadmap"
+    },
+    "implementation": {
+      "title": "3. Implementation",
+      "description": "Deploy AI solutions with minimal disruption to your operations"
+    },
+    "optimization": {
+      "title": "4. Optimization",
+      "description": "Continuous monitoring and improvement of AI performance"
+    }
+  },
+  "blog": {
+    "title": "Latest Insights",
+    "subtitle": "Stay updated with the latest in AI and business transformation",
+    "readMore": "Read More"
+  },
+  "contact": {
+    "title": "Ready to Transform?",
+    "subtitle": "More efficiency, more focus, more revenue, more available time. Let's find out together how.",
+    "freeConsultation": "Free",
+    "freeConsultationLabel": "Initial Consultation",
+    "responseGuarantee": "24h",
+    "responseGuaranteeLabel": "Response Guarantee",
+    "roi": "ROI",
+    "roiLabel": "Guaranteed Results",
+    "getInTouch": "Get In Touch",
+    "formDescription": "Fill out the form below or email us directly at",
+    "responseTime": "We respond within 24 hours maximum.",
+    "bookCall": "Book a Free Call",
+    "bookCallDescription": "Schedule your free consultation directly in our calendar.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+49 (0) 89 123456",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your project or questions...",
+      "submit": "Send Message",
+      "submitting": "Sending..."
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 Crux Consulting. Transforming SMEs with AI."
+  },
+  "navigation": {
+    "services": "Services",
+    "blog": "Blog",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "bookConsultation": "Book Consultation"
+  }
+}

@@ -1,0 +1,126 @@
+
+{
+  "hero": {
+    "title": "KI-gestütztes",
+    "subtitle": "Unternehmenswachstum",
+    "description": "Transformieren Sie Ihr KMU mit modernsten KI-Lösungen. Schnell, präzise, transformativ.",
+    "cta": "Starten Sie Ihre Transformation",
+    "responseTime": "24h",
+    "responseTimeLabel": "Antwortzeit"
+  },
+  "whyCrux": {
+    "title": "Warum Crux Consulting?",
+    "subtitle": "Wir implementieren nicht nur KI - wir transformieren Ihr Unternehmen mit Präzision und Expertise.",
+    "experience": {
+      "title": "Tiefe KI-Expertise",
+      "description": "Jahrelange Erfahrung in der KI-Implementierung in verschiedenen Branchen und Anwendungsfällen."
+    },
+    "results": {
+      "title": "Bewiesene Ergebnisse",
+      "description": "Erfolgsgeschichte bei der Erzielung messbarer Verbesserungen in Effizienz und Umsatz."
+    },
+    "support": {
+      "title": "Kontinuierliche Unterstützung",
+      "description": "Kontinuierliche Optimierung und Unterstützung, um sicherzustellen, dass sich Ihre KI-Lösungen mit Ihrem Unternehmen weiterentwickeln."
+    }
+  },
+  "services": {
+    "title": "Unsere Dienstleistungen",
+    "subtitle": "Umfassende KI-Lösungen, maßgeschneidert für Ihre Geschäftsanforderungen",
+    "automation": {
+      "title": "Prozessautomatisierung",
+      "description": "Optimieren Sie Abläufe mit intelligenten Automatisierungslösungen"
+    },
+    "analytics": {
+      "title": "KI-Analytik",
+      "description": "Verwandeln Sie Daten in umsetzbare Erkenntnisse mit fortschrittlicher KI-Analytik"
+    },
+    "chatbots": {
+      "title": "KI-Chatbots",
+      "description": "Verbessern Sie den Kundenservice mit intelligenter Konversations-KI"
+    },
+    "consulting": {
+      "title": "KI-Strategie",
+      "description": "Strategische KI-Beratung zur Führung Ihrer digitalen Transformation"
+    },
+    "learnMore": "Mehr erfahren"
+  },
+  "einstein": {
+    "quote": "Alles sollte so einfach wie möglich gemacht werden, aber nicht einfacher.",
+    "author": "Albert Einstein"
+  },
+  "stats": {
+    "efficiency": "40%",
+    "efficiencyLabel": "Effizienzsteigerung",
+    "cost": "30%",
+    "costLabel": "Kostensenkung",
+    "revenue": "25%",
+    "revenueLabel": "Umsatzwachstum",
+    "time": "50%",
+    "timeLabel": "Zeit gespart"
+  },
+  "process": {
+    "title": "Unser Prozess",
+    "subtitle": "Einfacher, effektiver, ergebnisorientierter Ansatz",
+    "consultation": {
+      "title": "1. Beratung",
+      "description": "Wir analysieren Ihre Geschäftsanforderungen und identifizieren KI-Möglichkeiten"
+    },
+    "strategy": {
+      "title": "2. Strategie",
+      "description": "Entwicklung einer maßgeschneiderten KI-Implementierungs-Roadmap"
+    },
+    "implementation": {
+      "title": "3. Implementierung",
+      "description": "Bereitstellung von KI-Lösungen mit minimaler Störung Ihrer Abläufe"
+    },
+    "optimization": {
+      "title": "4. Optimierung",
+      "description": "Kontinuierliche Überwachung und Verbesserung der KI-Leistung"
+    }
+  },
+  "blog": {
+    "title": "Neueste Erkenntnisse",
+    "subtitle": "Bleiben Sie auf dem Laufenden mit den neuesten Entwicklungen in KI und Unternehmenstransformation",
+    "readMore": "Weiterlesen"
+  },
+  "contact": {
+    "title": "Bereit zur Transformation?",
+    "subtitle": "Mehr Effizienz, mehr Fokus, mehr Umsatz, mehr verfügbare Zeit. Lassen Sie uns gemeinsam herausfinden, wie.",
+    "freeConsultation": "Kostenlos",
+    "freeConsultationLabel": "Erstberatung",
+    "responseGuarantee": "24h",
+    "responseGuaranteeLabel": "Antwortgarantie",
+    "roi": "ROI",
+    "roiLabel": "Garantierte Ergebnisse",
+    "getInTouch": "Kontakt aufnehmen",
+    "formDescription": "Füllen Sie das unten stehende Formular aus oder schreiben Sie uns direkt an",
+    "responseTime": "Wir antworten innerhalb von maximal 24 Stunden.",
+    "bookCall": "Kostenloses Gespräch buchen",
+    "bookCallDescription": "Planen Sie Ihre kostenlose Beratung direkt in unserem Kalender.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Ihr Name",
+      "email": "E-Mail",
+      "emailPlaceholder": "ihre@email.de",
+      "phone": "Telefonnummer",
+      "phonePlaceholder": "+49 (0) 89 123456",
+      "company": "Unternehmen",
+      "companyPlaceholder": "Ihr Firmenname",
+      "message": "Nachricht",
+      "messagePlaceholder": "Erzählen Sie uns von Ihrem Projekt oder Ihren Fragen...",
+      "submit": "Nachricht senden",
+      "submitting": "Wird gesendet..."
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 Crux Consulting. Transformation von KMU mit KI."
+  },
+  "navigation": {
+    "services": "Dienstleistungen",
+    "blog": "Blog",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "bookConsultation": "Beratung buchen"
+  }
+}

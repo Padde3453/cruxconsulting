@@ -1,7 +1,10 @@
 
 import { Linkedin, Instagram } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="border-t border-gray-800 pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-6 text-center">
@@ -24,7 +27,7 @@ const Footer = () => {
           </a>
         </div>
         <p className="text-gray-500">
-          © 2024 Crux Consulting. Transforming SMEs with AI.
+          {t('footer.copyright')}
         </p>
       </div>
     </footer>

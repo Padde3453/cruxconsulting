@@ -1,8 +1,9 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, Plus } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+import LanguageToggle from './LanguageToggle';
 
 interface HeaderProps {
   onBooking?: () => void;
@@ -12,6 +13,7 @@ const Header = ({ onBooking }: HeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -19,9 +21,7 @@ const Header = ({ onBooking }: HeaderProps) => {
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
-      // Navigate to home first, then scroll to section
       navigate('/');
-      // Use a timeout to ensure the page has loaded before scrolling
       setTimeout(() => {
         const section = document.getElementById(sectionId);
         if (section) {
@@ -39,7 +39,6 @@ const Header = ({ onBooking }: HeaderProps) => {
 
   const handleBlogNavigation = () => {
     navigate('/blog');
-    // Ensure we scroll to top when navigating to blog
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 100);
@@ -58,7 +57,6 @@ const Header = ({ onBooking }: HeaderProps) => {
     if (onBooking) {
       onBooking();
     } else {
-      // If no booking handler provided, navigate to contact section
       scrollToSection('contact');
     }
   };
@@ -88,7 +86,7 @@ const Header = ({ onBooking }: HeaderProps) => {
                 : 'text-gray-300 hover:text-white'
             }`}
           >
-            Services
+            {t('navigation.services')}
           </button>
           <button 
             onClick={handleBlogNavigation}
@@ -98,7 +96,7 @@ const Header = ({ onBooking }: HeaderProps) => {
                 : 'text-gray-300 hover:text-white'
             }`}
           >
-            Blog
+            {t('navigation.blog')}
           </button>
           <Link 
             to="/about" 
@@ -108,25 +106,27 @@ const Header = ({ onBooking }: HeaderProps) => {
                 : 'text-gray-300 hover:text-white'
             }`}
           >
-            About Us
+            {t('navigation.about')}
           </Link>
           <button 
             onClick={() => scrollToSection('contact')} 
             className="text-gray-300 hover:text-white transition-colors"
           >
-            Contact Us
+            {t('navigation.contact')}
           </button>
+          <LanguageToggle />
           <Button 
             onClick={handleBooking} 
             className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-6 py-2 flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
           >
-            <span>Book Consultation</span>
+            <span>{t('navigation.bookConsultation')}</span>
             <Plus size={16} />
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center space-x-2">
+          <LanguageToggle />
           <Button 
             variant="ghost" 
             size="icon" 
@@ -150,7 +150,7 @@ const Header = ({ onBooking }: HeaderProps) => {
                   : 'text-gray-300 hover:text-white'
               }`}
             >
-              Services
+              {t('navigation.services')}
             </button>
             <button 
               onClick={handleBlogNavigation}
@@ -160,7 +160,7 @@ const Header = ({ onBooking }: HeaderProps) => {
                   : 'text-gray-300 hover:text-white'
               }`}
             >
-              Blog
+              {t('navigation.blog')}
             </button>
             <Link 
               to="/about" 
@@ -171,19 +171,19 @@ const Header = ({ onBooking }: HeaderProps) => {
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
-              About Us
+              {t('navigation.about')}
             </Link>
             <button 
               onClick={() => scrollToSection('contact')} 
               className="block text-gray-300 hover:text-white transition-colors"
             >
-              Contact Us
+              {t('navigation.contact')}
             </button>
             <Button 
               onClick={handleBooking} 
               className="w-full bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-6 py-2 flex items-center justify-center space-x-2"
             >
-              <span>Book Consultation</span>
+              <span>{t('navigation.bookConsultation')}</span>
               <Plus size={16} />
             </Button>
           </div>
