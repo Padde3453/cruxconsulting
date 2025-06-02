@@ -3,9 +3,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from 'react-i18next';
 
 const ProcessSection = () => {
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleBooking = () => {
     toast({
@@ -17,26 +19,26 @@ const ProcessSection = () => {
   const steps = [
     {
       number: "01",
-      title: "Listen",
-      description: "We understand your unique challenges and business goals",
+      title: t('process.listen.title'),
+      description: t('process.listen.description'),
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
     },
     {
       number: "02", 
-      title: "Analyze",
-      description: "AI-powered assessment of your current processes and potential",
+      title: t('process.analyze.title'),
+      description: t('process.analyze.description'),
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop"
     },
     {
       number: "03",
-      title: "Implement",
-      description: "Seamless integration of tailored AI solutions",
+      title: t('process.implement.title'),
+      description: t('process.implement.description'),
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
     },
     {
       number: "04",
-      title: "Transform",
-      description: "Watch your business evolve with measurable results",
+      title: t('process.transform.title'),
+      description: t('process.transform.description'),
       image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&h=400&fit=crop"
     }
   ];
@@ -46,10 +48,10 @@ const ProcessSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            Our Process
+            {t('process.title')}
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            From consultation to transformation in just days, not months
+            {t('process.subtitle')}
           </p>
         </div>
 
@@ -86,7 +88,7 @@ const ProcessSection = () => {
             size="lg"
             className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-2xl mx-auto"
           >
-            <span>Begin Your Journey</span>
+            <span>{t('process.beginJourney')}</span>
             <Plus size={20} />
           </Button>
         </div>

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 
 const LanguageToggle = () => {
   const { i18n } = useTranslation();
@@ -10,8 +11,8 @@ const LanguageToggle = () => {
   const currentLanguage = i18n.language;
 
   const languages = [
-    { code: 'en', flag: '🇬🇧', name: 'English' },
-    { code: 'de', flag: '🇩🇪', name: 'Deutsch' }
+    { code: 'en', flag: '🇬🇧' },
+    { code: 'de', flag: '🇩🇪' }
   ];
 
   const changeLanguage = (langCode: string) => {
@@ -27,24 +28,23 @@ const LanguageToggle = () => {
         variant="ghost"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 text-gray-300 hover:text-white"
+        className="flex items-center space-x-1 text-gray-300 hover:text-white"
       >
         <span className="text-lg">{currentLang.flag}</span>
-        <span className="hidden sm:inline">{currentLang.name}</span>
+        <ChevronDown size={16} />
       </Button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 bg-gray-800 border border-gray-700 rounded-lg shadow-lg min-w-[120px] z-50">
+        <div className="absolute top-full right-0 mt-2 bg-gray-800 border border-gray-700 rounded-lg shadow-lg min-w-[60px] z-50">
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => changeLanguage(lang.code)}
-              className={`w-full flex items-center space-x-2 px-3 py-2 text-left hover:bg-gray-700 first:rounded-t-lg last:rounded-b-lg transition-colors ${
+              className={`w-full flex items-center justify-center px-3 py-2 text-left hover:bg-gray-700 first:rounded-t-lg last:rounded-b-lg transition-colors ${
                 currentLanguage === lang.code ? 'bg-gray-700 text-white' : 'text-gray-300'
               }`}
             >
               <span className="text-lg">{lang.flag}</span>
-              <span>{lang.name}</span>
             </button>
           ))}
         </div>

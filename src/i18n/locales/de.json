@@ -26,24 +26,49 @@
   },
   "services": {
     "title": "Unsere Dienstleistungen",
-    "subtitle": "Umfassende KI-Lösungen, maßgeschneidert für Ihre Geschäftsanforderungen",
-    "automation": {
-      "title": "Prozessautomatisierung",
-      "description": "Optimieren Sie Abläufe mit intelligenten Automatisierungslösungen"
+    "subtitle": "KI-Lösungen, die um Ihr Unternehmen herum entwickelt werden – nicht umgekehrt",
+    "moreRevenue": {
+      "title": "Mehr Umsatz",
+      "subtitle": "durch hochwertige Kunden",
+      "description": "Steigern Sie Ihren Umsatz durch die Gewinnung und Bindung hochwertiger Kunden mittels intelligenter Automatisierung und strategischer Erkenntnisse.",
+      "features": [
+        "Automatisierte Lead-Generierung",
+        "Kundenbeziehungsmanagement",
+        "Optimierung des Vertriebstrichters"
+      ]
     },
-    "analytics": {
-      "title": "KI-Analytik",
-      "description": "Verwandeln Sie Daten in umsetzbare Erkenntnisse mit fortschrittlicher KI-Analytik"
+    "moreFreeTime": {
+      "title": "Mehr Freizeit",
+      "subtitle": "dank Automatisierung manueller Aufgaben",
+      "description": "Gewinnen Sie wertvolle Zeit zurück, indem Sie wiederkehrende und manuelle Aufgaben automatisieren und sich auf das Wesentliche konzentrieren können.",
+      "features": [
+        "Prozessautomatisierungslösungen",
+        "Workflow-Optimierung",
+        "Aufgabenplanungssysteme"
+      ]
     },
-    "chatbots": {
-      "title": "KI-Chatbots",
-      "description": "Verbessern Sie den Kundenservice mit intelligenter Konversations-KI"
+    "betterClientExperience": {
+      "title": "Bessere Kundenerfahrung",
+      "subtitle": "durch schnellen, zuverlässigen Service",
+      "description": "Bieten Sie außergewöhnliche Kundenerfahrungen mit schnellem, zuverlässigem Service, der auch dann funktioniert, wenn Sie beschäftigt sind.",
+      "features": [
+        "Automatisierung des Kundenservice",
+        "Entwicklung von Kundenportalen",
+        "Verfolgung der Servicebereitstellung"
+      ]
     },
-    "consulting": {
-      "title": "KI-Strategie",
-      "description": "Strategische KI-Beratung zur Führung Ihrer digitalen Transformation"
+    "lessCost": {
+      "title": "Geringere Kosten, bessere Lösung",
+      "subtitle": "durch intelligente Informationsbeschaffung",
+      "description": "Reduzieren Sie Kosten und verbessern gleichzeitig Lösungen durch intelligente Informationsbeschaffung und Marktanalyse.",
+      "features": [
+        "Kostenanalyse und -optimierung",
+        "Automatisierte Marktforschung",
+        "ROI-Tracking und Berichterstattung"
+      ]
     },
-    "learnMore": "Mehr erfahren"
+    "learnMore": "Mehr erfahren",
+    "exploreAll": "Alle Services erkunden"
   },
   "einstein": {
     "quote": "Wir können Probleme nicht mit der gleichen Denkweise lösen, mit der wir sie geschaffen haben.",
@@ -61,23 +86,24 @@
   },
   "process": {
     "title": "Unser Prozess",
-    "subtitle": "Einfacher, effektiver, ergebnisorientierter Ansatz",
-    "consultation": {
-      "title": "1. Beratung",
-      "description": "Wir analysieren Ihre Geschäftsanforderungen und identifizieren KI-Möglichkeiten"
+    "subtitle": "Von der Beratung zur Transformation in nur wenigen Tagen, nicht Monaten",
+    "listen": {
+      "title": "Zuhören",
+      "description": "Wir verstehen Ihre einzigartigen Herausforderungen und Geschäftsziele"
     },
-    "strategy": {
-      "title": "2. Strategie",
-      "description": "Entwicklung einer maßgeschneiderten KI-Implementierungs-Roadmap"
+    "analyze": {
+      "title": "Analysieren",
+      "description": "KI-gestützte Bewertung Ihrer aktuellen Prozesse und Potentiale"
     },
-    "implementation": {
-      "title": "3. Implementierung",
-      "description": "Bereitstellung von KI-Lösungen mit minimaler Störung Ihrer Abläufe"
+    "implement": {
+      "title": "Umsetzen",
+      "description": "Nahtlose Integration maßgeschneiderter KI-Lösungen"
     },
-    "optimization": {
-      "title": "4. Optimierung",
-      "description": "Kontinuierliche Überwachung und Verbesserung der KI-Leistung"
-    }
+    "transform": {
+      "title": "Transformieren",
+      "description": "Erleben Sie, wie sich Ihr Unternehmen mit messbaren Ergebnissen entwickelt"
+    },
+    "beginJourney": "Beginnen Sie Ihre Reise"
   },
   "blog": {
     "title": "Neueste Erkenntnisse",

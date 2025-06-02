@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Plus, TrendingUp, Clock, Users, DollarSign } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 interface ServicesSectionProps {
   onBooking: () => void;
@@ -10,6 +11,7 @@ interface ServicesSectionProps {
 
 const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleServiceClick = (serviceIndex: number) => {
     navigate(`/services?expand=${serviceIndex}`);
@@ -26,47 +28,31 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
   const services = [
     {
       icon: TrendingUp,
-      title: "More Revenue",
-      subtitle: "through more high value clients",
-      description: "Generate more revenue by attracting and retaining high-value clients through intelligent automation and strategic insights.",
-      features: [
-        "Lead generation automation",
-        "Client relationship management",
-        "Sales funnel optimization"
-      ]
+      title: t('services.moreRevenue.title'),
+      subtitle: t('services.moreRevenue.subtitle'),
+      description: t('services.moreRevenue.description'),
+      features: t('services.moreRevenue.features', { returnObjects: true }) as string[]
     },
     {
       icon: Clock,
-      title: "More Free Time",
-      subtitle: "thanks to automation of manual tasks",
-      description: "Reclaim your valuable time by automating repetitive and manual tasks, allowing you to focus on what matters most.",
-      features: [
-        "Process automation solutions",
-        "Workflow optimization",
-        "Task scheduling systems"
-      ]
+      title: t('services.moreFreeTime.title'),
+      subtitle: t('services.moreFreeTime.subtitle'),
+      description: t('services.moreFreeTime.description'),
+      features: t('services.moreFreeTime.features', { returnObjects: true }) as string[]
     },
     {
       icon: Users,
-      title: "Better Client Experience",
-      subtitle: "through fast, reliable service",
-      description: "Deliver exceptional client experiences with fast, reliable service that works even when you're busy.",
-      features: [
-        "Customer service automation",
-        "Client portal development",
-        "Service delivery tracking"
-      ]
+      title: t('services.betterClientExperience.title'),
+      subtitle: t('services.betterClientExperience.subtitle'),
+      description: t('services.betterClientExperience.description'),
+      features: t('services.betterClientExperience.features', { returnObjects: true }) as string[]
     },
     {
       icon: DollarSign,
-      title: "Less Cost, Better Solution",
-      subtitle: "through smart information gathering",
-      description: "Reduce costs while improving solutions through intelligent information gathering and market analysis.",
-      features: [
-        "Cost analysis and optimization",
-        "Market research automation",
-        "ROI tracking and reporting"
-      ]
+      title: t('services.lessCost.title'),
+      subtitle: t('services.lessCost.subtitle'),
+      description: t('services.lessCost.description'),
+      features: t('services.lessCost.features', { returnObjects: true }) as string[]
     }
   ];
 
@@ -75,9 +61,9 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            Our Services
+            {t('services.title')}
           </h2>
-          <p className="text-gray-300 max-w-3xl mx-auto text-center text-xl font-bold">AI Solutions Built Around Your Business – Not the Other Way Around</p>
+          <p className="text-gray-300 max-w-3xl mx-auto text-center text-xl font-bold">{t('services.subtitle')}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
@@ -109,7 +95,7 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
                   variant="secondary" 
                   className="w-full mt-auto"
                 >
-                  Learn More <Plus className="ml-2 h-4 w-4" />
+                  {t('services.learnMore')} <Plus className="ml-2 h-4 w-4" />
                 </Button>
               </Card>
             );
@@ -122,7 +108,7 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
             size="lg" 
             className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-2xl"
           >
-            <span>Explore All Services</span>
+            <span>{t('services.exploreAll')}</span>
             <Plus size={20} />
           </Button>
         </div>
