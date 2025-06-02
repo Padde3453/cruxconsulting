@@ -2,12 +2,25 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { blogPosts, getMostRecentPosts, getCategoryColor } from "@/data/blogPosts";
 
 const BlogPreviewSection = () => {
+  const navigate = useNavigate();
+  
   // Get the 3 most recent posts automatically
   const recentPosts = getMostRecentPosts(blogPosts, 3);
+
+  const handleViewAllArticles = () => {
+    navigate('/blog');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
+  };
 
   return (
     <section className="py-16 relative">
@@ -52,12 +65,13 @@ const BlogPreviewSection = () => {
         </div>
 
         <div className="text-center">
-          <Link to="/blog">
-            <Button className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 mx-auto">
-              <span>View All Articles</span>
-              <ArrowRight size={16} />
-            </Button>
-          </Link>
+          <Button 
+            onClick={handleViewAllArticles}
+            className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 mx-auto"
+          >
+            <span>View All Articles</span>
+            <ArrowRight size={16} />
+          </Button>
         </div>
       </div>
     </section>

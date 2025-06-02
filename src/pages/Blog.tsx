@@ -6,7 +6,7 @@ import { Menu, ArrowLeft, Linkedin, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { blogPosts, getCategoryColor } from "@/data/blogPosts";
+import { blogPosts, getCategoryColor, getMostRecentPosts } from "@/data/blogPosts";
 
 const Blog = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,6 +17,9 @@ const Blog = () => {
       behavior: 'smooth'
     });
   };
+
+  // Sort posts by date (newest first) using the helper function
+  const sortedPosts = getMostRecentPosts(blogPosts, blogPosts.length);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -44,7 +47,7 @@ const Blog = () => {
       <section className="pb-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map(post => 
+            {sortedPosts.map(post => 
               <Link key={post.id} to={`/blog/${post.id}`} className="block">
                 <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
                   <div className="aspect-video bg-gray-700 overflow-hidden">
