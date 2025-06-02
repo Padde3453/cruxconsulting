@@ -83,7 +83,7 @@ The blog system uses a **centralized data structure** that automatically keeps a
 
 - **Blog Preview Section**: Automatically shows the 3 most recent posts on the homepage
 - **Blog Overview Page** (`/blog`): Displays all blog posts in a grid layout
-- **Dynamic Blog Post Pages** (`/blog/:id`): Individual reading pages for each blog post with full content
+- **Dynamic Blog Post Pages** (`/blog/:id`): Individual reading pages for each blog post with full HTML content rendering
 
 ### Centralized Blog Data Management
 
@@ -93,14 +93,15 @@ All blog data is managed in **ONE LOCATION**: `src/data/blogPosts.ts`
 - ✅ Add a blog post once, it appears everywhere automatically
 - ✅ Homepage preview automatically shows the 3 most recent posts by date
 - ✅ All pages stay in sync automatically
+- ✅ Full HTML content rendering on individual blog post pages
 - ✅ No duplication or manual updates needed
 
 ### Blog Navigation Structure
 
 ```
-Homepage → Blog Preview (3 latest posts) → Individual Post Page
+Homepage → Blog Preview (3 latest posts) → Individual Post Page (Full HTML Content)
     ↓
-Blog Overview Page (all posts) → Individual Post Page
+Blog Overview Page (all posts) → Individual Post Page (Full HTML Content)
 ```
 
 ### How to Add New Blog Posts
@@ -153,19 +154,37 @@ Add new blog posts using this exact structure in `src/data/blogPosts.ts`:
 - `id`: Unique number (increment from highest existing)
 - `category`: Must match available categories
 - `title`: Descriptive title (keep under 60 characters for best display)
-- `summary`: 2-3 sentences for preview cards
+- `summary`: 2-3 sentences for preview cards (plain text only)
 - `image`: Path to image file in `/lovable-uploads/`
 - `date`: Human-readable date format
 - `author`: Author name
-- `content`: Full HTML content for the blog post
+- `content`: Full HTML content for the blog post (use template literals with backticks)
 
 **Content Field Formatting:**
-- Use HTML markup for rich formatting
+- **IMPORTANT**: Use template literals (backticks `) instead of quotes for the content field
+- Use HTML markup for rich formatting on individual blog post pages
 - Supported tags: `<p>`, `<h2>`, `<h3>`, `<strong>`, `<em>`, `<ul>`, `<ol>`, `<li>`, `<a>`, `<blockquote>`
 - Structure content with clear paragraphs using `<p>` tags
 - Use heading tags (`<h2>`, `<h3>`) for section breaks
 - Include `target="_blank"` for external links
 - Keep content well-structured and readable
+- The HTML content will be automatically rendered on individual blog post pages
+
+**Template Literal Example for Content:**
+```typescript
+content: `
+  <h2>Your Main Heading</h2>
+  <p>Your paragraph content with <strong>bold text</strong> and <em>italic text</em>.</p>
+  
+  <h3>Subheading</h3>
+  <ul>
+    <li>List item one</li>
+    <li>List item two</li>
+  </ul>
+  
+  <p>More content with <a href="https://example.com" target="_blank">external links</a>.</p>
+`
+```
 
 ### Image Management
 
@@ -202,6 +221,11 @@ Categories with their automatic color themes:
 - Posts are sorted automatically using the `getMostRecentPosts` function
 - No manual selection needed
 
+**HTML Content Rendering:**
+- Individual blog post pages automatically render HTML content
+- Rich formatting including headings, links, lists, and emphasis
+- Styled with proper typography and spacing
+
 **URL Structure:**
 - Homepage: `/` (shows 3 latest posts in preview)
 - Blog overview: `/blog` (shows all posts)
@@ -223,10 +247,11 @@ The system is fully responsive across all devices:
 
 **Content Creation:**
 - Write engaging titles under 60 characters
-- Create compelling summaries that encourage clicks
-- Structure content with clear headings and paragraphs
+- Create compelling summaries that encourage clicks (plain text only)
+- Structure HTML content with clear headings and paragraphs
 - Use proper HTML formatting for readability
 - Include relevant links and formatting
+- Use template literals (backticks) for the content field to avoid syntax errors
 
 **Technical Guidelines:**
 - Always increment ID numbers from the highest existing ID
@@ -234,6 +259,7 @@ The system is fully responsive across all devices:
 - Test content on different screen sizes
 - Use consistent date formatting
 - Keep HTML content properly structured
+- Always use template literals for content with HTML
 
 **Writing Tips:**
 - Start with a strong opening paragraph
@@ -279,6 +305,18 @@ The system is fully responsive across all devices:
 }
 ```
 
+### Troubleshooting Common Issues
+
+**Syntax Errors in Content:**
+- Always use template literals (backticks `) for the content field
+- Avoid using double quotes within the content HTML
+- If you need quotes in your HTML, use single quotes or escape them properly
+
+**HTML Not Rendering:**
+- The system automatically renders HTML on individual blog post pages
+- Summary fields display as plain text (no HTML rendering)
+- Only the content field supports HTML rendering
+
 ---
 
-*The blog system is designed for simplicity and efficiency. Add your content once, and it appears everywhere automatically!*
+*The blog system is designed for simplicity and efficiency. Add your content once with proper HTML formatting, and it appears everywhere automatically with correct rendering!*

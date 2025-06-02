@@ -80,12 +80,11 @@ const BlogPost = () => {
             {blogPost.summary}
           </div>
 
-          {/* Content */}
-          <div className="prose prose-lg prose-invert max-w-none">
-            <p className="text-gray-300 leading-relaxed text-lg">
-              {blogPost.content}
-            </p>
-          </div>
+          {/* Content - Now properly renders HTML */}
+          <div 
+            className="prose prose-lg prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-lg prose-strong:text-white prose-em:text-gray-200 prose-a:text-brand-blue hover:prose-a:text-brand-green prose-ul:text-gray-300 prose-ol:text-gray-300 prose-li:text-gray-300"
+            dangerouslySetInnerHTML={{ __html: blogPost.content }}
+          />
 
           {/* Back to Blog Button */}
           <div className="mt-12 text-center">
