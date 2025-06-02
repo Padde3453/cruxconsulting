@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -22,7 +21,15 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  // Get the appropriate calendar URL based on language
+  const getCalendarUrl = () => {
+    if (i18n.language === 'de') {
+      return "https://calendar.app.google/NjCcvsWAuqMZeEah9?hl=de&ctz=Europe/Berlin";
+    }
+    return "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CvWlWHmw2s_eiyyKGgTLaQt26VWP1pB2vD5dc3HbUeCGwCDoSqq7n96brdFeh3kRFgKff0cd7?gv=true&hl=en&ctz=Europe/Berlin";
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -212,7 +219,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
             </form>
           </div>
 
-          {/* Google Calendar - moved to right column */}
+          {/* Google Calendar - now language-aware */}
           <div className="border border-gray-700 p-8 backdrop-blur-sm bg-transparent rounded-lg">
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-white mb-4">{t('contact.bookCall')}</h3>
@@ -223,7 +230,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
             
             <div className="bg-white rounded-lg overflow-hidden">
               <iframe 
-                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CvWlWHmw2s_eiyyKGgTLaQt26VWP1pB2vD5dc3HbUeCGwCDoSqq7n96brdFeh3kRFgKff0cd7?gv=true" 
+                src={getCalendarUrl()}
                 style={{ border: 0 }} 
                 width="100%" 
                 height="500" 
