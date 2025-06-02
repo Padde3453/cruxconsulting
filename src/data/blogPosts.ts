@@ -1,4 +1,3 @@
-
 export interface BlogPost {
   id: number;
   category: string;
@@ -45,11 +44,11 @@ export const blogPosts: BlogPost[] = [
     id: 4,
     category: "AUTOMATION",
     title: "5 Business Tasks SMEs Should Automate Now",
-    summary: "Running a business today means juggling dozens of tasks every week — from sending invoices and replying to emails, to updating spreadsheets and booking meetings. If your team is spending hours each week on repetitive tasks, you’re not just wasting time — you’re leaving money on the table.",
+    summary: "Running a business today means juggling dozens of tasks every week — from sending invoices and replying to emails, to updating spreadsheets and booking meetings. If your team is spending hours each week on repetitive tasks, you're not just wasting time — you're leaving money on the table.",
     image: "/lovable-uploads/09abf764-8eec-4d74-9f6a-9483d4e0f84f.png",
     date: "May 30, 2025",
     author: "Patrick Reverchon",
-    content: "<h2>Stop Wasting Time: 5 Business Tasks SMEs Should Automate Now</h2>
+    content: `<h2>Stop Wasting Time: 5 Business Tasks SMEs Should Automate Now</h2>
 
 
 <p>The good news? <strong>Smart automation isn't just for big tech companies anymore.</strong> Thanks to easy-to-use tools and custom solutions, small and mid-sized companies can now automate key parts of their operations without hiring a developer or changing everything overnight.</p>
@@ -62,26 +61,26 @@ export const blogPosts: BlogPost[] = [
 
 <h3>2. Invoice Creation and Follow-Up</h3>
 <p>Still creating invoices manually and chasing late payments? Automate it. Connect your CRM or spreadsheet to an invoice tool that sends bills automatically, sets due dates, and triggers polite reminders when payments are overdue.</p>
-<p><strong>Result:</strong> You get paid faster and reduce stress — without anyone on your team sending “Just checking in” emails again.</p>
+<p><strong>Result:</strong> You get paid faster and reduce stress — without anyone on your team sending "Just checking in" emails again.</p>
 
 <h3>3. Scheduling and Calendar Management</h3>
 <p>How many emails go back and forth before a client meeting is booked? Automating your scheduling with tools like <a href="https://calendly.com/" target="_blank">Calendly</a> or Microsoft Bookings lets clients choose a slot that works — with no email ping-pong.</p>
 <p><strong>Result:</strong> You save time, reduce no-shows, and give your clients a better experience from the very first meeting.</p>
 
 <h3>4. Reporting and Dashboards</h3>
-<p>If you’re pulling data from Excel or typing up weekly reports manually — stop. Reporting tools can pull data from your systems automatically and update dashboards in real time. Whether it’s sales performance, warehouse stock, or project status — it’s all visible at a glance.</p>
-<p><strong>Result:</strong> Faster decisions, less manual work, and a team that always knows what’s going on.</p>
+<p>If you're pulling data from Excel or typing up weekly reports manually — stop. Reporting tools can pull data from your systems automatically and update dashboards in real time. Whether it's sales performance, warehouse stock, or project status — it's all visible at a glance.</p>
+<p><strong>Result:</strong> Faster decisions, less manual work, and a team that always knows what's going on.</p>
 
 <h3>5. Email Sorting and Document Management</h3>
 <p>Legal firms, accountants, and even farmers often deal with dozens (or hundreds) of emails and attachments. AI tools can now <strong>automatically sort emails, extract documents, rename them properly, and store them in the right folder</strong> — all without lifting a finger.</p>
 <p><strong>Result:</strong> A clean inbox, organized files, and no more time wasted hunting for that one attachment from last week.</p>
 
 <h2>Why This Matters for SMEs</h2>
-<p>You don’t need a 10-person IT department to automate. You just need the right partner who understands your business and your goals.</p>
+<p>You don't need a 10-person IT department to automate. You just need the right partner who understands your business and your goals.</p>
 
 <p>At <strong>Crux Consulting</strong>, we specialize in helping small and mid-sized businesses unlock time, save money, and <strong>scale smarter through automation and AI</strong>. Our solutions are custom-built for companies between 30–200 employees — not for tech giants.</p>
 
-<p><a href="/contact" target="_blank"><strong>Ready to stop wasting time and start automating? Let’s talk about your first quick win.</strong></a></p>"
+<p><a href="/contact" target="_blank"><strong>Ready to stop wasting time and start automating? Let's talk about your first quick win.</strong></a></p>`
   }
 ];
 
