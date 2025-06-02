@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
 
 <h3>1. Client Onboarding</h3>
 <p>Whether you're a law firm, tax consultant, or logistics provider — onboarding new clients often means repeating the same steps: sending welcome emails, requesting documents, filling out forms. These steps can all be <strong>automated into a smooth, digital workflow</strong>.</p>
-<br><strong>Result:</strong> No more chasing clients for paperwork. Everything gets done faster, and your team has more time to build relationships — not fill out PDFs.</br>
+<p><strong>Result:</strong> No more chasing clients for paperwork. Everything gets done faster, and your team has more time to build relationships — not fill out PDFs.</p>
 
 <h3>2. Invoice Creation and Follow-Up</h3>
 <p>Still creating invoices manually and chasing late payments? Automate it. Connect your CRM or spreadsheet to an invoice tool that sends bills automatically, sets due dates, and triggers polite reminders when payments are overdue.</p>
