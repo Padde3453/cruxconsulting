@@ -4,9 +4,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { blogPosts, getMostRecentPosts, getCategoryColor } from "@/data/blogPosts";
+import { useTranslation } from 'react-i18next';
 
 const BlogPreviewSection = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   
   // Get the 3 most recent posts automatically
   const recentPosts = getMostRecentPosts(blogPosts, 3);
@@ -27,10 +29,10 @@ const BlogPreviewSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent md:text-5xl">
-            Latest Insights
+            {t('blog.title')}
           </h2>
           <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
-            Stay updated with the latest trends in AI, automation, and business strategy
+            {t('blog.subtitle')}
           </p>
         </div>
 
@@ -69,7 +71,7 @@ const BlogPreviewSection = () => {
             onClick={handleViewAllArticles}
             className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 mx-auto"
           >
-            <span>View All Articles</span>
+            <span>{t('blog.viewAll')}</span>
             <ArrowRight size={16} />
           </Button>
         </div>

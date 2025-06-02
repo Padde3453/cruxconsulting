@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from 'react-i18next';
 
 interface ContactSectionProps {
   onBooking: () => void;
@@ -21,6 +22,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,27 +89,26 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            Ready to Transform?
+            {t('contact.title')}
           </h2>
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            More efficiency, more focus, more revenue, more available time. 
-            Let's find out together how.
+            {t('contact.subtitle')}
           </p>
         </div>
 
         {/* Stats Grid - moved to top */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-16">
           <div>
-            <div className="text-3xl font-bold text-brand-blue mb-2">Free</div>
-            <div className="text-gray-400">Initial Consultation</div>
+            <div className="text-3xl font-bold text-brand-blue mb-2">{t('contact.freeConsultation')}</div>
+            <div className="text-gray-400">{t('contact.freeConsultationLabel')}</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-brand-green mb-2">24h</div>
-            <div className="text-gray-400">Response Guarantee</div>
+            <div className="text-3xl font-bold text-brand-green mb-2">{t('contact.responseGuarantee')}</div>
+            <div className="text-gray-400">{t('contact.responseGuaranteeLabel')}</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-white mb-2">ROI</div>
-            <div className="text-gray-400">Guaranteed Results</div>
+            <div className="text-3xl font-bold text-white mb-2">{t('contact.roi')}</div>
+            <div className="text-gray-400">{t('contact.roiLabel')}</div>
           </div>
         </div>
 
@@ -115,21 +116,21 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
           {/* Contact Form */}
           <div className="border border-gray-700 p-8 backdrop-blur-sm bg-transparent rounded-lg">
             <div className="mb-6">
-              <h3 className="text-2xl font-bold text-white mb-4">Get In Touch</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">{t('contact.getInTouch')}</h3>
               <p className="text-gray-300 mb-4">
-                Fill out the form below or email us directly at{" "}
+                {t('contact.formDescription')}{" "}
                 <a href="mailto:contact@crux-consulting.ai" className="text-brand-blue hover:text-brand-green transition-colors">
                   contact@crux-consulting.ai
                 </a>
               </p>
               <p className="text-sm text-gray-400">
-                We respond within 24 hours maximum.
+                {t('contact.responseTime')}
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Label htmlFor="name" className="text-gray-300">Name *</Label>
+                <Label htmlFor="name" className="text-gray-300">{t('contact.form.name')} *</Label>
                 <Input 
                   id="name" 
                   name="name" 
@@ -138,13 +139,13 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
                   value={formData.name} 
                   onChange={handleInputChange} 
                   className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400" 
-                  placeholder="Your name" 
+                  placeholder={t('contact.form.namePlaceholder')} 
                   disabled={isSubmitting}
                 />
               </div>
 
               <div>
-                <Label htmlFor="email" className="text-gray-300">Email *</Label>
+                <Label htmlFor="email" className="text-gray-300">{t('contact.form.email')} *</Label>
                 <Input 
                   id="email" 
                   name="email" 
@@ -153,13 +154,13 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
                   value={formData.email} 
                   onChange={handleInputChange} 
                   className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400" 
-                  placeholder="your@email.com" 
+                  placeholder={t('contact.form.emailPlaceholder')} 
                   disabled={isSubmitting}
                 />
               </div>
 
               <div>
-                <Label htmlFor="phone" className="text-gray-300">Phone Number *</Label>
+                <Label htmlFor="phone" className="text-gray-300">{t('contact.form.phone')} *</Label>
                 <Input 
                   id="phone" 
                   name="phone" 
@@ -168,13 +169,13 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
                   value={formData.phone} 
                   onChange={handleInputChange} 
                   className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400" 
-                  placeholder="+49 (0) 89 123456" 
+                  placeholder={t('contact.form.phonePlaceholder')} 
                   disabled={isSubmitting}
                 />
               </div>
 
               <div>
-                <Label htmlFor="company" className="text-gray-300">Company</Label>
+                <Label htmlFor="company" className="text-gray-300">{t('contact.form.company')}</Label>
                 <Input 
                   id="company" 
                   name="company" 
@@ -182,13 +183,13 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
                   value={formData.company} 
                   onChange={handleInputChange} 
                   className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400" 
-                  placeholder="Your company name" 
+                  placeholder={t('contact.form.companyPlaceholder')} 
                   disabled={isSubmitting}
                 />
               </div>
 
               <div>
-                <Label htmlFor="message" className="text-gray-300">Message *</Label>
+                <Label htmlFor="message" className="text-gray-300">{t('contact.form.message')} *</Label>
                 <Textarea 
                   id="message" 
                   name="message" 
@@ -196,7 +197,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
                   value={formData.message} 
                   onChange={handleInputChange} 
                   className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 min-h-[100px]" 
-                  placeholder="Tell us about your project or questions..." 
+                  placeholder={t('contact.form.messagePlaceholder')} 
                   disabled={isSubmitting}
                 />
               </div>
@@ -206,7 +207,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
                 className="w-full bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
               </Button>
             </form>
           </div>
@@ -214,9 +215,9 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
           {/* Google Calendar - moved to right column */}
           <div className="border border-gray-700 p-8 backdrop-blur-sm bg-transparent rounded-lg">
             <div className="mb-6">
-              <h3 className="text-2xl font-bold text-white mb-4">Book a Free Call</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">{t('contact.bookCall')}</h3>
               <p className="text-gray-300">
-                Schedule your free consultation directly in our calendar.
+                {t('contact.bookCallDescription')}
               </p>
             </div>
             
