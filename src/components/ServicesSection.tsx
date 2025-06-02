@@ -31,28 +31,44 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
       title: t('services.moreRevenue.title'),
       subtitle: t('services.moreRevenue.subtitle'),
       description: t('services.moreRevenue.description'),
-      features: t('services.moreRevenue.features', { returnObjects: true }) as string[]
+      features: [
+        t('services.moreRevenue.features.0'),
+        t('services.moreRevenue.features.1'),
+        t('services.moreRevenue.features.2')
+      ]
     },
     {
       icon: Clock,
       title: t('services.moreFreeTime.title'),
       subtitle: t('services.moreFreeTime.subtitle'),
       description: t('services.moreFreeTime.description'),
-      features: t('services.moreFreeTime.features', { returnObjects: true }) as string[]
+      features: [
+        t('services.moreFreeTime.features.0'),
+        t('services.moreFreeTime.features.1'),
+        t('services.moreFreeTime.features.2')
+      ]
     },
     {
       icon: Users,
       title: t('services.betterClientExperience.title'),
       subtitle: t('services.betterClientExperience.subtitle'),
       description: t('services.betterClientExperience.description'),
-      features: t('services.betterClientExperience.features', { returnObjects: true }) as string[]
+      features: [
+        t('services.betterClientExperience.features.0'),
+        t('services.betterClientExperience.features.1'),
+        t('services.betterClientExperience.features.2')
+      ]
     },
     {
       icon: DollarSign,
       title: t('services.lessCost.title'),
       subtitle: t('services.lessCost.subtitle'),
       description: t('services.lessCost.description'),
-      features: t('services.lessCost.features', { returnObjects: true }) as string[]
+      features: [
+        t('services.lessCost.features.0'),
+        t('services.lessCost.features.1'),
+        t('services.lessCost.features.2')
+      ]
     }
   ];
 
