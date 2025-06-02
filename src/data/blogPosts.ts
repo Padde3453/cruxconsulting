@@ -49,7 +49,39 @@ export const blogPosts: BlogPost[] = [
     image: "/lovable-uploads/09abf764-8eec-4d74-9f6a-9483d4e0f84f.png",
     date: "May 30, 2025",
     author: "Patrick Reverchon",
-    content: "Small businesses are uniquely positioned to benefit from AI implementation due to their agility and ability to quickly adapt new technologies. AI can level the playing field by providing access to sophisticated tools previously available only to large corporations. From chatbots that handle customer inquiries 24/7 to predictive analytics that optimize inventory, AI enables small businesses to operate more efficiently and compete effectively. The key is to start with focused applications that address specific challenges and gradually expand as you gain experience and see results."
+    content: "<h2>Stop Wasting Time: 5 Business Tasks SMEs Should Automate Now</h2>
+
+
+<p>The good news? <strong>Smart automation isn't just for big tech companies anymore.</strong> Thanks to easy-to-use tools and custom solutions, small and mid-sized companies can now automate key parts of their operations without hiring a developer or changing everything overnight.</p>
+
+<p>Here are five common tasks that <em>SMEs like yours</em> can start automating right away — and how it can help you save time, reduce errors, and focus on what really matters: your clients.</p>
+
+<h3>1. Client Onboarding</h3>
+<p>Whether you're a law firm, tax consultant, or logistics provider — onboarding new clients often means repeating the same steps: sending welcome emails, requesting documents, filling out forms. These steps can all be <strong>automated into a smooth, digital workflow</strong>.</p>
+<p><strong>Result:</strong> No more chasing clients for paperwork. Everything gets done faster, and your team has more time to build relationships — not fill out PDFs.</p>
+
+<h3>2. Invoice Creation and Follow-Up</h3>
+<p>Still creating invoices manually and chasing late payments? Automate it. Connect your CRM or spreadsheet to an invoice tool that sends bills automatically, sets due dates, and triggers polite reminders when payments are overdue.</p>
+<p><strong>Result:</strong> You get paid faster and reduce stress — without anyone on your team sending “Just checking in” emails again.</p>
+
+<h3>3. Scheduling and Calendar Management</h3>
+<p>How many emails go back and forth before a client meeting is booked? Automating your scheduling with tools like <a href="https://calendly.com/" target="_blank">Calendly</a> or Microsoft Bookings lets clients choose a slot that works — with no email ping-pong.</p>
+<p><strong>Result:</strong> You save time, reduce no-shows, and give your clients a better experience from the very first meeting.</p>
+
+<h3>4. Reporting and Dashboards</h3>
+<p>If you’re pulling data from Excel or typing up weekly reports manually — stop. Reporting tools can pull data from your systems automatically and update dashboards in real time. Whether it’s sales performance, warehouse stock, or project status — it’s all visible at a glance.</p>
+<p><strong>Result:</strong> Faster decisions, less manual work, and a team that always knows what’s going on.</p>
+
+<h3>5. Email Sorting and Document Management</h3>
+<p>Legal firms, accountants, and even farmers often deal with dozens (or hundreds) of emails and attachments. AI tools can now <strong>automatically sort emails, extract documents, rename them properly, and store them in the right folder</strong> — all without lifting a finger.</p>
+<p><strong>Result:</strong> A clean inbox, organized files, and no more time wasted hunting for that one attachment from last week.</p>
+
+<h2>Why This Matters for SMEs</h2>
+<p>You don’t need a 10-person IT department to automate. You just need the right partner who understands your business and your goals.</p>
+
+<p>At <strong>Crux Consulting</strong>, we specialize in helping small and mid-sized businesses unlock time, save money, and <strong>scale smarter through automation and AI</strong>. Our solutions are custom-built for companies between 30–200 employees — not for tech giants.</p>
+
+<p><a href="/contact" target="_blank"><strong>Ready to stop wasting time and start automating? Let’s talk about your first quick win.</strong></a></p>"
   }
 ];
 
