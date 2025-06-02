@@ -10,7 +10,7 @@
   },
   "whyCrux": {
     "title": "Why Crux Consulting?",
-    "subtitle": "We don't just implement AI - we transform your business with precision and expertise.",
+    "subtitle": "Small and medium-sized enterprises (SMEs) are the backbone of the economy in the European Union and play a central role in employment, revenue generation, and overall economic health. At the same time, they often lack the capacity to invest in AI on a large scale. This is where we come in to support you quickly and efficiently, unlocking the full potential of AI and automation available to us today.",
     "experience": {
       "title": "Deep AI Expertise",
       "description": "Years of experience in AI implementation across diverse industries and use cases."
@@ -26,63 +26,89 @@
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "Comprehensive AI solutions tailored to your business needs",
-    "automation": {
-      "title": "Process Automation",
-      "description": "Streamline operations with intelligent automation solutions"
+    "subtitle": "AI solutions built around your business — not the other way around",
+    "moreRevenue": {
+      "title": "More Revenue",
+      "subtitle": "through high-quality customers",
+      "description": "Increase your revenue by attracting and retaining high-quality customers through intelligent automation and strategic insights.",
+      "features": [
+        "Automated lead generation",
+        "Customer relationship management",
+        "Sales funnel optimization"
+      ]
     },
-    "analytics": {
-      "title": "AI Analytics",
-      "description": "Turn data into actionable insights with advanced AI analytics"
+    "moreFreeTime": {
+      "title": "More Free Time",
+      "subtitle": "through automation of manual tasks",
+      "description": "Reclaim valuable time by automating repetitive and manual tasks, allowing you to focus on what matters most.",
+      "features": [
+        "Process automation solutions",
+        "Workflow optimization",
+        "Task scheduling systems"
+      ]
     },
-    "chatbots": {
-      "title": "AI Chatbots",
-      "description": "Enhance customer service with intelligent conversational AI"
+    "betterClientExperience": {
+      "title": "Better Client Experience",
+      "subtitle": "through fast, reliable service",
+      "description": "Deliver exceptional client experiences with fast, reliable service that works even when you're busy.",
+      "features": [
+        "Customer service automation",
+        "Client portal development",
+        "Service delivery tracking"
+      ]
     },
-    "consulting": {
-      "title": "AI Strategy",
-      "description": "Strategic AI consulting to guide your digital transformation"
+    "lessCost": {
+      "title": "Less Cost, Better Solution",
+      "subtitle": "through intelligent sourcing",
+      "description": "Reduce costs while improving solutions through intelligent sourcing and market analysis.",
+      "features": [
+        "Cost analysis and optimization",
+        "Automated market research",
+        "ROI tracking and reporting"
+      ]
     },
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "exploreAll": "Explore All Services"
   },
   "einstein": {
-    "quote": "Everything should be made as simple as possible, but not simpler.",
+    "quote": "We cannot solve problems with the same thinking we used when we created them.",
     "author": "Albert Einstein"
   },
   "stats": {
-    "efficiency": "40%",
-    "efficiencyLabel": "Efficiency Increase",
-    "cost": "30%",
-    "costLabel": "Cost Reduction",
-    "revenue": "25%",
-    "revenueLabel": "Revenue Growth",
-    "time": "50%",
-    "timeLabel": "Time Saved"
+    "efficiency": "300%",
+    "efficiencyLabel": "ROI for you",
+    "cost": "4W",
+    "costLabel": "Implementation time",
+    "revenue": "100%",
+    "revenueLabel": "Client satisfaction",
+    "time": "500+",
+    "timeLabel": "SMEs supported"
   },
   "process": {
     "title": "Our Process",
-    "subtitle": "Simple, effective, results-driven approach",
-    "consultation": {
-      "title": "1. Consultation",
-      "description": "We analyze your business needs and identify AI opportunities"
+    "subtitle": "From consultation to transformation in days, not months",
+    "listen": {
+      "title": "Listen",
+      "description": "We understand your unique challenges and business goals"
     },
-    "strategy": {
-      "title": "2. Strategy",
-      "description": "Develop a customized AI implementation roadmap"
+    "analyze": {
+      "title": "Analyze",
+      "description": "AI-powered assessment of your current processes and potential"
     },
-    "implementation": {
-      "title": "3. Implementation",
-      "description": "Deploy AI solutions with minimal disruption to your operations"
+    "implement": {
+      "title": "Implement",
+      "description": "Seamless integration of tailored AI solutions"
     },
-    "optimization": {
-      "title": "4. Optimization",
-      "description": "Continuous monitoring and improvement of AI performance"
-    }
+    "transform": {
+      "title": "Transform",
+      "description": "Watch your business evolve with measurable results"
+    },
+    "beginJourney": "Begin Your Journey"
   },
   "blog": {
     "title": "Latest Insights",
-    "subtitle": "Stay updated with the latest in AI and business transformation",
-    "readMore": "Read More",
+    "subtitle": "Stay updated with the latest in AI, automation, and business strategy",
+    "viewAll": "View All Articles",
     "pageTitle": "Blog",
     "pageSubtitle": "Insights on AI, automation, and business strategy",
     "backToHome": "Back to Home"
@@ -126,5 +152,55 @@
     "about": "About Us",
     "contact": "Contact Us",
     "bookConsultation": "Book Consultation"
+  },
+  "about": {
+    "title": "About Us",
+    "whyCrux": {
+      "title": "Why 'CRUX Consulting'",
+      "description": "In climbing, the crux is the most challenging and decisive part of the route—the point that requires focus, skill, and the right strategy to succeed. I believe AI represents the crux moment for businesses today. It holds tremendous potential, but also complexity. Navigating this shift without the right support can feel like standing alone before a steep wall—risky, overwhelming, and easy to fall back. Crux Consulting is here to guide SMEs through this crucial ascent, helping them harness AI with clarity, confidence, and purpose."
+    },
+    "whoWeAre": {
+      "title": "Who we are"
+    },
+    "patrick": {
+      "title": "Patrick Reverchon",
+      "subtitle": "(Founder and CEO)",
+      "quote": "I founded Crux Consulting to bring the possibilities of automation and AI to those companies that don't necessarily have the capacity and budget to fully leverage their potential. SMEs are the backbone of our society and economy and I want to empower them as much as possible.",
+      "linkedIn": "LinkedIn",
+      "location": "Based in Munich & Sofia"
+    },
+    "team": {
+      "title": "Our Team & Network",
+      "description": "At Crux Consulting, we work with a trusted network of experienced developers, AI engineers, and automation experts—tailored to each client's needs. This flexible model ensures we always bring the right expertise.",
+      "ctoSearch": "🚀 Looking for a Co-Founder & CTO",
+      "ctoDescription": "I'm actively seeking a full-time CTO and Co-Founder to shape and scale our technical vision for the long term."
+    },
+    "howWeWork": {
+      "title": "How We Work",
+      "tailoredFirst": {
+        "title": "Tailored First",
+        "description": "No one-size-fits-all solutions. We start with your goals."
+      },
+      "fastButThoughtful": {
+        "title": "Fast But Thoughtful",
+        "description": "We prioritize execution speed and result quality."
+      },
+      "aiNativeBusinessLed": {
+        "title": "AI-Native, Business-Led",
+        "description": "Every project balances innovation with ROI."
+      },
+      "privacyCompliance": {
+        "title": "Privacy & Compliance by Design",
+        "description": "We build regulatory readiness into every system."
+      }
+    },
+    "joinUs": {
+      "title": "Want to Join Us?",
+      "description": "We're always interested in working with smart and ambitious people who have their hearts in the right place and share our mission of helping German and European companies with automation and AI, always focusing on ideal client outcomes and their ROI in the process.",
+      "encouragement": "If that sounds like you, just reach out through the contact form, we look forward to hearing from you.",
+      "developerQuestion": "💡 Are you a developer, consultant, or designer who shares our mission?",
+      "developerDescription": "Send us a message and tell us how you'd like to contribute.",
+      "sendApplication": "Send us your application"
+    }
   }
 }
