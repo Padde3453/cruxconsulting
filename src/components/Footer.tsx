@@ -14,9 +14,14 @@ const Footer = () => {
           >
             <Instagram size={24} />
           </a>
-          <div className="text-gray-400 cursor-not-allowed transition-all duration-300 transform hover:scale-110">
+          <a 
+            href="https://www.linkedin.com/company/crux-consulting-ai/?viewAsMember=true" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110"
+          >
             <Linkedin size={24} />
-          </div>
+          </a>
         </div>
         <p className="text-gray-500">
           © 2024 Crux Consulting. Transforming SMEs with AI.
