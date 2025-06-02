@@ -45,7 +45,7 @@ export const blogPosts: BlogPost[] = [
     category: "AUTOMATION",
     title: "5 Business Tasks SMEs Should Automate Now",
     summary: "Running a business today means juggling dozens of tasks every week — from sending invoices and replying to emails, to updating spreadsheets and booking meetings. If your team is spending hours each week on repetitive tasks, you're not just wasting time — you're leaving money on the table.",
-    image: "/lovable-uploads/09abf764-8eec-4d74-9f6a-9483d4e0f84f.png",
+    image: "/lovable-uploads/Blog1small.jpeg",
     date: "May 30, 2025",
     author: "Patrick Reverchon",
     content: `<h2>Stop Wasting Time: 5 Business Tasks SMEs Should Automate Now</h2>
