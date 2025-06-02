@@ -77,9 +77,22 @@ Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-trick
 
 ## Blog Management Guide
 
-### How to Manage Blog Content
+### Blog System Overview
 
-The blog functionality is handled through the `BlogPreviewSection.tsx` component and the main `Blog.tsx` page. Here's how to manage your blog content:
+The blog system consists of:
+- **Blog Preview Section**: Shows the 3 most recent posts on the homepage
+- **Blog Overview Page** (`/blog`): Displays all blog posts in a grid layout
+- **Dynamic Blog Post Pages** (`/blog/:id`): Individual reading pages for each blog post with full content
+
+### Blog Navigation Structure
+
+```
+Homepage → Blog Preview (3 latest posts) → Individual Post Page
+    ↓
+Blog Overview Page (all posts) → Individual Post Page
+```
+
+### How to Manage Blog Content
 
 ### 1. Uploading Images for Blog Posts
 
@@ -94,85 +107,120 @@ The blog functionality is handled through the `BlogPreviewSection.tsx` component
 
 ### 2. Adding New Blog Posts
 
-Blog posts are currently hardcoded in the components. To add new posts:
+Blog posts are currently managed in two main files that must be kept in sync:
 
 **For Blog Preview Section (Homepage):**
 1. Edit `src/components/BlogPreviewSection.tsx`
 2. Locate the `blogPosts` array
 3. Add new blog post objects with the following structure:
+
+**For Blog Overview and Individual Pages:**
+1. Edit `src/pages/Blog.tsx`
+2. Locate the `blogPosts` array
+3. Add new blog post objects with the following structure:
+
 ```javascript
 {
+  id: 7, // Must be unique
+  category: "AI STRATEGY", // See categories below
   title: "Your Blog Post Title",
-  excerpt: "A brief description of your blog post...",
-  date: "2024-01-15",
-  readTime: "5 min read",
+  summary: "A brief description of your blog post content...",
   image: "/lovable-uploads/your-image.png",
-  category: "AI Solutions" // or other categories
+  date: "April 19, 2024",
+  author: "Patrick Müller",
+  content: `
+    <p>Your full blog post content goes here.</p>
+    <p>You can use HTML tags for formatting:</p>
+    <ul>
+      <li>Bullet points</li>
+      <li>Bold text with <strong>strong tags</strong></li>
+      <li>Links with <a href="#">anchor tags</a></li>
+    </ul>
+    <h2>Section Headers</h2>
+    <p>More content...</p>
+  `
 }
 ```
 
-**For Full Blog Page:**
-1. Edit `src/pages/Blog.tsx`
-2. Locate the `blogPosts` array
-3. Add new blog post objects with the same structure as above
+**Important**: Make sure to add the same blog post to both files with identical `id`, `category`, `title`, `summary`, `image`, `date`, and `author` fields. Only the `content` field is used in the individual blog post page.
 
-### 3. Modifying Blog Post Content
+### 3. Blog Post Content Guidelines
 
-To edit existing blog posts:
-1. Find the blog post in the respective component (`BlogPreviewSection.tsx` or `Blog.tsx`)
-2. Modify the `title`, `excerpt`, `date`, `readTime`, `image`, or `category` fields
-3. Save the file - changes will be reflected immediately
+**Content Field**: 
+- Use HTML markup for rich formatting
+- Supported tags: `<p>`, `<h2>`, `<h3>`, `<strong>`, `<em>`, `<ul>`, `<ol>`, `<li>`, `<a>`, `<blockquote>`
+- Keep paragraphs well-structured with `<p>` tags
+- Use heading tags (`<h2>`, `<h3>`) for section breaks
 
-### 4. Changing Blog Headlines and Sections
+**Summary Field**:
+- Keep concise (2-3 sentences)
+- Use as a preview/teaser for the full content
+- This appears on both homepage preview and blog overview
 
-**Blog Preview Section (Homepage):**
-- Edit `src/components/BlogPreviewSection.tsx`
-- Modify the section title in the `<h2>` tag
-- Update the subtitle text as needed
+### 4. Blog Categories and Styling
 
-**Main Blog Page:**
-- Edit `src/pages/Blog.tsx`
-- Modify the main heading and description text
-- Update page metadata and titles
+Available categories with their color schemes:
+- **"AI STRATEGY"** - Blue theme (`text-brand-blue`)
+- **"PROCESS AUTOMATION"** - Green theme (`text-brand-green`)  
+- **"AI EDUCATION"** - Purple theme (`text-purple-400`)
+- **"AUTOMATION"** - Cyan theme (`text-cyan-400`)
 
-### 5. Blog Categories and Filtering
+To add new categories:
+1. Add the category name to blog post objects
+2. Update the `getCategoryColor` function in both `BlogPreviewSection.tsx` and `Blog.tsx`
+3. Choose an appropriate color class from the Tailwind palette
 
-Blog posts can be categorized. Current categories include:
-- "AI Solutions"
-- "Business Growth" 
-- "Automation"
-- "Technology"
+### 5. Blog URL Structure
 
-To add new categories or modify existing ones:
-1. Add new category names to blog post objects
-2. Ensure consistent naming across all posts
-3. The blog page will automatically handle category display
+- Homepage: `/` (shows 3 latest posts in preview section)
+- Blog overview: `/blog` (shows all posts)
+- Individual posts: `/blog/:id` (e.g., `/blog/1`, `/blog/2`)
 
-### 6. Best Practices
+### 6. Navigation Features
 
-**Image Management:**
-- Use descriptive filenames for uploaded images
-- Optimize images for web (recommended: under 500KB)
-- Use common formats: .jpg, .png, .webp
+- **Back to Home**: Available on blog overview page
+- **Back to Blog**: Available on individual blog post pages
+- **Read More**: Links from preview cards to full posts
+- **View All Articles**: Link from homepage preview to blog overview
 
-**Content Guidelines:**
-- Keep excerpts concise (2-3 sentences)
-- Use consistent date format: "YYYY-MM-DD"
-- Provide realistic read times
-- Choose relevant, descriptive titles
+### 7. Responsive Design
 
-**File Organization:**
-- Keep blog-related components in `src/components/` and `src/pages/`
-- Store all blog images in `/public/lovable-uploads/`
-- Maintain consistent naming conventions
+The blog system is fully responsive:
+- **Desktop**: 3-column grid on overview, full-width content on individual posts
+- **Tablet**: 2-column grid on overview
+- **Mobile**: 1-column layout throughout
 
-### 7. Future Enhancements
+### 8. Best Practices
 
-For a more dynamic blog system, consider:
-- Implementing a content management system (CMS)
-- Adding markdown support for rich content
-- Creating individual blog post pages with full content
-- Adding blog post search and pagination functionality
+**Content Management:**
+- Always update both `BlogPreviewSection.tsx` and `Blog.tsx` when adding new posts
+- Use consistent ID numbering (increment from highest existing ID)
+- Keep image files optimized (under 500KB recommended)
+- Use descriptive filenames for images
+
+**Writing Guidelines:**
+- Write engaging titles (keep under 60 characters for best display)
+- Create compelling summaries that encourage clicks
+- Structure content with clear headings and paragraphs
+- Include relevant links and formatting in content
+
+**Technical Considerations:**
+- Ensure all image paths are correct and files exist
+- Test blog posts on different screen sizes
+- Verify all links work correctly
+- Keep HTML content properly formatted
+
+### 9. Future Enhancements
+
+For a more advanced blog system, consider:
+- Content Management System (CMS) integration
+- Markdown support for easier content creation
+- Blog post search and filtering functionality
+- Comments system
+- Social sharing buttons
+- SEO optimization with meta tags
+- Blog post scheduling
+- Author profiles and multiple authors
 
 ---
 
