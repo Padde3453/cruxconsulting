@@ -12,13 +12,127 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
-    category: "AI STRATEGY",
-    title: "How to Develop an Effective AI Strategy",
-    summary: "Key steps to crafting a successful AI strategy that aligns with business goals.",
-    image: "/lovable-uploads/09abf764-8eec-4d74-9f6a-9483d4e0f84f.png",
+    category: "PROCESS AUTOMATION",
+    title: "Should You Automate That Process? A Practical Guide for SMEs",
+    summary: "Not every business process is worth automating — and some shouldn’t even exist in the first place",
+    image: "/lovable-uploads/Blog4small.jpeg",
     date: "March 6, 2025",
     author: "Patrick Reverchon",
-    content: "Developing an effective AI strategy requires careful planning and alignment with your business objectives. Start by identifying specific pain points in your operations where AI can make a meaningful impact. Consider your current data infrastructure, team capabilities, and budget constraints. A successful AI strategy begins with small, measurable projects that can demonstrate value quickly. Focus on areas where you have quality data and clear success metrics. Remember that AI is not a one-size-fits-all solution - it should complement your existing processes and enhance your team's capabilities rather than replace them entirely."
+    content: `<p>With all the excitement around AI and automation, it’s easy to fall into the trap of thinking <em>everything</em> should be automated. But here’s the truth: <strong>not every business process is worth automating — and some shouldn’t even exist in the first place</strong>.</p>
+
+<br>
+
+<p>For small and medium-sized enterprises (SMEs), especially in sectors like legal, logistics, tax consultancy, or agriculture, resources are limited. That means you have to be strategic. The key is knowing <strong>which processes are worth automating, and which are better left alone (or eliminated entirely)</strong>.</p>
+
+<br><br>
+
+<h3>Step 1: Should This Process Even Exist?</h3>
+
+<br>
+
+<p>Before asking whether a process can be automated, ask a more fundamental question: <strong>Is this process actually necessary?</strong></p>
+
+<br>
+
+<p>Many companies run outdated workflows simply because "we’ve always done it this way." But automation doesn’t fix broken logic — it just runs it faster.</p>
+
+<br>
+
+<p><strong>Example:</strong> A logistics company was spending hours a week manually confirming delivery addresses by phone. But the real issue wasn’t speed — it was that the confirmation process was redundant. By reworking their intake form, they removed the need for that step entirely.</p>
+
+<br>
+
+<p><strong>Rule of thumb:</strong> Don’t automate bad processes. Eliminate or improve them first.</p>
+
+<br><br>
+
+<h3>Step 2: Does This Process Cost Me Enough to Justify Automation?</h3>
+
+<br>
+
+<p>Automation is not free. Even with no-code tools like n8n, Zapier, or Make.com, there’s still a cost: in time, setup, integration, and occasionally licensing.</p>
+
+<br>
+
+<p>So ask yourself: <strong>How much time and money does this process actually cost me each month?</strong></p>
+
+<br>
+
+<ul>
+  <li>Is it eating up hours of skilled employee time?</li>
+  <li>Does it delay your service delivery or cause client frustration?</li>
+  <li>Does it introduce manual errors that cost you money or reputation?</li>
+</ul>
+
+<br>
+
+<p>Not every repetitive task is worth automating. But high-frequency, low-value tasks — like copying data between systems, updating dashboards, or sending reminders — are often great candidates.</p>
+
+<br>
+
+<p><strong>Example:</strong> A tax consultancy automated their document request emails for new clients. This saved only 5–10 minutes per client, but with 40 clients per month, the time savings added up to <em>weeks per year</em>.</p>
+
+<br><br>
+
+<h3>Step 3: Can This Process Be Automated — and How?</h3>
+
+<br>
+
+<p>This is often the trickiest question. You know the process is worth improving. You know it’s costing you time. But <strong>how do you actually automate it?</strong> And is it even possible with the tools you have?</p>
+
+<br>
+
+<p>This is where many SMEs get stuck — because the answer isn’t always obvious, and internal IT teams (if they exist at all) are often overloaded or lack the specialized knowledge for AI-enabled automation.</p>
+
+<br>
+
+<p><strong>Reality check:</strong> Many processes can be automated far more than you think — if you approach them creatively and talk to the right people.</p>
+
+<br>
+
+<p><strong>Example:</strong> A legal firm believed that manually reviewing client intake forms was unavoidable due to the complexity of the data. But with the right AI model and logic structure, we helped them automatically parse the documents, highlight red flags, and pre-sort cases into urgency tiers — cutting review time in half.</p>
+
+<br><br>
+
+<h2>Why a Conversation with Crux Consulting Can Unlock Possibilities</h2>
+
+<br>
+
+<p>Here’s the truth: <strong>You don’t know what you don’t know</strong>. And that’s not a weakness — it’s a reality in a fast-moving field like AI and automation.</p>
+
+<br>
+
+<p>At <strong>Crux Consulting</strong>, we’ve worked with SMEs across Europe in every sector — from farms to freight, legal to logistics. What we’ve seen again and again is that <em>some of the best automation opportunities only emerge through an honest conversation</em>.</p>
+
+<br>
+
+<p>Sometimes, a process you thought was “too human” can actually be 80% automated. Other times, we uncover hidden inefficiencies that were never questioned — and solve them entirely. The key is understanding your workflows, your goals, and what’s technically possible today (which is more than most expect).</p>
+
+<br>
+
+<p><strong>In short:</strong> You don’t need to guess. You just need to ask the right questions — and have the right partner.</p>
+
+<br><br>
+
+<h3>Final Reflection: Be Strategic, Not Reactive</h3>
+
+<br>
+
+<p>Automation and AI can drive enormous value for your business — but only when applied strategically. Start by asking:</p>
+
+<ol>
+  <li>Does this process still make sense?</li>
+  <li>Is it costing me enough to warrant automation?</li>
+  <li>Do I understand how it could be automated — or do I need help?</li>
+</ol>
+
+<br>
+
+<p>When you approach automation with these questions in mind, you reduce waste, empower your team, and unlock hidden growth opportunities.</p>
+
+<br>
+
+<p><a href="/contact" target="_blank"><strong>Not sure where to begin? Let’s have a conversation — no jargon, no hard sell, just practical advice tailored to your business.</strong></a></p>`
   },
   {
     id: 2,
@@ -28,9 +142,7 @@ export const blogPosts: BlogPost[] = [
     image: "/lovable-uploads/Blog3small.jpeg",
     date: "March 29, 2025",
     author: "Patrick Reverchon",
-    content: `<h2>Making Employees More Efficient vs. Making Them Redundant: The Real Role of AI in SMEs</h2>
-
-<p>AI is reshaping the workplace — but not in the way Hollywood makes it seem. While flashy headlines often warn about robots “stealing our jobs,” the reality, especially for small and medium-sized enterprises (SMEs), is much more nuanced and full of opportunity.</p>
+    content: `<p>AI is reshaping the workplace — but not in the way Hollywood makes it seem. While flashy headlines often warn about robots “stealing our jobs,” the reality, especially for small and medium-sized enterprises (SMEs), is much more nuanced and full of opportunity.</p>
 
 <br>
 
