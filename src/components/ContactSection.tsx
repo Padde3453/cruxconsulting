@@ -119,8 +119,8 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
               <h3 className="text-2xl font-bold text-white mb-4">{t('contact.getInTouch')}</h3>
               <p className="text-gray-300 mb-4">
                 {t('contact.formDescription')}{" "}
-                <a href="mailto:contact@crux-consulting.ai" className="text-brand-blue hover:text-brand-green transition-colors">
-                  contact@crux-consulting.ai
+                <a href={`mailto:${t('contact.email')}`} className="text-brand-blue hover:text-brand-green transition-colors">
+                  {t('contact.email')}
                 </a>
               </p>
               <p className="text-sm text-gray-400">

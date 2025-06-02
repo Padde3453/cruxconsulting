@@ -7,9 +7,11 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { blogPosts, getCategoryColor, getMostRecentPosts } from "@/data/blogPosts";
+import { useTranslation } from 'react-i18next';
 
 const Blog = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -29,16 +31,16 @@ const Blog = () => {
       <section className="pt-32 pb-16 text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Blog
+            {t('blog.pageTitle')}
           </h1>
           <p className="text-xl text-gray-300 mb-8">
-            Insights on AI, automation, and business strategy
+            {t('blog.pageSubtitle')}
           </p>
           
           {/* Back to Home Link */}
           <Link to="/" className="inline-flex items-center text-brand-blue hover:text-brand-green transition-colors">
             <ArrowLeft size={20} className="mr-2" />
-            Back to Home
+            {t('blog.backToHome')}
           </Link>
         </div>
       </section>

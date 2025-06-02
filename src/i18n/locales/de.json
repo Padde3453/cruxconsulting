@@ -108,7 +108,10 @@
   "blog": {
     "title": "Neueste Erkenntnisse",
     "subtitle": "Bleiben Sie auf dem Laufenden mit den neuesten Entwicklungen in KI, Automatisierung und Unternehmensstrategie",
-    "viewAll": "Alle Artikel anzeigen"
+    "viewAll": "Alle Artikel anzeigen",
+    "pageTitle": "Blog",
+    "pageSubtitle": "Einblicke in KI, Automatisierung und Geschäftsstrategie",
+    "backToHome": "Zurück zur Startseite"
   },
   "contact": {
     "title": "Bereit zur Transformation?",
@@ -124,6 +127,7 @@
     "responseTime": "Wir antworten innerhalb von maximal 24 Stunden.",
     "bookCall": "Kostenloses Gespräch buchen",
     "bookCallDescription": "Planen Sie Ihre kostenlose Beratung direkt in unserem Kalender.",
+    "email": "kontakt@crux-consulting.ai",
     "form": {
       "name": "Name",
       "namePlaceholder": "Ihr Name",

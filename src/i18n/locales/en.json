@@ -82,7 +82,10 @@
   "blog": {
     "title": "Latest Insights",
     "subtitle": "Stay updated with the latest in AI and business transformation",
-    "readMore": "Read More"
+    "readMore": "Read More",
+    "pageTitle": "Blog",
+    "pageSubtitle": "Insights on AI, automation, and business strategy",
+    "backToHome": "Back to Home"
   },
   "contact": {
     "title": "Ready to Transform?",
@@ -98,6 +101,7 @@
     "responseTime": "We respond within 24 hours maximum.",
     "bookCall": "Book a Free Call",
     "bookCallDescription": "Schedule your free consultation directly in our calendar.",
+    "email": "contact@crux-consulting.ai",
     "form": {
       "name": "Name",
       "namePlaceholder": "Your name",
