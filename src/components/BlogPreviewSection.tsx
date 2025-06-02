@@ -3,52 +3,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { blogPosts, getMostRecentPosts, getCategoryColor } from "@/data/blogPosts";
 
 const BlogPreviewSection = () => {
-  // This should match the blog posts from the Blog page
-  const blogPosts = [{
-    id: 1,
-    category: "AI STRATEGY",
-    title: "How to Develop an Effective AI Strategy",
-    summary: "Key steps to crafting a successful AI strategy that aligns with business goals.",
-    image: "/lovable-uploads/09abf764-8eec-4d74-9f6a-9483d4e0f84f.png",
-    date: "April 19, 2024",
-    author: "Patrick Müller"
-  }, {
-    id: 2,
-    category: "PROCESS AUTOMATION",
-    title: "10 Tasks Your Business Should Automate",
-    summary: "Discover ten routine tasks that can be automated to improve efficiency.",
-    image: "/lovable-uploads/09abf764-8eec-4d74-9f6a-9483d4e0f84f.png",
-    date: "April 10, 2024",
-    author: "Patrick Müller"
-  }, {
-    id: 3,
-    category: "AI EDUCATION",
-    title: "Getting Started with AI: A Beginner's Guide",
-    summary: "An introductory guide to understanding and implementing artificial intelligence.",
-    image: "/lovable-uploads/09abf764-8eec-4d74-9f6a-9483d4e0f84f.png",
-    date: "April 2, 2024",
-    author: "Patrick Müller"
-  }];
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "AI STRATEGY":
-        return "text-brand-blue";
-      case "PROCESS AUTOMATION":
-        return "text-brand-green";
-      case "AI EDUCATION":
-        return "text-purple-400";
-      case "AUTOMATION":
-        return "text-cyan-400";
-      default:
-        return "text-gray-400";
-    }
-  };
-
-  // Get the 3 most recent posts
-  const recentPosts = blogPosts.slice(0, 3);
+  // Get the 3 most recent posts automatically
+  const recentPosts = getMostRecentPosts(blogPosts, 3);
 
   return (
     <section className="py-16 relative">
