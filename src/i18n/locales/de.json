@@ -75,6 +75,7 @@
     "author": "Albert Einstein"
   },
   "stats": {
+    "title": "Wir möchten erreichen",
     "efficiency": "300%",
     "efficiencyLabel": "ROI für Sie",
     "cost": "4W",
@@ -116,7 +117,7 @@
   "contact": {
     "title": "Bereit zur Transformation?",
     "subtitle": "Mehr Effizienz, mehr Fokus, mehr Umsatz, mehr verfügbare Zeit. Lassen Sie uns gemeinsam herausfinden, wie.",
-    "freeConsultation": "Kostenlos",
+    "freeConsultation": "Kostenlose",
     "freeConsultationLabel": "Erstberatung",
     "responseGuarantee": "24h",
     "responseGuaranteeLabel": "Antwortgarantie",
