@@ -163,7 +163,7 @@ Add new blog posts using this exact structure in `src/data/blogPosts.ts`:
 **Content Field Formatting:**
 - **IMPORTANT**: Use template literals (backticks `) instead of quotes for the content field
 - Use HTML markup for rich formatting on individual blog post pages
-- Supported tags: `<p>`, `<h2>`, `<h3>`, `<strong>`, `<em>`, `<ul>`, `<ol>`, `<li>`, `<a>`, `<blockquote>`
+- Supported tags: `<p>`, `<br>`, `<h2>`, `<h3>`, `<strong>`, `<em>`, `<ul>`, `<ol>`, `<li>`, `<a>`, `<blockquote>`
 - Structure content with clear paragraphs using `<p>` tags
 - Use heading tags (`<h2>`, `<h3>`) for section breaks
 - Include `target="_blank"` for external links
