@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -107,29 +108,33 @@ const Blog = () => {
       <section className="pb-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map(post => <Card key={post.id} className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
-                <div className="aspect-video bg-gray-700 overflow-hidden">
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-                </div>
-                
-                <div className="p-6">
-                  <div className={`text-sm font-semibold mb-3 ${getCategoryColor(post.category)}`}>
-                    {post.category}
+            {blogPosts.map(post => 
+              <Link key={post.id} to={`/blog/${post.id}`} className="block">
+                <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <div className="aspect-video bg-gray-700 overflow-hidden">
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                   </div>
                   
-                  <h3 className="text-xl font-bold text-white mb-3 leading-tight">
-                    {post.title}
-                  </h3>
-                  
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                    {post.summary}
-                  </p>
-                  
-                  <div className="text-xs text-gray-400">
-                    {post.date} • {post.author}
+                  <div className="p-6">
+                    <div className={`text-sm font-semibold mb-3 ${getCategoryColor(post.category)}`}>
+                      {post.category}
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-white mb-3 leading-tight">
+                      {post.title}
+                    </h3>
+                    
+                    <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                      {post.summary}
+                    </p>
+                    
+                    <div className="text-xs text-gray-400">
+                      {post.date} • {post.author}
+                    </div>
                   </div>
-                </div>
-              </Card>)}
+                </Card>
+              </Link>
+            )}
           </div>
         </div>
       </section>
