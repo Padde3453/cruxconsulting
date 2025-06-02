@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -14,6 +15,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     company: "",
     message: ""
   });
@@ -39,6 +41,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          phone: formData.phone,
           company: formData.company,
           message: formData.message,
           timestamp: new Date().toISOString(),
@@ -56,6 +59,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
       setFormData({
         name: "",
         email: "",
+        phone: "",
         company: "",
         message: ""
       });
@@ -155,6 +159,21 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
               </div>
 
               <div>
+                <Label htmlFor="phone" className="text-gray-300">Phone Number *</Label>
+                <Input 
+                  id="phone" 
+                  name="phone" 
+                  type="tel" 
+                  required 
+                  value={formData.phone} 
+                  onChange={handleInputChange} 
+                  className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400" 
+                  placeholder="+1 (555) 123-4567" 
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <div>
                 <Label htmlFor="company" className="text-gray-300">Company</Label>
                 <Input 
                   id="company" 
@@ -176,7 +195,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
                   required 
                   value={formData.message} 
                   onChange={handleInputChange} 
-                  className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 min-h-[120px]" 
+                  className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 min-h-[100px]" 
                   placeholder="Tell us about your project or questions..." 
                   disabled={isSubmitting}
                 />
