@@ -51,7 +51,7 @@ export const blogPosts: BlogPost[] = [
     content: `<h2>Stop Wasting Time: 5 Business Tasks SMEs Should Automate Now</h2>
 
 
-<p>The good news? <strong>Smart automation isn't just for big tech companies anymore.</strong> Thanks to easy-to-use tools and custom solutions, small and mid-sized companies can now automate key parts of their operations without hiring a developer or changing everything overnight.</p>
+<br>The good news? <strong>Smart automation isn't just for big tech companies anymore.</strong> Thanks to easy-to-use tools and custom solutions, small and mid-sized companies can now automate key parts of their operations without hiring a developer or changing everything overnight.</br>
 
 <p>Here are five common tasks that <em>SMEs like yours</em> can start automating right away — and how it can help you save time, reduce errors, and focus on what really matters: your clients.</p>
 
