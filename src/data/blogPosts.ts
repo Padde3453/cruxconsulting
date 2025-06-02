@@ -59,8 +59,8 @@ export const blogPosts: BlogPost[] = [
 <p>Whether you're a law firm, tax consultant, or logistics provider — onboarding new clients often means repeating the same steps: sending welcome emails, requesting documents, filling out forms. These steps can all be <strong>automated into a smooth, digital workflow</strong>.</p>
 <p><strong>Result:</strong> No more chasing clients for paperwork. Everything gets done faster, and your team has more time to build relationships — not fill out PDFs.</p>
 
-<h3>2. Invoice Creation and Follow-Up</h3>
-<br>Still creating invoices manually and chasing late payments? Automate it. Connect your CRM or spreadsheet to an invoice tool that sends bills automatically, sets due dates, and triggers polite reminders when payments are overdue.</br>
+<br><h3>2. Invoice Creation and Follow-Up</h3></br>
+<p>Still creating invoices manually and chasing late payments? Automate it. Connect your CRM or spreadsheet to an invoice tool that sends bills automatically, sets due dates, and triggers polite reminders when payments are overdue.</p>
 <p><strong>Result:</strong> You get paid faster and reduce stress — without anyone on your team sending "Just checking in" emails again.</p>
 
 <h3>3. Scheduling and Calendar Management</h3>
