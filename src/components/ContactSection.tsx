@@ -26,7 +26,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
   // Get the appropriate calendar URL based on language
   const getCalendarUrl = () => {
     if (i18n.language === 'de') {
-      return "https://calendar.app.google/NjCcvsWAuqMZeEah9?gv=true&hl=de&ctz=Europe/Berlin";
+      return "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0DO5u5bWU030hd8TJJRa4xnkx6EgXfACgppqwwSyDThEwtHl-8yVPvCtQOeJQFB-jNMslaqKmj?gv=true&hl=de&ctz=Europe/Berlin";
     }
     return "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CvWlWHmw2s_eiyyKGgTLaQt26VWP1pB2vD5dc3HbUeCGwCDoSqq7n96brdFeh3kRFgKff0cd7?gv=true&hl=en&ctz=Europe/Berlin";
   };
@@ -233,7 +233,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
                 src={getCalendarUrl()}
                 style={{ border: 0 }} 
                 width="100%" 
-                height="500" 
+                height="600" 
                 frameBorder="0" 
                 title="Book a consultation" 
                 loading="lazy"
