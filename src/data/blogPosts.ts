@@ -80,7 +80,7 @@ export const blogPosts: BlogPost[] = [
 
 <br>At <strong>Crux Consulting</strong>, we specialize in helping small and mid-sized businesses unlock time, save money, and <strong>scale smarter through automation and AI</strong>. Our solutions are custom-built for companies between 30–200 employees — not for tech giants.</br>
 
-<p><a href="/contact" target="_blank"><strong>Ready to stop wasting time and start automating? Let's talk about your first quick win.</strong></a></p>`
+<br><a href="/contact" target="_blank"><strong>Ready to stop wasting time and start automating? Let's talk about your first quick win.</strong></a></br>`
   }
 ];
 
