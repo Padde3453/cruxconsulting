@@ -168,7 +168,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
                   value={formData.phone} 
                   onChange={handleInputChange} 
                   className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400" 
-                  placeholder="+1 (555) 123-4567" 
+                  placeholder="+49 (0) 89 123456" 
                   disabled={isSubmitting}
                 />
               </div>
