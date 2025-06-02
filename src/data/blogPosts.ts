@@ -35,7 +35,7 @@ export const blogPosts: BlogPost[] = [
     category: "AI EDUCATION",
     title: "What AI Can Actually Do for Your Business — And What’s Just Hype",
     summary: "Is AI actually useful for me — or is it all just tech industry hype?",
-    image: "/lovable-uploads/09abf764-8eec-4d74-9f6a-9483d4e0f84f.png",
+    image: "/lovable-uploads/Blog2small.jpeg",
     date: "April 15, 2025",
     author: "Patrick Reverchon",
     content: `<h2>What AI Can Actually Do for Your Business — And What’s Just Hype</h2>
