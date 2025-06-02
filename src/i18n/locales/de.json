@@ -2,7 +2,7 @@
 {
   "hero": {
     "title": "KI-gestütztes",
-    "subtitle": "Unternehmenswachstum",
+    "subtitle": "Wachstum",
     "description": "Transformieren Sie Ihr KMU mit modernsten KI-Lösungen. Schnell, präzise, transformativ.",
     "cta": "Starten Sie Ihre Transformation",
     "responseTime": "24h",
@@ -10,7 +10,7 @@
   },
   "whyCrux": {
     "title": "Warum Crux Consulting?",
-    "subtitle": "Wir implementieren nicht nur KI - wir transformieren Ihr Unternehmen mit Präzision und Expertise.",
+    "subtitle": "Kleine und mittlere Unternehmen (KMU) sind das Rückgrat der Wirtschaft in der Europäischen Union und spielen eine zentrale Rolle für die Beschäftigung, die Erwirtschaftung von Einnahmen und die allgemeine wirtschaftliche Gesundheit. Gleichzeitig haben sie oft nicht die Kapazitäten, um in großem Umfang in KI zu investieren. Hier kommen wir ins Spiel, um Sie schnell und effizient zu unterstützen und Ihnen das gesamte Potenzial von KI und Automatisierung zu erschließen, das uns heute zur Verfügung steht.",
     "experience": {
       "title": "Tiefe KI-Expertise",
       "description": "Jahrelange Erfahrung in der KI-Implementierung in verschiedenen Branchen und Anwendungsfällen."
@@ -46,18 +46,18 @@
     "learnMore": "Mehr erfahren"
   },
   "einstein": {
-    "quote": "Alles sollte so einfach wie möglich gemacht werden, aber nicht einfacher.",
+    "quote": "Wir können Probleme nicht mit der gleichen Denkweise lösen, mit der wir sie geschaffen haben.",
     "author": "Albert Einstein"
   },
   "stats": {
-    "efficiency": "40%",
-    "efficiencyLabel": "Effizienzsteigerung",
-    "cost": "30%",
-    "costLabel": "Kostensenkung",
-    "revenue": "25%",
-    "revenueLabel": "Umsatzwachstum",
-    "time": "50%",
-    "timeLabel": "Zeit gespart"
+    "efficiency": "300%",
+    "efficiencyLabel": "ROI für Sie",
+    "cost": "4W",
+    "costLabel": "Umsetzungszeit",
+    "revenue": "100%",
+    "revenueLabel": "Kundenzufriedenheit",
+    "time": "500+",
+    "timeLabel": "KMUs unterstützt"
   },
   "process": {
     "title": "Unser Prozess",
