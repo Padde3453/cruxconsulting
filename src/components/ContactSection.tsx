@@ -39,7 +39,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
 
     try {
       // Send to webhook
-      const webhookUrl = "https://hooks.zapier.com/hooks/catch/19851234/3abc123/";
+      const webhookUrl = "https://www.dailyjokenewsletter.com/webhook/f009142b-95d3-4bae-9979-d9aad7ecfd04";
       
       const response = await fetch(webhookUrl, {
         method: "POST",
