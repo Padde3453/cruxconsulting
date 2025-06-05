@@ -204,7 +204,8 @@
     }
   },
   "footer": {
-    "copyright": "© 2024 Crux Consulting. Transforming SMEs with AI."
+    "copyright": "© 2024 Crux Consulting. Transforming SMEs with AI.",
+    "privacyPolicy": "Privacy Policy"
   },
   "navigation": {
     "services": "Services",
@@ -281,6 +282,54 @@
     "disclaimer": {
       "title": "Disclaimer",
       "description": "Despite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content."
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "introduction": {
+      "title": "1. Introduction",
+      "paragraph1": "The protection of your personal data is of particular concern to us. We treat your personal data confidentially and in accordance with the statutory data protection regulations and this privacy policy.",
+      "paragraph2": "This privacy policy informs you about how we collect, process and use personal data on our website."
+    },
+    "responsible": {
+      "title": "2. Data Controller",
+      "paragraph1": "The entity responsible for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is:"
+    },
+    "accessData": {
+      "title": "3. Access Data (Server Log Files)",
+      "paragraph1": "When visiting this website, information is automatically collected and stored in so-called server log files by the hosting provider, which your browser automatically transmits. These are:",
+      "items": {
+        "browserType": "Browser type and browser version",
+        "operatingSystem": "Operating system used",
+        "referrerUrl": "Referrer URL",
+        "hostname": "Hostname of the accessing computer",
+        "requestTime": "Time of the server request",
+        "ipAddress": "IP address"
+      },
+      "paragraph2": "This data is not merged with other data sources. The collection is based on Art. 6 para. 1 lit. f GDPR – the legitimate interest consists in the technically error-free presentation and optimization of the website."
+    },
+    "contact": {
+      "title": "4. Contact",
+      "paragraph1": "If you contact us by email or telephone, your details will be stored by us for the purpose of processing the inquiry and in case of follow-up questions.",
+      "paragraph2": "The processing of this data is based on Art. 6 para. 1 lit. b GDPR (for the implementation of pre-contractual measures) or on the basis of our legitimate interest (Art. 6 para. 1 lit. f GDPR) to contact you."
+    },
+    "rights": {
+      "title": "5. Your Rights",
+      "paragraph1": "According to GDPR you have the right to:",
+      "items": {
+        "dataAccess": "Information about your stored data (Art. 15 GDPR)",
+        "dataCorrection": "Correction of incorrect data (Art. 16 GDPR)",
+        "dataDeletion": "Deletion of your data (Art. 17 GDPR)",
+        "processingRestriction": "Restriction of processing (Art. 18 GDPR)",
+        "dataPortability": "Data portability (Art. 20 GDPR)",
+        "processingObjection": "Objection to processing (Art. 21 GDPR)"
+      },
+      "paragraph2": "Please contact us at: contact@crux-consulting.ai",
+      "paragraph3": "You also have the right to complain to a data protection supervisory authority."
+    },
+    "changes": {
+      "title": "6. Changes to this Privacy Policy",
+      "paragraph1": "We reserve the right to adapt this privacy policy as needed so that it always complies with current legal requirements."
     }
   }
 }

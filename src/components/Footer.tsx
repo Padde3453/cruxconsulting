@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-gray-800 pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <div className="flex justify-center items-center space-x-4 mb-4">
+        <div className="flex justify-center items-center space-x-4 mb-6">
           <a 
             href="https://www.instagram.com/crux_consulting.ai/" 
             target="_blank" 
@@ -27,17 +27,25 @@ const Footer = () => {
             <Linkedin size={24} />
           </a>
         </div>
-        <div className="flex justify-center items-center space-x-4 mb-4">
-          <p className="text-gray-500">
-            {t('footer.copyright')}
-          </p>
-          <span className="text-gray-500">•</span>
+        <div className="flex justify-center items-center space-x-4 mb-6">
           <Link 
             to="/impressum" 
             className="text-gray-400 hover:text-white transition-colors text-sm"
           >
             Impressum
           </Link>
+          <span className="text-gray-500">•</span>
+          <Link 
+            to="/privacy" 
+            className="text-gray-400 hover:text-white transition-colors text-sm"
+          >
+            {t('footer.privacyPolicy')}
+          </Link>
+        </div>
+        <div className="flex justify-center items-center">
+          <p className="text-gray-500">
+            {t('footer.copyright')}
+          </p>
         </div>
       </div>
     </footer>
