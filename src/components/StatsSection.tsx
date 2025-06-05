@@ -7,13 +7,8 @@ const StatsSection = () => {
 
   const stats = [
     {
-      value: t('stats.efficiency'),
-      label: t('stats.efficiencyLabel'),
-      gradient: "from-brand-blue to-brand-green"
-    },
-    {
-      value: t('stats.cost'),
-      label: t('stats.costLabel'),
+      value: t('stats.time'),
+      label: t('stats.timeLabel'),
       gradient: "from-brand-green to-brand-blue"
     },
     {
@@ -22,9 +17,14 @@ const StatsSection = () => {
       gradient: "from-brand-blue to-brand-green"
     },
     {
-      value: t('stats.time'),
-      label: t('stats.timeLabel'),
+      value: t('stats.cost'),
+      label: t('stats.costLabel'),
       gradient: "from-brand-green to-brand-blue"
+    },
+    {
+      value: t('stats.efficiency'),
+      label: t('stats.efficiencyLabel'),
+      gradient: "from-brand-blue to-brand-green"
     }
   ];
 
