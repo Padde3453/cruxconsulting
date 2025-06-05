@@ -262,5 +262,25 @@
       "developerDescription": "Send us a message and tell us how you'd like to contribute.",
       "sendApplication": "Send us your application"
     }
+  },
+  "impressum": {
+    "title": "Impressum",
+    "legalInfo": {
+      "title": "Legal Information according to § 5 TMG",
+      "inPreparation": "in preparation",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "responsibleContent": {
+      "title": "Responsible for content according to § 55 para. 2 RStV"
+    },
+    "companyStatus": {
+      "title": "Company Status",
+      "description": "Crux Consulting GmbH is currently in the founding phase. Registration in the commercial register has not yet taken place. A VAT ID has not yet been assigned."
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "description": "Despite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content."
+    }
   }
 }

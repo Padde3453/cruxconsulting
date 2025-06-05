@@ -21,8 +21,8 @@ const WhyCruxSection = () => {
             </div>
           </div>
 
-          {/* Image - 30% width */}
-          <div className="lg:col-span-3 flex justify-center">
+          {/* Image - 30% width - hidden on mobile */}
+          <div className="lg:col-span-3 hidden lg:flex justify-center">
             <img 
               src="/lovable-uploads/europe_flag.png" 
               alt="European Union Flag" 

@@ -1,6 +1,7 @@
 
 import { Linkedin, Instagram } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -26,9 +27,18 @@ const Footer = () => {
             <Linkedin size={24} />
           </a>
         </div>
-        <p className="text-gray-500">
-          {t('footer.copyright')}
-        </p>
+        <div className="flex justify-center items-center space-x-4 mb-4">
+          <p className="text-gray-500">
+            {t('footer.copyright')}
+          </p>
+          <span className="text-gray-500">•</span>
+          <Link 
+            to="/impressum" 
+            className="text-gray-400 hover:text-white transition-colors text-sm"
+          >
+            Impressum
+          </Link>
+        </div>
       </div>
     </footer>
   );

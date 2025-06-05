@@ -262,5 +262,25 @@
       "developerDescription": "Schicken Sie uns eine Nachricht und erzählen Sie uns, wie Sie gerne beitragen möchten.",
       "sendApplication": "Senden Sie uns Ihre Bewerbung"
     }
+  },
+  "impressum": {
+    "title": "Impressum",
+    "legalInfo": {
+      "title": "Angaben gemäß § 5 TMG",
+      "inPreparation": "in Vorbereitung",
+      "phone": "Telefon",
+      "email": "E-Mail"
+    },
+    "responsibleContent": {
+      "title": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV"
+    },
+    "companyStatus": {
+      "title": "Unternehmensstatus",
+      "description": "Die Crux Consulting GmbH befindet sich derzeit in der Gründungsphase. Eine Eintragung im Handelsregister liegt noch nicht vor. Eine Umsatzsteuer-ID wurde bislang nicht vergeben."
+    },
+    "disclaimer": {
+      "title": "Haftungsausschluss",
+      "description": "Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich."
+    }
   }
 }
