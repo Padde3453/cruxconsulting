@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const { t } = useTranslation();
 
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className="border-t border-gray-800 pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-6 text-center">
@@ -30,6 +34,7 @@ const Footer = () => {
         <div className="flex justify-center items-center space-x-4 mb-6">
           <Link 
             to="/impressum" 
+            onClick={handleLinkClick}
             className="text-gray-400 hover:text-white transition-colors text-sm"
           >
             Impressum
@@ -37,6 +42,7 @@ const Footer = () => {
           <span className="text-gray-500">•</span>
           <Link 
             to="/privacy" 
+            onClick={handleLinkClick}
             className="text-gray-400 hover:text-white transition-colors text-sm"
           >
             {t('footer.privacyPolicy')}
