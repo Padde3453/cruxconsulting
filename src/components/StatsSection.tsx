@@ -59,7 +59,7 @@ const StatsSection = () => {
           {stats.map((stat, index) => (
             <Card 
               key={index}
-              className={`bg-gray-800/50 border-gray-700 p-8 text-center backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-500 ${
+              className={`bg-gray-800/50 border-gray-700 px-4 py-8 text-center backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-500 ${
                 isVisible ? 'animate-fade-in-up' : 'opacity-0'
               }`}
               style={{ animationDelay: stat.delay }}

@@ -1,3 +1,4 @@
+
 {
   "hero": {
     "title": "KI-gestütztes",
@@ -140,7 +141,7 @@
     "cost": "4W",
     "costLabel": "Umsetzungszeit",
     "revenue": "100%",
-    "revenueLabel": "Kundenzufriedenheit",
+    "revenueLabel": "Kunden-\nzufriedenheit",
     "time": "500+",
     "timeLabel": "KMUs unterstützt"
   },
