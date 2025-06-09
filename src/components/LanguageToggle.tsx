@@ -28,7 +28,7 @@ const LanguageToggle = () => {
         variant="ghost"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-1 text-gray-300 hover:text-gray-400"
+        className="flex items-center space-x-1 text-gray-300 hover:text-gray-400 hover:bg-gray-700"
       >
         <span className="text-lg">{currentLang.flag}</span>
         <ChevronDown size={16} />
