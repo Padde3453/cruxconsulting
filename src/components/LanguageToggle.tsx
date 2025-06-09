@@ -41,7 +41,7 @@ const LanguageToggle = () => {
               key={lang.code}
               onClick={() => changeLanguage(lang.code)}
               className={`w-full flex items-center justify-center px-3 py-2 text-left hover:bg-gray-700 first:rounded-t-lg last:rounded-b-lg transition-colors ${
-                currentLanguage === lang.code ? 'bg-gray-700 text-white' : 'text-gray-300'
+                currentLanguage === lang.code ? 'bg-gray-700 text-gray-300' : 'text-gray-300 hover:text-gray-400'
               }`}
             >
               <span className="text-lg">{lang.flag}</span>
