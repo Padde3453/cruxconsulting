@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -8,11 +7,12 @@ import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ValueCard from "@/components/ValueCard";
 import DeliveryPromise from "@/components/DeliveryPromise";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 const Services = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [openSections, setOpenSections] = useState<Record<number, boolean>>({});
   const [searchParams] = useSearchParams();
   
@@ -44,7 +44,13 @@ const Services = () => {
   }, [searchParams]);
 
   const handleBooking = () => {
-    window.location.href = '/#contact';
+    navigate('/');
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   const toggleSection = (index: number) => {
