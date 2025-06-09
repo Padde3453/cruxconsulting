@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, Plus } from "lucide-react";
@@ -53,6 +54,14 @@ const Header = ({ onBooking }: HeaderProps) => {
     setMobileMenuOpen(false);
   };
 
+  const handleAboutNavigation = () => {
+    navigate('/about');
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+    setMobileMenuOpen(false);
+  };
+
   const handleBooking = () => {
     if (onBooking) {
       onBooking();
@@ -98,8 +107,8 @@ const Header = ({ onBooking }: HeaderProps) => {
           >
             {t('navigation.blog')}
           </button>
-          <Link 
-            to="/about" 
+          <button 
+            onClick={handleAboutNavigation}
             className={`transition-colors ${
               isActivePage('/about') 
                 ? 'text-white border-b-2 border-brand-blue' 
@@ -107,7 +116,7 @@ const Header = ({ onBooking }: HeaderProps) => {
             }`}
           >
             {t('navigation.about')}
-          </Link>
+          </button>
           <button 
             onClick={() => scrollToSection('contact')} 
             className="text-gray-300 hover:text-white transition-colors"
@@ -162,17 +171,16 @@ const Header = ({ onBooking }: HeaderProps) => {
             >
               {t('navigation.blog')}
             </button>
-            <Link 
-              to="/about" 
+            <button 
+              onClick={handleAboutNavigation}
               className={`block transition-colors ${
                 isActivePage('/about') 
                   ? 'text-white border-b-2 border-brand-blue' 
                   : 'text-gray-300 hover:text-white'
               }`}
-              onClick={() => setMobileMenuOpen(false)}
             >
               {t('navigation.about')}
-            </Link>
+            </button>
             <button 
               onClick={() => scrollToSection('contact')} 
               className="block text-gray-300 hover:text-white transition-colors"
