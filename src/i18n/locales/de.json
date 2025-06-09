@@ -1,9 +1,8 @@
-
 {
   "hero": {
     "title": "KI-gestütztes",
     "subtitle": "Wachstum",
-    "description": "Transformieren Sie Ihr KMU mit modernsten KI-Lösungen. Schnell, präzise, transformativ.",
+    "description": "Transformieren Sie Ihr Unternehmen mit modernsten KI-Lösungen. Schnell, präzise, transformativ.",
     "cta": "Starten Sie Ihre Transformation",
     "responseTime": "24h",
     "responseTimeLabel": "Antwortzeit"
@@ -35,7 +34,7 @@
       "description": "Steigern Sie Ihren Umsatz durch die Gewinnung und Bindung hochwertiger Kunden mittels intelligenter Automatisierung und strategischer Erkenntnisse.",
       "features": [
         "Automatisierte Lead-Generierung",
-        "Kundenbeziehungsmanagement",
+        "Kundenbeziehungs-management",
         "Optimierung des Vertriebstrichters"
       ],
       "services": [
@@ -51,12 +50,12 @@
       "subtitle": "dank Automatisierung manueller Aufgaben",
       "description": "Gewinnen Sie wertvolle Zeit zurück, indem Sie wiederkehrende und manuelle Aufgaben automatisieren und sich auf das Wesentliche konzentrieren können.",
       "features": [
-        "Prozessautomatisierungslösungen",
+        "Automatisierung von Prozessen",
         "Workflow-Optimierung",
         "Aufgabenplanungssysteme"
       ],
       "services": [
-        "Prozessautomatisierungslösungen",
+        "Automatisierung von Prozessen",
         "Dokumentenmanagementsysteme",
         "Workflow-Optimierung",
         "Aufgabenplanung und -delegation",

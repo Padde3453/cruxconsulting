@@ -38,26 +38,26 @@ const BlogPreviewSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {recentPosts.map(post => 
-            <Link key={post.id} to={`/blog/${post.id}`} className="block">
-              <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
-                <div className="aspect-video bg-gray-700 overflow-hidden">
+            <Link key={post.id} to={`/blog/${post.id}`} className="block h-full">
+              <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col">
+                <div className="aspect-video bg-gray-700 overflow-hidden flex-shrink-0">
                   <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                 </div>
                 
-                <div className="p-4">
+                <div className="p-4 flex flex-col flex-grow">
                   <div className={`text-xs font-semibold mb-2 ${getCategoryColor(post.category)}`}>
                     {post.category}
                   </div>
                   
-                  <h3 className="text-lg font-bold text-white mb-2 leading-tight">
+                  <h3 className="text-lg font-bold text-white mb-2 leading-tight line-clamp-2">
                     {post.title}
                   </h3>
                   
-                  <p className="text-gray-300 mb-3 text-sm leading-relaxed line-clamp-3">
+                  <p className="text-gray-300 mb-3 text-sm leading-relaxed line-clamp-3 flex-grow">
                     {post.summary}
                   </p>
                   
-                  <div className="text-xs text-gray-400">
+                  <div className="text-xs text-gray-400 mt-auto">
                     {post.date} • {post.author}
                   </div>
                 </div>
