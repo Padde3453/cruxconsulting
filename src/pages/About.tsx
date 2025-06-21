@@ -134,7 +134,7 @@ const AboutContent = () => {
         >
           <div className="flex flex-col md:flex-row items-start gap-6 mb-6">
             <img 
-              src="/lovable-uploads/a2be320d-a273-485b-9a21-dcf991d7d542.png" 
+              src="/lovable-uploads/meonwebsite.png" 
               alt="Patrick Reverchon" 
               className="w-32 h-32 rounded-lg object-cover"
             />
