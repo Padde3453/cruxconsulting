@@ -85,12 +85,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
       
       const response = await fetch(webhookUrl, {
         method: 'GET',
-        mode: 'cors',
-        headers: {
-          'Accept': 'application/json',
-          'User-Agent': 'ChatWidget/1.0',
-        },
-        credentials: 'omit'
+        mode: 'cors'
       });
 
       console.log('📡 Response received:', {
