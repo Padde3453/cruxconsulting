@@ -35,15 +35,11 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     console.log('Calling webhook with message:', messageText);
     
     try {
-      const response = await fetch('https://www.dailyjokenewsletter.com/webhook-test/f94fe33b-de4e-4751-9be2-1413d40af994', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: messageText,
-          userId: userId
-        })
+      const webhookUrl = `https://chatbot.patrick-033.workers.dev/?message=${encodeURIComponent(messageText)}&sender=${encodeURIComponent(userId)}`;
+      console.log('Webhook URL:', webhookUrl);
+      
+      const response = await fetch(webhookUrl, {
+        method: 'GET'
       });
 
       console.log('Webhook response status:', response.status);
