@@ -203,8 +203,6 @@ const InstagramDemo: React.FC = () => {
   return (
     <div className="demo-page min-h-screen bg-gray-50">
       <DemoControls 
-        onReset={resetDemo}
-        onTriggerResponse={triggerAutoReply}
         demoType="instagram"
       />
 

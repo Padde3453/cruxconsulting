@@ -61,8 +61,6 @@ const BandwerkDemo: React.FC = () => {
   return (
     <div className="demo-page min-h-screen bg-white">
       <DemoControls 
-        onReset={resetDemo}
-        onTriggerResponse={triggerBotResponse}
         demoType="bandwerk"
       />
 
