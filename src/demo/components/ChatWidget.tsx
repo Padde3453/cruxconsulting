@@ -20,7 +20,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Hi! I'm your AI assistant. How can I help you today?",
+      text: "Hallo, ich bin Bandy, willkommen bei Bandwerk. Wie kann ich dir helfen, suchst du etwas bestimmtes?",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -54,11 +54,11 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     // Simulate bot response
     setTimeout(() => {
       const botResponses = [
-        "Thanks for your message! I'm processing your request.",
-        "I understand you're interested in our products. Let me help you find the perfect match.",
-        "That's a great question! Our team specializes in premium watch bands and accessories.",
-        "I'd be happy to help you with that. Our products are made with the finest materials.",
-        "Excellent choice! This product has received outstanding reviews from our customers."
+        "Danke für deine Nachricht! Ich bearbeite deine Anfrage.",
+        "Ich verstehe, dass du dich für unsere Produkte interessierst. Lass mich dir helfen, das perfekte Produkt zu finden.",
+        "Das ist eine tolle Frage! Unser Team ist spezialisiert auf Premium Apple Watch Bänder und Zubehör.",
+        "Gerne helfe ich dir dabei. Unsere Produkte werden aus den besten Materialien hergestellt.",
+        "Ausgezeichnete Wahl! Dieses Produkt hat hervorragende Bewertungen von unseren Kunden erhalten."
       ];
 
       const botMessage: Message = {
@@ -90,8 +90,12 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
         <div className="chat-window">
           <div className="chat-header">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-              <span className="font-medium">AI Assistant</span>
+              <img 
+                src="/lovable-uploads/67294fdb-26a1-40ee-9427-4416a4dd05ac.png" 
+                alt="Bandy Logo" 
+                className="w-6 h-6"
+              />
+              <span className="font-medium text-white">Bandy</span>
             </div>
             <Button
               variant="ghost"
@@ -114,7 +118,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
             ))}
             {isTyping && (
               <div className="typing-indicator">
-                <span>AI is typing</span>
+                <span>Bandy schreibt</span>
                 <div className="typing-dots">
                   <div className="typing-dot"></div>
                   <div className="typing-dot"></div>
@@ -130,7 +134,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Type your message..."
+              placeholder="Schreibe deine Nachricht hier..."
               className="flex-1"
             />
             <Button
@@ -148,7 +152,11 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
         className="chat-bubble"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <MessageCircle className="h-6 w-6" />
+        <img 
+          src="/lovable-uploads/67294fdb-26a1-40ee-9427-4416a4dd05ac.png" 
+          alt="Bandy Logo" 
+          className="h-8 w-8"
+        />
       </div>
     </div>
   );
