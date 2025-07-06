@@ -44,72 +44,100 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   }, []);
 
   const sendWebhookMessage = async (messageText: string) => {
+    console.log('🚀 Starting webhook request...');
+    console.log('🌐 Current origin:', window.location.origin);
+    console.log('🔍 User agent:', navigator.userAgent);
+    
+    const webhookUrl = 'https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8';
+    
     try {
-      // POST request with form-encoded data to avoid CORS preflight
+      // Approach 1: no-cors mode with form data
+      console.log('📋 Attempt 1: no-cors mode with form data');
       const formData = new URLSearchParams({
         message: messageText,
         sender: 'user',
         timestamp: new Date().toISOString()
       });
       
-      const webhookUrl = 'https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8';
-      
       console.log('🔗 Webhook URL:', webhookUrl);
       console.log('📤 Form data:', formData.toString());
-      console.log('🚀 Sending POST request with form encoding...');
-      console.log('🌐 Current origin:', window.location.origin);
-      console.log('🔍 User agent:', navigator.userAgent);
       
       const response = await fetch(webhookUrl, {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: formData
       });
 
-      console.log('📡 Response received:', {
+      console.log('📡 Response received (no-cors):', {
         status: response.status,
         statusText: response.statusText,
-        headers: Array.from(response.headers.entries())
+        type: response.type,
+        ok: response.ok
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log('✅ Webhook response data:', data);
-        
-        // Add bot response from webhook
-        const botMessage: Message = {
-          id: Date.now() + 1,
-          text: data.response || data.message || data.reply || data.text || "Danke für deine Nachricht!",
-          sender: 'bot',
-          timestamp: new Date()
-        };
-
-        setIsTyping(false);
-        setMessages(prev => [...prev, botMessage]);
-      } else {
-        throw new Error(`Webhook response failed: ${response.status} ${response.statusText}`);
-      }
-    } catch (error) {
-      console.error('💥 Webhook error details:', {
-        name: error.name,
-        message: error.message,
-        stack: error.stack,
-        type: typeof error,
-        errorObject: error
-      });
-      
-      // Show detailed error to help debug
+      // With no-cors, we can't read the response, so assume success
       const botMessage: Message = {
         id: Date.now() + 1,
-        text: `Webhook Fehler: ${error.message}. Domain: ${window.location.origin}. Error type: ${error.name}`,
+        text: "Nachricht wurde an n8n gesendet (no-cors Modus). Prüfe die n8n Logs für die Antwort.",
         sender: 'bot',
         timestamp: new Date()
       };
 
       setIsTyping(false);
       setMessages(prev => [...prev, botMessage]);
+      
+    } catch (error) {
+      console.error('💥 no-cors attempt failed:', error);
+      
+      // Approach 2: Try as simple GET request with query params
+      try {
+        console.log('📋 Attempt 2: GET request with query params');
+        const queryParams = new URLSearchParams({
+          message: messageText,
+          sender: 'user',
+          timestamp: new Date().toISOString()
+        });
+        
+        const getUrl = `${webhookUrl}?${queryParams}`;
+        console.log('🔗 GET URL:', getUrl);
+        
+        const getResponse = await fetch(getUrl, {
+          method: 'GET',
+          mode: 'no-cors'
+        });
+        
+        console.log('📡 GET Response:', {
+          status: getResponse.status,
+          type: getResponse.type
+        });
+        
+        const botMessage: Message = {
+          id: Date.now() + 1,
+          text: "GET-Request wurde versucht. Prüfe n8n Logs.",
+          sender: 'bot',
+          timestamp: new Date()
+        };
+
+        setIsTyping(false);
+        setMessages(prev => [...prev, botMessage]);
+        
+      } catch (getError) {
+        console.error('💥 GET attempt also failed:', getError);
+        
+        // Final fallback
+        const botMessage: Message = {
+          id: Date.now() + 1,
+          text: `Alle Webhook-Versuche fehlgeschlagen. Error: ${error.message}. GET Error: ${getError.message}. CORS-Problem bestätigt.`,
+          sender: 'bot',
+          timestamp: new Date()
+        };
+
+        setIsTyping(false);
+        setMessages(prev => [...prev, botMessage]);
+      }
     }
   };
 
