@@ -34,14 +34,20 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   const sendWebhookMessage = async (messageText: string) => {
     console.log('🚀 Starting webhook request...');
     
-    const webhookUrl = `https://www.dailyjokenewsletter.com/webhook-test/chatbot?message=${encodeURIComponent(messageText)}&sender=user&user-id=${userId}`;
+    const webhookUrl = `https://www.dailyjokenewsletter.com/webhook-test/chatbot?message=${encodeURIComponent(messageText)}&sender=user`;
     
     try {
       console.log('🔗 Webhook URL:', webhookUrl);
       
       const response = await fetch(webhookUrl, {
-        method: 'GET',
-        mode: 'cors'
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          'user-id': userId
+        })
       });
 
       console.log('📡 Response received:', {
@@ -99,6 +105,15 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Auto-open chat after 10 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
