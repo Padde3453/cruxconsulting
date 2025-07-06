@@ -27,6 +27,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [userId] = useState(() => Math.floor(1000 + Math.random() * 9000).toString());
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Auto-maximize chatbot after 10 seconds
@@ -66,6 +67,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
       const params = new URLSearchParams({
         message: messageText,
         sender: 'user',
+        'user-id': userId,
         timestamp: new Date().toISOString()
       });
       
@@ -74,6 +76,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
       console.log('📤 Parameters being sent:', {
         message: messageText,
         sender: 'user',
+        'user-id': userId,
         timestamp: new Date().toISOString()
       });
 
@@ -126,7 +129,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
       // Try a fallback approach with no-cors mode
       try {
         console.log('🔄 Trying fallback with no-cors mode...');
-        const fallbackUrl = `https://www.dailyjokenewsletter.com/webhook-test/d0461907-892e-4fd8-aa22-fa5d74e82fc8?message=${encodeURIComponent(messageText)}&sender=user`;
+        const fallbackUrl = `https://www.dailyjokenewsletter.com/webhook-test/d0461907-892e-4fd8-aa22-fa5d74e82fc8?message=${encodeURIComponent(messageText)}&sender=user&user-id=${userId}`;
         
         await fetch(fallbackUrl, {
           method: 'GET',
