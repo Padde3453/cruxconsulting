@@ -63,26 +63,25 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     setIsTyping(true);
 
     try {
-      // POST request with JSON body
-      const requestData = {
+      // POST request with form-encoded data to avoid CORS preflight
+      const formData = new URLSearchParams({
         message: messageText,
         sender: 'user',
-        'user-id': userId,
         timestamp: new Date().toISOString()
-      };
+      });
       
       const webhookUrl = 'https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8';
       
       console.log('🔗 Webhook URL:', webhookUrl);
-      console.log('📤 Request data:', requestData);
-      console.log('🚀 Sending POST request...');
+      console.log('📤 Form data:', formData.toString());
+      console.log('🚀 Sending POST request with form encoding...');
       
       const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify(requestData)
+        body: formData
       });
 
       console.log('📡 Response received:', {
