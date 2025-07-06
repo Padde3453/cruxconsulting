@@ -69,7 +69,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
         timestamp: new Date().toISOString()
       });
       
-      const webhookUrl = `https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8?${params.toString()}`;
+      const webhookUrl = `https://www.dailyjokenewsletter.com/webhook-test/d0461907-892e-4fd8-aa22-fa5d74e82fc8?${params.toString()}`;
       console.log('🔗 Calling webhook URL:', webhookUrl);
       console.log('📤 Parameters being sent:', {
         message: messageText,
@@ -126,7 +126,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
       // Try a fallback approach with no-cors mode
       try {
         console.log('🔄 Trying fallback with no-cors mode...');
-        const fallbackUrl = `https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8?message=${encodeURIComponent(messageText)}&sender=user`;
+        const fallbackUrl = `https://www.dailyjokenewsletter.com/webhook-test/d0461907-892e-4fd8-aa22-fa5d74e82fc8?message=${encodeURIComponent(messageText)}&sender=user`;
         
         await fetch(fallbackUrl, {
           method: 'GET',
