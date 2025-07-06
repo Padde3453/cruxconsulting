@@ -30,14 +30,104 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   const [userId] = useState(() => Math.floor(1000 + Math.random() * 9000).toString());
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-maximize chatbot after 10 seconds
+  // Auto-maximize chatbot after 10 seconds and send test message
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true);
+      // Send automatic test message after opening
+      setTimeout(() => {
+        sendTestMessage();
+      }, 2000);
     }, 10000);
 
     return () => clearTimeout(timer);
   }, []);
+
+  const sendWebhookMessage = async (messageText: string) => {
+    try {
+      // POST request with form-encoded data to avoid CORS preflight
+      const formData = new URLSearchParams({
+        message: messageText,
+        sender: 'user',
+        timestamp: new Date().toISOString()
+      });
+      
+      const webhookUrl = 'https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8';
+      
+      console.log('🔗 Webhook URL:', webhookUrl);
+      console.log('📤 Form data:', formData.toString());
+      console.log('🚀 Sending POST request with form encoding...');
+      console.log('🌐 Current origin:', window.location.origin);
+      console.log('🔍 User agent:', navigator.userAgent);
+      
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData
+      });
+
+      console.log('📡 Response received:', {
+        status: response.status,
+        statusText: response.statusText,
+        headers: Array.from(response.headers.entries())
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('✅ Webhook response data:', data);
+        
+        // Add bot response from webhook
+        const botMessage: Message = {
+          id: Date.now() + 1,
+          text: data.response || data.message || data.reply || data.text || "Danke für deine Nachricht!",
+          sender: 'bot',
+          timestamp: new Date()
+        };
+
+        setIsTyping(false);
+        setMessages(prev => [...prev, botMessage]);
+      } else {
+        throw new Error(`Webhook response failed: ${response.status} ${response.statusText}`);
+      }
+    } catch (error) {
+      console.error('💥 Webhook error details:', {
+        name: error.name,
+        message: error.message,
+        stack: error.stack,
+        type: typeof error,
+        errorObject: error
+      });
+      
+      // Show detailed error to help debug
+      const botMessage: Message = {
+        id: Date.now() + 1,
+        text: `Webhook Fehler: ${error.message}. Domain: ${window.location.origin}. Error type: ${error.name}`,
+        sender: 'bot',
+        timestamp: new Date()
+      };
+
+      setIsTyping(false);
+      setMessages(prev => [...prev, botMessage]);
+    }
+  };
+
+  const sendTestMessage = async () => {
+    const testMessage = "I am Lovable - automatic test message";
+    
+    const userMessage: Message = {
+      id: Date.now(),
+      text: testMessage,
+      sender: 'user',
+      timestamp: new Date()
+    };
+
+    setMessages(prev => [...prev, userMessage]);
+    setIsTyping(true);
+
+    await sendWebhookMessage(testMessage);
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -62,68 +152,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     setInputValue('');
     setIsTyping(true);
 
-    try {
-      // POST request with form-encoded data to avoid CORS preflight
-      const formData = new URLSearchParams({
-        message: messageText,
-        sender: 'user',
-        timestamp: new Date().toISOString()
-      });
-      
-      const webhookUrl = 'https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8';
-      
-      console.log('🔗 Webhook URL:', webhookUrl);
-      console.log('📤 Form data:', formData.toString());
-      console.log('🚀 Sending POST request with form encoding...');
-      
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: formData
-      });
-
-      console.log('📡 Response received:', {
-        status: response.status,
-        statusText: response.statusText
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log('✅ Webhook response data:', data);
-        
-        // Add bot response from webhook
-        const botMessage: Message = {
-          id: Date.now() + 1,
-          text: data.response || data.message || data.reply || data.text || "Danke für deine Nachricht!",
-          sender: 'bot',
-          timestamp: new Date()
-        };
-
-        setIsTyping(false);
-        setMessages(prev => [...prev, botMessage]);
-      } else {
-        throw new Error(`Webhook response failed: ${response.status} ${response.statusText}`);
-      }
-    } catch (error) {
-      console.error('💥 Webhook error details:', {
-        name: error.name,
-        message: error.message,
-        stack: error.stack
-      });
-      
-      // Show CORS error to help debug
-      const botMessage: Message = {
-        id: Date.now() + 1,
-        text: `Webhook Fehler: ${error.message}. Bitte CORS-Einstellungen in n8n prüfen für Domain: ${window.location.origin}`,
-        sender: 'bot',
-        timestamp: new Date()
-      };
-
-      setIsTyping(false);
-      setMessages(prev => [...prev, botMessage]);
-    }
+    await sendWebhookMessage(messageText);
 
     // Call original callback if provided
     if (onSendMessage) {
