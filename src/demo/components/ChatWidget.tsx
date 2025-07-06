@@ -34,7 +34,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   const sendWebhookMessage = async (messageText: string) => {
     console.log('🚀 Starting webhook request...');
     
-    const webhookUrl = `https://www.dailyjokenewsletter.com/webhook/chatbot?message=${encodeURIComponent(messageText)}&sender=user`;
+    const webhookUrl = `https://www.dailyjokenewsletter.com/webhook-test/chatbot?message=${encodeURIComponent(messageText)}&sender=user`;
     
     try {
       console.log('🔗 Webhook URL:', webhookUrl);
