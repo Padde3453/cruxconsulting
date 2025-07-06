@@ -63,21 +63,26 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     setIsTyping(true);
 
     try {
-      // Simple GET request with query parameters - no CORS preflight needed
-      const params = new URLSearchParams({
+      // POST request with JSON body
+      const requestData = {
         message: messageText,
         sender: 'user',
         'user-id': userId,
         timestamp: new Date().toISOString()
-      });
+      };
       
-      const webhookUrl = `https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8?${params.toString()}`;
+      const webhookUrl = 'https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8';
       
       console.log('🔗 Webhook URL:', webhookUrl);
-      console.log('🚀 Sending simple GET request...');
+      console.log('📤 Request data:', requestData);
+      console.log('🚀 Sending POST request...');
       
       const response = await fetch(webhookUrl, {
-        method: 'GET'
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
       });
 
       console.log('📡 Response received:', {
