@@ -63,27 +63,28 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     setIsTyping(true);
 
     try {
-      // Prepare webhook payload
-      const webhookUrl = 'https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8';
-      const payload = {
+      // Prepare webhook data
+      const params = new URLSearchParams({
         message: messageText,
         sender: 'user',
         'user-id': userId,
         timestamp: new Date().toISOString()
-      };
+      });
       
+      const webhookUrl = `https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8?${params.toString()}`;
       console.log('🔗 Calling webhook URL:', webhookUrl);
-      console.log('📤 Payload being sent:', payload);
+      console.log('📤 Parameters being sent:', {
+        message: messageText,
+        sender: 'user',
+        'user-id': userId,
+        timestamp: new Date().toISOString()
+      });
 
       console.log('🚀 Attempting webhook call...');
       
       const response = await fetch(webhookUrl, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload)
+        method: 'GET',
+        mode: 'cors'
       });
 
       console.log('📡 Response received:', {
