@@ -34,24 +34,14 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   const sendWebhookMessage = async (messageText: string) => {
     console.log('🚀 Starting webhook request...');
     
-    const webhookUrl = 'https://www.dailyjokenewsletter.com/webhook/chatbot';
+    const webhookUrl = `https://www.dailyjokenewsletter.com/webhook/chatbot?message=${encodeURIComponent(messageText)}&sender=user`;
     
     try {
-      const formData = new URLSearchParams({
-        message: messageText,
-        sender: 'user'
-      });
-      
       console.log('🔗 Webhook URL:', webhookUrl);
-      console.log('📤 Form data:', formData.toString());
       
       const response = await fetch(webhookUrl, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: formData
+        method: 'GET',
+        mode: 'cors'
       });
 
       console.log('📡 Response received:', {
