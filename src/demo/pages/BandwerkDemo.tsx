@@ -1,0 +1,240 @@
+import React, { useState, useEffect } from 'react';
+import { Star, Shield, Truck, HeartHandshake } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import ChatWidget from '../components/ChatWidget';
+import DemoControls from '../components/DemoControls';
+import '../styles/demo.css';
+
+// Sample product data based on Bandwerk
+const featuredProducts = [
+  {
+    id: 1,
+    name: 'Titanium Band G1-T',
+    price: 389,
+    rating: 4.9,
+    reviews: 92,
+    image: '/lovable-uploads/d16b31db-483d-4b20-ada8-7a255c2ec5b5.png',
+    badge: 'NEW IN',
+    colors: ['Natural Titanium', 'Titanium Black', 'Titanium Gold']
+  },
+  {
+    id: 2,
+    name: 'Swiss Vintage Band',
+    price: 139,
+    rating: 4.9,
+    reviews: 904,
+    image: '/lovable-uploads/e1b261ac-11fc-46a6-b20a-d6c57514756e.png',
+    badge: 'NEW IN',
+    colors: ['Tan', 'Dark Brown', 'Black']
+  },
+  {
+    id: 3,
+    name: 'Sport Leather Band',
+    price: 75,
+    rating: 4.8,
+    reviews: 171,
+    image: '/lovable-uploads/f49642b4-2233-452a-b1ef-2fdf2c83db44.png',
+    badge: 'POPULAR',
+    colors: ['Orange Pop', 'Chocolate', 'Black Forest']
+  }
+];
+
+const BandwerkDemo: React.FC = () => {
+  const [chatMessages, setChatMessages] = useState<string[]>([]);
+
+  const handleChatMessage = (message: string) => {
+    setChatMessages(prev => [...prev, message]);
+    // Here you would typically send to your webhook
+    console.log('Webhook message:', message);
+  };
+
+  const resetDemo = () => {
+    setChatMessages([]);
+  };
+
+  const triggerBotResponse = () => {
+    // Simulate a bot response trigger
+    console.log('Triggering bot response...');
+  };
+
+  return (
+    <div className="demo-page min-h-screen bg-gray-50">
+      <DemoControls 
+        onReset={resetDemo}
+        onTriggerResponse={triggerBotResponse}
+        demoType="bandwerk"
+      />
+
+      {/* Header */}
+      <header className="bg-black text-white py-4 px-6">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="text-2xl font-bold tracking-wider">BANDWERK</div>
+          <nav className="hidden md:flex space-x-8">
+            <a href="#" className="hover:text-gray-300">Collections</a>
+            <a href="#" className="hover:text-gray-300">Special Editions</a>
+            <a href="#" className="hover:text-gray-300">About</a>
+            <a href="#" className="hover:text-gray-300">Contact</a>
+          </nav>
+          <div className="text-sm">
+            <span className="mr-4">EN</span>
+            <span>EUR €</span>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="bandwerk-hero text-white py-20 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl font-bold mb-6">
+            The legendary E30 M3 Evo<br />
+            <span className="text-gray-300">on your wrist</span>
+          </h1>
+          <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 text-lg font-medium">
+            Discover Special Edition
+          </Button>
+        </div>
+      </section>
+
+      {/* Trust Badges */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="flex flex-col items-center">
+              <Shield className="h-12 w-12 text-green-600 mb-4" />
+              <h3 className="font-semibold mb-2">30 Day Money Back Guarantee</h3>
+              <p className="text-gray-600 text-sm">Risk-free purchase with full refund</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <HeartHandshake className="h-12 w-12 text-blue-600 mb-4" />
+              <h3 className="font-semibold mb-2">Fast & Dedicated Customer Service</h3>
+              <p className="text-gray-600 text-sm">Quick support when you need it</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <Truck className="h-12 w-12 text-purple-600 mb-4" />
+              <h3 className="font-semibold mb-2">Free Shipping from 70€</h3>
+              <p className="text-gray-600 text-sm">Complimentary delivery on larger orders</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Popular Products</h2>
+            <p className="text-gray-600">Discover our best-selling premium watch bands</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {featuredProducts.map((product) => (
+              <Card key={product.id} className="bandwerk-product-card overflow-hidden">
+                <div className="relative">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-black text-white text-xs px-2 py-1 rounded">
+                      {product.badge}
+                    </span>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-2">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`} 
+                        />
+                      ))}
+                    </div>
+                    <span className="text-sm text-gray-600 ml-2">
+                      {product.rating} ({product.reviews})
+                    </span>
+                  </div>
+                  
+                  <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
+                  <p className="text-2xl font-bold mb-4">${product.price}.00 USD</p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {product.colors.map((color, index) => (
+                      <span key={index} className="text-xs bg-gray-100 px-2 py-1 rounded">
+                        {color}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <Button className="w-full bg-black text-white hover:bg-gray-800">
+                    Add to Cart
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-black text-white">
+        <div className="max-w-4xl mx-auto text-center px-6">
+          <h2 className="text-4xl font-bold mb-6">
+            We celebrate 10 years of Bandwerk
+          </h2>
+          <p className="text-xl mb-8 text-gray-300">
+            Buy 2 bands and get 2 more for free!
+          </p>
+          <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 text-lg font-medium">
+            Discover All Offers
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="font-bold text-lg mb-4">BANDWERK</h3>
+              <p className="text-gray-400 text-sm">
+                Premium watch bands and accessories crafted with precision and style.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-3">Products</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><a href="#" className="hover:text-white">Apple Watch Bands</a></li>
+                <li><a href="#" className="hover:text-white">iPhone Cases</a></li>
+                <li><a href="#" className="hover:text-white">Special Editions</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-3">Support</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><a href="#" className="hover:text-white">Contact</a></li>
+                <li><a href="#" className="hover:text-white">FAQ</a></li>
+                <li><a href="#" className="hover:text-white">Shipping</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-3">Company</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><a href="#" className="hover:text-white">About Us</a></li>
+                <li><a href="#" className="hover:text-white">Blog</a></li>
+                <li><a href="#" className="hover:text-white">Careers</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Chat Widget */}
+      <ChatWidget onSendMessage={handleChatMessage} demoMode={true} />
+    </div>
+  );
+};
+
+export default BandwerkDemo;

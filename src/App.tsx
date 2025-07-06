@@ -12,6 +12,8 @@ import Services from "./pages/Services";
 import Impressum from "./pages/Impressum";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
+import BandwerkDemo from "./demo/pages/BandwerkDemo";
+import InstagramDemo from "./demo/pages/InstagramDemo";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +31,9 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/privacy" element={<Privacy />} />
+          {/* ISOLATED DEMO ROUTES */}
+          <Route path="/demo/bandwerk" element={<BandwerkDemo />} />
+          <Route path="/demo/instagram" element={<InstagramDemo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
