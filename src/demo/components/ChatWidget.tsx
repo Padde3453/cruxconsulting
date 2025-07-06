@@ -30,18 +30,6 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   const [userId] = useState(() => Math.floor(1000 + Math.random() * 9000).toString());
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-maximize chatbot after 10 seconds and send test message
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-      // Send automatic test message after opening
-      setTimeout(() => {
-        sendTestMessage();
-      }, 2000);
-    }, 10000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const sendWebhookMessage = async (messageText: string) => {
     console.log('🚀 Starting webhook request...');
@@ -113,21 +101,6 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     }
   };
 
-  const sendTestMessage = async () => {
-    const testMessage = "I am Lovable - automatic test message";
-    
-    const userMessage: Message = {
-      id: Date.now(),
-      text: testMessage,
-      sender: 'user',
-      timestamp: new Date()
-    };
-
-    setMessages(prev => [...prev, userMessage]);
-    setIsTyping(true);
-
-    await sendWebhookMessage(testMessage);
-  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
