@@ -63,7 +63,6 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     setIsTyping(true);
 
     try {
-      // Prepare webhook payload
       const webhookUrl = 'https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8';
       const payload = {
         message: messageText,
@@ -72,27 +71,48 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
         timestamp: new Date().toISOString()
       };
       
-      console.log('🔗 Calling webhook URL:', webhookUrl);
-      console.log('📤 Payload being sent:', payload);
-      console.log('🚀 Attempting POST request...');
+      console.log('🔗 Testing webhook URL accessibility...');
       
-      // First, let's try a simple fetch to see if URL is reachable
-      const testResponse = await fetch(webhookUrl, {
-        method: 'OPTIONS'
-      }).catch(e => {
-        console.log('⚠️ OPTIONS preflight failed:', e.message);
-        return null;
-      });
-      
-      if (testResponse) {
-        console.log('✅ OPTIONS preflight successful');
+      // Test 1: Check if domain is reachable
+      try {
+        const domainTest = await fetch('https://www.dailyjokenewsletter.com/', { 
+          method: 'HEAD',
+          mode: 'no-cors'
+        });
+        console.log('✅ Domain is reachable');
+      } catch (e) {
+        console.log('❌ Domain unreachable:', e.message);
       }
+      
+      // Test 2: OPTIONS preflight
+      console.log('🔍 Testing CORS preflight...');
+      try {
+        const optionsResponse = await fetch(webhookUrl, {
+          method: 'OPTIONS',
+          headers: {
+            'Origin': window.location.origin,
+            'Access-Control-Request-Method': 'POST',
+            'Access-Control-Request-Headers': 'Content-Type'
+          }
+        });
+        console.log('✅ OPTIONS response:', {
+          status: optionsResponse.status,
+          headers: Object.fromEntries(optionsResponse.headers.entries())
+        });
+      } catch (e) {
+        console.log('❌ OPTIONS failed:', e.message);
+      }
+      
+      // Test 3: Actual POST request
+      console.log('🚀 Attempting actual POST request...');
+      console.log('📤 Payload:', payload);
       
       const response = await fetch(webhookUrl, {
         method: 'POST',
         mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
+          'Origin': window.location.origin
         },
         body: JSON.stringify(payload)
       });
