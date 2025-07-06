@@ -62,23 +62,43 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     setIsTyping(true);
 
     try {
-      // Send message to webhook using GET with query parameters (as configured in n8n)
+      // Debug: Log the URL being called
       const params = new URLSearchParams({
         message: messageText,
         sender: 'user',
         timestamp: new Date().toISOString()
       });
       
-      const response = await fetch(`https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8?${params.toString()}`, {
+      const webhookUrl = `https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8?${params.toString()}`;
+      console.log('🔗 Calling webhook URL:', webhookUrl);
+      console.log('📤 Parameters being sent:', {
+        message: messageText,
+        sender: 'user',
+        timestamp: new Date().toISOString()
+      });
+
+      // Try multiple approaches to handle potential CORS/network issues
+      console.log('🚀 Attempting webhook call...');
+      
+      const response = await fetch(webhookUrl, {
         method: 'GET',
+        mode: 'cors',
         headers: {
           'Accept': 'application/json',
-        }
+          'User-Agent': 'ChatWidget/1.0',
+        },
+        credentials: 'omit'
+      });
+
+      console.log('📡 Response received:', {
+        status: response.status,
+        statusText: response.statusText,
+        headers: Object.fromEntries(response.headers.entries())
       });
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Webhook response:', data);
+        console.log('✅ Webhook response data:', data);
         
         // Add bot response from webhook
         const botMessage: Message = {
@@ -91,15 +111,46 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
         setIsTyping(false);
         setMessages(prev => [...prev, botMessage]);
       } else {
-        console.log('Response status:', response.status, response.statusText);
+        console.error('❌ Response not OK:', response.status, response.statusText);
         const errorText = await response.text();
-        console.log('Response body:', errorText);
-        throw new Error(`Webhook response failed: ${response.status}`);
+        console.error('❌ Response body:', errorText);
+        throw new Error(`Webhook response failed: ${response.status} ${response.statusText}`);
       }
     } catch (error) {
-      console.error('Webhook error:', error);
+      console.error('💥 Webhook error details:', {
+        name: error.name,
+        message: error.message,
+        stack: error.stack
+      });
       
-      // Fallback response
+      // Try a fallback approach with no-cors mode
+      try {
+        console.log('🔄 Trying fallback with no-cors mode...');
+        const fallbackUrl = `https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8?message=${encodeURIComponent(messageText)}&sender=user`;
+        
+        await fetch(fallbackUrl, {
+          method: 'GET',
+          mode: 'no-cors'
+        });
+        
+        console.log('📤 Fallback request sent (no-cors mode)');
+        
+        // Since no-cors doesn't return response, show a generic message
+        const botMessage: Message = {
+          id: Date.now() + 1,
+          text: "Nachricht empfangen! (Webhook im no-cors Modus aufgerufen)",
+          sender: 'bot',
+          timestamp: new Date()
+        };
+
+        setIsTyping(false);
+        setMessages(prev => [...prev, botMessage]);
+        return;
+      } catch (fallbackError) {
+        console.error('💥 Fallback also failed:', fallbackError);
+      }
+      
+      // Final fallback response
       const botMessage: Message = {
         id: Date.now() + 1,
         text: "Entschuldigung, es gab ein Problem mit der Verbindung. Bitte versuche es später noch einmal.",
