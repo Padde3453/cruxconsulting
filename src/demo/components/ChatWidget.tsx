@@ -63,43 +63,51 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     setIsTyping(true);
 
     try {
-      // Debug: Log the URL being called
-      const params = new URLSearchParams({
+      // Prepare webhook payload
+      const webhookUrl = 'https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8';
+      const payload = {
         message: messageText,
         sender: 'user',
         'user-id': userId,
         timestamp: new Date().toISOString()
-      });
+      };
       
-      const webhookUrl = `https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8?${params.toString()}`;
       console.log('🔗 Calling webhook URL:', webhookUrl);
-      console.log('📤 Parameters being sent:', {
-        message: messageText,
-        sender: 'user',
-        'user-id': userId,
-        timestamp: new Date().toISOString()
-      });
+      console.log('📤 Payload being sent:', payload);
 
-      // Try multiple approaches to handle potential CORS/network issues
       console.log('🚀 Attempting webhook call...');
       
-      await fetch(webhookUrl, {
-        method: 'GET',
-        mode: 'no-cors'
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
       });
 
-      console.log('✅ Webhook request sent successfully (no-cors mode)');
-      
-      // Since no-cors doesn't return response data, show a generic success message
-      const botMessage: Message = {
-        id: Date.now() + 1,
-        text: "Nachricht empfangen! Die Anfrage wurde erfolgreich an den Webhook gesendet.",
-        sender: 'bot',
-        timestamp: new Date()
-      };
+      console.log('📡 Response received:', {
+        status: response.status,
+        statusText: response.statusText
+      });
 
-      setIsTyping(false);
-      setMessages(prev => [...prev, botMessage]);
+      if (response.ok) {
+        const data = await response.json();
+        console.log('✅ Webhook response data:', data);
+        
+        // Add bot response from webhook
+        const botMessage: Message = {
+          id: Date.now() + 1,
+          text: data.response || data.message || data.reply || data.text || "Danke für deine Nachricht!",
+          sender: 'bot',
+          timestamp: new Date()
+        };
+
+        setIsTyping(false);
+        setMessages(prev => [...prev, botMessage]);
+      } else {
+        throw new Error(`Webhook response failed: ${response.status} ${response.statusText}`);
+      }
     } catch (error) {
       console.error('💥 Webhook error details:', {
         name: error.name,
