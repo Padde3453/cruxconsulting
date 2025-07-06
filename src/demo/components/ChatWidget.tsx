@@ -62,28 +62,28 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     setIsTyping(true);
 
     try {
-      // Send message to webhook with CORS handling
-      const response = await fetch('https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8', {
-        method: 'POST',
-        mode: 'cors',
+      // Send message to webhook using GET with query parameters (as configured in n8n)
+      const params = new URLSearchParams({
+        message: messageText,
+        sender: 'user',
+        timestamp: new Date().toISOString()
+      });
+      
+      const response = await fetch(`https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8?${params.toString()}`, {
+        method: 'GET',
         headers: {
-          'Content-Type': 'application/json',
           'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          message: messageText,
-          sender: 'user',
-          timestamp: new Date().toISOString()
-        })
+        }
       });
 
       if (response.ok) {
         const data = await response.json();
+        console.log('Webhook response:', data);
         
         // Add bot response from webhook
         const botMessage: Message = {
           id: Date.now() + 1,
-          text: data.response || data.message || data.reply || "Danke für deine Nachricht!",
+          text: data.response || data.message || data.reply || data.text || "Danke für deine Nachricht!",
           sender: 'bot',
           timestamp: new Date()
         };
@@ -98,37 +98,6 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
       }
     } catch (error) {
       console.error('Webhook error:', error);
-      
-      // Try alternative approach - maybe the endpoint expects different format
-      try {
-        const alternativeResponse = await fetch('https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: new URLSearchParams({
-            message: messageText,
-            sender: 'user',
-            timestamp: new Date().toISOString()
-          })
-        });
-
-        if (alternativeResponse.ok) {
-          const data = await alternativeResponse.json();
-          const botMessage: Message = {
-            id: Date.now() + 1,
-            text: data.response || data.message || data.reply || "Danke für deine Nachricht!",
-            sender: 'bot',
-            timestamp: new Date()
-          };
-
-          setIsTyping(false);
-          setMessages(prev => [...prev, botMessage]);
-          return;
-        }
-      } catch (altError) {
-        console.error('Alternative request failed:', altError);
-      }
       
       // Fallback response
       const botMessage: Message = {
