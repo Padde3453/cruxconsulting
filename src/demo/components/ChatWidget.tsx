@@ -34,11 +34,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   const sendWebhookMessage = async (messageText: string) => {
     console.log('🚀 Starting webhook request...');
     
-    // Use development proxy when in preview environment
-    const isPreview = window.location.hostname.includes('lovableproject.com') || window.location.hostname.includes('preview.lovable');
-    const webhookUrl = isPreview 
-      ? `https://www.dailyjokenewsletter.com/api/dev-proxy.php?message=${encodeURIComponent(messageText)}&user_id=${userId}`
-      : `https://www.dailyjokenewsletter.com/webhook-test/chatbot?message=${encodeURIComponent(messageText)}&sender=user&user_id=${userId}`;
+    const webhookUrl = `https://www.dailyjokenewsletter.com/webhook-test/chatbot?message=${encodeURIComponent(messageText)}&sender=user&user-id=${userId}`;
     
     try {
       console.log('🔗 Webhook URL:', webhookUrl);
