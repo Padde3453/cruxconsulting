@@ -29,6 +29,15 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Auto-maximize chatbot after 10 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -37,7 +46,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     scrollToBottom();
   }, [messages]);
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
 
     const userMessage: Message = {
@@ -48,33 +57,58 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const messageText = inputValue;
     setInputValue('');
     setIsTyping(true);
 
-    // Simulate bot response
-    setTimeout(() => {
-      const botResponses = [
-        "Danke für deine Nachricht! Ich bearbeite deine Anfrage.",
-        "Ich verstehe, dass du dich für unsere Produkte interessierst. Lass mich dir helfen, das perfekte Produkt zu finden.",
-        "Das ist eine tolle Frage! Unser Team ist spezialisiert auf Premium Apple Watch Bänder und Zubehör.",
-        "Gerne helfe ich dir dabei. Unsere Produkte werden aus den besten Materialien hergestellt.",
-        "Ausgezeichnete Wahl! Dieses Produkt hat hervorragende Bewertungen von unseren Kunden erhalten."
-      ];
+    try {
+      // Send message to webhook
+      const response = await fetch('https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: messageText,
+          sender: 'user',
+          timestamp: new Date().toISOString()
+        })
+      });
 
+      if (response.ok) {
+        const data = await response.json();
+        
+        // Add bot response from webhook
+        const botMessage: Message = {
+          id: Date.now() + 1,
+          text: data.response || data.message || "Danke für deine Nachricht!",
+          sender: 'bot',
+          timestamp: new Date()
+        };
+
+        setIsTyping(false);
+        setMessages(prev => [...prev, botMessage]);
+      } else {
+        throw new Error('Webhook response failed');
+      }
+    } catch (error) {
+      console.error('Webhook error:', error);
+      
+      // Fallback response
       const botMessage: Message = {
         id: Date.now() + 1,
-        text: botResponses[Math.floor(Math.random() * botResponses.length)],
+        text: "Entschuldigung, es gab ein Problem mit der Verbindung. Bitte versuche es später noch einmal.",
         sender: 'bot',
         timestamp: new Date()
       };
 
       setIsTyping(false);
       setMessages(prev => [...prev, botMessage]);
-    }, 1500);
+    }
 
-    // Call webhook if provided
+    // Call original callback if provided
     if (onSendMessage) {
-      onSendMessage(inputValue);
+      onSendMessage(messageText);
     }
   };
 
