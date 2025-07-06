@@ -32,46 +32,29 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
 
 
   const sendWebhookMessage = async (messageText: string) => {
-    console.log('🚀 Starting webhook request...');
-    
-    const webhookUrl = `https://www.dailyjokenewsletter.com/webhook-test/chatbot`;
+    console.log('Calling webhook with message:', messageText);
     
     try {
-      console.log('🔗 Webhook URL:', webhookUrl);
-      
-      const response = await fetch(webhookUrl, {
+      const response = await fetch('https://www.dailyjokenewsletter.com/webhook-test/f94fe33b-de4e-4751-9be2-1413d40af994', {
         method: 'POST',
-        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          'user-id': userId
+          message: messageText,
+          userId: userId
         })
       });
 
-      console.log('📡 Response received:', {
-        status: response.status,
-        statusText: response.statusText,
-        ok: response.ok
-      });
+      console.log('Webhook response status:', response.status);
 
       if (response.ok) {
         const responseData = await response.text();
-        console.log('✅ Webhook response:', responseData);
-        
-        // Try to parse as JSON, fallback to plain text
-        let botResponseText = responseData;
-        try {
-          const jsonData = JSON.parse(responseData);
-          botResponseText = jsonData.response || jsonData.message || jsonData.reply || jsonData.text || responseData;
-        } catch (e) {
-          // Use plain text response
-        }
+        console.log('Webhook response:', responseData);
         
         const botMessage: Message = {
           id: Date.now() + 1,
-          text: botResponseText,
+          text: responseData || 'Bot response received',
           sender: 'bot',
           timestamp: new Date()
         };
@@ -79,15 +62,15 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
         setIsTyping(false);
         setMessages(prev => [...prev, botMessage]);
       } else {
-        throw new Error(`Webhook failed: ${response.status} ${response.statusText}`);
+        throw new Error(`HTTP ${response.status}`);
       }
       
     } catch (error) {
-      console.error('💥 Webhook error:', error);
+      console.error('Webhook error:', error);
       
       const botMessage: Message = {
         id: Date.now() + 1,
-        text: `Webhook Fehler: ${error.message}`,
+        text: `Error: ${error.message}`,
         sender: 'bot',
         timestamp: new Date()
       };
