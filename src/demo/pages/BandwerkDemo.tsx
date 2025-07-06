@@ -66,33 +66,65 @@ const BandwerkDemo: React.FC = () => {
         demoType="bandwerk"
       />
 
-      {/* Header */}
-      <header className="bg-black text-white py-4 px-6">
+      {/* Orange Header Bar */}
+      <div className="bg-orange-500 text-white text-center py-2 text-sm">
+        🚚 KOSTENLOSER VERSAND AB 60€ IM NETZ – 🔄 30 TAGE RÜCKGABERECHT
+      </div>
+
+      {/* Main Header */}
+      <header className="bg-white border-b border-gray-200 py-4 px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="text-2xl font-bold tracking-wider">BANDWERK</div>
+          <div className="text-2xl font-bold tracking-wider text-black">BANDWERK</div>
           <nav className="hidden md:flex space-x-8">
-            <a href="#" className="hover:text-gray-300">Collections</a>
-            <a href="#" className="hover:text-gray-300">Special Editions</a>
-            <a href="#" className="hover:text-gray-300">About</a>
-            <a href="#" className="hover:text-gray-300">Contact</a>
+            <a href="#" className="hover:text-gray-600 text-sm font-medium">APPLE WATCH BÄNDER</a>
+            <a href="#" className="hover:text-gray-600 text-sm font-medium">IPHONE HÜLLEN</a>
+            <a href="#" className="hover:text-gray-600 text-sm font-medium">LADEGERÄTE</a>
+            <a href="#" className="hover:text-gray-600 text-sm font-medium">SONDEREDITIONEN</a>
+            <a href="#" className="hover:text-gray-600 text-sm font-medium">10 JAHRE BANDWERK🥳</a>
           </nav>
-          <div className="text-sm">
-            <span className="mr-4">EN</span>
-            <span>EUR €</span>
+          <div className="flex items-center space-x-4 text-sm">
+            <span className="text-gray-600">De/En</span>
+            <span className="text-gray-600">🇩🇪 DE (EUR €)</span>
+            <div className="flex space-x-2">
+              <button className="p-2">🔍</button>
+              <button className="p-2">👤</button>
+              <button className="p-2">🛒</button>
+            </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bandwerk-hero text-white py-20 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6">
-            The legendary E30 M3 Evo<br />
-            <span className="text-gray-300">on your wrist</span>
-          </h1>
-          <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 text-lg font-medium">
-            Discover Special Edition
-          </Button>
+      <section className="relative h-screen bg-cover bg-center" 
+               style={{backgroundImage: `url('/lovable-uploads/256c2429-8471-4a73-9340-35342f45ccd2.png')`}}>
+        <div className="absolute inset-0 bg-black bg-opacity-30">
+          <div className="max-w-7xl mx-auto h-full flex items-center px-6">
+            <div className="text-white max-w-lg">
+              <p className="text-sm font-medium mb-4 tracking-wide">LIMITIERTE SEAQUAL BÄNDER VERFÜGBAR</p>
+              <h1 className="text-6xl font-bold mb-4">Tag des Meeres</h1>
+              <p className="text-2xl mb-8">Bis zu -50% auf wasserfeste Bänder</p>
+              <Button className="bg-white text-black hover:bg-gray-100 px-8 py-3 text-lg font-medium rounded-full flex items-center gap-2">
+                Zu den Angeboten
+                <span>→</span>
+              </Button>
+            </div>
+            
+            {/* SeaQual Badge */}
+            <div className="absolute top-20 right-20 bg-white rounded-full p-4 w-24 h-24 flex items-center justify-center">
+              <div className="text-center text-xs font-medium text-blue-600">
+                <div>SEAQUAL</div>
+                <div>YARN</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Navigation Arrows */}
+          <button className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+            ←
+          </button>
+          <button className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-white hover:bg-opacity-30">
+            →
+          </button>
         </div>
       </section>
 
