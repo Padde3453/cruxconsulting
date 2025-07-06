@@ -126,37 +126,10 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
         stack: error.stack
       });
       
-      // Try a fallback approach with no-cors mode
-      try {
-        console.log('🔄 Trying fallback with no-cors mode...');
-        const fallbackUrl = `https://www.dailyjokenewsletter.com/webhook/d0461907-892e-4fd8-aa22-fa5d74e82fc8?message=${encodeURIComponent(messageText)}&sender=user&user-id=${userId}`;
-        
-        await fetch(fallbackUrl, {
-          method: 'GET',
-          mode: 'no-cors'
-        });
-        
-        console.log('📤 Fallback request sent (no-cors mode)');
-        
-        // Since no-cors doesn't return response, show a generic message
-        const botMessage: Message = {
-          id: Date.now() + 1,
-          text: "Nachricht empfangen! (Webhook im no-cors Modus aufgerufen)",
-          sender: 'bot',
-          timestamp: new Date()
-        };
-
-        setIsTyping(false);
-        setMessages(prev => [...prev, botMessage]);
-        return;
-      } catch (fallbackError) {
-        console.error('💥 Fallback also failed:', fallbackError);
-      }
-      
-      // Final fallback response
+      // Show CORS error to help debug
       const botMessage: Message = {
         id: Date.now() + 1,
-        text: "Entschuldigung, es gab ein Problem mit der Verbindung. Bitte versuche es später noch einmal.",
+        text: `Webhook Fehler: ${error.message}. Bitte CORS-Einstellungen in n8n prüfen für Domain: ${window.location.origin}`,
         sender: 'bot',
         timestamp: new Date()
       };
