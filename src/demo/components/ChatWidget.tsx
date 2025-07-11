@@ -45,12 +45,12 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
       console.log('Webhook response status:', response.status);
 
       if (response.ok) {
-        const responseData = await response.text();
-        console.log('Webhook response:', responseData);
+        const responseData = await response.json();
+        console.log('Webhook response JSON:', responseData);
         
         const botMessage: Message = {
           id: Date.now() + 1,
-          text: responseData || 'Bot response received',
+          text: responseData.output || responseData.message || 'Bot response received',
           sender: 'bot',
           timestamp: new Date()
         };
