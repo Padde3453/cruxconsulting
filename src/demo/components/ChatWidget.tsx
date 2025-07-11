@@ -77,6 +77,38 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   };
 
 
+  const formatMessage = (text: string) => {
+    const lines = text.split('\n');
+    const elements: React.ReactNode[] = [];
+    
+    lines.forEach((line, index) => {
+      if (line.trim() === '') {
+        elements.push(<br key={index} />);
+        return;
+      }
+      
+      // Handle bullet points
+      if (line.trim().startsWith('- ')) {
+        const content = line.trim().substring(2);
+        const formattedContent = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        elements.push(
+          <div key={index} className="flex items-start gap-2 my-1">
+            <span className="text-orange-500 mt-1">•</span>
+            <span dangerouslySetInnerHTML={{ __html: formattedContent }} />
+          </div>
+        );
+      } else {
+        // Handle bold text and regular content
+        const formattedLine = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        elements.push(
+          <div key={index} className="mb-2" dangerouslySetInnerHTML={{ __html: formattedLine }} />
+        );
+      }
+    });
+    
+    return <div className="space-y-1">{elements}</div>;
+  };
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -152,7 +184,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
                 key={message.id}
                 className={`chat-message ${message.sender}`}
               >
-                {message.text}
+                {message.sender === 'bot' ? formatMessage(message.text) : message.text}
               </div>
             ))}
             {isTyping && (
