@@ -100,6 +100,15 @@ const BandwerkDemo: React.FC = () => {
         />
       </section>
 
+      {/* Sport Essentials Section */}
+      <section className="w-full overflow-hidden">
+        <img 
+          src="/lovable-uploads/affea21b-8702-4379-a35f-9b4d7eb66a29.png"
+          alt="Bandwerk Sport Essentials"
+          className="w-full h-auto object-contain"
+        />
+      </section>
+
       {/* Chat Widget */}
       <ChatWidget onSendMessage={handleChatMessage} demoMode={true} />
     </div>

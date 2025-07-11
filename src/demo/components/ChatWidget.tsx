@@ -94,7 +94,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
               href={part} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700 underline"
+              className="text-blue-500 hover:text-blue-700 underline break-all"
             >
               {part}
             </a>
@@ -118,15 +118,15 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
         elements.push(
           <div key={index} className="flex items-start gap-2 my-1">
             <span className="text-orange-500 mt-1">•</span>
-            <span className="flex flex-wrap items-center gap-1">
+            <div className="flex-1 break-words">
               {formatLineWithLinks(content)}
-            </span>
+            </div>
           </div>
         );
       } else {
         // Handle regular content with links
         elements.push(
-          <div key={index} className="mb-2 flex flex-wrap items-center gap-1">
+          <div key={index} className="mb-2 break-words">
             {formatLineWithLinks(line)}
           </div>
         );
