@@ -81,17 +81,10 @@
   position: absolute;
   bottom: 80px;
   right: 0;
-  width: 380px;
-  height: 600px;
-  min-width: 320px;
-  min-height: 400px;
-  max-width: 600px;
-  max-height: 800px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  resize: both;
 }
 
 .chat-window {

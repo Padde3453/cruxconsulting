@@ -30,6 +30,9 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   const [isTyping, setIsTyping] = useState(false);
   const [userId] = useState(() => Math.floor(1000 + Math.random() * 9000).toString());
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [chatSize, setChatSize] = useState({ width: 380, height: 600 });
+  const [isResizing, setIsResizing] = useState(false);
+  const [resizeStart, setResizeStart] = useState({ x: 0, y: 0, width: 380, height: 600 });
 
 
   const sendWebhookMessage = async (messageText: string) => {
@@ -183,14 +186,65 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     }
   };
 
+  const handleResizeStart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsResizing(true);
+    setResizeStart({
+      x: e.clientX,
+      y: e.clientY,
+      width: chatSize.width,
+      height: chatSize.height
+    });
+  };
+
+  const handleResizeMove = (e: MouseEvent) => {
+    if (!isResizing) return;
+    
+    const deltaX = e.clientX - resizeStart.x;
+    const deltaY = e.clientY - resizeStart.y;
+    
+    const newWidth = Math.max(320, Math.min(600, resizeStart.width - deltaX));
+    const newHeight = Math.max(400, Math.min(800, resizeStart.height + deltaY));
+    
+    setChatSize({ width: newWidth, height: newHeight });
+  };
+
+  const handleResizeEnd = () => {
+    setIsResizing(false);
+  };
+
+  useEffect(() => {
+    if (isResizing) {
+      document.addEventListener('mousemove', handleResizeMove);
+      document.addEventListener('mouseup', handleResizeEnd);
+      document.body.style.cursor = 'nw-resize';
+    } else {
+      document.removeEventListener('mousemove', handleResizeMove);
+      document.removeEventListener('mouseup', handleResizeEnd);
+      document.body.style.cursor = '';
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleResizeMove);
+      document.removeEventListener('mouseup', handleResizeEnd);
+      document.body.style.cursor = '';
+    };
+  }, [isResizing, resizeStart]);
+
   return (
     <div className="chat-widget">
       {isOpen && (
-        <div className="chat-window-resizable resize">
+        <div 
+          className="chat-window-resizable"
+          style={{ width: chatSize.width, height: chatSize.height }}
+        >
           <div className="chat-window">
             <div className="chat-header relative">
               {/* Resize handle in top left corner */}
-              <div className="absolute left-2 top-2 z-10 w-4 h-4 bg-transparent hover:bg-white/20 rounded cursor-nw-resize flex items-center justify-center">
+              <div 
+                className="absolute left-2 top-2 z-10 w-4 h-4 bg-transparent hover:bg-white/20 rounded cursor-nw-resize flex items-center justify-center"
+                onMouseDown={handleResizeStart}
+              >
                 <GripVertical className="h-3 w-3 text-white rotate-45" />
               </div>
               
