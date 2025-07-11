@@ -81,6 +81,31 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
     const lines = text.split('\n');
     const elements: React.ReactNode[] = [];
     
+    const formatLineWithLinks = (line: string) => {
+      // URL regex pattern
+      const urlRegex = /(https?:\/\/[^\s\)]+)/g;
+      const parts = line.split(urlRegex);
+      
+      return parts.map((part, partIndex) => {
+        if (urlRegex.test(part)) {
+          return (
+            <a 
+              key={partIndex} 
+              href={part} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-700 underline"
+            >
+              {part}
+            </a>
+          );
+        }
+        // Handle bold text
+        const formattedPart = part.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        return <span key={partIndex} dangerouslySetInnerHTML={{ __html: formattedPart }} />;
+      });
+    };
+    
     lines.forEach((line, index) => {
       if (line.trim() === '') {
         elements.push(<br key={index} />);
@@ -90,18 +115,20 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
       // Handle bullet points
       if (line.trim().startsWith('- ')) {
         const content = line.trim().substring(2);
-        const formattedContent = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         elements.push(
           <div key={index} className="flex items-start gap-2 my-1">
             <span className="text-orange-500 mt-1">•</span>
-            <span dangerouslySetInnerHTML={{ __html: formattedContent }} />
+            <span className="flex flex-wrap items-center gap-1">
+              {formatLineWithLinks(content)}
+            </span>
           </div>
         );
       } else {
-        // Handle bold text and regular content
-        const formattedLine = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Handle regular content with links
         elements.push(
-          <div key={index} className="mb-2" dangerouslySetInnerHTML={{ __html: formattedLine }} />
+          <div key={index} className="mb-2 flex flex-wrap items-center gap-1">
+            {formatLineWithLinks(line)}
+          </div>
         );
       }
     });
