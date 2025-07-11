@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send } from 'lucide-react';
+import { MessageCircle, X, Send, GripVertical } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable';
 
 interface Message {
   id: number;
@@ -185,65 +186,84 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onSendMessage, demoMode = false
   return (
     <div className="chat-widget">
       {isOpen && (
-        <div className="chat-window">
-          <div className="chat-header">
-            <div className="flex items-center gap-2">
-              <img 
-                src="/lovable-uploads/67294fdb-26a1-40ee-9427-4416a4dd05ac.png" 
-                alt="Bandy Logo" 
-                className="w-6 h-6"
-              />
-              <span className="font-medium text-white">Bandy</span>
-            </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:bg-white/20 h-8 w-8"
-            >
-              <X className="h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="chat-messages">
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`chat-message ${message.sender}`}
+        <ResizablePanelGroup
+          direction="horizontal"
+          className="chat-window-resizable"
+        >
+          <ResizablePanel
+            defaultSize={100}
+            minSize={50}
+            className="chat-window"
+          >
+            <div className="chat-header relative">
+              {/* Resize handle in top left corner */}
+              <div className="absolute left-2 top-2 z-10">
+                <ResizableHandle 
+                  withHandle={false}
+                  className="w-4 h-4 bg-transparent hover:bg-white/20 rounded cursor-nw-resize flex items-center justify-center"
+                >
+                  <GripVertical className="h-3 w-3 text-white/60 rotate-45" />
+                </ResizableHandle>
+              </div>
+              
+              <div className="flex items-center gap-2 ml-8">
+                <img 
+                  src="/lovable-uploads/67294fdb-26a1-40ee-9427-4416a4dd05ac.png" 
+                  alt="Bandy Logo" 
+                  className="w-6 h-6"
+                />
+                <span className="font-medium text-white">Bandy</span>
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:bg-white/20 h-8 w-8"
               >
-                {message.sender === 'bot' ? formatMessage(message.text) : message.text}
-              </div>
-            ))}
-            {isTyping && (
-              <div className="typing-indicator">
-                <span>Bandy schreibt</span>
-                <div className="typing-dots">
-                  <div className="typing-dot"></div>
-                  <div className="typing-dot"></div>
-                  <div className="typing-dot"></div>
-                </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
 
-          <div className="chat-input-container">
-            <Input
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="Schreibe deine Nachricht hier..."
-              className="flex-1"
-            />
-            <Button
-              onClick={handleSendMessage}
-              size="icon"
-              disabled={!inputValue.trim()}
-            >
-              <Send className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
+            <div className="chat-messages">
+              {messages.map((message) => (
+                <div
+                  key={message.id}
+                  className={`chat-message ${message.sender}`}
+                >
+                  {message.sender === 'bot' ? formatMessage(message.text) : message.text}
+                </div>
+              ))}
+              {isTyping && (
+                <div className="typing-indicator">
+                  <span>Bandy schreibt</span>
+                  <div className="typing-dots">
+                    <div className="typing-dot"></div>
+                    <div className="typing-dot"></div>
+                    <div className="typing-dot"></div>
+                  </div>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
+            </div>
+
+            <div className="chat-input-container">
+              <Input
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Schreibe deine Nachricht hier..."
+                className="flex-1"
+              />
+              <Button
+                onClick={handleSendMessage}
+                size="icon"
+                disabled={!inputValue.trim()}
+              >
+                <Send className="h-4 w-4" />
+              </Button>
+            </div>
+          </ResizablePanel>
+        </ResizablePanelGroup>
       )}
 
       <div

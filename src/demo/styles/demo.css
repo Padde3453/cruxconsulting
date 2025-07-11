@@ -77,18 +77,31 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
 }
 
-.chat-window {
+.chat-window-resizable {
   position: absolute;
   bottom: 80px;
   right: 0;
   width: 380px;
   height: 500px;
+  min-width: 280px;
+  min-height: 300px;
+  max-width: 600px;
+  max-height: 700px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  resize: both;
+}
+
+.chat-window {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .chat-header {
