@@ -203,6 +203,56 @@
       "submitting": "Wird gesendet..."
     }
   },
+  "aiChatbot": {
+    "title": "KI-Chatbot & Web-Assistent",
+    "forClients": "Für Ihre Kunden",
+    "forTeam": "Für Ihr Team",
+    "hero": {
+      "title": "Lösen Sie 70% der Kundenfragen.",
+      "subtitle": "Sofort.",
+      "description": "Transformieren Sie Ihren Kundenservice mit KI, die Ihr Unternehmen besser kennt als jeder andere."
+    },
+    "clients": {
+      "features": [
+        "Sofortige Schulung mit Ihren Support-Inhalten",
+        "'Kennt Ihre Produkte besser als Sie' und hilft Ihren Besuchern",
+        "Bedient globale Kunden in über 50 Sprachen",
+        "Informiert über Lieferstatus, Lagerbestände und mehr",
+        "Integration in Web, WhatsApp und andere Kanäle",
+        "Kennt sich ändernde Informationen sofort",
+        "Nahtlose Übergabe an Live-Agenten bei komplexen Anfragen",
+        "Vollständig anpassbar an Ihr Unternehmensdesign"
+      ]
+    },
+    "team": {
+      "features": [
+        "Internes Wissensmanagement",
+        "Automatisierung der Mitarbeitereinarbeitung",
+        "HR-Richtlinien und Verfahrensberatung",
+        "Technische Dokumentationshilfe",
+        "Zugang zu Schulungsmaterialien",
+        "Interne Prozessautomatisierung",
+        "Verbesserung der Teamzusammenarbeit",
+        "Workflow-Optimierung"
+      ]
+    }
+  },
+  "workshops": {
+    "title": "KI & Automatisierungs-Workshops",
+    "description": "Praxisnahe Workshops, um Ihr Team KI-bereit zu machen"
+  },
+  "processAudit": {
+    "title": "Prozessaudit & Analyse",
+    "description": "Identifizieren Sie Automatisierungsmöglichkeiten in Ihrem Unternehmen"
+  },
+  "automation": {
+    "title": "Individuelle Automatisierungslösungen",
+    "description": "Maßgeschneiderte Automatisierung für Ihre spezifischen Bedürfnisse"
+  },
+  "detailedServices": {
+    "title": "Unsere detaillierten Services",
+    "subtitle": "Tauchen Sie tief in jeden Service ein, den wir anbieten"
+  },
   "footer": {
     "copyright": "© 2024 Crux Consulting. Transformation von KMU mit KI.",
     "privacyPolicy": "Datenschutzerklärung"

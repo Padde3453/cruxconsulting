@@ -203,6 +203,56 @@
       "submitting": "Sending..."
     }
   },
+  "aiChatbot": {
+    "title": "AI Chatbot & Web Assistant",
+    "forClients": "For Your Clients",
+    "forTeam": "For Your Team",
+    "hero": {
+      "title": "Resolve 70% Of Customer Questions.",
+      "subtitle": "Instantly.",
+      "description": "Transform your customer service with AI that knows your business better than anyone else."
+    },
+    "clients": {
+      "features": [
+        "Train instantly on your support content",
+        "'Knows your products better than you' and lends your visitors a hand",
+        "Serve global customers in 50+ languages",
+        "Informs about delivery status, storage and more",
+        "Integrate on the web, WhatsApp and other channels",
+        "Knows changing information instantly",
+        "Seamless live agent handoff for complex queries",
+        "Fully adjustable to your company design"
+      ]
+    },
+    "team": {
+      "features": [
+        "Internal knowledge management",
+        "Employee onboarding automation",
+        "HR policy and procedure guidance",
+        "Technical documentation assistance",
+        "Training material access",
+        "Internal process automation",
+        "Team collaboration enhancement",
+        "Workflow optimization"
+      ]
+    }
+  },
+  "workshops": {
+    "title": "AI & Automation Workshops",
+    "description": "Hands-on workshops to get your team AI-ready"
+  },
+  "processAudit": {
+    "title": "Process Audit & Analysis",
+    "description": "Identify automation opportunities in your business"
+  },
+  "automation": {
+    "title": "Custom Automation Solutions",
+    "description": "Tailored automation for your specific needs"
+  },
+  "detailedServices": {
+    "title": "Our Detailed Services",
+    "subtitle": "Deep dive into each service we offer"
+  },
   "footer": {
     "copyright": "© 2024 Crux Consulting. Transforming SMEs with AI.",
     "privacyPolicy": "Privacy Policy"

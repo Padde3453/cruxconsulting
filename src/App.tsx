@@ -14,6 +14,10 @@ import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 import BandwerkDemo from "./demo/pages/BandwerkDemo";
 import InstagramDemo from "./demo/pages/InstagramDemo";
+import AiChatbot from "./pages/services/AiChatbot";
+import Workshops from "./pages/services/Workshops";
+import ProcessAudit from "./pages/services/ProcessAudit";
+import Automation from "./pages/services/Automation";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +33,10 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/ai-chatbot" element={<AiChatbot />} />
+          <Route path="/services/workshops" element={<Workshops />} />
+          <Route path="/services/process-audit" element={<ProcessAudit />} />
+          <Route path="/services/automation" element={<Automation />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/privacy" element={<Privacy />} />
           {/* ISOLATED DEMO ROUTES */}

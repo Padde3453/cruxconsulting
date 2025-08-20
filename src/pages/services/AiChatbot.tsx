@@ -1,0 +1,280 @@
+import { useState } from 'react';
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Check, MessageCircle, Users, Globe, Zap, Settings, HandHeart, RefreshCw, Palette } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FloatingElements from "@/components/FloatingElements";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+
+const AiChatbot = () => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState<'clients' | 'team'>('clients');
+  
+  // Scroll animations
+  const heroAnimation = useScrollAnimation();
+  const featuresAnimation = useScrollAnimation();
+  const ctaAnimation = useScrollAnimation();
+
+  const handleBooking = () => {
+    navigate('/');
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const clientsFeatures = [
+    { 
+      icon: RefreshCw, 
+      text: t('aiChatbot.clients.features.0'),
+      color: 'text-brand-blue'
+    },
+    { 
+      icon: HandHeart, 
+      text: t('aiChatbot.clients.features.1'),
+      color: 'text-brand-green'
+    },
+    { 
+      icon: Globe, 
+      text: t('aiChatbot.clients.features.2'),
+      color: 'text-brand-blue'
+    },
+    { 
+      icon: MessageCircle, 
+      text: t('aiChatbot.clients.features.3'),
+      color: 'text-brand-green'
+    },
+    { 
+      icon: Zap, 
+      text: t('aiChatbot.clients.features.4'),
+      color: 'text-brand-blue'
+    },
+    { 
+      icon: RefreshCw, 
+      text: t('aiChatbot.clients.features.5'),
+      color: 'text-brand-green'
+    },
+    { 
+      icon: Users, 
+      text: t('aiChatbot.clients.features.6'),
+      color: 'text-brand-blue'
+    },
+    { 
+      icon: Palette, 
+      text: t('aiChatbot.clients.features.7'),
+      color: 'text-brand-green'
+    }
+  ];
+
+  const teamFeatures = [
+    { 
+      icon: MessageCircle, 
+      text: t('aiChatbot.team.features.0'),
+      color: 'text-brand-blue'
+    },
+    { 
+      icon: Users, 
+      text: t('aiChatbot.team.features.1'),
+      color: 'text-brand-green'
+    },
+    { 
+      icon: HandHeart, 
+      text: t('aiChatbot.team.features.2'),
+      color: 'text-brand-blue'
+    },
+    { 
+      icon: Settings, 
+      text: t('aiChatbot.team.features.3'),
+      color: 'text-brand-green'
+    },
+    { 
+      icon: RefreshCw, 
+      text: t('aiChatbot.team.features.4'),
+      color: 'text-brand-blue'
+    },
+    { 
+      icon: Zap, 
+      text: t('aiChatbot.team.features.5'),
+      color: 'text-brand-green'
+    },
+    { 
+      icon: Users, 
+      text: t('aiChatbot.team.features.6'),
+      color: 'text-brand-blue'
+    },
+    { 
+      icon: Settings, 
+      text: t('aiChatbot.team.features.7'),
+      color: 'text-brand-green'
+    }
+  ];
+
+  const currentFeatures = activeTab === 'clients' ? clientsFeatures : teamFeatures;
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <FloatingElements />
+      
+      <Header onBooking={handleBooking} />
+
+      {/* Hero Section */}
+      <section className="min-h-screen flex items-center justify-center pt-24 pb-12 relative">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+        </div>
+
+        <div 
+          ref={heroAnimation.elementRef}
+          className={`relative z-10 w-full px-6 transition-all duration-1000 ${
+            heroAnimation.isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="text-center mb-16 max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                {t('aiChatbot.hero.title')}
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
+                {t('aiChatbot.hero.subtitle')}
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 mb-12">
+              {t('aiChatbot.hero.description')}
+            </p>
+
+            {/* Toggle Tabs */}
+            <div className="flex justify-center mb-16">
+              <div className="bg-gray-800/50 backdrop-blur-sm rounded-full p-2 border border-gray-600">
+                <div className="flex space-x-2">
+                  <button
+                    onClick={() => setActiveTab('clients')}
+                    className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                      activeTab === 'clients'
+                        ? 'bg-gradient-to-r from-brand-blue to-brand-green text-white shadow-lg'
+                        : 'text-gray-400 hover:text-white'
+                    }`}
+                  >
+                    {t('aiChatbot.forClients')}
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('team')}
+                    className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                      activeTab === 'team'
+                        ? 'bg-gradient-to-r from-brand-blue to-brand-green text-white shadow-lg'
+                        : 'text-gray-400 hover:text-white'
+                    }`}
+                  >
+                    {t('aiChatbot.forTeam')}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 relative">
+        <div 
+          ref={featuresAnimation.elementRef}
+          className={`relative z-10 max-w-7xl mx-auto px-6 transition-all duration-1000 ${
+            featuresAnimation.isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
+          {/* Left side - Features List */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              {currentFeatures.map((feature, index) => {
+                const IconComponent = feature.icon;
+                return (
+                  <div
+                    key={index}
+                    className="group flex items-center space-x-4 p-6 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-brand-blue/50 transition-all duration-300 hover:transform hover:scale-105"
+                  >
+                    <div className={`flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 flex items-center justify-center group-hover:from-brand-blue/20 group-hover:to-brand-green/20 transition-all duration-300`}>
+                      <IconComponent className={`h-6 w-6 ${feature.color} transition-colors duration-300`} />
+                    </div>
+                    <p className="text-lg text-gray-200 group-hover:text-white transition-colors duration-300">
+                      {feature.text}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Right side - Image/Stats placeholder */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm rounded-xl border border-gray-600/30 p-8 h-96 flex items-center justify-center">
+                <div className="text-center">
+                  <MessageCircle className="h-24 w-24 text-brand-blue mx-auto mb-4" />
+                  <p className="text-gray-400 text-lg">
+                    Interactive Demo Coming Soon
+                  </p>
+                  <div className="mt-8 space-y-4">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-400">Response Time</span>
+                      <span className="text-brand-green font-bold">&lt; 2s</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-400">Accuracy Rate</span>
+                      <span className="text-brand-blue font-bold">95%</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-400">Languages</span>
+                      <span className="text-brand-green font-bold">50+</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 relative">
+        <div 
+          ref={ctaAnimation.elementRef}
+          className={`max-w-4xl mx-auto px-6 text-center transition-all duration-1000 ${
+            ctaAnimation.isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 p-12 rounded-lg">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
+              Ready to Transform Your Customer Service?
+            </h2>
+            <p className="text-xl text-white mb-8">
+              Let's discuss how AI can resolve 70% of your customer questions instantly.
+            </p>
+            <Button 
+              onClick={handleBooking}
+              size="lg" 
+              className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 mx-auto transition-all duration-300 transform hover:scale-105"
+            >
+              <span>Book Your Demo</span>
+              <ArrowRight size={20} />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default AiChatbot;

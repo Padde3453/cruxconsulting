@@ -7,7 +7,7 @@ import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ValueCard from "@/components/ValueCard";
 import DeliveryPromise from "@/components/DeliveryPromise";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate, Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 const Services = () => {
@@ -155,6 +155,71 @@ const Services = () => {
                   isOpen={openSections[index]}
                   onToggle={() => toggleSection(index)}
                 />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Services Section */}
+      <section className="py-20 relative">
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
+              {t('detailedServices.title')}
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              {t('detailedServices.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                title: t('aiChatbot.title'),
+                description: t('aiChatbot.hero.description'),
+                path: '/services/ai-chatbot',
+                gradient: 'from-brand-blue to-blue-600'
+              },
+              {
+                title: t('workshops.title'),
+                description: t('workshops.description'),
+                path: '/services/workshops',
+                gradient: 'from-brand-green to-green-600'
+              },
+              {
+                title: t('processAudit.title'),
+                description: t('processAudit.description'),
+                path: '/services/process-audit',
+                gradient: 'from-purple-500 to-purple-700'
+              },
+              {
+                title: t('automation.title'),
+                description: t('automation.description'),
+                path: '/services/automation',
+                gradient: 'from-orange-500 to-red-600'
+              }
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="group bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm border border-gray-600/30 rounded-xl p-6 hover:border-brand-blue/50 transition-all duration-300 hover:transform hover:scale-105"
+              >
+                <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className="w-8 h-8 bg-white rounded-full"></div>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-brand-blue transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-gray-300 mb-6 line-clamp-3">
+                  {service.description}
+                </p>
+                <Link
+                  to={service.path}
+                  className="inline-flex items-center space-x-2 text-brand-blue hover:text-brand-green transition-colors duration-300"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight size={16} />
+                </Link>
               </div>
             ))}
           </div>
