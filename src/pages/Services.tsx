@@ -7,7 +7,7 @@ import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ValueCard from "@/components/ValueCard";
 import DeliveryPromise from "@/components/DeliveryPromise";
-import { useSearchParams, useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 const Services = () => {
