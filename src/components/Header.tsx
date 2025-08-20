@@ -120,6 +120,13 @@ const Header = ({ onBooking }: HeaderProps) => {
             {servicesDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-80 bg-gray-800/95 backdrop-blur-sm border border-gray-600 rounded-lg shadow-xl z-50">
                 <div className="p-4 space-y-2">
+                  <Link
+                    to="/services"
+                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors font-medium border-b border-gray-600/50 mb-2"
+                    onClick={() => setServicesDropdownOpen(false)}
+                  >
+                    {t('navigation.servicesOverview')}
+                  </Link>
                   {serviceLinks.map((service) => (
                     <Link
                       key={service.path}

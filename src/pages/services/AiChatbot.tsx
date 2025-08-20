@@ -220,14 +220,19 @@ const AiChatbot = () => {
                 <div className="w-full h-full rounded-lg overflow-hidden bg-gray-900/50 flex items-center justify-center">
                   {/* Video embed container */}
                   <div className="w-full h-full relative">
-                    <iframe
-                      className="w-full h-full rounded-lg"
-                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                      title="AI Chatbot Demo"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
+                    <video
+                      className="w-full h-full rounded-lg object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      disablePictureInPicture
+                      controlsList="nodownload nofullscreen noremoteplayback"
+                    >
+                      <source src="/lovable-uploads/chat-demo.mp4" type="video/mp4" />
+                      <source src="/lovable-uploads/chat-demo.webm" type="video/webm" />
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                 </div>
                 {/* Stats overlay */}
