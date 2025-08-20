@@ -214,27 +214,35 @@ const AiChatbot = () => {
               })}
             </div>
 
-            {/* Right side - Image/Stats placeholder */}
+            {/* Right side - Demo Video */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm rounded-xl border border-gray-600/30 p-8 h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <MessageCircle className="h-24 w-24 text-brand-blue mx-auto mb-4" />
-                  <p className="text-gray-400 text-lg">
-                    Interactive Demo Coming Soon
-                  </p>
-                  <div className="mt-8 space-y-4">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-400">Response Time</span>
-                      <span className="text-brand-green font-bold">&lt; 2s</span>
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-400">Accuracy Rate</span>
-                      <span className="text-brand-blue font-bold">95%</span>
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-400">Languages</span>
-                      <span className="text-brand-green font-bold">50+</span>
-                    </div>
+              <div className="bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm rounded-xl border border-gray-600/30 p-4 h-96">
+                <div className="w-full h-full rounded-lg overflow-hidden bg-gray-900/50 flex items-center justify-center">
+                  {/* Video embed container */}
+                  <div className="w-full h-full relative">
+                    <iframe
+                      className="w-full h-full rounded-lg"
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title="AI Chatbot Demo"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+                {/* Stats overlay */}
+                <div className="absolute bottom-4 left-4 right-4 bg-gray-900/80 backdrop-blur-sm rounded-lg p-4 space-y-2">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-gray-400">Response Time</span>
+                    <span className="text-brand-green font-bold">&lt; 2s</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-gray-400">Accuracy Rate</span>
+                    <span className="text-brand-blue font-bold">95%</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-gray-400">Languages</span>
+                    <span className="text-brand-green font-bold">50+</span>
                   </div>
                 </div>
               </div>
