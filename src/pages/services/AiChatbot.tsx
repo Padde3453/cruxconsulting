@@ -217,25 +217,20 @@ const AiChatbot = () => {
 
             {/* Right side - Demo Video (Desktop) / Below features (Mobile) */}
             <div className="relative order-2 lg:order-2">
-              <div className="bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm rounded-xl border border-gray-600/30 p-4">
-                <div className="w-full aspect-[9/16] max-w-sm mx-auto rounded-lg overflow-hidden bg-gray-900/50 flex items-center justify-center">
-                  {/* Video embed container */}
-                  <div className="w-full h-full relative">
-                    <video
-                      className="w-full h-full rounded-lg object-cover transform -rotate-90"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      disablePictureInPicture
-                      controlsList="nodownload nofullscreen noremoteplayback"
-                    >
-                      <source src="/lovable-uploads/chat-demo.mp4" type="video/mp4" />
-                      <source src="/lovable-uploads/chat-demo.webm" type="video/webm" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                </div>
+              <div className="w-full max-w-xs mx-auto aspect-[9/16] rounded-lg overflow-hidden">
+                <video
+                  className="w-full h-full rounded-lg object-cover transform -rotate-90"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  disablePictureInPicture
+                  controlsList="nodownload nofullscreen noremoteplayback"
+                >
+                  <source src="/lovable-uploads/chat-demo.mp4" type="video/mp4" />
+                  <source src="/lovable-uploads/chat-demo.webm" type="video/webm" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
               
               {/* Stats below video */}
