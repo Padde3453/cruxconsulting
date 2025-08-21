@@ -12,7 +12,7 @@ const AiChatbot = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState<'clients' | 'team'>(() => (location.pathname.includes('/team') ? 'team' : 'clients'));
+  const [activeTab, setActiveTab] = useState<'clients' | 'team'>(() => (location.pathname.includes('team') ? 'team' : 'clients'));
   
   // Scroll animations
   const heroAnimation = useScrollAnimation();
@@ -21,7 +21,7 @@ const AiChatbot = () => {
   const ctaAnimation = useScrollAnimation();
 
   useEffect(() => {
-    setActiveTab(location.pathname.includes('/team') ? 'team' : 'clients');
+    setActiveTab(location.pathname.includes('team') ? 'team' : 'clients');
   }, [location.pathname]);
 
   const handleBooking = () => {
@@ -194,7 +194,7 @@ const AiChatbot = () => {
                     {t('aiChatbot.forClients')}
                   </button>
                   <button
-                    onClick={() => { setActiveTab('team'); navigate('/services/ai-chatbot/team'); }}
+                    onClick={() => { setActiveTab('team'); navigate('/services/ai-chatbot-team'); }}
                     className={`flex-1 px-12 py-4 rounded-full text-base font-medium transition-all duration-300 ${
                       activeTab === 'team'
                         ? 'bg-gradient-to-r from-brand-blue to-brand-green text-white shadow-lg'

@@ -34,7 +34,7 @@ const App = () => (
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/ai-chatbot" element={<AiChatbot />} />
-          <Route path="/services/ai-chatbot/team" element={<AiChatbot />} />
+          <Route path="/services/ai-chatbot-team" element={<AiChatbot />} />
           <Route path="/services/workshops" element={<Workshops />} />
           <Route path="/services/process-audit" element={<ProcessAudit />} />
           <Route path="/services/automation" element={<Automation />} />
