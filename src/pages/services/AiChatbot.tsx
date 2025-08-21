@@ -124,7 +124,7 @@ const AiChatbot = () => {
       <Header onBooking={handleBooking} />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center pt-16 pb-12 relative">
+      <section className="min-h-screen flex items-center justify-center pt-16 pb-4 relative">
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl animate-float"></div>
@@ -154,7 +154,7 @@ const AiChatbot = () => {
             </p>
 
             {/* Toggle Tabs */}
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-4">
               <div className="bg-gray-800/50 backdrop-blur-sm rounded-full p-3 border border-gray-600 max-w-lg w-full">
                 <div className="flex space-x-3">
                   <button
@@ -185,7 +185,7 @@ const AiChatbot = () => {
       </section>
 
       {/* Description Section */}
-      <section className="py-8 relative">
+      <section className="py-4 relative">
         <div 
           ref={descriptionAnimation.elementRef}
           className={`max-w-4xl mx-auto px-6 text-center transition-all duration-1000 ${
