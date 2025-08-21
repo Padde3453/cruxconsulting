@@ -124,7 +124,7 @@ const AiChatbot = () => {
       <Header onBooking={handleBooking} />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center pt-24 pb-12 relative">
+      <section className="min-h-screen flex items-center justify-center pt-16 pb-12 relative">
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl animate-float"></div>
@@ -154,7 +154,7 @@ const AiChatbot = () => {
             </p>
 
             {/* Toggle Tabs */}
-            <div className="flex justify-center mb-16">
+            <div className="flex justify-center mb-8">
               <div className="bg-gray-800/50 backdrop-blur-sm rounded-full p-3 border border-gray-600 max-w-lg w-full">
                 <div className="flex space-x-3">
                   <button
@@ -185,7 +185,7 @@ const AiChatbot = () => {
       </section>
 
       {/* Description Section */}
-      <section className="py-16 relative">
+      <section className="py-8 relative">
         <div 
           ref={descriptionAnimation.elementRef}
           className={`max-w-4xl mx-auto px-6 text-center transition-all duration-1000 ${
@@ -194,7 +194,7 @@ const AiChatbot = () => {
               : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed tracking-wider">
             We build <span className="font-bold text-white">smart Assistants</span> on your website, that provide{' '}
             <span className="font-bold text-white">tangible value</span> for your clients and prospects. No matter if for e-commerce or any other service, our AI Assistants{' '}
             <span className="font-bold text-white">increase revenue</span>,{' '}
@@ -249,9 +249,10 @@ const AiChatbot = () => {
                 <div className="relative w-full max-w-md mx-auto">
                   {/* 3D Floating Effect Container */}
                   <div className="relative transform-gpu perspective-1000">
-                    {/* Gel pillow shadow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-green/20 rounded-2xl blur-2xl transform translate-y-6 scale-110"></div>
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/10 rounded-2xl blur-xl transform translate-y-4 scale-105"></div>
+                    {/* Enhanced gel pillow shadow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/30 to-brand-green/30 rounded-2xl blur-3xl transform translate-y-8 scale-120"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/25 to-brand-green/25 rounded-2xl blur-2xl transform translate-y-6 scale-115"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/15 rounded-2xl blur-xl transform translate-y-4 scale-110"></div>
                     
                     {/* Video container with 3D effect */}
                     <div className="relative aspect-[9/16] rounded-xl overflow-hidden transform hover:translate-y-[-4px] transition-all duration-500 shadow-2xl">
