@@ -3,7 +3,6 @@ import { ArrowRight, CheckCircle, Target, Cog, Building, Calculator } from "luci
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingElements from "@/components/FloatingElements";
-import AnimatedGears from "@/components/AnimatedGears";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
@@ -78,9 +77,13 @@ const ProcessAuditAndAutomation = () => {
               Transform your business operations with comprehensive process analysis and intelligent automation solutions
             </p>
             
-            {/* Animated Gears */}
+            {/* Gear Image with Animation */}
             <div className="flex justify-center mb-16">
-              <AnimatedGears />
+              <img 
+                src="/lovable-uploads/52471b51-0d8d-487a-bb90-cd8d016ad4c6.png" 
+                alt="Process automation gears" 
+                className="w-64 h-64 md:w-80 md:h-80 object-contain animate-pulse"
+              />
             </div>
           </div>
         </div>
