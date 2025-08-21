@@ -217,7 +217,7 @@ const AiChatbot = () => {
 
             {/* Right side - Demo Video (Desktop) / Below features (Mobile) */}
             <div className="relative order-2 lg:order-2">
-              <div className="w-full max-w-xs mx-auto aspect-[9/16] rounded-lg overflow-hidden">
+              <div className="w-full max-w-md mx-auto aspect-[9/16] rounded-lg overflow-hidden">
                 <video
                   className="w-full h-full rounded-lg object-cover transform"
                   autoPlay
