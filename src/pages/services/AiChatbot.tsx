@@ -373,17 +373,20 @@ const AiChatbot = () => {
         >
           <div className="bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 p-12 rounded-lg">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-              Ready to Transform Your Customer Service?
+              {activeTab === 'team' ? 'Ready to transform your Intranet?' : 'Ready to Transform Your Customer Service?'}
             </h2>
             <p className="text-xl text-white mb-8">
-              Let's discuss how AI can resolve 70% of your customer questions instantly.
+              {activeTab === 'team' 
+                ? "Let's discuss how we can make our Intranet to a really impactful source of information"
+                : "Let's discuss how AI can resolve 70% of your customer questions instantly."
+              }
             </p>
             <Button 
               onClick={handleBooking}
               size="lg" 
               className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 mx-auto transition-all duration-300 transform hover:scale-105"
             >
-              <span>Book Your Demo</span>
+              <span>{activeTab === 'team' ? 'Book an Intro' : 'Book Your Demo'}</span>
               <ArrowRight size={20} />
             </Button>
           </div>
