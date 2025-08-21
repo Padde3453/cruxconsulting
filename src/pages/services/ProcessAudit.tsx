@@ -77,14 +77,6 @@ const ProcessAuditAndAutomation = () => {
               Transform your business operations with comprehensive process analysis and intelligent automation solutions
             </p>
             
-            {/* Gear Image with Animation */}
-            <div className="flex justify-center mb-16">
-              <img 
-                src="/lovable-uploads/52471b51-0d8d-487a-bb90-cd8d016ad4c6.png" 
-                alt="Process automation gears" 
-                className="w-64 h-64 md:w-80 md:h-80 object-contain animate-pulse"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -108,26 +100,64 @@ const ProcessAuditAndAutomation = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {auditBenefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-600/30 p-8 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-105"
-                >
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-green-500 rounded-xl mb-6">
-                    <Icon className="w-8 h-8 text-white" />
+          {/* Main Layout Container */}
+          <div className="relative">
+            {/* Large Gears Background - Left Side */}
+            <div className="absolute left-0 top-0 w-96 h-96 md:w-[600px] md:h-[600px] lg:w-[800px] lg:h-[800px] -z-10">
+              <img 
+                src="/lovable-uploads/52471b51-0d8d-487a-bb90-cd8d016ad4c6.png" 
+                alt="Process automation gears" 
+                className="w-full h-full object-contain opacity-20"
+              />
+            </div>
+
+            {/* Top Row: First Two Cards on Right */}
+            <div className="flex justify-end mb-12">
+              <div className="w-full max-w-md lg:max-w-lg space-y-8">
+                {auditBenefits.slice(0, 2).map((benefit, index) => {
+                  const Icon = benefit.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-600/30 p-8 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-105"
+                    >
+                      <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-green-500 rounded-xl mb-6">
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-4 text-white">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-gray-300 leading-relaxed">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Bottom Row: Last Three Cards */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+              {auditBenefits.slice(2).map((benefit, index) => {
+                const Icon = benefit.icon;
+                return (
+                  <div
+                    key={index + 2}
+                    className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-600/30 p-8 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-105"
+                  >
+                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-green-500 rounded-xl mb-6">
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-4 text-white">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-gray-300 leading-relaxed">
+                      {benefit.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 text-white">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
