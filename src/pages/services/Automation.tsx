@@ -176,24 +176,92 @@ const Automation = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((example) => (
-              <Card 
-                key={example}
-                className="bg-gray-800/30 border-gray-700 p-8 hover:bg-gray-800/50 transition-all duration-300"
-              >
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-brand-blue to-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span className="text-2xl font-bold text-white">{example}</span>
+            <Card className="bg-gray-800/30 border-gray-700 p-8 hover:bg-gray-800/50 transition-all duration-300">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-brand-blue to-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-2xl font-bold text-white">1</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">
+                  Global Tender Intelligence
+                </h3>
+                <div className="space-y-3 text-left">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-400">Time Saved:</span>
+                    <span className="text-brand-green font-semibold">1.5 hours/day</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-4">
-                    Example {example}
-                  </h3>
-                  <p className="text-gray-400">
-                    Detailed example content coming soon...
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-400">Investment:</span>
+                    <span className="text-white">€3,500</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-400">ROI:</span>
+                    <span className="text-brand-blue font-bold">600%</span>
+                  </div>
+                  <p className="text-gray-300 text-sm mt-4">
+                    Industrial client automated global tender discovery. AI pre-sorts and translates tenders from all languages, 
+                    replacing manual filtering on inadequate platforms.
                   </p>
                 </div>
-              </Card>
-            ))}
+              </div>
+            </Card>
+
+            <Card className="bg-gray-800/30 border-gray-700 p-8 hover:bg-gray-800/50 transition-all duration-300">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-brand-blue to-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-2xl font-bold text-white">2</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">
+                  Smart Client Onboarding
+                </h3>
+                <div className="space-y-3 text-left">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-400">Time Saved:</span>
+                    <span className="text-brand-green font-semibold">2 hours/day</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-400">Investment:</span>
+                    <span className="text-white">€4,500</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-400">ROI:</span>
+                    <span className="text-brand-blue font-bold">330%</span>
+                  </div>
+                  <p className="text-gray-300 text-sm mt-4">
+                    Large tax consultancy automated client onboarding, streamlining repetitive processes while creating 
+                    better experiences for both consultants and clients.
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="bg-gray-800/30 border-gray-700 p-8 hover:bg-gray-800/50 transition-all duration-300">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-brand-blue to-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-2xl font-bold text-white">3</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">
+                  Personalized Outreach Campaign
+                </h3>
+                <div className="space-y-3 text-left">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-400">Time Saved:</span>
+                    <span className="text-brand-green font-semibold">~50 hours total</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-400">Investment:</span>
+                    <span className="text-white">€1,500</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-400">ROI:</span>
+                    <span className="text-brand-blue font-bold">400%</span>
+                  </div>
+                  <p className="text-gray-300 text-sm mt-4">
+                    Germany-wide outreach campaign with AI research, data enrichment, and custom messaging. 
+                    Client won their first new customer within 15 minutes of launch.
+                  </p>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
