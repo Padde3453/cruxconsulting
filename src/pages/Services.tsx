@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Bot, Lightbulb, ClipboardList, Settings } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingElements from "@/components/FloatingElements";
@@ -179,35 +179,41 @@ const Services = () => {
                 title: t('aiChatbot.title'),
                 description: t('aiChatbot.hero.description'),
                 path: '/services/ai-chatbot',
-                gradient: 'from-brand-blue to-blue-600'
+                gradient: 'from-brand-blue to-blue-600',
+                icon: Bot
               },
               {
                 title: t('workshops.title'),
                 description: t('workshops.description'),
                 path: '/services/workshops',
-                gradient: 'from-brand-green to-green-600'
+                gradient: 'from-brand-green to-green-600',
+                icon: Lightbulb
               },
               {
                 title: t('processAudit.title'),
                 description: t('processAudit.description'),
                 path: '/services/process-audit',
-                gradient: 'from-purple-500 to-purple-700'
+                gradient: 'from-purple-500 to-purple-700',
+                icon: ClipboardList
               },
               {
                 title: t('automation.title'),
                 description: t('automation.description'),
                 path: '/services/automation',
-                gradient: 'from-orange-500 to-red-600'
+                gradient: 'from-orange-500 to-red-600',
+                icon: Settings
               }
-            ].map((service, index) => (
+            ].map((service, index) => {
+              const IconComponent = service.icon;
+              return (
               <div
                 key={index}
                 className="group bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm border border-gray-600/30 rounded-xl p-6 hover:border-brand-blue/50 transition-all duration-300 hover:transform hover:scale-105"
               >
-                <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <div className="w-8 h-8 bg-white rounded-full"></div>
+                <div className="w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <IconComponent className="w-8 h-8 text-gray-300" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-brand-blue transition-colors duration-300">
+                <h3 className="text-xl font-bold text-white mb-4">
                   {service.title}
                 </h3>
                 <p className="text-gray-300 mb-6 line-clamp-3">
@@ -221,7 +227,8 @@ const Services = () => {
                   <ArrowRight size={16} />
                 </Link>
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
