@@ -71,7 +71,7 @@ const ProcessAuditAndAutomation = () => {
       <Header onBooking={handleBooking} />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center pt-24 pb-12 relative">
+      <section className="pt-32 pb-16 relative">
         <div 
           ref={heroAnimation.elementRef}
           className={`relative z-10 w-full px-6 transition-all duration-1000 ${
@@ -87,7 +87,6 @@ const ProcessAuditAndAutomation = () => {
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto">
               Transform your business operations with comprehensive process analysis and intelligent automation solutions
             </p>
-            
           </div>
         </div>
       </section>
@@ -143,9 +142,6 @@ const ProcessAuditAndAutomation = () => {
                     
                     {/* Content Section */}
                     <div className="w-full lg:w-1/2 p-8 lg:p-12">
-                      <div className="flex items-center justify-center lg:justify-start w-16 h-16 bg-gradient-to-r from-blue-500 to-green-500 rounded-xl mb-6 mx-auto lg:mx-0">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
                       <h3 className="text-2xl font-semibold mb-4 text-white text-center lg:text-left">
                         {benefit.title}
                       </h3>
