@@ -193,9 +193,10 @@ const AiChatbot = () => {
               : 'opacity-0 translate-y-10'
           }`}
         >
-          {/* Left side - Features List */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
+          {/* Features List and Video */}
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left side - Features List (Desktop) / Right side (Mobile) */}
+            <div className="space-y-6 order-1 lg:order-1">
               {currentFeatures.map((feature, index) => {
                 const IconComponent = feature.icon;
                 return (
@@ -214,14 +215,14 @@ const AiChatbot = () => {
               })}
             </div>
 
-            {/* Right side - Demo Video */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm rounded-xl border border-gray-600/30 p-4 h-96">
-                <div className="w-full h-full rounded-lg overflow-hidden bg-gray-900/50 flex items-center justify-center">
+            {/* Right side - Demo Video (Desktop) / Below features (Mobile) */}
+            <div className="relative order-2 lg:order-2">
+              <div className="bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm rounded-xl border border-gray-600/30 p-4">
+                <div className="w-full aspect-[9/16] max-w-sm mx-auto rounded-lg overflow-hidden bg-gray-900/50 flex items-center justify-center">
                   {/* Video embed container */}
                   <div className="w-full h-full relative">
                     <video
-                      className="w-full h-full rounded-lg object-cover"
+                      className="w-full h-full rounded-lg object-cover transform -rotate-90"
                       autoPlay
                       muted
                       loop
@@ -235,19 +236,22 @@ const AiChatbot = () => {
                     </video>
                   </div>
                 </div>
-                {/* Stats overlay */}
-                <div className="absolute bottom-4 left-4 right-4 bg-gray-900/80 backdrop-blur-sm rounded-lg p-4 space-y-2">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">Response Time</span>
-                    <span className="text-brand-green font-bold">&lt; 2s</span>
+              </div>
+              
+              {/* Stats below video */}
+              <div className="mt-6 bg-gradient-to-r from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-lg p-6 border border-gray-600/30">
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div className="space-y-1">
+                    <div className="text-2xl font-bold text-brand-green">&lt; 2s</div>
+                    <div className="text-sm text-gray-400">Response Time</div>
                   </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">Accuracy Rate</span>
-                    <span className="text-brand-blue font-bold">95%</span>
+                  <div className="space-y-1">
+                    <div className="text-2xl font-bold text-brand-blue">95%</div>
+                    <div className="text-sm text-gray-400">Accuracy Rate</div>
                   </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">Languages</span>
-                    <span className="text-brand-green font-bold">50+</span>
+                  <div className="space-y-1">
+                    <div className="text-2xl font-bold text-brand-green">50+</div>
+                    <div className="text-sm text-gray-400">Languages</div>
                   </div>
                 </div>
               </div>
