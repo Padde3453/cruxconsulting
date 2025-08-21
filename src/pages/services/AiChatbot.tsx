@@ -139,7 +139,7 @@ const AiChatbot = () => {
               : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="text-center mb-4 max-w-4xl mx-auto">
+          <div className="text-center mb-9 max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
                 {t('aiChatbot.hero.title')}
@@ -149,7 +149,7 @@ const AiChatbot = () => {
                 {t('aiChatbot.hero.subtitle')}
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-4">
+            <p className="text-xl md:text-2xl text-gray-300 mb-7">
               {t('aiChatbot.hero.description')}
             </p>
 
@@ -185,7 +185,7 @@ const AiChatbot = () => {
       </section>
 
       {/* Description Section */}
-      <section className="py-0 relative">
+      <section className="py-1 relative">
         <div 
           ref={descriptionAnimation.elementRef}
           className={`max-w-4xl mx-auto px-6 text-center transition-all duration-1000 ${
