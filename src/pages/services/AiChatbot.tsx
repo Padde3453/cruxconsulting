@@ -1,23 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, MessageCircle, Users, Globe, Zap, Settings, HandHeart, RefreshCw, Palette } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 const AiChatbot = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'clients' | 'team'>('clients');
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState<'clients' | 'team'>(() => (location.pathname.includes('/team') ? 'team' : 'clients'));
   
   // Scroll animations
   const heroAnimation = useScrollAnimation();
   const descriptionAnimation = useScrollAnimation();
   const featuresAnimation = useScrollAnimation();
   const ctaAnimation = useScrollAnimation();
+
+  useEffect(() => {
+    setActiveTab(location.pathname.includes('/team') ? 'team' : 'clients');
+  }, [location.pathname]);
 
   const handleBooking = () => {
     navigate('/');
@@ -140,25 +145,46 @@ const AiChatbot = () => {
           }`}
         >
           <div className="text-center mb-9 max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-                {t('aiChatbot.hero.title')}
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-                {t('aiChatbot.hero.subtitle')}
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-7">
-              {t('aiChatbot.hero.description')}
-            </p>
+            {activeTab === 'team' ? (
+              <>
+                <h1 className="text-5xl md:text-7xl font-bold mb-6">
+                  <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                    Turn Your Intranet to an actual{' '}
+                  </span>
+                  <span className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
+                    Helpful
+                  </span>
+                  <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                    {' '}Tool.
+                  </span>
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-300 mb-8">
+                  Give your team all the information they need while reducing time and headache doing so.
+                </p>
+              </>
+            ) : (
+              <>
+                <h1 className="text-5xl md:text-7xl font-bold mb-6">
+                  <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                    {t('aiChatbot.hero.title')}
+                  </span>
+                  <br />
+                  <span className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
+                    {t('aiChatbot.hero.subtitle')}
+                  </span>
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-300 mb-7">
+                  {t('aiChatbot.hero.description')}
+                </p>
+              </>
+            )}
 
             {/* Toggle Tabs */}
             <div className="flex justify-center mb-6">
               <div className="bg-gray-800/50 backdrop-blur-sm rounded-full p-3 border border-gray-600 max-w-lg w-full">
                 <div className="flex space-x-3">
                   <button
-                    onClick={() => setActiveTab('clients')}
+                    onClick={() => { setActiveTab('clients'); navigate('/services/ai-chatbot'); }}
                     className={`flex-1 px-12 py-4 rounded-full text-base font-medium transition-all duration-300 ${
                       activeTab === 'clients'
                         ? 'bg-gradient-to-r from-brand-blue to-brand-green text-white shadow-lg'
@@ -168,7 +194,7 @@ const AiChatbot = () => {
                     {t('aiChatbot.forClients')}
                   </button>
                   <button
-                    onClick={() => setActiveTab('team')}
+                    onClick={() => { setActiveTab('team'); navigate('/services/ai-chatbot/team'); }}
                     className={`flex-1 px-12 py-4 rounded-full text-base font-medium transition-all duration-300 ${
                       activeTab === 'team'
                         ? 'bg-gradient-to-r from-brand-blue to-brand-green text-white shadow-lg'
@@ -180,29 +206,37 @@ const AiChatbot = () => {
                 </div>
               </div>
             </div>
+
+            {activeTab === 'team' && (
+              <p className="text-lg md:text-xl text-gray-300 mt-6">
+                Do you really like to use your intranet? Do you find what you are looking for? Imagine an <span className="font-bold text-white">AI Assistant</span> that knows everything about your <span className="font-bold text-white">intranet and files</span> and gives you exactly what you need when you need it.
+              </p>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Description Section */}
-      <section className="py-1 relative">
-        <div 
-          ref={descriptionAnimation.elementRef}
-          className={`max-w-4xl mx-auto px-6 text-center transition-all duration-1000 ${
-            descriptionAnimation.isVisible 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed tracking-wider">
-            We build <span className="font-bold text-white">smart Assistants</span> on your website, that provide{' '}
-            <span className="font-bold text-white">tangible value</span> for your clients and prospects. No matter if for e-commerce or any other service, our AI Assistants{' '}
-            <span className="font-bold text-white">increase revenue</span>,{' '}
-            <span className="font-bold text-white">increase client satisfaction</span> while significantly{' '}
-            <span className="font-bold text-white">decreasing strain</span> on your human service teams.
-          </p>
-        </div>
-      </section>
+      {/* Description Section (clients only) */}
+      {activeTab === 'clients' && (
+        <section className="py-1 relative">
+          <div 
+            ref={descriptionAnimation.elementRef}
+            className={`max-w-4xl mx-auto px-6 text-center transition-all duration-1000 ${
+              descriptionAnimation.isVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed tracking-wider">
+              We build <span className="font-bold text-white">smart Assistants</span> on your website, that provide{' '}
+              <span className="font-bold text-white">tangible value</span> for your clients and prospects. No matter if for e-commerce or any other service, our AI Assistants{' '}
+              <span className="font-bold text-white">increase revenue</span>,{' '}
+              <span className="font-bold text-white">increase client satisfaction</span> while significantly{' '}
+              <span className="font-bold text-white">decreasing strain</span> on your human service teams.
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Features Section */}
       <section className="py-20 relative">
@@ -295,26 +329,6 @@ const AiChatbot = () => {
           ) : (
             /* For Team - Different Hero Section and Features Only */
             <div className="space-y-16">
-              {/* Team Hero Section */}
-              <div className="text-center max-w-4xl mx-auto">
-                <h2 className="text-4xl md:text-6xl font-bold mb-6">
-                  <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-                    Turn Your Intranet to an actual{' '}
-                  </span>
-                  <span className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-                    Helpful
-                  </span>
-                  <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-                    {' '}Tool.
-                  </span>
-                </h2>
-                <p className="text-xl md:text-2xl text-gray-300 mb-8">
-                  Give your team all the information they need while reducing time and headache doing so.
-                </p>
-                <p className="text-lg md:text-xl text-gray-300 mb-12">
-                  Do you really like to use your intranet? Do you find what you are looking for? Imagine an <span className="font-bold text-white">AI Assistant</span> that knows everything about your <span className="font-bold text-white">intranet and files</span> and gives you exactly what you need when you need it.
-                </p>
-              </div>
 
                {/* Team Features - Full Width Grid */}
                <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
