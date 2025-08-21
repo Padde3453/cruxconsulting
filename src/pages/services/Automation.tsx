@@ -94,8 +94,9 @@ const Automation = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-lg md:text-xl text-white leading-relaxed">
               Every business is unique, with distinct challenges, processes, and goals. 
-              One-size-fits-all solutions rarely deliver the transformative results that truly drive growth. 
-              That's why unique challenges require unique and customized solutions. 
+              One-size-fits-all solutions rarely deliver the transformative results that truly drive growth
+              and force the business to adjust to the software. 
+              AI and AI-Agents now allow software to fully work for you. That's why unique challenges require unique and customized solutions. 
               Crux Consulting is here to support businesses in creating bespoke automation solutions 
               that perfectly align with their specific needs and objectives.
             </p>
