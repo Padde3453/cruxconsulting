@@ -219,7 +219,7 @@ const AiChatbot = () => {
             <div className="relative order-2 lg:order-2">
               <div className="w-full max-w-xs mx-auto aspect-[9/16] rounded-lg overflow-hidden">
                 <video
-                  className="w-full h-full rounded-lg object-cover transform -rotate-90"
+                  className="w-full h-full rounded-lg object-cover transform"
                   autoPlay
                   muted
                   loop
