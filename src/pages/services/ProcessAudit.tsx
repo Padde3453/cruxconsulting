@@ -29,27 +29,38 @@ const ProcessAuditAndAutomation = () => {
     {
       icon: CheckCircle,
       title: "Automated Process Collection and Review",
-      description: "Comprehensive analysis of your existing processes using AI-powered tools to identify bottlenecks and inefficiencies."
+      description: "Comprehensive analysis of your existing processes using AI-powered tools to identify bottlenecks and inefficiencies.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Target,
       title: "Improvement and Automation Recommendations", 
-      description: "Detailed suggestions for optimizing workflows and implementing automation solutions tailored to your business needs."
+      description: "Detailed suggestions for optimizing workflows and implementing automation solutions tailored to your business needs.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Cog,
       title: "Implementation of AI Agents or Workflows",
-      description: "Deploy intelligent automation solutions including AI agents and custom workflows to streamline your operations."
+      description: "Deploy intelligent automation solutions including AI agents and custom workflows to streamline your operations.",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Building,
       title: "Processes Across the Entire Company",
-      description: "Enterprise-wide process optimization covering all departments and business units for maximum efficiency gains."
+      description: "Enterprise-wide process optimization covering all departments and business units for maximum efficiency gains.",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Calculator,
       title: "Precise ROI Calculation",
-      description: "Detailed financial analysis showing exact return on investment and cost savings from process improvements."
+      description: "Detailed financial analysis showing exact return on investment and cost savings from process improvements.",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      icon: CheckCircle,
+      title: "Comprehensive Implementation Support",
+      description: "End-to-end guidance and support throughout your automation journey, from planning to full deployment and optimization.",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -82,10 +93,19 @@ const ProcessAuditAndAutomation = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 relative">
+      <section className="py-24 relative overflow-hidden">
+        {/* Massive Centered Background Gears */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <img 
+            src="/lovable-uploads/52471b51-0d8d-487a-bb90-cd8d016ad4c6.png" 
+            alt="Process automation gears" 
+            className="w-[600px] h-[600px] md:w-[800px] md:h-[800px] lg:w-[1200px] lg:h-[1200px] xl:w-[1400px] xl:h-[1400px] object-contain opacity-10"
+          />
+        </div>
+        
         <div 
           ref={benefitsAnimation.elementRef}
-          className={`max-w-7xl mx-auto px-6 transition-all duration-1000 ${
+          className={`max-w-4xl mx-auto px-6 transition-all duration-1000 relative z-10 ${
             benefitsAnimation.isVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-10'
@@ -100,64 +120,43 @@ const ProcessAuditAndAutomation = () => {
             </p>
           </div>
 
-          {/* Main Layout Container */}
-          <div className="relative">
-            {/* Large Gears Background - Left Side */}
-            <div className="absolute left-0 top-0 w-96 h-96 md:w-[600px] md:h-[600px] lg:w-[800px] lg:h-[800px] -z-10">
-              <img 
-                src="/lovable-uploads/52471b51-0d8d-487a-bb90-cd8d016ad4c6.png" 
-                alt="Process automation gears" 
-                className="w-full h-full object-contain opacity-20"
-              />
-            </div>
-
-            {/* Top Row: First Two Cards on Right */}
-            <div className="flex justify-end mb-12">
-              <div className="w-full max-w-md lg:max-w-lg space-y-8">
-                {auditBenefits.slice(0, 2).map((benefit, index) => {
-                  const Icon = benefit.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-600/30 p-8 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-105"
-                    >
-                      <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-green-500 rounded-xl mb-6">
+          {/* Stacked Cards */}
+          <div className="space-y-8">
+            {auditBenefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              const isEven = index % 2 === 0;
+              
+              return (
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-600/30 overflow-hidden hover:border-blue-500/50 transition-all duration-300 transform hover:scale-[1.02]"
+                >
+                  <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center`}>
+                    {/* Image Section */}
+                    <div className="w-full lg:w-1/2 h-64 lg:h-80">
+                      <img
+                        src={benefit.image}
+                        alt={benefit.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    
+                    {/* Content Section */}
+                    <div className="w-full lg:w-1/2 p-8 lg:p-12">
+                      <div className="flex items-center justify-center lg:justify-start w-16 h-16 bg-gradient-to-r from-blue-500 to-green-500 rounded-xl mb-6 mx-auto lg:mx-0">
                         <Icon className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-xl font-semibold mb-4 text-white">
+                      <h3 className="text-2xl font-semibold mb-4 text-white text-center lg:text-left">
                         {benefit.title}
                       </h3>
-                      <p className="text-gray-300 leading-relaxed">
+                      <p className="text-gray-300 leading-relaxed text-center lg:text-left">
                         {benefit.description}
                       </p>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Bottom Row: Last Three Cards */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
-              {auditBenefits.slice(2).map((benefit, index) => {
-                const Icon = benefit.icon;
-                return (
-                  <div
-                    key={index + 2}
-                    className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-600/30 p-8 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-105"
-                  >
-                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-green-500 rounded-xl mb-6">
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-4 text-white">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-gray-300 leading-relaxed">
-                      {benefit.description}
-                    </p>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
