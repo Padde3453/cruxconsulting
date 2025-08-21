@@ -13,6 +13,7 @@ interface HeaderProps {
 const Header = ({ onBooking }: HeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -79,6 +80,21 @@ const Header = ({ onBooking }: HeaderProps) => {
     return location.pathname.startsWith('/services');
   };
 
+  const handleServicesDropdownEnter = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setServicesDropdownOpen(true);
+  };
+
+  const handleServicesDropdownLeave = () => {
+    const timeout = setTimeout(() => {
+      setServicesDropdownOpen(false);
+    }, 300);
+    setDropdownTimeout(timeout);
+  };
+
   const serviceLinks = [
     { path: '/services/ai-chatbot', label: t('aiChatbot.title') },
     { path: '/services/workshops', label: t('workshops.title') },
@@ -101,8 +117,8 @@ const Header = ({ onBooking }: HeaderProps) => {
         <div className="hidden md:flex items-center space-x-8">
           <div 
             className="relative"
-            onMouseEnter={() => setServicesDropdownOpen(true)}
-            onMouseLeave={() => setServicesDropdownOpen(false)}
+            onMouseEnter={handleServicesDropdownEnter}
+            onMouseLeave={handleServicesDropdownLeave}
           >
             <button 
               onClick={handleServicesNavigation}
@@ -120,13 +136,6 @@ const Header = ({ onBooking }: HeaderProps) => {
             {servicesDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-80 bg-gray-800/95 backdrop-blur-sm border border-gray-600 rounded-lg shadow-xl z-50">
                 <div className="p-4 space-y-2">
-                  <Link
-                    to="/services"
-                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors font-medium border-b border-gray-600/50 mb-2"
-                    onClick={() => setServicesDropdownOpen(false)}
-                  >
-                    {t('navigation.servicesOverview')}
-                  </Link>
                   {serviceLinks.map((service) => (
                     <Link
                       key={service.path}
