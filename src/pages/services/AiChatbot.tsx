@@ -15,6 +15,7 @@ const AiChatbot = () => {
   
   // Scroll animations
   const heroAnimation = useScrollAnimation();
+  const descriptionAnimation = useScrollAnimation();
   const featuresAnimation = useScrollAnimation();
   const ctaAnimation = useScrollAnimation();
 
@@ -183,6 +184,26 @@ const AiChatbot = () => {
         </div>
       </section>
 
+      {/* Description Section */}
+      <section className="py-16 relative">
+        <div 
+          ref={descriptionAnimation.elementRef}
+          className={`max-w-4xl mx-auto px-6 text-center transition-all duration-1000 ${
+            descriptionAnimation.isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+            We build <span className="font-bold text-white">smart Assistants</span> on your website, that provide{' '}
+            <span className="font-bold text-white">tangible value</span> for your clients and prospects. No matter if for e-commerce or any other service, our AI Assistants{' '}
+            <span className="font-bold text-white">increase revenue</span>,{' '}
+            <span className="font-bold text-white">increase client satisfaction</span> while significantly{' '}
+            <span className="font-bold text-white">decreasing strain</span> on your human service teams.
+          </p>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-20 relative">
         <div 
@@ -203,7 +224,14 @@ const AiChatbot = () => {
                   return (
                     <div
                       key={index}
-                      className="group flex items-center space-x-4 p-6 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-brand-blue/50 transition-all duration-300 hover:transform hover:scale-105"
+                      className={`group flex items-center space-x-4 p-6 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-brand-blue/50 transition-all duration-1000 hover:transform hover:scale-105 ${
+                        featuresAnimation.isVisible 
+                          ? 'opacity-100 translate-x-0' 
+                          : 'opacity-0 -translate-x-10'
+                      }`}
+                      style={{ 
+                        transitionDelay: featuresAnimation.isVisible ? `${index * 150}ms` : '0ms' 
+                      }}
                     >
                       <div className={`flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 flex items-center justify-center group-hover:from-brand-blue/20 group-hover:to-brand-green/20 transition-all duration-300`}>
                         <IconComponent className={`h-6 w-6 ${feature.color} transition-colors duration-300`} />
@@ -278,24 +306,31 @@ const AiChatbot = () => {
                 </p>
               </div>
 
-              {/* Team Features - Full Width Grid */}
-              <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                {currentFeatures.map((feature, index) => {
-                  const IconComponent = feature.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="group flex items-center space-x-4 p-6 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-brand-blue/50 transition-all duration-300 hover:transform hover:scale-105"
-                    >
-                      <div className={`flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 flex items-center justify-center group-hover:from-brand-blue/20 group-hover:to-brand-green/20 transition-all duration-300`}>
-                        <IconComponent className={`h-6 w-6 ${feature.color} transition-colors duration-300`} />
-                      </div>
-                      <p className="text-lg text-gray-200 group-hover:text-white transition-colors duration-300">
-                        {feature.text}
-                      </p>
-                    </div>
-                  );
-                })}
+               {/* Team Features - Full Width Grid */}
+               <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                 {currentFeatures.map((feature, index) => {
+                   const IconComponent = feature.icon;
+                   return (
+                     <div
+                       key={index}
+                       className={`group flex items-center space-x-4 p-6 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-brand-blue/50 transition-all duration-1000 hover:transform hover:scale-105 ${
+                         featuresAnimation.isVisible 
+                           ? 'opacity-100 translate-y-0' 
+                           : 'opacity-0 translate-y-10'
+                       }`}
+                       style={{ 
+                         transitionDelay: featuresAnimation.isVisible ? `${index * 100}ms` : '0ms' 
+                       }}
+                     >
+                       <div className={`flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 flex items-center justify-center group-hover:from-brand-blue/20 group-hover:to-brand-green/20 transition-all duration-300`}>
+                         <IconComponent className={`h-6 w-6 ${feature.color} transition-colors duration-300`} />
+                       </div>
+                       <p className="text-lg text-gray-200 group-hover:text-white transition-colors duration-300">
+                         {feature.text}
+                       </p>
+                     </div>
+                   );
+                 })}
               </div>
             </div>
           )}
