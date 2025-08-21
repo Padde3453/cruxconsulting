@@ -124,7 +124,7 @@ const AiChatbot = () => {
       <Header onBooking={handleBooking} />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center pt-8 pb-0 relative">
+      <section className="flex items-center justify-center pt-4 pb-0 relative">
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl animate-float"></div>
@@ -139,7 +139,7 @@ const AiChatbot = () => {
               : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="text-center mb-16 max-w-4xl mx-auto">
+          <div className="text-center mb-4 max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
                 {t('aiChatbot.hero.title')}
@@ -149,7 +149,7 @@ const AiChatbot = () => {
                 {t('aiChatbot.hero.subtitle')}
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12">
+            <p className="text-xl md:text-2xl text-gray-300 mb-4">
               {t('aiChatbot.hero.description')}
             </p>
 
@@ -185,7 +185,7 @@ const AiChatbot = () => {
       </section>
 
       {/* Description Section */}
-      <section className="py-2 relative">
+      <section className="py-0 relative">
         <div 
           ref={descriptionAnimation.elementRef}
           className={`max-w-4xl mx-auto px-6 text-center transition-all duration-1000 ${
