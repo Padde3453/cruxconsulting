@@ -298,12 +298,21 @@ const AiChatbot = () => {
               {/* Team Hero Section */}
               <div className="text-center max-w-4xl mx-auto">
                 <h2 className="text-4xl md:text-6xl font-bold mb-6">
+                  <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                    Turn Your Intranet to an actual{' '}
+                  </span>
                   <span className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-                    Empower Your Team
+                    Helpful
+                  </span>
+                  <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                    {' '}Tool.
                   </span>
                 </h2>
-                <p className="text-xl md:text-2xl text-gray-300 mb-12">
-                  Give your support team the AI tools they need to handle complex inquiries with confidence and efficiency.
+                <p className="text-xl md:text-2xl text-gray-300 mb-8">
+                  Give your team all the information they need while reducing time and headache doing so.
+                </p>
+                <p className="text-lg md:text-xl text-gray-300 mb-12">
+                  Do you really like to use your intranet? Do you find what you are looking for? Imagine an <span className="font-bold text-white">AI Assistant</span> that knows everything about your <span className="font-bold text-white">intranet and files</span> and gives you exactly what you need when you need it.
                 </p>
               </div>
 
