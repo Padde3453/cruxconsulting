@@ -12,8 +12,10 @@ const ProcessAuditAndAutomation = () => {
   const navigate = useNavigate();
   
   const heroAnimation = useScrollAnimation();
-  const benefitsAnimation = useScrollAnimation();
   const ctaAnimation = useScrollAnimation();
+  
+  // Create individual scroll animations for each card
+  const cardAnimations = Array.from({ length: 6 }, () => useScrollAnimation());
 
   const handleBooking = () => {
     navigate('/');
@@ -71,7 +73,7 @@ const ProcessAuditAndAutomation = () => {
       <Header onBooking={handleBooking} />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 relative">
+      <section className="pt-32 relative">
         <div 
           ref={heroAnimation.elementRef}
           className={`relative z-10 w-full px-6 transition-all duration-1000 ${
@@ -102,14 +104,7 @@ const ProcessAuditAndAutomation = () => {
           />
         </div>
         
-        <div 
-          ref={benefitsAnimation.elementRef}
-          className={`max-w-4xl mx-auto px-6 transition-all duration-1000 relative z-10 ${
-            benefitsAnimation.isVisible 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
               What You'll Get
@@ -122,13 +117,18 @@ const ProcessAuditAndAutomation = () => {
           {/* Stacked Cards */}
           <div className="space-y-8">
             {auditBenefits.map((benefit, index) => {
-              const Icon = benefit.icon;
               const isEven = index % 2 === 0;
               
               return (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-600/30 overflow-hidden hover:border-blue-500/50 transition-all duration-300 transform hover:scale-[1.02]"
+                  ref={cardAnimations[index].elementRef}
+                  className={`bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-600/30 overflow-hidden hover:border-blue-500/50 transition-all duration-1000 transform hover:scale-[1.02] ${
+                    cardAnimations[index].isVisible 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-10'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center`}>
                     {/* Image Section */}
