@@ -154,11 +154,11 @@ const AiChatbot = () => {
 
             {/* Toggle Tabs */}
             <div className="flex justify-center mb-16">
-              <div className="bg-gray-800/50 backdrop-blur-sm rounded-full p-2 border border-gray-600">
-                <div className="flex space-x-2">
+              <div className="bg-gray-800/50 backdrop-blur-sm rounded-full p-3 border border-gray-600 max-w-lg w-full">
+                <div className="flex space-x-3">
                   <button
                     onClick={() => setActiveTab('clients')}
-                    className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                    className={`flex-1 px-12 py-4 rounded-full text-base font-medium transition-all duration-300 ${
                       activeTab === 'clients'
                         ? 'bg-gradient-to-r from-brand-blue to-brand-green text-white shadow-lg'
                         : 'text-gray-400 hover:text-white'
@@ -168,7 +168,7 @@ const AiChatbot = () => {
                   </button>
                   <button
                     onClick={() => setActiveTab('team')}
-                    className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                    className={`flex-1 px-12 py-4 rounded-full text-base font-medium transition-all duration-300 ${
                       activeTab === 'team'
                         ? 'bg-gradient-to-r from-brand-blue to-brand-green text-white shadow-lg'
                         : 'text-gray-400 hover:text-white'
@@ -193,65 +193,112 @@ const AiChatbot = () => {
               : 'opacity-0 translate-y-10'
           }`}
         >
-          {/* Features List and Video */}
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left side - Features List (Desktop) / Right side (Mobile) */}
-            <div className="space-y-6 order-1 lg:order-1">
-              {currentFeatures.map((feature, index) => {
-                const IconComponent = feature.icon;
-                return (
-                  <div
-                    key={index}
-                    className="group flex items-center space-x-4 p-6 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-brand-blue/50 transition-all duration-300 hover:transform hover:scale-105"
-                  >
-                    <div className={`flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 flex items-center justify-center group-hover:from-brand-blue/20 group-hover:to-brand-green/20 transition-all duration-300`}>
-                      <IconComponent className={`h-6 w-6 ${feature.color} transition-colors duration-300`} />
+          {activeTab === 'clients' ? (
+            /* For Clients - Features List and Video */
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              {/* Left side - Features List */}
+              <div className="space-y-6 order-1 lg:order-1">
+                {currentFeatures.map((feature, index) => {
+                  const IconComponent = feature.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="group flex items-center space-x-4 p-6 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-brand-blue/50 transition-all duration-300 hover:transform hover:scale-105"
+                    >
+                      <div className={`flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 flex items-center justify-center group-hover:from-brand-blue/20 group-hover:to-brand-green/20 transition-all duration-300`}>
+                        <IconComponent className={`h-6 w-6 ${feature.color} transition-colors duration-300`} />
+                      </div>
+                      <p className="text-lg text-gray-200 group-hover:text-white transition-colors duration-300">
+                        {feature.text}
+                      </p>
                     </div>
-                    <p className="text-lg text-gray-200 group-hover:text-white transition-colors duration-300">
-                      {feature.text}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Right side - Demo Video (Desktop) / Below features (Mobile) */}
-            <div className="relative order-2 lg:order-2">
-              <div className="w-full max-w-md mx-auto aspect-[9/16] rounded-lg overflow-hidden">
-                <video
-                  className="w-full h-full rounded-lg object-cover transform"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  disablePictureInPicture
-                  controlsList="nodownload nofullscreen noremoteplayback"
-                >
-                  <source src="/lovable-uploads/chat-demo.mp4" type="video/mp4" />
-                  <source src="/lovable-uploads/chat-demo.webm" type="video/webm" />
-                  Your browser does not support the video tag.
-                </video>
+                  );
+                })}
               </div>
-              
-              {/* Stats below video */}
-              <div className="mt-6 bg-gradient-to-r from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-lg p-6 border border-gray-600/30">
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div className="space-y-1">
-                    <div className="text-2xl font-bold text-brand-green">&lt; 2s</div>
-                    <div className="text-sm text-gray-400">Response Time</div>
+
+              {/* Right side - Demo Video with 3D Effect */}
+              <div className="relative order-2 lg:order-2">
+                <div className="relative w-full max-w-md mx-auto">
+                  {/* 3D Floating Effect Container */}
+                  <div className="relative transform-gpu perspective-1000">
+                    {/* Gel pillow shadow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-green/20 rounded-2xl blur-2xl transform translate-y-6 scale-110"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/10 rounded-2xl blur-xl transform translate-y-4 scale-105"></div>
+                    
+                    {/* Video container with 3D effect */}
+                    <div className="relative aspect-[9/16] rounded-xl overflow-hidden transform hover:translate-y-[-4px] transition-all duration-500 shadow-2xl">
+                      <video
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        disablePictureInPicture
+                        controlsList="nodownload nofullscreen noremoteplayback"
+                      >
+                        <source src="/lovable-uploads/chat-demo.mp4" type="video/mp4" />
+                        <source src="/lovable-uploads/chat-demo.webm" type="video/webm" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
                   </div>
-                  <div className="space-y-1">
-                    <div className="text-2xl font-bold text-brand-blue">95%</div>
-                    <div className="text-sm text-gray-400">Accuracy Rate</div>
-                  </div>
-                  <div className="space-y-1">
-                    <div className="text-2xl font-bold text-brand-green">50+</div>
-                    <div className="text-sm text-gray-400">Languages</div>
+                </div>
+                
+                {/* Stats below video */}
+                <div className="mt-8 bg-gradient-to-r from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-lg p-6 border border-gray-600/30">
+                  <div className="grid grid-cols-3 gap-4 text-center">
+                    <div className="space-y-1">
+                      <div className="text-2xl font-bold text-brand-green">&lt; 2s</div>
+                      <div className="text-sm text-gray-400">Response Time</div>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-2xl font-bold text-brand-blue">95%</div>
+                      <div className="text-sm text-gray-400">Accuracy Rate</div>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-2xl font-bold text-brand-green">50+</div>
+                      <div className="text-sm text-gray-400">Languages</div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            /* For Team - Different Hero Section and Features Only */
+            <div className="space-y-16">
+              {/* Team Hero Section */}
+              <div className="text-center max-w-4xl mx-auto">
+                <h2 className="text-4xl md:text-6xl font-bold mb-6">
+                  <span className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
+                    Empower Your Team
+                  </span>
+                </h2>
+                <p className="text-xl md:text-2xl text-gray-300 mb-12">
+                  Give your support team the AI tools they need to handle complex inquiries with confidence and efficiency.
+                </p>
+              </div>
+
+              {/* Team Features - Full Width Grid */}
+              <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                {currentFeatures.map((feature, index) => {
+                  const IconComponent = feature.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="group flex items-center space-x-4 p-6 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-brand-blue/50 transition-all duration-300 hover:transform hover:scale-105"
+                    >
+                      <div className={`flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 flex items-center justify-center group-hover:from-brand-blue/20 group-hover:to-brand-green/20 transition-all duration-300`}>
+                        <IconComponent className={`h-6 w-6 ${feature.color} transition-colors duration-300`} />
+                      </div>
+                      <p className="text-lg text-gray-200 group-hover:text-white transition-colors duration-300">
+                        {feature.text}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
