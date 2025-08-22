@@ -149,17 +149,17 @@ const AiChatbot = () => {
               <>
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">
                   <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-                    Turn Your Intranet to an actual{' '}
+                    {t('aiChatbot.team.hero.title')}{' '}
                   </span>
                   <span className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-                    Helpful
+                    {t('aiChatbot.team.hero.subtitle')}
                   </span>
                   <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-                    {' '}Tool.
+                    {t('aiChatbot.team.hero.titleEnd')}
                   </span>
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-300 mb-8">
-                  Give your team all the information they need while reducing time and headache doing so.
+                  {t('aiChatbot.team.hero.description')}
                 </p>
               </>
             ) : (
@@ -208,9 +208,7 @@ const AiChatbot = () => {
             </div>
 
             {activeTab === 'team' && (
-              <p className="text-lg md:text-xl text-gray-300 mt-6">
-                Do you really like to use your intranet? Do you find what you are looking for? Imagine an <span className="font-bold text-white">AI Assistant</span> that knows everything about your <span className="font-bold text-white">intranet and files</span> and gives you exactly what you need when you need it.
-              </p>
+              <p className="text-lg md:text-xl text-gray-300 mt-6" dangerouslySetInnerHTML={{ __html: t('aiChatbot.team.toggleDescription') }} />
             )}
           </div>
         </div>
@@ -227,13 +225,7 @@ const AiChatbot = () => {
                 : 'opacity-0 translate-y-10'
             }`}
           >
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed tracking-wider">
-              We build <span className="font-bold text-white">smart Assistants</span> on your website, that provide{' '}
-              <span className="font-bold text-white">tangible value</span> for your clients and prospects. No matter if for e-commerce or any other service, our AI Assistants{' '}
-              <span className="font-bold text-white">increase revenue</span>,{' '}
-              <span className="font-bold text-white">increase client satisfaction</span> while significantly{' '}
-              <span className="font-bold text-white">decreasing strain</span> on your human service teams.
-            </p>
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed tracking-wider" dangerouslySetInnerHTML={{ __html: t('aiChatbot.clients.description') }} />
           </div>
         </section>
       )}
@@ -373,20 +365,17 @@ const AiChatbot = () => {
         >
           <div className="bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 p-12 rounded-lg">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-              {activeTab === 'team' ? 'Ready to transform your Intranet?' : 'Ready to Transform Your Customer Service?'}
+              {t(activeTab === 'team' ? 'aiChatbot.team.cta.title' : 'aiChatbot.clients.cta.title')}
             </h2>
             <p className="text-xl text-white mb-8">
-              {activeTab === 'team' 
-                ? "Let's discuss how we can make our Intranet to a really impactful source of information"
-                : "Let's discuss how AI can resolve 70% of your customer questions instantly."
-              }
+              {t(activeTab === 'team' ? 'aiChatbot.team.cta.description' : 'aiChatbot.clients.cta.description')}
             </p>
             <Button 
               onClick={handleBooking}
               size="lg" 
               className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 mx-auto transition-all duration-300 transform hover:scale-105"
             >
-              <span>{activeTab === 'team' ? 'Book an Intro' : 'Book Your Demo'}</span>
+              <span>{t(activeTab === 'team' ? 'aiChatbot.team.cta.button' : 'aiChatbot.clients.cta.button')}</span>
               <ArrowRight size={20} />
             </Button>
           </div>

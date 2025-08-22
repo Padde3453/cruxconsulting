@@ -208,33 +208,51 @@
     "forClients": "Für Ihre Kunden",
     "forTeam": "Für Ihr Team",
     "hero": {
-      "title": "Lösen Sie 70% der Kundenfragen.",
-      "subtitle": "Sofort.",
-      "description": "Transformieren Sie Ihren Kundenservice mit KI, die Ihr Unternehmen besser kennt als jeder andere."
+      "title": "Verwandeln Sie Ihr Kundenerlebnis mit",
+      "subtitle": "KI-gestützter Unterstützung",
+      "description": "Revolutionieren Sie Ihren Kundenservice mit intelligenten Chatbots, die verstehen, lernen und außergewöhnliche Erfahrungen rund um die Uhr liefern."
     },
     "clients": {
+      "description": "Wir entwickeln <strong>intelligente Assistenten</strong> für Ihre Website, die <strong>echten Mehrwert</strong> für Ihre Kunden und Interessenten schaffen. Egal ob für E-Commerce oder andere Dienstleistungen, unsere KI-Assistenten <strong>steigern den Umsatz</strong>, <strong>erhöhen die Kundenzufriedenheit</strong> und <strong>entlasten</strong> Ihre menschlichen Service-Teams erheblich.",
       "features": [
-        "Sofortige Schulung mit Ihren Support-Inhalten",
-        "'Kennt Ihre Produkte besser als Sie' und hilft Ihren Besuchern",
-        "Bedient globale Kunden in über 50 Sprachen",
-        "Informiert über Lieferstatus, Lagerbestände und mehr",
-        "Integration in Web, WhatsApp und andere Kanäle",
-        "Kennt sich ändernde Informationen sofort",
-        "Nahtlose Übergabe an Live-Agenten bei komplexen Anfragen",
-        "Vollständig anpassbar an Ihr Unternehmensdesign"
-      ]
+        "24/7 sofortiger Kundensupport in allen Zeitzonen",
+        "Personalisierte Interaktionen, die Kundenloyalität aufbauen",
+        "Mehrsprachiger Support für globale Zielgruppen",
+        "Nahtlose Integration in bestehende Kundensysteme",
+        "Erweiterte Analysen zum Verständnis des Kundenverhaltens",
+        "Automatisierte Nachfassaktionen und Engagement-Kampagnen",
+        "Skalierbare Lösung, die mit Ihrem Unternehmen wächst",
+        "Custom Branding, das zu Ihrer Unternehmensidentität passt"
+      ],
+      "cta": {
+        "title": "Bereit, Ihren Kundenservice zu transformieren?",
+        "description": "Lassen Sie uns besprechen, wie KI 70% Ihrer Kundenanfragen sofort lösen kann.",
+        "button": "Demo buchen"
+      }
     },
     "team": {
+      "hero": {
+        "title": "Verwandeln Sie Ihr Intranet in ein wirklich",
+        "subtitle": "hilfreiches",
+        "titleEnd": " Werkzeug.",
+        "description": "Geben Sie Ihrem Team alle Informationen, die es braucht, und reduzieren Sie dabei Zeit und Kopfschmerzen."
+      },
+      "toggleDescription": "Nutzen Sie Ihr Intranet wirklich gerne? Finden Sie, was Sie suchen? Stellen Sie sich einen <strong>KI-Assistenten</strong> vor, der alles über Ihr <strong>Intranet und Ihre Dateien</strong> weiß und Ihnen genau das gibt, was Sie brauchen, wenn Sie es brauchen.",
       "features": [
-        "Internes Wissensmanagement",
-        "Automatisierung der Mitarbeitereinarbeitung",
-        "HR-Richtlinien und Verfahrensberatung",
-        "Technische Dokumentationshilfe",
-        "Zugang zu Schulungsmaterialien",
-        "Interne Prozessautomatisierung",
-        "Verbesserung der Teamzusammenarbeit",
-        "Workflow-Optimierung"
-      ]
+        "Sofortiger Zugang zu Unternehmenswissen und Verfahren",
+        "Automatisiertes Onboarding für neue Teammitglieder",
+        "Intelligentes Dokumentensuch- und Abrufsystem",
+        "Integration in bestehende Collaboration-Tools",
+        "Automatisierte Aufgabenzuweisung und -verfolgung",
+        "Echtzeit-Updates zu Unternehmensrichtlinien und Änderungen",
+        "Mitarbeiter-Self-Service für häufige HR-Anfragen",
+        "Analysen zur Teamproduktivität und -engagement"
+      ],
+      "cta": {
+        "title": "Bereit, Ihr Intranet zu transformieren?",
+        "description": "Lassen Sie uns besprechen, wie wir Ihr Intranet zu einer wirklich wirkungsvollen Informationsquelle machen können",
+        "button": "Einführung buchen"
+      }
     }
   },
   "workshops": {

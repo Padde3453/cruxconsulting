@@ -208,33 +208,51 @@
     "forClients": "For Your Clients",
     "forTeam": "For Your Team",
     "hero": {
-      "title": "Resolve 70% Of Customer Questions.",
-      "subtitle": "Instantly.",
-      "description": "Transform your customer service with AI that knows your business better than anyone else."
+      "title": "Transform Your Customer Experience with",
+      "subtitle": "AI-Powered Assistance",
+      "description": "Revolutionize your customer service with intelligent chatbots that understand, learn, and deliver exceptional experiences 24/7."
     },
     "clients": {
+      "description": "We build <strong>smart Assistants</strong> on your website, that provide <strong>tangible value</strong> for your clients and prospects. No matter if for e-commerce or any other service, our AI Assistants <strong>increase revenue</strong>, <strong>increase client satisfaction</strong> while significantly <strong>decreasing strain</strong> on your human service teams.",
       "features": [
-        "Train instantly on your support content",
-        "'Knows your products better than you' and lends your visitors a hand",
-        "Serve global customers in 50+ languages",
-        "Informs about delivery status, storage and more",
-        "Integrate on the web, WhatsApp and other channels",
-        "Knows changing information instantly",
-        "Seamless live agent handoff for complex queries",
-        "Fully adjustable to your company design"
-      ]
+        "24/7 instant customer support across all time zones",
+        "Personalized interactions that build customer loyalty",
+        "Multilingual support reaching global audiences",
+        "Seamless integration with existing customer systems",
+        "Advanced analytics to understand customer behavior",
+        "Automated follow-ups and engagement campaigns",
+        "Scalable solution that grows with your business",
+        "Custom branding that matches your company identity"
+      ],
+      "cta": {
+        "title": "Ready to Transform Your Customer Service?",
+        "description": "Let's discuss how AI can resolve 70% of your customer questions instantly.",
+        "button": "Book Your Demo"
+      }
     },
     "team": {
+      "hero": {
+        "title": "Turn Your Intranet to an actual",
+        "subtitle": "Helpful",
+        "titleEnd": " Tool.",
+        "description": "Give your team all the information they need while reducing time and headache doing so."
+      },
+      "toggleDescription": "Do you really like to use your intranet? Do you find what you are looking for? Imagine an <strong>AI Assistant</strong> that knows everything about your <strong>intranet and files</strong> and gives you exactly what you need when you need it.",
       "features": [
-        "Internal knowledge management",
-        "Employee onboarding automation",
-        "HR policy and procedure guidance",
-        "Technical documentation assistance",
-        "Training material access",
-        "Internal process automation",
-        "Team collaboration enhancement",
-        "Workflow optimization"
-      ]
+        "Instant access to company knowledge and procedures",
+        "Automated onboarding for new team members",
+        "Smart document search and retrieval system",
+        "Integration with existing collaboration tools",
+        "Automated task assignment and tracking",
+        "Real-time updates on company policies and changes",
+        "Employee self-service for common HR requests",
+        "Analytics on team productivity and engagement"
+      ],
+      "cta": {
+        "title": "Ready to transform your Intranet?",
+        "description": "Let's discuss how we can make our Intranet to a really impactful source of information",
+        "button": "Book an Intro"
+      }
     }
   },
   "workshops": {
