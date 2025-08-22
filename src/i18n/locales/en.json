@@ -297,7 +297,42 @@
   },
   "processAudit": {
     "title": "Process Audit & Automation",
-    "description": "Identify automation opportunities in your business"
+    "description": "Identify automation opportunities in your business",
+    "hero": {
+      "title": "Process Audit & Automation Solutions",
+      "description": "Optimize your business operations with comprehensive process audits and intelligent automation strategies that deliver measurable results."
+    },
+    "benefits": [
+      {
+        "title": "Comprehensive Process Analysis",
+        "description": "Deep dive into your current workflows to identify bottlenecks, inefficiencies, and automation opportunities that can transform your operations."
+      },
+      {
+        "title": "Cost Reduction Strategy",
+        "description": "Systematic identification of cost-saving opportunities through process optimization and strategic automation implementations."
+      },
+      {
+        "title": "Workflow Optimization",
+        "description": "Redesign and streamline your processes for maximum efficiency, reduced errors, and improved employee satisfaction."
+      },
+      {
+        "title": "Custom Automation Solutions",
+        "description": "Tailored automation strategies that integrate seamlessly with your existing systems and business requirements."
+      },
+      {
+        "title": "Performance Metrics & Monitoring",
+        "description": "Establish clear KPIs and monitoring systems to measure the impact and ROI of your process improvements."
+      },
+      {
+        "title": "Change Management Support",
+        "description": "Comprehensive support for implementing changes with minimal disruption and maximum team buy-in."
+      }
+    ],
+    "cta": {
+      "title": "Ready to Optimize Your Processes?",
+      "description": "Let our experts analyze your workflows and identify high-impact automation opportunities that will transform your business efficiency.",
+      "buttonText": "Schedule Process Audit"
+    }
   },
   "automation": {
     "title": "Custom Automation Solutions",

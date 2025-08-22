@@ -71,7 +71,7 @@ const Workshops = () => {
                 <Button 
                   onClick={handleBooking}
                   size="lg" 
-                  className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
+                  className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 mx-auto transition-all duration-300 transform hover:scale-105"
                 >
                   <span>{t('workshops.hero.buttonText')}</span>
                   <ArrowRight size={20} />

@@ -296,8 +296,43 @@
     }
   },
   "processAudit": {
-    "title": "Prozessaudit & Automatisierung",
-    "description": "Identifizieren Sie Automatisierungsmöglichkeiten in Ihrem Unternehmen"
+    "title": "Prozess-Audit & Automatisierung",
+    "description": "Automatisierungsmöglichkeiten in Ihrem Unternehmen identifizieren",
+    "hero": {
+      "title": "Prozess-Audit & Automatisierungslösungen",
+      "description": "Optimieren Sie Ihre Geschäftsabläufe mit umfassenden Prozess-Audits und intelligenten Automatisierungsstrategien, die messbare Ergebnisse liefern."
+    },
+    "benefits": [
+      {
+        "title": "Umfassende Prozessanalyse",
+        "description": "Tiefgehende Analyse Ihrer aktuellen Arbeitsabläufe zur Identifizierung von Engpässen, Ineffizienzen und Automatisierungsmöglichkeiten, die Ihre Abläufe transformieren können."
+      },
+      {
+        "title": "Kostensenkungsstrategie",
+        "description": "Systematische Identifizierung von Kosteneinsparungsmöglichkeiten durch Prozessoptimierung und strategische Automatisierungsimplementierungen."
+      },
+      {
+        "title": "Workflow-Optimierung",
+        "description": "Neugestaltung und Optimierung Ihrer Prozesse für maximale Effizienz, reduzierte Fehler und verbesserte Mitarbeiterzufriedenheit."
+      },
+      {
+        "title": "Maßgeschneiderte Automatisierungslösungen",
+        "description": "Individuell angepasste Automatisierungsstrategien, die nahtlos in Ihre bestehenden Systeme und Geschäftsanforderungen integriert werden."
+      },
+      {
+        "title": "Leistungsmetriken & Überwachung",
+        "description": "Etablierung klarer KPIs und Überwachungssysteme zur Messung der Auswirkungen und des ROI Ihrer Prozessverbesserungen."
+      },
+      {
+        "title": "Change Management Unterstützung",
+        "description": "Umfassende Unterstützung bei der Implementierung von Änderungen mit minimaler Störung und maximaler Akzeptanz im Team."
+      }
+    ],
+    "cta": {
+      "title": "Bereit, Ihre Prozesse zu optimieren?",
+      "description": "Lassen Sie unsere Experten Ihre Arbeitsabläufe analysieren und wirkungsvolle Automatisierungsmöglichkeiten identifizieren, die Ihre Geschäftseffizienz transformieren werden.",
+      "buttonText": "Prozess-Audit Planen"
+    }
   },
   "automation": {
     "title": "Individuelle Automatisierungslösungen",

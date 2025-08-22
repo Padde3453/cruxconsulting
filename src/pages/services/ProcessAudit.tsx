@@ -84,10 +84,10 @@ const ProcessAuditAndAutomation = () => {
         >
           <div className="text-center mb-16 max-w-6xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-              Process Audit & Automation
+              {t('processAudit.title')}
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto">
-              Transform your business operations with comprehensive process analysis and intelligent automation solutions
+              {t('processAudit.hero.description')}
             </p>
           </div>
         </div>
@@ -169,17 +169,17 @@ const ProcessAuditAndAutomation = () => {
         >
           <div className="bg-gradient-to-r from-gray-800/40 to-gray-700/30 backdrop-blur-sm rounded-2xl border border-gray-600/30 p-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-              Ready to Optimize Your Processes?
+              {t('processAudit.cta.title')}
             </h2>
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-              Let's analyze your current operations and implement automation solutions that deliver real ROI
+              {t('processAudit.cta.description')}
             </p>
             <Button 
               onClick={handleBooking}
               size="lg" 
               className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white rounded-full px-12 py-6 text-xl flex items-center space-x-3 mx-auto transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
-              <span>Start Your Process Audit</span>
+              <span>{t('processAudit.cta.buttonText')}</span>
               <ArrowRight size={24} />
             </Button>
           </div>
