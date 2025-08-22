@@ -328,6 +328,32 @@
         "description": "Umfassende Unterstützung bei der Implementierung von Änderungen mit minimaler Störung und maximaler Akzeptanz im Team."
       }
     ],
+    "auditBenefits": [
+      {
+        "title": "Automatisierte Prozesserfassung und -bewertung",
+        "description": "Umfassende Analyse Ihrer bestehenden Prozesse mit KI-gestützten Tools zur Identifizierung von Engpässen und Ineffizienzen."
+      },
+      {
+        "title": "Verbesserungs- und Automatisierungsempfehlungen", 
+        "description": "Detaillierte Vorschläge zur Optimierung von Arbeitsabläufen und Implementierung von Automatisierungslösungen, die auf Ihre Geschäftsanforderungen zugeschnitten sind."
+      },
+      {
+        "title": "Implementierung von KI-Agenten oder Workflows",
+        "description": "Bereitstellung intelligenter Automatisierungslösungen einschließlich KI-Agenten und maßgeschneiderter Workflows zur Optimierung Ihrer Abläufe."
+      },
+      {
+        "title": "Prozesse im gesamten Unternehmen",
+        "description": "Unternehmensweite Prozessoptimierung, die alle Abteilungen und Geschäftsbereiche für maximale Effizienzgewinne abdeckt."
+      },
+      {
+        "title": "Präzise ROI-Berechnung",
+        "description": "Detaillierte Finanzanalyse mit exakter Darstellung der Kapitalrendite und Kosteneinsparungen durch Prozessverbesserungen."
+      },
+      {
+        "title": "Umfassende Implementierungsunterstützung",
+        "description": "End-to-End-Betreuung und Unterstützung während Ihrer gesamten Automatisierungsreise, von der Planung bis zur vollständigen Bereitstellung und Optimierung."
+      }
+    ],
     "cta": {
       "title": "Bereit, Ihre Prozesse zu optimieren?",
       "description": "Lassen Sie unsere Experten Ihre Arbeitsabläufe analysieren und wirkungsvolle Automatisierungsmöglichkeiten identifizieren, die Ihre Geschäftseffizienz transformieren werden.",

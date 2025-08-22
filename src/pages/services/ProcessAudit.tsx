@@ -30,38 +30,26 @@ const ProcessAuditAndAutomation = () => {
   const auditBenefits = [
     {
       icon: CheckCircle,
-      title: "Automated Process Collection and Review",
-      description: "Comprehensive analysis of your existing processes using AI-powered tools to identify bottlenecks and inefficiencies.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Target,
-      title: "Improvement and Automation Recommendations", 
-      description: "Detailed suggestions for optimizing workflows and implementing automation solutions tailored to your business needs.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Cog,
-      title: "Implementation of AI Agents or Workflows",
-      description: "Deploy intelligent automation solutions including AI agents and custom workflows to streamline your operations.",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Building,
-      title: "Processes Across the Entire Company",
-      description: "Enterprise-wide process optimization covering all departments and business units for maximum efficiency gains.",
       image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: Calculator,
-      title: "Precise ROI Calculation",
-      description: "Detailed financial analysis showing exact return on investment and cost savings from process improvements.",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: CheckCircle,
-      title: "Comprehensive Implementation Support",
-      description: "End-to-end guidance and support throughout your automation journey, from planning to full deployment and optimization.",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
     }
   ];
@@ -118,6 +106,7 @@ const ProcessAuditAndAutomation = () => {
           <div className="space-y-8">
             {auditBenefits.map((benefit, index) => {
               const isEven = index % 2 === 0;
+              const auditBenefitTexts = t('processAudit.auditBenefits', { returnObjects: true }) as Array<{title: string, description: string}>;
               
               return (
                 <div
@@ -135,7 +124,7 @@ const ProcessAuditAndAutomation = () => {
                     <div className="w-full lg:w-1/2 h-64 lg:h-80">
                       <img
                         src={benefit.image}
-                        alt={benefit.title}
+                        alt={auditBenefitTexts[index]?.title || ''}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -143,10 +132,10 @@ const ProcessAuditAndAutomation = () => {
                     {/* Content Section */}
                     <div className="w-full lg:w-1/2 p-8 lg:p-12">
                       <h3 className="text-2xl font-semibold mb-4 text-white text-center lg:text-left">
-                        {benefit.title}
+                        {auditBenefitTexts[index]?.title}
                       </h3>
                       <p className="text-gray-300 leading-relaxed text-center lg:text-left">
-                        {benefit.description}
+                        {auditBenefitTexts[index]?.description}
                       </p>
                     </div>
                   </div>
