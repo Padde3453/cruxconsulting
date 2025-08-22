@@ -362,7 +362,68 @@
   },
   "automation": {
     "title": "Individuelle Automatisierungslösungen",
-    "description": "Maßgeschneiderte Automatisierung für Ihre spezifischen Bedürfnisse"
+    "description": "Maßgeschneiderte Automatisierung für Ihre spezifischen Bedürfnisse",
+    "hero": {
+      "description": "Maßgeschneiderte Automatisierung für Ihre spezifischen Bedürfnisse"
+    },
+    "intro": {
+      "text": "Jedes Unternehmen ist einzigartig, mit besonderen Herausforderungen, Prozessen und Zielen. Einheitslösungen liefern selten die transformativen Ergebnisse, die echtes Wachstum fördern und zwingen das Unternehmen dazu, sich an die Software anzupassen. KI und KI-Agenten ermöglichen es der Software nun, vollständig für Sie zu arbeiten. Deshalb erfordern einzigartige Herausforderungen einzigartige und maßgeschneiderte Lösungen. Crux Consulting unterstützt Unternehmen dabei, maßgeschneiderte Automatisierungslösungen zu schaffen, die perfekt auf ihre spezifischen Bedürfnisse und Ziele abgestimmt sind."
+    },
+    "process": {
+      "title": "Unser individueller Automatisierungsprozess",
+      "subtitle": "Von der Beratung zur Transformation in Tagen, nicht Monaten",
+      "steps": [
+        {
+          "description": "Wir beginnen damit, Ihre einzigartigen Geschäftsherausforderungen, aktuellen Prozesse und spezifischen Ziele gründlich zu verstehen. Durch detaillierte Beratungen und Bewertungen identifizieren wir die Bereiche, in denen maßgeschneiderte Automatisierung den größten Einfluss für Ihre Organisation erzielen kann."
+        },
+        {
+          "description": "Unsere Experten führen eine umfassende Analyse Ihrer bestehenden Arbeitsabläufe, Systeme und Datenstrukturen durch. Wir nutzen KI-gestützte Tools, um Ineffizienzen, Engpässe und Automatisierungsmöglichkeiten zu bewerten und erstellen eine detaillierte Roadmap für Ihre maßgeschneiderte Lösung."
+        },
+        {
+          "description": "Wir entwickeln und implementieren maßgeschneiderte Automatisierungslösungen, die sich nahtlos in Ihre bestehende Infrastruktur integrieren. Unser Implementierungsprozess umfasst rigorose Tests, Benutzerschulungen und schrittweise Einführung, um eine reibungslose Akzeptanz in Ihrer Organisation zu gewährleisten."
+        },
+        {
+          "description": "Erleben Sie, wie Ihre maßgeschneiderte Automatisierungslösung Ihre Geschäftsabläufe transformiert und messbare Verbesserungen in Effizienz, Kostenreduzierung und Mitarbeiterzufriedenheit liefert. Wir bieten kontinuierliche Unterstützung und Optimierung, um Ihre Kapitalrendite zu maximieren."
+        }
+      ]
+    },
+    "examples": {
+      "title": "Maßgeschneiderte Lösungen in Aktion",
+      "subtitle": "Drei konkrete Beispiele, wie wir Unternehmen transformiert haben",
+      "cases": [
+        {
+          "title": "Globale Ausschreibungs-Intelligence",
+          "timeSaved": "1,5 Stunden/Tag",
+          "investment": "€3.500",
+          "roi": "600%",
+          "description": "Industriekunde automatisierte globale Ausschreibungsentdeckung. KI sortiert vor und übersetzt Ausschreibungen aus allen Sprachen und ersetzt manuelle Filterung auf unzureichenden Plattformen."
+        },
+        {
+          "title": "Intelligentes Kunden-Onboarding",
+          "timeSaved": "2 Stunden/Tag",
+          "investment": "€4.500",
+          "roi": "330%",
+          "description": "Große Steuerberatung automatisierte Kunden-Onboarding, optimierte wiederkehrende Prozesse und schuf bessere Erfahrungen für Berater und Kunden gleichermaßen."
+        },
+        {
+          "title": "Personalisierte Outreach-Kampagne",
+          "timeSaved": "~50 Stunden gesamt",
+          "investment": "€1.500",
+          "roi": "400%",
+          "description": "Deutschlandweite Outreach-Kampagne mit KI-Recherche, Datenanreicherung und individuellen Nachrichten. Kunde gewann ersten Neukunden innerhalb von 15 Minuten nach dem Start."
+        }
+      ]
+    },
+    "labels": {
+      "timeSaved": "Zeit gespart:",
+      "investment": "Investition:",
+      "roi": "ROI:"
+    },
+    "cta": {
+      "title": "Bereit für Ihre individuelle Automatisierung?",
+      "description": "Lassen Sie uns eine maßgeschneiderte Automatisierungslösung erstellen, die perfekt zu Ihren einzigartigen Geschäftsanforderungen passt und messbare Ergebnisse liefert.",
+      "buttonText": "Automatisierungsreise Starten"
+    }
   },
   "detailedServices": {
     "title": "Unsere detaillierten Services",

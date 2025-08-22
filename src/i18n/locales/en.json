@@ -362,7 +362,68 @@
   },
   "automation": {
     "title": "Custom Automation Solutions",
-    "description": "Tailored automation for your specific needs"
+    "description": "Tailored automation for your specific needs",
+    "hero": {
+      "description": "Tailored automation for your specific needs"
+    },
+    "intro": {
+      "text": "Every business is unique, with distinct challenges, processes, and goals. One-size-fits-all solutions rarely deliver the transformative results that truly drive growth and force the business to adjust to the software. AI and AI-Agents now allow software to fully work for you. That's why unique challenges require unique and customized solutions. Crux Consulting is here to support businesses in creating bespoke automation solutions that perfectly align with their specific needs and objectives."
+    },
+    "process": {
+      "title": "Our Custom Automation Process",
+      "subtitle": "From consultation to transformation in days, not months",
+      "steps": [
+        {
+          "description": "We begin by thoroughly understanding your unique business challenges, current processes, and specific goals. Through detailed consultations and assessments, we identify the areas where custom automation can deliver the most significant impact for your organization."
+        },
+        {
+          "description": "Our experts conduct a comprehensive analysis of your existing workflows, systems, and data structures. We utilize AI-powered tools to assess inefficiencies, bottlenecks, and opportunities for automation, creating a detailed roadmap for your custom solution."
+        },
+        {
+          "description": "We develop and deploy tailored automation solutions that seamlessly integrate with your existing infrastructure. Our implementation process includes rigorous testing, user training, and gradual rollout to ensure smooth adoption across your organization."
+        },
+        {
+          "description": "Watch as your custom automation solution transforms your business operations, delivering measurable improvements in efficiency, cost reduction, and employee satisfaction. We provide ongoing support and optimization to maximize your return on investment."
+        }
+      ]
+    },
+    "examples": {
+      "title": "Custom Solutions in Action",
+      "subtitle": "Three specific examples of how we've transformed businesses",
+      "cases": [
+        {
+          "title": "Global Tender Intelligence",
+          "timeSaved": "1.5 hours/day",
+          "investment": "€3,500",
+          "roi": "600%",
+          "description": "Industrial client automated global tender discovery. AI pre-sorts and translates tenders from all languages, replacing manual filtering on inadequate platforms."
+        },
+        {
+          "title": "Smart Client Onboarding",
+          "timeSaved": "2 hours/day",
+          "investment": "€4,500",
+          "roi": "330%",
+          "description": "Large tax consultancy automated client onboarding, streamlining repetitive processes while creating better experiences for both consultants and clients."
+        },
+        {
+          "title": "Personalized Outreach Campaign",
+          "timeSaved": "~50 hours total",
+          "investment": "€1,500",
+          "roi": "400%",
+          "description": "Germany-wide outreach campaign with AI research, data enrichment, and custom messaging. Client won their first new customer within 15 minutes of launch."
+        }
+      ]
+    },
+    "labels": {
+      "timeSaved": "Time Saved:",
+      "investment": "Investment:",
+      "roi": "ROI:"
+    },
+    "cta": {
+      "title": "Ready to Build Your Custom Automation?",
+      "description": "Let's create a bespoke automation solution that perfectly fits your unique business needs and delivers measurable results.",
+      "buttonText": "Start Your Automation Journey"
+    }
   },
   "detailedServices": {
     "title": "Our Detailed Services",
