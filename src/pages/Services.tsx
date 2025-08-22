@@ -223,7 +223,7 @@ const Services = () => {
                   to={service.path}
                   className="inline-flex items-center space-x-2 text-brand-blue hover:text-brand-green transition-colors duration-300"
                 >
-                  <span>Learn More</span>
+                  <span>{t('services.learnMore')}</span>
                   <ArrowRight size={16} />
                 </Link>
               </div>
