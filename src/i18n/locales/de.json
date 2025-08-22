@@ -257,7 +257,43 @@
   },
   "workshops": {
     "title": "KI & Automatisierungs-Workshops",
-    "description": "Praxisnahe Workshops, um Ihr Team KI-bereit zu machen"
+    "description": "Praxisnahe Workshops, um Ihr Team KI-bereit zu machen",
+    "hero": {
+      "title": "Transformieren Sie die KI-Kompetenzen Ihres Teams",
+      "description": "Unser umfassender KI & Automatisierungs-Workshop befähigt Ihr gesamtes Team mit praktischem Wissen, praktischer Erfahrung und maßgeschneiderten Lösungen für Ihre Geschäftsanforderungen.",
+      "buttonText": "Workshop Buchen"
+    },
+    "benefits": [
+      {
+        "title": "Stärkung des Team-Verständnisses für KI",
+        "description": "Aufbau umfassenden Wissens über KI-Möglichkeiten und -Risiken, um fundierte Entscheidungen in Ihrer Organisation zu ermöglichen."
+      },
+      {
+        "title": "Fähigkeiten erweitern, Risiken reduzieren",
+        "description": "Verbessern Sie die KI-Kompetenzen Ihres Teams bei gleichzeitiger Implementierung angemessener Schutzmaßnahmen und bewährter Praktiken für verantwortlichen KI-Einsatz."
+      },
+      {
+        "title": "Prompt Engineering Meisterschaft",
+        "description": "Erlernen Sie fortgeschrittene Prompt-Engineering-Techniken, um optimale Ergebnisse von KI-Tools zu erzielen und die Produktivität zu maximieren."
+      },
+      {
+        "title": "Neue Tools & Schulungen implementieren",
+        "description": "Integrieren Sie nahtlos modernste KI-Tools in Ihren Arbeitsablauf und stellen Sie sicher, dass Ihr Team vollständig geschult und selbstbewusst ist."
+      },
+      {
+        "title": "Maßgeschneiderte praktische Beispiele",
+        "description": "Arbeiten Sie mit realen Szenarien, die spezifisch für Ihre Branche und Geschäftsherausforderungen sind, für sofortige praktische Anwendung."
+      },
+      {
+        "title": "Effizienz teamübergreifend steigern",
+        "description": "Schaffen Sie messbare Effizienzgewinne in Ihrer gesamten Organisation mit systematischen KI-Integrationsstrategien."
+      }
+    ],
+    "cta": {
+      "title": "Bereit, Ihr Team zu transformieren?",
+      "description": "Schließen Sie sich Unternehmen an, die ihre Arbeitsabläufe bereits mit KI revolutioniert haben. Unser Workshop bietet das Wissen, die Tools und das Vertrauen, das Ihr Team braucht, um die KI-Revolution zu meistern.",
+      "buttonText": "Workshop Planen"
+    }
   },
   "processAudit": {
     "title": "Prozessaudit & Automatisierung",

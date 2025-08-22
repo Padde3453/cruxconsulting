@@ -257,7 +257,43 @@
   },
   "workshops": {
     "title": "AI & Automation Workshops",
-    "description": "Hands-on workshops to get your team AI-ready"
+    "description": "Hands-on workshops to get your team AI-ready",
+    "hero": {
+      "title": "Transform Your Team's AI Capabilities",
+      "description": "Our comprehensive AI & Automation Workshop empowers your entire team with practical knowledge, hands-on experience, and customized solutions tailored to your business needs.",
+      "buttonText": "Book Workshop"
+    },
+    "benefits": [
+      {
+        "title": "Increase Team Understanding of AI",
+        "description": "Build comprehensive knowledge of AI opportunities and risks, enabling informed decision-making across your organization."
+      },
+      {
+        "title": "Increase Capabilities, Reduce Risks",
+        "description": "Enhance your team's AI skills while implementing proper safeguards and best practices for responsible AI use."
+      },
+      {
+        "title": "Prompt Engineering Mastery",
+        "description": "Learn advanced prompt engineering techniques to achieve optimal results from AI tools and maximize productivity."
+      },
+      {
+        "title": "Implement New Tools & Training",
+        "description": "Seamlessly integrate cutting-edge AI tools into your workflow while ensuring your team is fully trained and confident."
+      },
+      {
+        "title": "Tailored Practical Examples",
+        "description": "Work with real-world scenarios specific to your industry and business challenges for immediate practical application."
+      },
+      {
+        "title": "Boost Efficiency Across Teams",
+        "description": "Create measurable efficiency gains throughout your organization with systematic AI integration strategies."
+      }
+    ],
+    "cta": {
+      "title": "Ready to Transform Your Team?",
+      "description": "Join companies who have already revolutionized their workflows with AI. Our workshop provides the knowledge, tools, and confidence your team needs to embrace the AI revolution.",
+      "buttonText": "Schedule Your Workshop"
+    }
   },
   "processAudit": {
     "title": "Process Audit & Automation",

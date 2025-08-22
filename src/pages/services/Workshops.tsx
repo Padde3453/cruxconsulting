@@ -63,18 +63,17 @@ const Workshops = () => {
               </div>
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-                  Transform Your Team's AI Capabilities
+                  {t('workshops.hero.title')}
                 </h2>
                 <p className="text-lg text-gray-300 mb-8">
-                  Our comprehensive AI & Automation Workshop empowers your entire team with practical knowledge, 
-                  hands-on experience, and customized solutions tailored to your business needs.
+                  {t('workshops.hero.description')}
                 </p>
                 <Button 
                   onClick={handleBooking}
                   size="lg" 
                   className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
                 >
-                  <span>Book Workshop</span>
+                  <span>{t('workshops.hero.buttonText')}</span>
                   <ArrowRight size={20} />
                 </Button>
               </div>
@@ -94,77 +93,19 @@ const Workshops = () => {
           }`}
         >
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-xl border border-gray-600/30 p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-brand-blue to-brand-green rounded-lg flex items-center justify-center mb-4">
-                <span className="text-white font-bold text-xl">1</span>
+            {(t('workshops.benefits', { returnObjects: true }) as Array<{title: string, description: string}>).map((benefit, index: number) => (
+              <div key={index} className="bg-gradient-to-br from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-xl border border-gray-600/30 p-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-brand-blue to-brand-green rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">{index + 1}</span>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-300">
+                  {benefit.description}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Increase Team Understanding of AI
-              </h3>
-              <p className="text-gray-300">
-                Build comprehensive knowledge of AI opportunities and risks, enabling informed decision-making across your organization.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-xl border border-gray-600/30 p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-brand-blue to-brand-green rounded-lg flex items-center justify-center mb-4">
-                <span className="text-white font-bold text-xl">2</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Increase Capabilities, Reduce Risks
-              </h3>
-              <p className="text-gray-300">
-                Enhance your team's AI skills while implementing proper safeguards and best practices for responsible AI use.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-xl border border-gray-600/30 p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-brand-blue to-brand-green rounded-lg flex items-center justify-center mb-4">
-                <span className="text-white font-bold text-xl">3</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Prompt Engineering Mastery
-              </h3>
-              <p className="text-gray-300">
-                Learn advanced prompt engineering techniques to achieve optimal results from AI tools and maximize productivity.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-xl border border-gray-600/30 p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-brand-blue to-brand-green rounded-lg flex items-center justify-center mb-4">
-                <span className="text-white font-bold text-xl">4</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Implement New Tools & Training
-              </h3>
-              <p className="text-gray-300">
-                Seamlessly integrate cutting-edge AI tools into your workflow while ensuring your team is fully trained and confident.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-xl border border-gray-600/30 p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-brand-blue to-brand-green rounded-lg flex items-center justify-center mb-4">
-                <span className="text-white font-bold text-xl">5</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Tailored Practical Examples
-              </h3>
-              <p className="text-gray-300">
-                Work with real-world scenarios specific to your industry and business challenges for immediate practical application.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-gray-800/60 to-gray-700/40 backdrop-blur-sm rounded-xl border border-gray-600/30 p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-brand-blue to-brand-green rounded-lg flex items-center justify-center mb-4">
-                <span className="text-white font-bold text-xl">6</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Boost Efficiency Across Teams
-              </h3>
-              <p className="text-gray-300">
-                Create measurable efficiency gains throughout your organization with systematic AI integration strategies.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -181,18 +122,17 @@ const Workshops = () => {
         >
           <div className="text-center bg-gradient-to-r from-gray-800/40 to-gray-700/30 backdrop-blur-sm rounded-xl border border-gray-600/30 p-8">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Transform Your Team?
+              {t('workshops.cta.title')}
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Join companies who have already revolutionized their workflows with AI. Our workshop provides the knowledge, 
-              tools, and confidence your team needs to embrace the AI revolution.
+              {t('workshops.cta.description')}
             </p>
             <Button 
               onClick={handleBooking}
               size="lg" 
               className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 mx-auto transition-all duration-300 transform hover:scale-105"
             >
-              <span>Schedule Your Workshop</span>
+              <span>{t('workshops.cta.buttonText')}</span>
               <ArrowRight size={20} />
             </Button>
           </div>
