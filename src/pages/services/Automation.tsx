@@ -57,7 +57,7 @@ const Automation = () => {
       <Header onBooking={handleBooking} />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 relative">
+      <section className="pt-32 pb-8 relative">
         <div 
           ref={heroAnimation.elementRef}
           className={`relative z-10 w-full px-6 transition-all duration-1000 ${
@@ -78,7 +78,7 @@ const Automation = () => {
       </section>
 
       {/* Intro Section */}
-      <section className="py-16 relative">
+      <section className="pb-12 relative">
         <div 
           ref={introAnimation.elementRef}
           className={`max-w-6xl mx-auto px-6 transition-all duration-1000 ${
@@ -96,7 +96,7 @@ const Automation = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 relative">
+      <section className="py-16 relative">
         <div 
           ref={processAnimation.elementRef}
           className={`max-w-7xl mx-auto px-6 transition-all duration-1000 ${
