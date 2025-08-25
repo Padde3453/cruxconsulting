@@ -576,7 +576,7 @@ export const blogPosts: BlogPost[] = [
   <p><strong>Curious what this could look like for your business?</strong><br>
   Let’s talk. We’d love to show you what’s possible.</p>
 
-  <p><a href="https://crux-consulting.ai/services/ai-chatbot" target="_blank" rel="noopener noreferrer">👉 Explore our AI Assistant Solutions</a></p>'
+  <p><a href="https://crux-consulting.ai/services/ai-chatbot" target="_blank" rel="noopener noreferrer">👉 Explore our AI Assistant Solutions</a></p>`
   }
   
 ];
