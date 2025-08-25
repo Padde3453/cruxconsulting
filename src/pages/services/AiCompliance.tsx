@@ -196,17 +196,18 @@ const AiCompliance = () => {
           </div>
 
           {/* Risk Level Pyramid with Side-by-Side Layout */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-5 gap-8 items-start">
             {/* Pyramid */}
-            <div className="relative">
-              <div className="space-y-2 max-w-md mx-auto">
+            <div className="lg:col-span-2 relative">
+              <div className="space-y-1 max-w-sm mx-auto">
                 {riskLevels.map((level, index) => {
                   const levelAnimation = useScrollAnimation();
+                  const widths = ['120px', '160px', '200px', '240px']; // Progressive widths for pyramid shape
                   return (
                     <div
                       key={index}
                       ref={levelAnimation.elementRef}
-                      className={`relative group transition-all duration-700 ${
+                      className={`relative transition-all duration-700 ${
                         levelAnimation.isVisible 
                           ? 'opacity-100 translate-x-0' 
                           : `opacity-0 ${index % 2 === 0 ? 'translate-x-10' : '-translate-x-10'}`
@@ -216,22 +217,18 @@ const AiCompliance = () => {
                       }}
                     >
                       <div 
-                        className={`h-20 bg-gradient-to-r ${level.color} flex items-center justify-center mx-auto shadow-lg group-hover:shadow-xl transition-all duration-300 relative overflow-hidden`}
+                        className={`h-16 bg-gradient-to-r ${level.color} flex items-center justify-center mx-auto shadow-lg transition-all duration-300 relative`}
                         style={{ 
-                          width: `${100 - index * 18}%`,
-                          clipPath: index === 0 ? 'polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%)' : 
-                                   index === 1 ? 'polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%)' :
-                                   index === 2 ? 'polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%)' :
-                                   'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
+                          width: widths[index],
+                          clipPath: index === 0 ? 'polygon(50% 0%, 100% 100%, 0% 100%)' : // Triangle for top
+                                   index === 1 ? 'polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%)' : // Narrow trapezoid
+                                   index === 2 ? 'polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%)' : // Medium trapezoid
+                                   'polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%)' // Wide trapezoid
                         }}
                       >
-                        {/* Number */}
-                        <div className="absolute left-6 text-white font-bold text-2xl">
+                        {/* Number only */}
+                        <div className="text-white font-bold text-2xl">
                           {level.number}
-                        </div>
-                        {/* Title */}
-                        <div className="text-center text-white px-12">
-                          <h3 className="font-bold text-lg">{level.title}</h3>
                         </div>
                       </div>
                     </div>
@@ -241,7 +238,7 @@ const AiCompliance = () => {
             </div>
 
             {/* Text Content */}
-            <div className="space-y-8">
+            <div className="lg:col-span-3 space-y-1">
               {riskLevels.map((level, index) => {
                 const textAnimation = useScrollAnimation();
                 return (
@@ -257,15 +254,20 @@ const AiCompliance = () => {
                       transitionDelay: textAnimation.isVisible ? `${index * 300 + 150}ms` : '0ms' 
                     }}
                   >
-                    <div className="p-6 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30">
-                      <div className="flex items-start space-x-4">
-                        <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r ${level.color} flex items-center justify-center text-white font-bold`}>
+                    <div className="h-16 flex items-center p-4 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30">
+                      <div className="flex items-center space-x-4 w-full">
+                        <div className={`flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r ${level.color} flex items-center justify-center text-white font-bold text-sm`}>
                           {level.number}
                         </div>
-                        <div>
-                          <h3 className="text-xl font-bold text-white mb-2">{level.title}</h3>
-                          <p className="text-gray-300 mb-3">{level.description}</p>
-                          <p className="text-sm text-gray-400 italic">{level.details}</p>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1 pr-4">
+                              <h3 className="text-lg font-bold text-white">{level.title}</h3>
+                            </div>
+                            <div className="flex-1">
+                              <p className="text-sm text-gray-400 italic">{level.details}</p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
