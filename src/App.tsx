@@ -18,6 +18,7 @@ import AiChatbot from "./pages/services/AiChatbot";
 import Workshops from "./pages/services/Workshops";
 import ProcessAudit from "./pages/services/ProcessAudit";
 import Automation from "./pages/services/Automation";
+import AiCompliance from "./pages/services/AiCompliance";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/services/workshops" element={<Workshops />} />
           <Route path="/services/process-audit" element={<ProcessAudit />} />
           <Route path="/services/automation" element={<Automation />} />
+          <Route path="/services/ai-compliance" element={<AiCompliance />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/privacy" element={<Privacy />} />
           {/* ISOLATED DEMO ROUTES */}

@@ -362,201 +362,90 @@
   },
   "automation": {
     "title": "Custom Automation Solutions",
-    "description": "Tailored automation for your specific needs",
+    "description": "Tailored automation solutions that transform your unique business processes and workflows.",
     "hero": {
-      "description": "Tailored automation for your specific needs"
-    },
-    "intro": {
-      "text": "Every business is unique, with distinct challenges, processes, and goals. One-size-fits-all solutions rarely deliver the transformative results that truly drive growth and force the business to adjust to the software. AI and AI-Agents now allow software to fully work for you. That's why unique challenges require unique and customized solutions. Crux Consulting is here to support businesses in creating bespoke automation solutions that perfectly align with their specific needs and objectives."
+      "title": "Custom Automation Solutions",
+      "subtitle": "Tailored automation solutions that transform your unique business processes and workflows.",
+      "description": "Custom Automation Solutions sind unsere Antwort auf die individuellen Bedürfnisse Ihres Unternehmens. Während standardisierte Lösungen oft nicht perfekt passen, entwickeln wir maßgeschneiderte Automatisierungen, die Ihre spezifischen Prozesse optimieren und Ihre Effizienz drastisch steigern."
     },
     "process": {
       "title": "Our Custom Automation Process",
-      "subtitle": "From consultation to transformation in days, not months",
       "steps": [
         {
-          "description": "We begin by thoroughly understanding your unique business challenges, current processes, and specific goals. Through detailed consultations and assessments, we identify the areas where custom automation can deliver the most significant impact for your organization."
+          "title": "Deep Analysis",
+          "description": "We analyze your current processes to identify automation opportunities and design the perfect solution for your needs."
         },
         {
-          "description": "Our experts conduct a comprehensive analysis of your existing workflows, systems, and data structures. We utilize AI-powered tools to assess inefficiencies, bottlenecks, and opportunities for automation, creating a detailed roadmap for your custom solution."
+          "title": "Custom Development",
+          "description": "Our experts develop tailored automation solutions using the latest technologies that integrate seamlessly with your existing systems."
         },
         {
-          "description": "We develop and deploy tailored automation solutions that seamlessly integrate with your existing infrastructure. Our implementation process includes rigorous testing, user training, and gradual rollout to ensure smooth adoption across your organization."
-        },
-        {
-          "description": "Watch as your custom automation solution transforms your business operations, delivering measurable improvements in efficiency, cost reduction, and employee satisfaction. We provide ongoing support and optimization to maximize your return on investment."
+          "title": "Implementation & Training",
+          "description": "We implement the solution in your environment and train your team to ensure maximum adoption and efficiency."
         }
       ]
     },
-    "examples": {
-      "title": "Custom Solutions in Action",
-      "subtitle": "Three specific examples of how we've transformed businesses",
-      "cases": [
-        {
-          "title": "Global Tender Intelligence",
-          "timeSaved": "1.5 hours/day",
-          "investment": "€3,500",
-          "roi": "600%",
-          "description": "Industrial client automated global tender discovery. AI pre-sorts and translates tenders from all languages, replacing manual filtering on inadequate platforms."
-        },
-        {
-          "title": "Smart Client Onboarding",
-          "timeSaved": "2 hours/day",
-          "investment": "€4,500",
-          "roi": "330%",
-          "description": "Large tax consultancy automated client onboarding, streamlining repetitive processes while creating better experiences for both consultants and clients."
-        },
-        {
-          "title": "Personalized Outreach Campaign",
-          "timeSaved": "~50 hours total",
-          "investment": "€1,500",
-          "roi": "400%",
-          "description": "Germany-wide outreach campaign with AI research, data enrichment, and custom messaging. Client won their first new customer within 15 minutes of launch."
-        }
-      ]
-    },
-    "labels": {
-      "timeSaved": "Time Saved:",
-      "investment": "Investment:",
-      "roi": "ROI:"
-    },
+    "examples": [
+      {
+        "title": "Marketing Agency Automation",
+        "description": "Automated client onboarding, campaign reporting, and invoice generation, reducing manual work by 75% and improving client satisfaction scores by 40%.",
+        "results": "75% less manual work, 40% better client satisfaction"
+      },
+      {
+        "title": "E-commerce Order Processing",
+        "description": "Complete order-to-fulfillment automation including inventory management, shipping coordination, and customer communication, processing 500+ orders daily.",
+        "results": "500+ orders processed daily automatically"
+      },
+      {
+        "title": "HR Process Optimization",
+        "description": "Streamlined hiring process from application screening to onboarding, reducing time-to-hire by 60% and improving candidate experience significantly.",
+        "results": "60% faster hiring process"
+      }
+    ],
     "cta": {
-      "title": "Ready to Build Your Custom Automation?",
-      "description": "Let's create a bespoke automation solution that perfectly fits your unique business needs and delivers measurable results.",
-      "buttonText": "Start Your Automation Journey"
+      "title": "Ready to Transform Your Business Processes?",
+      "description": "Let's discuss how custom automation can revolutionize your specific workflows and boost your productivity.",
+      "button": "Schedule Custom Automation Consultation"
     }
   },
-  "detailedServices": {
-    "title": "Our Detailed Services",
-    "subtitle": "Deep dive into each service we offer"
-  },
-  "footer": {
-    "copyright": "© 2024 Crux Consulting. Transforming SMEs with AI.",
-    "privacyPolicy": "Privacy Policy"
-  },
-  "navigation": {
-    "services": "Services",
-    "servicesOverview": "Services Overview",
-    "blog": "Blog",
-    "about": "About Us",
-    "contact": "Contact Us",
-    "bookConsultation": "Book Consultation"
-  },
-  "about": {
-    "title": "About Us",
-    "whyCrux": {
-      "title": "Why 'CRUX Consulting'",
-      "description": "In climbing, the crux is the most challenging and decisive part of the route—the point that requires focus, skill, and the right strategy to succeed. I believe Artificial Intelligence represents the crux moment for businesses today. It holds tremendous potential, but also complexity. Navigating this shift without the right support can feel like standing alone before a steep wall—risky, overwhelming, and easy to fall back. Crux Consulting is here to guide SMEs through this crucial ascent, helping them harness Artificial Intelligence with clarity, confidence, and purpose."
+  "aiCompliance": {
+    "title": "AI Compliance Consulting",
+    "description": "Navigate EU AI Act requirements with confidence through our comprehensive compliance consulting services.",
+    "hero": {
+      "title": "Always be on the compliant side",
+      "subtitle": "The EU AI Act adds to the bureaucratic burden for SMEs, and our mission is to tackle exactly that. With us you are guaranteed to be modern, fast, efficient and compliant."
     },
-    "whoWeAre": {
-      "title": "Who we are"
-    },
-    "patrick": {
-      "title": "Patrick Reverchon",
-      "subtitle": "(Founder and CEO)",
-      "quote": "I grew up in a family where medium-sized enterprises played an important role, so they are particularly close to my heart.\n\nI founded Crux Consulting to bring the possibilities of automation and Artificial Intelligence to those companies that don't necessarily have the capacity and budget to fully leverage their potential. SMEs are the backbone of our society and economy and I want to empower them as much as possible.",
-      "linkedIn": "LinkedIn",
-      "location": "Based in Munich & Sofia"
-    },
-    "team": {
-      "title": "Our Team & Network",
-      "description": "At Crux Consulting, we work with a trusted network of experienced developers, AI engineers, and automation experts—tailored to each client's needs. This flexible model ensures we always bring the right expertise.",
-      "ctoSearch": "🚀 Looking for a Co-Founder & CTO",
-      "ctoDescription": "I'm actively seeking a full-time CTO and Co-Founder to shape and scale our technical vision for the long term."
-    },
-    "howWeWork": {
-      "title": "How We Work",
-      "tailoredFirst": {
-        "title": "Tailored First",
-        "description": "No one-size-fits-all solutions. We start with your goals."
+    "services": [
+      "Deliver project documentation with AI systems we deliver",
+      "Create project documentation for already in place systems",
+      "Audit of AI systems in place against compliance requirements",
+      "Improve conformity of existing systems",
+      "General consulting services around AI systems and their implementation",
+      "We consult act as the mediator between legal and IT team, developing the ideal solutions together"
+    ],
+    "riskLevels": {
+      "title": "AI Act Risk-Based Approach for AI Systems",
+      "prohibited": {
+        "title": "Prohibited",
+        "description": "AI systems that pose unacceptable risks are banned"
       },
-      "fastButThoughtful": {
-        "title": "Fast But Thoughtful",
-        "description": "We prioritize execution speed and result quality."
+      "highRisk": {
+        "title": "High-risk",
+        "description": "Strict requirements for conformity assessments and documentation"
       },
-      "aiNativeBusinessLed": {
-        "title": "AI-Native, Business-Led",
-        "description": "Every project balances innovation with ROI."
+      "transparency": {
+        "title": "Transparency risks",
+        "description": "Limited obligations for transparency and information to users"
       },
-      "privacyCompliance": {
-        "title": "Privacy & Compliance by Design",
-        "description": "We build regulatory readiness into every system."
+      "minimal": {
+        "title": "Minimal to no risk – not regulated",
+        "description": "No specific obligations under the AI Act"
       }
     },
-    "joinUs": {
-      "title": "Want to Join Us?",
-      "description": "We're always interested in working with smart and ambitious people who have their hearts in the right place and share our mission of helping German and European companies with automation and Artificial Intelligence, always focusing on ideal client outcomes and their ROI in the process.",
-      "encouragement": "If that sounds like you, just reach out through the contact form, we look forward to hearing from you.",
-      "developerQuestion": "💡 Are you a developer, consultant, or designer who shares our mission?",
-      "developerDescription": "Send us a message and tell us how you'd like to contribute.",
-      "sendApplication": "Send us your application"
-    }
-  },
-  "impressum": {
-    "title": "Impressum",
-    "legalInfo": {
-      "title": "Legal Information according to § 5 TMG",
-      "inPreparation": "in preparation",
-      "phone": "Phone",
-      "email": "Email"
-    },
-    "responsibleContent": {
-      "title": "Responsible for content according to § 55 para. 2 RStV"
-    },
-    "companyStatus": {
-      "title": "Company Status",
-      "description": "Crux Consulting GmbH is currently in the founding phase. Registration in the commercial register has not yet taken place. A VAT ID has not yet been assigned."
-    },
-    "disclaimer": {
-      "title": "Disclaimer",
-      "description": "Despite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content."
-    }
-  },
-  "privacy": {
-    "title": "Privacy Policy",
-    "introduction": {
-      "title": "1. Introduction",
-      "paragraph1": "The protection of your personal data is of particular concern to us. We treat your personal data confidentially and in accordance with the statutory data protection regulations and this privacy policy.",
-      "paragraph2": "This privacy policy informs you about how we collect, process and use personal data on our website."
-    },
-    "responsible": {
-      "title": "2. Data Controller",
-      "paragraph1": "The entity responsible for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is:"
-    },
-    "accessData": {
-      "title": "3. Access Data (Server Log Files)",
-      "paragraph1": "When visiting this website, information is automatically collected and stored in so-called server log files by the hosting provider, which your browser automatically transmits. These are:",
-      "items": {
-        "browserType": "Browser type and browser version",
-        "operatingSystem": "Operating system used",
-        "referrerUrl": "Referrer URL",
-        "hostname": "Hostname of the accessing computer",
-        "requestTime": "Time of the server request",
-        "ipAddress": "IP address"
-      },
-      "paragraph2": "This data is not merged with other data sources. The collection is based on Art. 6 para. 1 lit. f GDPR – the legitimate interest consists in the technically error-free presentation and optimization of the website."
-    },
-    "contact": {
-      "title": "4. Contact",
-      "paragraph1": "If you contact us by email or telephone, your details will be stored by us for the purpose of processing the inquiry and in case of follow-up questions.",
-      "paragraph2": "The processing of this data is based on Art. 6 para. 1 lit. b GDPR (for the implementation of pre-contractual measures) or on the basis of our legitimate interest (Art. 6 para. 1 lit. f GDPR) to contact you."
-    },
-    "rights": {
-      "title": "5. Your Rights",
-      "paragraph1": "According to GDPR you have the right to:",
-      "items": {
-        "dataAccess": "Information about your stored data (Art. 15 GDPR)",
-        "dataCorrection": "Correction of incorrect data (Art. 16 GDPR)",
-        "dataDeletion": "Deletion of your data (Art. 17 GDPR)",
-        "processingRestriction": "Restriction of processing (Art. 18 GDPR)",
-        "dataPortability": "Data portability (Art. 20 GDPR)",
-        "processingObjection": "Objection to processing (Art. 21 GDPR)"
-      },
-      "paragraph2": "Please contact us at: contact@crux-consulting.ai",
-      "paragraph3": "You also have the right to complain to a data protection supervisory authority."
-    },
-    "changes": {
-      "title": "6. Changes to this Privacy Policy",
-      "paragraph1": "We reserve the right to adapt this privacy policy as needed so that it always complies with current legal requirements."
+    "cta": {
+      "title": "Ensure Your AI Systems are Compliant",
+      "description": "Don't let compliance requirements slow down your AI innovation. Our experts will guide you through the EU AI Act requirements.",
+      "button": "Book Compliance Consultation"
     }
   }
 }

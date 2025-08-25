@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Bot, Lightbulb, ClipboardList, Settings } from "lucide-react";
+import { ArrowRight, Bot, Lightbulb, ClipboardList, Settings, Scale } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingElements from "@/components/FloatingElements";
@@ -173,7 +173,7 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {[
               {
                 title: t('aiChatbot.title'),
@@ -202,6 +202,13 @@ const Services = () => {
                 path: '/services/automation',
                 gradient: 'from-orange-500 to-red-600',
                 icon: Settings
+              },
+              {
+                title: t('aiCompliance.title'),
+                description: t('aiCompliance.description'),
+                path: '/services/ai-compliance',
+                gradient: 'from-indigo-500 to-purple-600',
+                icon: Scale
               }
             ].map((service, index) => {
               const IconComponent = service.icon;

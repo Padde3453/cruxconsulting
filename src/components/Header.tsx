@@ -99,7 +99,8 @@ const Header = ({ onBooking }: HeaderProps) => {
     { path: '/services/ai-chatbot', label: t('aiChatbot.title') },
     { path: '/services/workshops', label: t('workshops.title') },
     { path: '/services/process-audit', label: t('processAudit.title') },
-    { path: '/services/automation', label: t('automation.title') }
+    { path: '/services/automation', label: t('automation.title') },
+    { path: '/services/ai-compliance', label: t('aiCompliance.title') }
   ];
 
   return (

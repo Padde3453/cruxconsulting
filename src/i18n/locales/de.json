@@ -362,201 +362,90 @@
   },
   "automation": {
     "title": "Individuelle Automatisierungslösungen",
-    "description": "Maßgeschneiderte Automatisierung für Ihre spezifischen Bedürfnisse",
+    "description": "Maßgeschneiderte Automatisierungslösungen, die Ihre einzigartigen Geschäftsprozesse und Arbeitsabläufe transformieren.",
     "hero": {
-      "description": "Maßgeschneiderte Automatisierung für Ihre spezifischen Bedürfnisse"
-    },
-    "intro": {
-      "text": "Jedes Unternehmen ist einzigartig, mit besonderen Herausforderungen, Prozessen und Zielen. Einheitslösungen liefern selten die transformativen Ergebnisse, die echtes Wachstum fördern und zwingen das Unternehmen dazu, sich an die Software anzupassen. KI und KI-Agenten ermöglichen es der Software nun, vollständig für Sie zu arbeiten. Deshalb erfordern einzigartige Herausforderungen einzigartige und maßgeschneiderte Lösungen. Crux Consulting unterstützt Unternehmen dabei, maßgeschneiderte Automatisierungslösungen zu schaffen, die perfekt auf ihre spezifischen Bedürfnisse und Ziele abgestimmt sind."
+      "title": "Individuelle Automatisierungslösungen",
+      "subtitle": "Maßgeschneiderte Automatisierungslösungen, die Ihre einzigartigen Geschäftsprozesse und Arbeitsabläufe transformieren.",
+      "description": "Custom Automation Solutions sind unsere Antwort auf die individuellen Bedürfnisse Ihres Unternehmens. Während standardisierte Lösungen oft nicht perfekt passen, entwickeln wir maßgeschneiderte Automatisierungen, die Ihre spezifischen Prozesse optimieren und Ihre Effizienz drastisch steigern."
     },
     "process": {
       "title": "Unser individueller Automatisierungsprozess",
-      "subtitle": "Von der Beratung zur Transformation in Tagen, nicht Monaten",
       "steps": [
         {
-          "description": "Wir beginnen damit, Ihre einzigartigen Geschäftsherausforderungen, aktuellen Prozesse und spezifischen Ziele gründlich zu verstehen. Durch detaillierte Beratungen und Bewertungen identifizieren wir die Bereiche, in denen maßgeschneiderte Automatisierung den größten Einfluss für Ihre Organisation erzielen kann."
+          "title": "Tiefgreifende Analyse",
+          "description": "Wir analysieren Ihre aktuellen Prozesse, um Automatisierungsmöglichkeiten zu identifizieren und die perfekte Lösung für Ihre Bedürfnisse zu entwickeln."
         },
         {
-          "description": "Unsere Experten führen eine umfassende Analyse Ihrer bestehenden Arbeitsabläufe, Systeme und Datenstrukturen durch. Wir nutzen KI-gestützte Tools, um Ineffizienzen, Engpässe und Automatisierungsmöglichkeiten zu bewerten und erstellen eine detaillierte Roadmap für Ihre maßgeschneiderte Lösung."
+          "title": "Individuelle Entwicklung",
+          "description": "Unsere Experten entwickeln maßgeschneiderte Automatisierungslösungen mit modernsten Technologien, die sich nahtlos in Ihre bestehenden Systeme integrieren."
         },
         {
-          "description": "Wir entwickeln und implementieren maßgeschneiderte Automatisierungslösungen, die sich nahtlos in Ihre bestehende Infrastruktur integrieren. Unser Implementierungsprozess umfasst rigorose Tests, Benutzerschulungen und schrittweise Einführung, um eine reibungslose Akzeptanz in Ihrer Organisation zu gewährleisten."
-        },
-        {
-          "description": "Erleben Sie, wie Ihre maßgeschneiderte Automatisierungslösung Ihre Geschäftsabläufe transformiert und messbare Verbesserungen in Effizienz, Kostenreduzierung und Mitarbeiterzufriedenheit liefert. Wir bieten kontinuierliche Unterstützung und Optimierung, um Ihre Kapitalrendite zu maximieren."
+          "title": "Implementierung & Schulung",
+          "description": "Wir implementieren die Lösung in Ihrer Umgebung und schulen Ihr Team, um maximale Akzeptanz und Effizienz sicherzustellen."
         }
       ]
     },
-    "examples": {
-      "title": "Maßgeschneiderte Lösungen in Aktion",
-      "subtitle": "Drei konkrete Beispiele, wie wir Unternehmen transformiert haben",
-      "cases": [
-        {
-          "title": "Globale Ausschreibungs-Intelligence",
-          "timeSaved": "1,5 Stunden/Tag",
-          "investment": "€3.500",
-          "roi": "600%",
-          "description": "Industriekunde automatisierte globale Ausschreibungsentdeckung. KI sortiert vor und übersetzt Ausschreibungen aus allen Sprachen und ersetzt manuelle Filterung auf unzureichenden Plattformen."
-        },
-        {
-          "title": "Intelligentes Kunden-Onboarding",
-          "timeSaved": "2 Stunden/Tag",
-          "investment": "€4.500",
-          "roi": "330%",
-          "description": "Große Steuerberatung automatisierte Kunden-Onboarding, optimierte wiederkehrende Prozesse und schuf bessere Erfahrungen für Berater und Kunden gleichermaßen."
-        },
-        {
-          "title": "Personalisierte Outreach-Kampagne",
-          "timeSaved": "~50 Stunden gesamt",
-          "investment": "€1.500",
-          "roi": "400%",
-          "description": "Deutschlandweite Outreach-Kampagne mit KI-Recherche, Datenanreicherung und individuellen Nachrichten. Kunde gewann ersten Neukunden innerhalb von 15 Minuten nach dem Start."
-        }
-      ]
-    },
-    "labels": {
-      "timeSaved": "Zeit gespart:",
-      "investment": "Investition:",
-      "roi": "ROI:"
-    },
+    "examples": [
+      {
+        "title": "Marketing-Agentur Automatisierung",
+        "description": "Automatisiertes Kunden-Onboarding, Kampagnen-Reporting und Rechnungsstellung, reduzierte manuelle Arbeit um 75% und verbesserte Kundenzufriedenheit um 40%.",
+        "results": "75% weniger manuelle Arbeit, 40% bessere Kundenzufriedenheit"
+      },
+      {
+        "title": "E-Commerce Bestellabwicklung",
+        "description": "Vollständige Bestellung-zu-Erfüllung Automatisierung inklusive Lagerverwaltung, Versandkoordination und Kundenkommunikation, verarbeitet 500+ Bestellungen täglich.",
+        "results": "500+ Bestellungen täglich automatisch verarbeitet"
+      },
+      {
+        "title": "HR-Prozess Optimierung",
+        "description": "Optimierter Einstellungsprozess von Bewerbungsscreening bis Onboarding, reduzierte Zeit bis zur Einstellung um 60% und verbesserte Kandidatenerfahrung erheblich.",
+        "results": "60% schnellerer Einstellungsprozess"
+      }
+    ],
     "cta": {
-      "title": "Bereit für Ihre individuelle Automatisierung?",
-      "description": "Lassen Sie uns eine maßgeschneiderte Automatisierungslösung erstellen, die perfekt zu Ihren einzigartigen Geschäftsanforderungen passt und messbare Ergebnisse liefert.",
-      "buttonText": "Automatisierungsreise Starten"
+      "title": "Bereit, Ihre Geschäftsprozesse zu transformieren?",
+      "description": "Lassen Sie uns besprechen, wie individuelle Automatisierung Ihre spezifischen Arbeitsabläufe revolutionieren und Ihre Produktivität steigern kann.",
+      "button": "Beratung für individuelle Automatisierung buchen"
     }
   },
-  "detailedServices": {
-    "title": "Unsere detaillierten Services",
-    "subtitle": "Tauchen Sie tief in jeden Service ein, den wir anbieten"
-  },
-  "footer": {
-    "copyright": "© 2024 Crux Consulting. Transformation von KMU mit KI.",
-    "privacyPolicy": "Datenschutzerklärung"
-  },
-  "navigation": {
-    "services": "Dienstleistungen",
-    "servicesOverview": "Services Übersicht",
-    "blog": "Blog",
-    "about": "Über uns",
-    "contact": "Kontakt",
-    "bookConsultation": "Beratung buchen"
-  },
-  "about": {
-    "title": "Über uns",
-    "whyCrux": {
-      "title": "Warum 'CRUX Consulting'",
-      "description": "Beim Klettern ist die Crux der schwierigste und entscheidende Teil der Route—der Punkt, der Fokus, Können und die richtige Strategie erfordert, um erfolgreich zu sein. Ich glaube, dass Künstliche Intelligenz den Crux-Moment für Unternehmen heute darstellt. Sie birgt enormes Potenzial, aber auch Komplexität. Diese Veränderung ohne die richtige Unterstützung zu bewältigen, kann sich anfühlen, als stünde man allein vor einer steilen Wand—riskant, überwältigend und leicht zurückzufallen. Crux Consulting ist hier, um KMUs durch diesen entscheidenden Aufstieg zu führen und ihnen zu helfen, Künstliche Intelligenz mit Klarheit, Vertrauen und Zweck zu nutzen."
+  "aiCompliance": {
+    "title": "KI-Compliance Beratung",
+    "description": "Navigieren Sie selbstbewusst durch die EU AI Act Anforderungen mit unserer umfassenden Compliance-Beratung.",
+    "hero": {
+      "title": "Seien Sie immer auf der konformen Seite",
+      "subtitle": "Der EU AI Act fügt bürokratische Belastungen für KMUs hinzu, und unsere Mission ist es, genau das anzugehen. Mit uns sind Sie garantiert modern, schnell, effizient und konform."
     },
-    "whoWeAre": {
-      "title": "Wer wir sind"
-    },
-    "patrick": {
-      "title": "Patrick Reverchon",
-      "subtitle": "(Gründer und CEO)",
-      "quote": "Ich bin in einer Familie aufgewachsen, für die mittelständische Unternehmen eine wichtige Rolle gespielt hat, daher liegen mir diese besonders am Herzen.\n\nIch habe Crux Consulting gegründet, um die Möglichkeiten der Automatisierung und Künstliche Intelligenz auch jenen Unternehmen zu bringen, die nicht unbedingt die Kapazitäten und das Budget haben, ihr volles Potenzial zu nutzen. KMU sind das Rückgrat unserer Gesellschaft und Wirtschaft und ich möchte sie so sehr wie möglich stärken.",
-      "linkedIn": "LinkedIn",
-      "location": "Ansässig in München & Sofia"
-    },
-    "team": {
-      "title": "Unser Team & Netzwerk",
-      "description": "Bei Crux Consulting arbeiten wir mit einem vertrauenswürdigen Netzwerk aus erfahrenen Entwicklern, KI-Ingenieuren und Automatisierungsexperten zusammen – maßgeschneidert für die Bedürfnisse jedes Kunden. Dieses flexible Modell stellt sicher, dass wir immer die richtige Expertise einbringen.",
-      "ctoSearch": "🚀 Auf der Suche nach einem Co-Founder & CTO",
-      "ctoDescription": "Ich suche aktiv nach einem Vollzeit-CTO und Co-Founder, um unsere technische Vision langfristig zu gestalten und zu skalieren."
-    },
-    "howWeWork": {
-      "title": "Wie wir arbeiten",
-      "tailoredFirst": {
-        "title": "Maßgeschneidert an erster Stelle",
-        "description": "Keine Standardlösungen. Wir beginnen mit Ihren Zielen."
+    "services": [
+      "Lieferung von Projektdokumentation für KI-Systeme, die wir bereitstellen",
+      "Erstellung von Projektdokumentation für bereits vorhandene Systeme",
+      "Audit von vorhandenen KI-Systemen gegen Compliance-Anforderungen",
+      "Verbesserung der Konformität bestehender Systeme",
+      "Allgemeine Beratungsdienstleistungen rund um KI-Systeme und deren Implementierung",
+      "Wir fungieren als Vermittler zwischen Rechts- und IT-Team und entwickeln gemeinsam die idealen Lösungen"
+    ],
+    "riskLevels": {
+      "title": "KI-Gesetz risikobasierter Ansatz für KI-Systeme",
+      "prohibited": {
+        "title": "Verboten",
+        "description": "KI-Systeme mit unannehmbaren Risiken sind verboten"
       },
-      "fastButThoughtful": {
-        "title": "Schnell, aber durchdacht",
-        "description": "Wir priorisieren Ausführungsgeschwindigkeit und Ergebnisqualität."
+      "highRisk": {
+        "title": "Hohes Risiko",
+        "description": "Strenge Anforderungen für Konformitätsbewertungen und Dokumentation"
       },
-      "aiNativeBusinessLed": {
-        "title": "KI-nativ, geschäftsorientiert",
-        "description": "Jedes Projekt balanciert Innovation mit ROI."
+      "transparency": {
+        "title": "Transparenzrisiken",
+        "description": "Begrenzte Verpflichtungen für Transparenz und Benutzerinformation"
       },
-      "privacyCompliance": {
-        "title": "Datenschutz und Compliance von Grund auf",
-        "description": "Wir integrieren regulatorische Bereitschaft in jedes System."
+      "minimal": {
+        "title": "Minimales bis kein Risiko – nicht reguliert",
+        "description": "Keine spezifischen Verpflichtungen unter dem KI-Gesetz"
       }
     },
-    "joinUs": {
-      "title": "Möchten Sie sich uns anschließen?",
-      "description": "Wir sind immer daran interessiert, mit intelligenten und ehrgeizigen Menschen zu arbeiten, die ihr Herz am rechten Fleck haben und unsere Mission teilen, deutsche und europäische Unternehmen mit Automatisierung und Künstliche Intelligenz zu unterstützen, wobei wir uns immer auf die idealen Kundenergebnisse und deren ROI im Prozess konzentrieren.",
-      "encouragement": "Wenn das nach Ihnen klingt, wenden Sie sich einfach über das Kontaktformular an uns, wir freuen uns darauf, von Ihnen zu hören.",
-      "developerQuestion": "💡 Sind Sie ein Entwickler, Berater oder Designer, der unsere Mission teilt?",
-      "developerDescription": "Schicken Sie uns eine Nachricht und erzählen Sie uns, wie Sie gerne beitragen möchten.",
-      "sendApplication": "Senden Sie uns Ihre Bewerbung"
-    }
-  },
-  "impressum": {
-    "title": "Impressum",
-    "legalInfo": {
-      "title": "Angaben gemäß § 5 TMG",
-      "inPreparation": "in Vorbereitung",
-      "phone": "Telefon",
-      "email": "E-Mail"
-    },
-    "responsibleContent": {
-      "title": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV"
-    },
-    "companyStatus": {
-      "title": "Unternehmensstatus",
-      "description": "Die Crux Consulting GmbH befindet sich derzeit in der Gründungsphase. Eine Eintragung im Handelsregister liegt noch nicht vor. Eine Umsatzsteuer-ID wurde bislang nicht vergeben."
-    },
-    "disclaimer": {
-      "title": "Haftungsausschluss",
-      "description": "Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich."
-    }
-  },
-  "privacy": {
-    "title": "Datenschutzerklärung",
-    "introduction": {
-      "title": "1. Einleitung",
-      "paragraph1": "Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
-      "paragraph2": "Diese Datenschutzerklärung informiert Sie darüber, wie wir personenbezogene Daten auf unserer Website erheben, verarbeiten und nutzen."
-    },
-    "responsible": {
-      "title": "2. Verantwortlicher",
-      "paragraph1": "Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:"
-    },
-    "accessData": {
-      "title": "3. Zugriffsdaten (Server-Logfiles)",
-      "paragraph1": "Beim Besuch dieser Website werden durch den Hostinganbieter automatisch Informationen in sogenannten Server-Logfiles erhoben und gespeichert, die Ihr Browser automatisch übermittelt. Dies sind:",
-      "items": {
-        "browserType": "Browsertyp und Browserversion",
-        "operatingSystem": "Verwendetes Betriebssystem",
-        "referrerUrl": "Referrer URL",
-        "hostname": "Hostname des zugreifenden Rechners",
-        "requestTime": "Uhrzeit der Serveranfrage",
-        "ipAddress": "IP-Adresse"
-      },
-      "paragraph2": "Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Die Erhebung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO – das berechtigte Interesse besteht in der technisch fehlerfreien Darstellung und Optimierung der Website."
-    },
-    "contact": {
-      "title": "4. Kontaktaufnahme",
-      "paragraph1": "Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden Ihre Angaben zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.",
-      "paragraph2": "Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (zur Durchführung vorvertraglicher Maßnahmen) oder auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO), mit Ihnen in Kontakt zu treten."
-    },
-    "rights": {
-      "title": "5. Ihre Rechte",
-      "paragraph1": "Sie haben gemäß DSGVO das Recht auf:",
-      "items": {
-        "dataAccess": "Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO)",
-        "dataCorrection": "Berichtigung unrichtiger Daten (Art. 16 DSGVO)",
-        "dataDeletion": "Löschung Ihrer Daten (Art. 17 DSGVO)",
-        "processingRestriction": "Einschränkung der Verarbeitung (Art. 18 DSGVO)",
-        "dataPortability": "Datenübertragbarkeit (Art. 20 DSGVO)",
-        "processingObjection": "Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)"
-      },
-      "paragraph2": "Bitte wenden Sie sich hierzu an: contact@crux-consulting.ai",
-      "paragraph3": "Zudem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren."
-    },
-    "changes": {
-      "title": "6. Änderungen dieser Datenschutzerklärung",
-      "paragraph1": "Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht."
+    "cta": {
+      "title": "Stellen Sie sicher, dass Ihre KI-Systeme konform sind",
+      "description": "Lassen Sie nicht zu, dass Compliance-Anforderungen Ihre KI-Innovation verlangsamen. Unsere Experten führen Sie durch die EU AI Act Anforderungen.",
+      "button": "Compliance-Beratung buchen"
     }
   }
 }
