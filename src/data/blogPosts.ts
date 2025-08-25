@@ -465,7 +465,7 @@ export const blogPosts: BlogPost[] = [
     category: "SALES & SERVICE",
     title: "From Frustrating Bots to 24/7 Sales and Expert Teammates",
     summary: "For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion. But here’s the thing: That old era is over..",
-    image: "/ovable-uploads/blogchatbot.png",
+    image: "/lovable-uploads/blogchatbot.png",
     date: "Aug 19, 2025",
     author: "Patrick Reverchon",
     content: `<h2>From Frustrating Bots to 24/7 Sales and Expert Teammates</h2>
