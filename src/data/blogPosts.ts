@@ -418,7 +418,7 @@ export const blogPosts: BlogPost[] = [
 
   {   
     id: 4,
-    category: "AUTOMATION",
+    category: "PROCESS AUTOMATION",
     title: "5 Business Tasks SMEs Should Automate Now",
     summary: "Running a business today means juggling dozens of tasks every week — from sending invoices and replying to emails, to updating spreadsheets and booking meetings. If your team is spending hours each week on repetitive tasks, you're not just wasting time — you're leaving money on the table.",
     image: "/lovable-uploads/Blog1small.jpeg",
@@ -457,8 +457,130 @@ export const blogPosts: BlogPost[] = [
 <br>At <strong>Crux Consulting</strong>, we specialize in helping small and mid-sized businesses unlock time, save money, and <strong>scale smarter through automation and AI</strong>. Our solutions are custom-built for companies between 30–200 employees — not for tech giants.</br>
 
 <br><a href="/contact" target="_blank"><strong>Ready to stop wasting time and start automating? Let's talk about your first quick win.</strong></a></br>`
+  },
+
+
+  {   
+    id: 5,
+    category: "SALES & SERVICE",
+    title: "From Frustrating Bots to 24/7 Sales and Expert Teammates",
+    summary: "For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion. But here’s the thing: That old era is over..",
+    image: "/lovable-uploads/Blog1small.jpeg",
+    date: "Aug 19, 2025",
+    author: "Patrick Reverchon",
+    content: `<h2>From Frustrating Bots to 24/7 Sales and Expert Teammates</h2>
+
+
+  <p>If you’ve ever found yourself stuck in an endless chatbot loop – clicking buttons, repeating the same question, or yelling “talk to a human!” at your screen – you’re not alone.</p>
+
+  <p>For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion.</p>
+
+  <p>But here’s the thing: That old era is over.</p>
+
+  <h2>So, what’s changed?</h2>
+
+  <p>Today’s web-based AI assistants are smarter, faster, and far more useful than their predecessors. And at Crux Consulting, we’re helping companies turn them into true digital assets.</p>
+
+  <p>Let’s break down what makes the new generation of chatbots such a game-changer.</p>
+
+  <hr>
+
+  <h3>1. Why Chatbots Got a Bad Reputation (And Deserved It)</h3>
+
+  <p>For most of the 2010s, chatbots were rule-based systems. That meant they could only respond based on pre-set options – “Press 1 for this, 2 for that.” If your question didn’t match one of their canned answers, you were stuck.</p>
+
+  <ul>
+    <li>They didn’t understand your question.</li>
+    <li>They couldn’t explain things in different ways.</li>
+    <li>They didn’t know when something had changed – like a new return policy or a product update.</li>
+  </ul>
+
+  <p>These early bots felt robotic because they were. The result? Most users abandoned them within seconds and went looking for a human.</p>
+
+  <hr>
+
+  <h3>2. The New Generation: Smarter, More Human, Truly Helpful</h3>
+
+  <p>Today’s AI chatbots are built very differently.</p>
+
+  <p>They can <strong>understand natural language</strong> – so you don’t need to phrase things in a certain way. You just ask, like you would with a colleague. Behind the scenes, they process massive amounts of information and can be trained on everything from your product catalog to your service terms and internal guides.</p>
+
+  <p>What’s even better? They’re not limited to static content.</p>
+
+  <p>Modern chatbots can access <strong>real-time delivery data</strong> via Shopify APIs, check the <strong>status of a refund</strong> through your customer service platform, or integrate with tools like Notion, Jira, or your CRM to deliver the right update, at the right time.</p>
+
+  <p>Other examples include:</p>
+  <ul>
+    <li>A logistics company’s chatbot checking truck locations and estimated arrivals in real time.</li>
+    <li>A law firm’s assistant instantly pulling relevant clauses from 300+ contracts when someone asks about a term.</li>
+  </ul>
+
+  <p>These bots can:</p>
+  <ul>
+    <li><strong>Learn your business deeply</strong>, even the edge cases.</li>
+    <li><strong>Stay constantly updated</strong>, so you never share outdated info.</li>
+    <li><strong>Speak 50+ languages</strong>, ensuring no customer is left behind.</li>
+  </ul>
+
+  <p>Done right, they’re more than just a support tool – they become a <strong>digital sales agent</strong> that’s available 24/7, always up to date, and always on message.</p>
+
+  <hr>
+
+  <h3>3. Not Just for Customers – A Quiet Revolution for Internal Teams</h3>
+
+  <p>AI chatbots don’t just belong on the front line of your website. Their real power starts to show when you plug them into your internal systems.</p>
+
+  <p>Imagine this:</p>
+  <ul>
+    <li>A new employee needs the latest slide deck for a project – they just ask the assistant, and it fetches the latest version instantly.</li>
+    <li>A colleague needs to understand how a complex internal tool works – the assistant explains it, based on documentation <em>and</em> previous support tickets.</li>
+    <li>A team lead wants updates on all open action items for a key client – the bot pulls them from different tools and summarizes the status.</li>
+  </ul>
+
+  <p>Instead of sifting through dozens of files, chasing Slack messages, or emailing five departments, people just ask the chatbot – and get what they need.</p>
+
+  <p>Internally, a good chatbot becomes <strong>the colleague who always knows</strong>:</p>
+  <ul>
+    <li>Where things are.</li>
+    <li>What’s changed.</li>
+    <li>Who’s responsible.</li>
+  </ul>
+
+  <p>It’s like having your company’s brain at your fingertips.</p>
+
+  <hr>
+
+  <h2>At Crux Consulting, We Build Chatbots That Actually Work</h2>
+
+  <p>The magic doesn’t happen automatically. These assistants need the right setup, the right data, and smart integration with your systems. That’s where we come in.</p>
+
+  <p><strong>Our approach:</strong></p>
+  <ul>
+    <li>We help you identify the right use cases – internal or external.</li>
+    <li>We connect your chatbot to live data, not static content.</li>
+    <li>We ensure it’s always up to date, always reliable, and always relevant.</li>
+  </ul>
+
+  <p>With the right foundation, a chatbot becomes more than just a button in the corner of your screen. It becomes:</p>
+  <ul>
+    <li>Your hardest-working salesperson.</li>
+    <li>Your most organized project manager.</li>
+    <li>Your always-available support rep.</li>
+    <li>Your sharpest team assistant.</li>
+  </ul>
+
+  <p>And it never sleeps.</p>
+
+  <hr>
+
+  <p><strong>Curious what this could look like for your business?</strong><br>
+  Let’s talk. We’d love to show you what’s possible.</p>
+
+  <p><a href="https://crux-consulting.ai/services/ai-chatbot" target="_blank" rel="noopener noreferrer">👉 Explore our AI Assistant Solutions</a></p>'
   }
+  
 ];
+
 
 // Helper function to parse date strings and sort by most recent
 export const getMostRecentPosts = (posts: BlogPost[], count: number = 3): BlogPost[] => {
