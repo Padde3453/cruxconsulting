@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Calendar, CheckCircle, Clock, AlertTriangle } from 'lucide-react';
+import { useState } from 'react';
 
 const AiActTimeline = () => {
   const { t } = useTranslation();
   const timelineAnimation = useScrollAnimation();
+  const [expandedIndex, setExpandedIndex] = useState<number>(1); // Start with second item (current status)
 
   const timelineItems = t('aiCompliance.timeline.items', { returnObjects: true }) as Array<{
     date: string;
@@ -30,6 +32,10 @@ const AiActTimeline = () => {
     // Spacing based on actual time differences: 6, 6, 6, 12, 12 months = 1:1:1:2:2 ratio
     const spacings = ['mb-8', 'mb-8', 'mb-8', 'mb-16', 'mb-16'];
     return spacings[index] || 'mb-8';
+  };
+
+  const handleCardClick = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? -1 : index);
   };
 
   return (
@@ -69,7 +75,14 @@ const AiActTimeline = () => {
                 <div className="absolute left-4 w-4 h-4 bg-gradient-to-r from-brand-blue to-brand-green rounded-full border-4 border-gray-900 z-10"></div>
                 
                 {/* Content card */}
-                <div className="ml-16 bg-gradient-to-r from-gray-800/50 to-gray-700/30 backdrop-blur-sm rounded-lg border border-gray-600/30 p-6 hover:border-brand-blue/50 transition-all duration-300 hover:transform hover:scale-[1.02]">
+                <div 
+                  onClick={() => handleCardClick(index)}
+                  className={`ml-16 bg-gradient-to-r from-gray-800/50 to-gray-700/30 backdrop-blur-sm rounded-lg border transition-all duration-300 cursor-pointer ${
+                    expandedIndex === index 
+                      ? 'border-brand-blue/50 p-6' 
+                      : 'border-gray-600/30 p-4 hover:border-brand-blue/30'
+                  }`}
+                >
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center space-x-3">
                       <span className="text-sm font-semibold text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full">
@@ -79,13 +92,19 @@ const AiActTimeline = () => {
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  <h3 className={`font-bold text-white transition-all duration-300 ${
+                    expandedIndex === index ? 'text-xl mb-3' : 'text-lg'
+                  }`}>
                     {item.title}
                   </h3>
                   
-                  <p className="text-gray-300 leading-relaxed">
-                    {item.body}
-                  </p>
+                  {expandedIndex === index && (
+                    <div className="overflow-hidden">
+                      <p className="text-gray-300 leading-relaxed animate-fade-in">
+                        {item.body}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
