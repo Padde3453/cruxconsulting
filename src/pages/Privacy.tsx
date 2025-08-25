@@ -40,7 +40,8 @@ const Privacy = () => {
               <div className="text-gray-300 space-y-2">
                 <p>{t('privacy.responsible.paragraph1')}</p>
                 <br />
-                <p>Crux Consulting, a brand of Reverchon Consulting GmbH ({t('impressum.legalInfo.inPreparation')})</p>
+                <p>Crux Consulting, a brand of Reverchon Consulting GmbH </p>
+                <p>CEOs and founders, Guenther Reverchon and Patrick Reverchon</p>
                 <p>Patrick Reverchon</p>
                 <p>Am Gasteig 6</p>
                 <p>82335 Berg</p>
