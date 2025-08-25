@@ -95,6 +95,15 @@ const Privacy = () => {
               <h2 className="text-2xl font-bold text-white mb-4">{t('privacy.changes.title')}</h2>
               <p className="text-gray-300">{t('privacy.changes.paragraph1')}</p>
             </div>
+
+            <div className="border-t border-gray-700 pt-8">
+              <h2 className="text-2xl font-bold text-white mb-4">{t('privacy.cookies.title')}</h2>
+              <div className="text-gray-300 space-y-4">
+                <p>{t('privacy.cookies.paragraph1')}</p>
+                <p>{t('privacy.cookies.paragraph2')}</p>
+                <p>{t('privacy.cookies.paragraph3')}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

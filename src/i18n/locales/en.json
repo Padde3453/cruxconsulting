@@ -495,7 +495,27 @@
   },
   "footer": {
     "privacyPolicy": "Privacy Policy",
+    "impressum": "Legal Notice",
     "copyright": "© 2024 Crux Consulting. All rights reserved."
+  },
+  "impressum": {
+    "title": "Legal Notice",
+    "legalInfo": {
+      "title": "Legal Information",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "responsibleContent": {
+      "title": "Responsible for Content"
+    },
+    "companyStatus": {
+      "title": "Company Status",
+      "description": "This company is registered in Germany and operates under German law."
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "description": "The contents of our pages have been created with the utmost care. However, we cannot guarantee the contents' accuracy, completeness or topicality. According to statutory provisions, we are furthermore responsible for our own content on these web pages."
+    }
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -543,6 +563,12 @@
     "changes": {
       "title": "Changes to this Privacy Policy",
       "paragraph1": "We reserve the right to change this privacy policy to always comply with current legal requirements or to implement changes to our services in the privacy policy, e.g., when introducing new services."
+    },
+    "cookies": {
+      "title": "Cookies and Similar Technologies",
+      "paragraph1": "Our website uses only strictly necessary cookies that are essential for the technical operation of the website. These cookies are required for basic website functionality and do not require your consent.",
+      "paragraph2": "We use one functional cookie for storing sidebar preferences, which expires after 7 days. This cookie is considered strictly necessary for providing the service you requested.",
+      "paragraph3": "We do not use cookies for marketing, analytics, or tracking purposes that would require your consent under GDPR regulations."
     }
   },
   "navigation": {

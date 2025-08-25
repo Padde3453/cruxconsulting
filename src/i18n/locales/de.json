@@ -495,7 +495,27 @@
   },
   "footer": {
     "privacyPolicy": "Datenschutzerklärung",
+    "impressum": "Impressum",
     "copyright": "© 2024 Crux Consulting. Alle Rechte vorbehalten."
+  },
+  "impressum": {
+    "title": "Impressum",
+    "legalInfo": {
+      "title": "Angaben gemäß § 5 TMG",
+      "phone": "Telefon",
+      "email": "E-Mail"
+    },
+    "responsibleContent": {
+      "title": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV"
+    },
+    "companyStatus": {
+      "title": "Unternehmensstatus",
+      "description": "Dieses Unternehmen ist in Deutschland registriert und unterliegt deutschem Recht."
+    },
+    "disclaimer": {
+      "title": "Haftungsausschluss",
+      "description": "Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich."
+    }
   },
   "privacy": {
     "title": "Datenschutzerklärung",
@@ -543,6 +563,12 @@
     "changes": {
       "title": "Änderungen dieser Datenschutzerklärung",
       "paragraph1": "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B. bei der Einführung neuer Services."
+    },
+    "cookies": {
+      "title": "Cookies und ähnliche Technologien",
+      "paragraph1": "Unsere Website verwendet nur unbedingt erforderliche Cookies, die für den technischen Betrieb der Website wesentlich sind. Diese Cookies sind für die grundlegende Website-Funktionalität erforderlich und benötigen nicht Ihre Zustimmung.",
+      "paragraph2": "Wir verwenden ein funktionales Cookie zur Speicherung von Sidebar-Einstellungen, das nach 7 Tagen abläuft. Dieses Cookie wird als unbedingt erforderlich für die Bereitstellung des von Ihnen angeforderten Dienstes betrachtet.",
+      "paragraph3": "Wir verwenden keine Cookies für Marketing-, Analyse- oder Tracking-Zwecke, die Ihre Zustimmung gemäß DSGVO-Bestimmungen erfordern würden."
     }
   },
   "navigation": {
