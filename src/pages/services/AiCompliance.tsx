@@ -254,21 +254,27 @@ const AiCompliance = () => {
                       transitionDelay: textAnimation.isVisible ? `${index * 300 + 150}ms` : '0ms' 
                     }}
                   >
-                    <div className="h-16 flex items-center p-4 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30">
-                      <div className="flex items-center space-x-4 w-full">
+                    <div className="min-h-16 sm:h-16 flex items-center p-3 sm:p-4 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30">
+                      <div className="flex items-center space-x-3 sm:space-x-4 w-full">
                         <div className={`flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r ${level.color} flex items-center justify-center text-white font-bold text-sm`}>
                           {level.number}
                         </div>
-                         <div className="flex-1 min-w-0">
-                           <div className="grid grid-cols-5 gap-4 items-center h-full">
-                             <div className="col-span-2">
-                               <h3 className="text-sm font-bold text-white leading-tight">{level.title}</h3>
-                             </div>
-                             <div className="col-span-3">
-                               <p className="text-xs text-gray-400 italic leading-relaxed overflow-hidden">{level.details}</p>
-                             </div>
-                           </div>
-                         </div>
+                        <div className="flex-1 min-w-0">
+                          {/* Mobile Layout - Stack vertically */}
+                          <div className="block sm:hidden space-y-2">
+                            <h3 className="text-sm font-bold text-white leading-tight">{level.title}</h3>
+                            <p className="text-xs text-gray-400 italic leading-tight line-clamp-3">{level.details}</p>
+                          </div>
+                          {/* Desktop Layout - Grid */}
+                          <div className="hidden sm:grid grid-cols-5 gap-4 items-center h-full">
+                            <div className="col-span-2">
+                              <h3 className="text-sm font-bold text-white leading-tight">{level.title}</h3>
+                            </div>
+                            <div className="col-span-3">
+                              <p className="text-xs text-gray-400 italic leading-relaxed overflow-hidden line-clamp-2">{level.details}</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
