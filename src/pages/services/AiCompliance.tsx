@@ -259,16 +259,16 @@ const AiCompliance = () => {
                         <div className={`flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r ${level.color} flex items-center justify-center text-white font-bold text-sm`}>
                           {level.number}
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-start justify-between">
-                            <div className="flex-1 pr-4">
-                              <h3 className="text-lg font-bold text-white">{level.title}</h3>
-                            </div>
-                            <div className="flex-1">
-                              <p className="text-sm text-gray-400 italic">{level.details}</p>
-                            </div>
-                          </div>
-                        </div>
+                         <div className="flex-1 min-w-0">
+                           <div className="grid grid-cols-5 gap-4 items-center h-full">
+                             <div className="col-span-2">
+                               <h3 className="text-sm font-bold text-white leading-tight">{level.title}</h3>
+                             </div>
+                             <div className="col-span-3">
+                               <p className="text-xs text-gray-400 italic leading-relaxed overflow-hidden">{level.details}</p>
+                             </div>
+                           </div>
+                         </div>
                       </div>
                     </div>
                   </div>
