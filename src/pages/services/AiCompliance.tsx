@@ -63,28 +63,32 @@ const AiCompliance = () => {
 
   const riskLevels = [
     {
+      number: "1",
       title: t('aiCompliance.riskLevels.prohibited.title'),
       description: t('aiCompliance.riskLevels.prohibited.description'),
       color: 'from-red-600 to-red-800',
-      size: 'h-16'
+      details: "Social scoring, facial recognition, dark pattern AI, manipulation"
     },
     {
+      number: "2", 
       title: t('aiCompliance.riskLevels.highRisk.title'),
       description: t('aiCompliance.riskLevels.highRisk.description'),
       color: 'from-orange-500 to-red-600',
-      size: 'h-20'
+      details: "Safety components in critical infrastructure, employment & performance in work, access to education, access to public services, use in insurance, credit scoring, border control, justice systems"
     },
     {
+      number: "3",
       title: t('aiCompliance.riskLevels.transparency.title'),
       description: t('aiCompliance.riskLevels.transparency.description'),
       color: 'from-yellow-500 to-orange-500',
-      size: 'h-24'
+      details: "General purpose AI and AI systems with specific transparency requirements such as chatbots, emotion recognition systems"
     },
     {
+      number: "4",
       title: t('aiCompliance.riskLevels.minimal.title'),
       description: t('aiCompliance.riskLevels.minimal.description'),
       color: 'from-green-500 to-yellow-500',
-      size: 'h-28'
+      details: "AI-enabled video games, spam filters"
     }
   ];
 
@@ -184,49 +188,91 @@ const AiCompliance = () => {
 
       {/* AI Act Risk Pyramid Section */}
       <section className="py-20 relative">
-        <div 
-          ref={pyramidAnimation.elementRef}
-          className={`relative z-10 max-w-5xl mx-auto px-6 transition-all duration-1000 ${
-            pyramidAnimation.isVisible 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <div className="text-center mb-12">
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
               {t('aiCompliance.riskLevels.title')}
             </h2>
           </div>
 
-          {/* Risk Level Pyramid */}
-          <div className="space-y-4 max-w-2xl mx-auto">
-            {riskLevels.map((level, index) => (
-              <div
-                key={index}
-                className={`relative group transition-all duration-500 hover:scale-105 ${
-                  pyramidAnimation.isVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-10'
-                }`}
-                style={{ 
-                  transitionDelay: pyramidAnimation.isVisible ? `${index * 200}ms` : '0ms' 
-                }}
-              >
-                <div className={`${level.size} bg-gradient-to-r ${level.color} rounded-lg flex items-center justify-center mx-auto shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
-                     style={{ width: `${100 - index * 15}%` }}>
-                  <div className="text-center text-white px-4">
-                    <h3 className="font-bold text-lg mb-1">{level.title}</h3>
-                  </div>
-                </div>
-                
-                {/* Description tooltip */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                  <div className="bg-gray-800/95 backdrop-blur-sm border border-gray-600 rounded-lg p-4 max-w-sm">
-                    <p className="text-sm text-gray-300 text-center">{level.description}</p>
-                  </div>
-                </div>
+          {/* Risk Level Pyramid with Side-by-Side Layout */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Pyramid */}
+            <div className="relative">
+              <div className="space-y-2 max-w-md mx-auto">
+                {riskLevels.map((level, index) => {
+                  const levelAnimation = useScrollAnimation();
+                  return (
+                    <div
+                      key={index}
+                      ref={levelAnimation.elementRef}
+                      className={`relative group transition-all duration-700 ${
+                        levelAnimation.isVisible 
+                          ? 'opacity-100 translate-x-0' 
+                          : `opacity-0 ${index % 2 === 0 ? 'translate-x-10' : '-translate-x-10'}`
+                      }`}
+                      style={{ 
+                        transitionDelay: levelAnimation.isVisible ? `${index * 300}ms` : '0ms' 
+                      }}
+                    >
+                      <div 
+                        className={`h-20 bg-gradient-to-r ${level.color} flex items-center justify-center mx-auto shadow-lg group-hover:shadow-xl transition-all duration-300 relative overflow-hidden`}
+                        style={{ 
+                          width: `${100 - index * 18}%`,
+                          clipPath: index === 0 ? 'polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%)' : 
+                                   index === 1 ? 'polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%)' :
+                                   index === 2 ? 'polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%)' :
+                                   'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
+                        }}
+                      >
+                        {/* Number */}
+                        <div className="absolute left-6 text-white font-bold text-2xl">
+                          {level.number}
+                        </div>
+                        {/* Title */}
+                        <div className="text-center text-white px-12">
+                          <h3 className="font-bold text-lg">{level.title}</h3>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-            ))}
+            </div>
+
+            {/* Text Content */}
+            <div className="space-y-8">
+              {riskLevels.map((level, index) => {
+                const textAnimation = useScrollAnimation();
+                return (
+                  <div
+                    key={`text-${index}`}
+                    ref={textAnimation.elementRef}
+                    className={`transition-all duration-700 ${
+                      textAnimation.isVisible 
+                        ? 'opacity-100 translate-x-0' 
+                        : `opacity-0 ${index % 2 === 0 ? '-translate-x-10' : 'translate-x-10'}`
+                    }`}
+                    style={{ 
+                      transitionDelay: textAnimation.isVisible ? `${index * 300 + 150}ms` : '0ms' 
+                    }}
+                  >
+                    <div className="p-6 bg-gradient-to-r from-gray-800/30 to-gray-700/20 backdrop-blur-sm rounded-lg border border-gray-600/30">
+                      <div className="flex items-start space-x-4">
+                        <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r ${level.color} flex items-center justify-center text-white font-bold`}>
+                          {level.number}
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-white mb-2">{level.title}</h3>
+                          <p className="text-gray-300 mb-3">{level.description}</p>
+                          <p className="text-sm text-gray-400 italic">{level.details}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

@@ -447,5 +447,12 @@
       "description": "Don't let compliance requirements slow down your AI innovation. Our experts will guide you through the EU AI Act requirements.",
       "button": "Book Compliance Consultation"
     }
+  },
+  "navigation": {
+    "services": "Services",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "bookConsultation": "Book Consultation"
   }
 }

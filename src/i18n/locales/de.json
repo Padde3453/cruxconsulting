@@ -447,5 +447,12 @@
       "description": "Lassen Sie nicht zu, dass Compliance-Anforderungen Ihre KI-Innovation verlangsamen. Unsere Experten führen Sie durch die EU AI Act Anforderungen.",
       "button": "Compliance-Beratung buchen"
     }
+  },
+  "navigation": {
+    "services": "Leistungen",
+    "blog": "Blog",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "bookConsultation": "Beratung buchen"
   }
 }
