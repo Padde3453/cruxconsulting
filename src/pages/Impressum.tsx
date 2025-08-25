@@ -30,8 +30,7 @@ const Impressum = () => {
             <div>
               <h2 className="text-2xl font-bold text-white mb-4">{t('impressum.legalInfo.title')}</h2>
               <div className="text-gray-300 space-y-2">
-                <p>Crux Consulting, a brand of Reverchon Consulting GmbH</p>
-                <p>CEOs and founders, Guenther Reverchon and Patrick Reverchon</p>
+                <p>Crux Consulting, a brand of Reverchon Consulting GmbH ({t('impressum.legalInfo.inPreparation')})</p>
                 <p>Am Gasteig 6 </p>
                 <p>82335 Berg</p>
                 <p>Deutschland</p>
@@ -45,8 +44,6 @@ const Impressum = () => {
               <h2 className="text-2xl font-bold text-white mb-4">{t('impressum.responsibleContent.title')}</h2>
               <div className="text-gray-300 space-y-2">
                 <p>Patrick Reverchon</p>
-                <p>Guldeinstraße 40</p>
-                <p>80339 München</p>
               </div>
             </div>
 
