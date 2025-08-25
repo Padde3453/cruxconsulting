@@ -446,6 +446,47 @@
         "description": "No specific obligations under the AI Act"
       }
     },
+    "timeline": {
+      "title": "EU AI Act Implementation Timeline",
+      "items": [
+        {
+          "date": "February 2024",
+          "title": "AI Act Approved by European Parliament",
+          "body": "The European Parliament officially approved the AI Act, marking a historic milestone in AI regulation worldwide.",
+          "status": "completed"
+        },
+        {
+          "date": "August 2024",
+          "title": "AI Act Enters into Force",
+          "body": "The AI Act officially entered into force, beginning the regulatory framework implementation across the EU.",
+          "status": "completed"
+        },
+        {
+          "date": "February 2025",
+          "title": "Prohibition Rules Apply",
+          "body": "Prohibited AI practices become illegal, including social scoring systems and manipulation techniques.",
+          "status": "current"
+        },
+        {
+          "date": "August 2025",
+          "title": "General-Purpose AI Model Rules Apply",
+          "body": "Obligations for general-purpose AI models and foundation models come into effect.",
+          "status": "upcoming"
+        },
+        {
+          "date": "August 2026",
+          "title": "High-Risk AI System Rules Apply",
+          "body": "Full compliance requirements for high-risk AI systems must be implemented.",
+          "status": "upcoming"
+        },
+        {
+          "date": "August 2027",
+          "title": "AI Act Fully Applicable",
+          "body": "All provisions of the AI Act are fully applicable across all member states.",
+          "status": "upcoming"
+        }
+      ]
+    },
     "cta": {
       "title": "Ensure Your AI Systems are Compliant",
       "description": "Don't let compliance requirements slow down your AI innovation. Our experts will guide you through the EU AI Act requirements.",

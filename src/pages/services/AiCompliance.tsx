@@ -6,6 +6,7 @@ import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import AiActTimeline from "@/components/AiActTimeline";
 
 const AiCompliance = () => {
   const { t } = useTranslation();
@@ -284,6 +285,9 @@ const AiCompliance = () => {
           </div>
         </div>
       </section>
+
+      {/* AI Act Timeline */}
+      <AiActTimeline />
 
       {/* CTA Section */}
       <section className="py-20 relative">

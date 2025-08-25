@@ -446,6 +446,47 @@
         "description": "Keine spezifischen Verpflichtungen unter dem KI-Gesetz"
       }
     },
+    "timeline": {
+      "title": "EU KI-Gesetz Umsetzungszeitplan",
+      "items": [
+        {
+          "date": "Februar 2024",
+          "title": "KI-Gesetz vom Europäischen Parlament genehmigt",
+          "body": "Das Europäische Parlament genehmigte offiziell das KI-Gesetz und markierte einen historischen Meilenstein in der weltweiten KI-Regulierung.",
+          "status": "completed"
+        },
+        {
+          "date": "August 2024",
+          "title": "KI-Gesetz tritt in Kraft",
+          "body": "Das KI-Gesetz trat offiziell in Kraft und begann die Umsetzung des regulatorischen Rahmens in der gesamten EU.",
+          "status": "completed"
+        },
+        {
+          "date": "Februar 2025",
+          "title": "Verbotsregeln gelten",
+          "body": "Verbotene KI-Praktiken werden illegal, einschließlich sozialer Bewertungssysteme und Manipulationstechniken.",
+          "status": "current"
+        },
+        {
+          "date": "August 2025",
+          "title": "Regeln für allgemeine KI-Modelle gelten",
+          "body": "Verpflichtungen für allgemeine KI-Modelle und Grundlagenmodelle treten in Kraft.",
+          "status": "upcoming"
+        },
+        {
+          "date": "August 2026",
+          "title": "Regeln für Hochrisiko-KI-Systeme gelten",
+          "body": "Vollständige Compliance-Anforderungen für Hochrisiko-KI-Systeme müssen implementiert werden.",
+          "status": "upcoming"
+        },
+        {
+          "date": "August 2027",
+          "title": "KI-Gesetz vollständig anwendbar",
+          "body": "Alle Bestimmungen des KI-Gesetzes sind vollständig in allen Mitgliedsstaaten anwendbar.",
+          "status": "upcoming"
+        }
+      ]
+    },
     "cta": {
       "title": "Stellen Sie sicher, dass Ihre KI-Systeme konform sind",
       "description": "Lassen Sie nicht zu, dass Compliance-Anforderungen Ihre KI-Innovation verlangsamen. Unsere Experten führen Sie durch die EU AI Act Anforderungen.",
