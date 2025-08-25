@@ -30,9 +30,9 @@ const Impressum = () => {
             <div>
               <h2 className="text-2xl font-bold text-white mb-4">{t('impressum.legalInfo.title')}</h2>
               <div className="text-gray-300 space-y-2">
-                <p>Crux Consulting GmbH ({t('impressum.legalInfo.inPreparation')})</p>
-                <p>Guldeinstraße 40</p>
-                <p>80339 München</p>
+                <p>Crux Consulting, a brand of Reverchon Consulting GmbH ({t('impressum.legalInfo.inPreparation')})</p>
+                <p>Am Gasteig 6 </p>
+                <p>82335 Berg</p>
                 <p>Deutschland</p>
                 <br />
                 <p>{t('impressum.legalInfo.phone')}: +49 (0)152 04444450</p>
