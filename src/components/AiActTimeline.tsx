@@ -74,38 +74,34 @@ const AiActTimeline = () => {
                 {/* Timeline dot */}
                 <div className="absolute left-4 w-4 h-4 bg-gradient-to-r from-brand-blue to-brand-green rounded-full border-4 border-gray-900 z-10"></div>
                 
-                {/* Content card */}
+                {/* Date and title - always visible */}
                 <div 
                   onClick={() => handleCardClick(index)}
-                  className={`ml-16 bg-gradient-to-r from-gray-800/50 to-gray-700/30 backdrop-blur-sm rounded-lg border transition-all duration-300 cursor-pointer ${
-                    expandedIndex === index 
-                      ? 'border-brand-blue/50 p-6' 
-                      : 'border-gray-600/30 p-4 hover:border-brand-blue/30'
-                  }`}
+                  className="ml-16 flex items-center space-x-4 cursor-pointer hover:text-brand-blue transition-colors duration-200"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center space-x-3">
-                      <span className="text-sm font-semibold text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full">
-                        {item.date}
-                      </span>
-                      {getStatusIcon(item.status)}
-                    </div>
-                  </div>
-                  
-                  <h3 className={`font-bold text-white transition-all duration-300 ${
-                    expandedIndex === index ? 'text-xl mb-3' : 'text-lg'
-                  }`}>
+                  <span className="text-sm font-semibold text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full whitespace-nowrap">
+                    {item.date}
+                  </span>
+                  <h3 className="text-lg font-bold text-white">
                     {item.title}
                   </h3>
-                  
-                  {expandedIndex === index && (
-                    <div className="overflow-hidden">
-                      <p className="text-gray-300 leading-relaxed animate-fade-in">
+                  {getStatusIcon(item.status)}
+                </div>
+                
+                {/* Expanded content card - only for selected item */}
+                {expandedIndex === index && (
+                  <div className="ml-16 mt-4 relative">
+                    {/* Triangle pointer */}
+                    <div className="absolute -left-6 top-4 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-gray-700/80 border-t-8 border-t-transparent border-b-8 border-b-transparent"></div>
+                    
+                    {/* Content box */}
+                    <div className="bg-gradient-to-r from-gray-800/80 to-gray-700/60 backdrop-blur-sm rounded-lg border border-brand-blue/30 p-6 animate-fade-in">
+                      <p className="text-gray-300 leading-relaxed">
                         {item.body}
                       </p>
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
