@@ -416,7 +416,7 @@
     "title": "KI-Compliance Beratung",
     "description": "Navigieren Sie selbstbewusst durch die EU AI Act Anforderungen mit unserer umfassenden Compliance-Beratung.",
     "hero": {
-      "title": "Seien Sie immer auf der konformen Seite",
+      "title": "Seien Sie immer auf der <compliant>konformen</compliant> Seite",
       "subtitle": "Der EU AI Act fügt bürokratische Belastungen für KMUs hinzu, und unsere Mission ist es, genau das anzugehen. Mit uns sind Sie garantiert modern, schnell, effizient und konform."
     },
     "services": [
@@ -510,7 +510,14 @@
     },
     "companyStatus": {
       "title": "Unternehmensstatus",
-      "description": "Dieses Unternehmen ist in Deutschland registriert und unterliegt deutschem Recht."
+      "description": "Dieses Unternehmen ist in Deutschland registriert und unterliegt deutschem Recht.",
+      "taxNumber": "Steuernummer: 117/136/30960",
+      "registration": "Eingetragen: Handelsregister B München",
+      "registrationNumber": "HRB 284621",
+      "bankDetails": "Bankverbindung:",
+      "bank": "Volksbank Raiffeisenbank",
+      "iban": "IBAN: DE84 7009 3200 0002 7342 30",
+      "bic": "BIC: GENODEF1STH"
     },
     "disclaimer": {
       "title": "Haftungsausschluss",

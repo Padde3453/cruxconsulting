@@ -117,9 +117,14 @@ const AiCompliance = () => {
         >
           <div className="text-center mb-9 max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-                {t('aiCompliance.hero.title')}
-              </span>
+              <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent"
+                dangerouslySetInnerHTML={{ 
+                  __html: t('aiCompliance.hero.title').replace(
+                    /<compliant>(.*?)<\/compliant>/g, 
+                    '<span class="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">$1</span>'
+                  )
+                }}
+              />
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-7">
               {t('aiCompliance.hero.subtitle')}

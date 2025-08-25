@@ -416,7 +416,7 @@
     "title": "AI Compliance Consulting",
     "description": "Navigate EU AI Act requirements with confidence through our comprehensive compliance consulting services.",
     "hero": {
-      "title": "Always be on the compliant side",
+      "title": "Always be on the <compliant>compliant</compliant> side",
       "subtitle": "The EU AI Act adds to the bureaucratic burden for SMEs, and our mission is to tackle exactly that. With us you are guaranteed to be modern, fast, efficient and compliant."
     },
     "services": [
@@ -510,7 +510,14 @@
     },
     "companyStatus": {
       "title": "Company Status",
-      "description": "This company is registered in Germany and operates under German law."
+      "description": "This company is registered in Germany and operates under German law.",
+      "taxNumber": "Tax number: 117/136/30960",
+      "registration": "Registered: Handelsregister B München",
+      "registrationNumber": "HRB 284621",
+      "bankDetails": "Bank details:",
+      "bank": "Volksbank Raiffeisenbank",
+      "iban": "IBAN: DE84 7009 3200 0002 7342 30",
+      "bic": "BIC: GENODEF1STH"
     },
     "disclaimer": {
       "title": "Disclaimer",

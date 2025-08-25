@@ -49,7 +49,19 @@ const Impressum = () => {
 
             <div className="border-t border-gray-700 pt-8">
               <h2 className="text-2xl font-bold text-white mb-4">{t('impressum.companyStatus.title')}</h2>
-              <p className="text-gray-300">{t('impressum.companyStatus.description')}</p>
+              <div className="text-gray-300 space-y-2">
+                <p>{t('impressum.companyStatus.description')}</p>
+                <br />
+                <p>{t('impressum.companyStatus.taxNumber')}</p>
+                <br />
+                <p>{t('impressum.companyStatus.registration')}</p>
+                <p>{t('impressum.companyStatus.registrationNumber')}</p>
+                <br />
+                <p className="font-semibold">{t('impressum.companyStatus.bankDetails')}</p>
+                <p>{t('impressum.companyStatus.bank')}</p>
+                <p>{t('impressum.companyStatus.iban')}</p>
+                <p>{t('impressum.companyStatus.bic')}</p>
+              </div>
             </div>
 
             <div className="border-t border-gray-700 pt-8">
