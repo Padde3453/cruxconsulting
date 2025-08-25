@@ -493,6 +493,58 @@
       "button": "Compliance-Beratung buchen"
     }
   },
+  "footer": {
+    "privacyPolicy": "Datenschutzerklärung",
+    "copyright": "© 2024 Crux Consulting. Alle Rechte vorbehalten."
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "introduction": {
+      "title": "Einleitung",
+      "paragraph1": "Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst und behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzbestimmungen sowie dieser Datenschutzerklärung.",
+      "paragraph2": "Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten innerhalb unseres Onlineangebotes und der mit ihm verbundenen Webseiten, Funktionen und Inhalte auf."
+    },
+    "responsible": {
+      "title": "Verantwortliche Stelle",
+      "paragraph1": "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:"
+    },
+    "accessData": {
+      "title": "Zugriffsdaten und Server-Logfiles",
+      "paragraph1": "Wir erheben über jeden Zugriff auf den Server, auf dem sich dieser Dienst befindet, Daten (sogenannte Server-Logfiles). Zu den Zugriffsdaten gehören:",
+      "items": {
+        "browserType": "Name der abgerufenen Webseite",
+        "operatingSystem": "Browsertyp und Browserversion",
+        "referrerUrl": "Betriebssystem des zugreifenden Rechners",
+        "hostname": "Name des zugreifenden Rechners",
+        "requestTime": "Datum und Uhrzeit der Serveranfrage",
+        "ipAddress": "IP-Adresse"
+      },
+      "paragraph2": "Diese Daten werden zum Zwecke der Gewährleistung eines reibungslosen Verbindungsaufbaus der Website, zur Gewährleistung einer komfortablen Nutzung unserer Website, zur Auswertung der Systemsicherheit und -stabilität sowie zu weiteren administrativen Zwecken verwendet."
+    },
+    "contact": {
+      "title": "Kontaktaufnahme",
+      "paragraph1": "Bei der Kontaktaufnahme mit uns (z.B. per Kontaktformular oder E-Mail) werden die Angaben des Nutzers zur Bearbeitung der Kontaktanfrage und deren Abwicklung gem. Art. 6 Abs. 1 lit. b) DSGVO verarbeitet.",
+      "paragraph2": "Die Angaben der Nutzer können in einem Customer-Relationship-Management System (\"CRM System\") oder vergleichbarer Anfragenorganisation gespeichert werden."
+    },
+    "rights": {
+      "title": "Ihre Rechte",
+      "paragraph1": "Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:",
+      "items": {
+        "dataAccess": "Recht auf Auskunft über Ihre gespeicherten personenbezogenen Daten",
+        "dataCorrection": "Recht auf Berichtigung unrichtiger personenbezogener Daten",
+        "dataDeletion": "Recht auf Löschung Ihrer gespeicherten personenbezogenen Daten",
+        "processingRestriction": "Recht auf Einschränkung der Datenverarbeitung",
+        "dataPortability": "Recht auf Datenübertragbarkeit",
+        "processingObjection": "Recht auf Widerspruch gegen die Datenverarbeitung"
+      },
+      "paragraph2": "Sofern Sie uns eine Einwilligung erteilt haben, können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen.",
+      "paragraph3": "Sie können sich jederzeit mit einer Beschwerde an eine Aufsichtsbehörde wenden, z. B. an die zuständige Aufsichtsbehörde des Bundeslands Ihres Wohnsitzes oder an die für uns zuständige Behörde."
+    },
+    "changes": {
+      "title": "Änderungen dieser Datenschutzerklärung",
+      "paragraph1": "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B. bei der Einführung neuer Services."
+    }
+  },
   "navigation": {
     "services": "Leistungen",
     "blog": "Blog",

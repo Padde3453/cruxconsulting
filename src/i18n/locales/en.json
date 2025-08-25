@@ -493,6 +493,58 @@
       "button": "Book Compliance Consultation"
     }
   },
+  "footer": {
+    "privacyPolicy": "Privacy Policy",
+    "copyright": "© 2024 Crux Consulting. All rights reserved."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "introduction": {
+      "title": "Introduction",
+      "paragraph1": "We take the protection of your personal data very seriously and handle your personal data confidentially and in accordance with the statutory data protection regulations and this privacy policy.",
+      "paragraph2": "This privacy policy informs you about the type, scope and purpose of the processing of personal data within our online offering and the associated websites, functions and content."
+    },
+    "responsible": {
+      "title": "Responsible Party",
+      "paragraph1": "The responsible party for data processing on this website is:"
+    },
+    "accessData": {
+      "title": "Access Data and Server Log Files",
+      "paragraph1": "We collect information about every access to the server on which this service is located (so-called server log files). The access data includes:",
+      "items": {
+        "browserType": "Name of the retrieved web page",
+        "operatingSystem": "Browser type and browser version",
+        "referrerUrl": "Operating system used by the accessing computer",
+        "hostname": "Name of the accessing computer",
+        "requestTime": "Date and time of the server request",
+        "ipAddress": "IP address"
+      },
+      "paragraph2": "This data is used for the purpose of ensuring a smooth connection establishment of the website, ensuring comfortable use of our website, evaluating system security and stability as well as for other administrative purposes."
+    },
+    "contact": {
+      "title": "Contact",
+      "paragraph1": "When you contact us via the contact form or email, the data you provide will be stored by us for the purpose of processing your inquiry and in case of follow-up questions.",
+      "paragraph2": "We do not pass on this data without your consent."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "paragraph1": "You have the following rights regarding your personal data:",
+      "items": {
+        "dataAccess": "Right to information about your stored personal data",
+        "dataCorrection": "Right to correction of incorrect personal data",
+        "dataDeletion": "Right to deletion of your stored personal data",
+        "processingRestriction": "Right to restriction of data processing",
+        "dataPortability": "Right to data portability",
+        "processingObjection": "Right to object to data processing"
+      },
+      "paragraph2": "If you have given your consent to data processing, you can revoke this at any time. Such revocation affects the permissibility of personal data processing after you have given it to us.",
+      "paragraph3": "If you believe that the processing of your personal data violates data protection law or your data protection rights have been violated in any other way, you can file a complaint with the supervisory authority."
+    },
+    "changes": {
+      "title": "Changes to this Privacy Policy",
+      "paragraph1": "We reserve the right to change this privacy policy to always comply with current legal requirements or to implement changes to our services in the privacy policy, e.g., when introducing new services."
+    }
+  },
   "navigation": {
     "services": "Services",
     "blog": "Blog",
