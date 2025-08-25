@@ -96,6 +96,10 @@
         "ROI-Tracking und Berichterstattung"
       ]
     },
+    "detailedServices": {
+      "title": "Detaillierte Dienstleistungen",
+      "subtitle": "Entdecken Sie unser umfassendes Angebot an KI-Lösungen zur Transformation Ihrer Geschäftsprozesse"
+    },
     "learnMore": "Mehr Erfahren",
     "exploreAll": "Alle Services erkunden",
     "servicesWeOffer": "Services, die wir anbieten:",

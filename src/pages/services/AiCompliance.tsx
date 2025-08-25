@@ -137,13 +137,13 @@ const AiCompliance = () => {
               : 'opacity-0 translate-y-10'
           }`}
         >
-          {/* Placeholder for GIF - will be replaced when GIF is provided */}
-          <div className="w-full max-w-md mx-auto h-64 bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm border border-gray-600/30 rounded-xl flex items-center justify-center">
-            <div className="text-center space-y-4">
-              <Scale className="w-16 h-16 text-brand-blue mx-auto" />
-              <p className="text-gray-400">EU AI Act Compliance GIF</p>
-              <p className="text-sm text-gray-500">Will loop continuously</p>
-            </div>
+          <div className="w-full max-w-md mx-auto rounded-xl overflow-hidden shadow-lg">
+            <img 
+              src="/lovable-uploads/euaiact.gif" 
+              alt="EU AI Act Compliance visualization"
+              className="w-full h-auto"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>

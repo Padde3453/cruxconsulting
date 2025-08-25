@@ -166,10 +166,10 @@ const Services = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-              {t('detailedServices.title')}
+              {t('services.detailedServices.title')}
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              {t('detailedServices.subtitle')}
+              {t('services.detailedServices.subtitle')}
             </p>
           </div>
 

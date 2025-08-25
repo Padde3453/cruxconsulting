@@ -96,6 +96,10 @@
         "ROI tracking and reporting"
       ]
     },
+    "detailedServices": {
+      "title": "Detailed Services",
+      "subtitle": "Explore our comprehensive range of AI solutions designed to transform your business operations"
+    },
     "learnMore": "Learn More",
     "exploreAll": "Explore All Services",
     "servicesWeOffer": "Services we offer:",
