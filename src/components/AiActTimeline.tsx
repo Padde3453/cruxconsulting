@@ -29,9 +29,9 @@ const AiActTimeline = () => {
   };
 
   const getSpacingClass = (index: number) => {
-    // Spacing based on actual time differences: 6, 6, 6, 12, 12 months = 1:1:1:2:2 ratio
-    const spacings = ['mb-8', 'mb-8', 'mb-8', 'mb-16', 'mb-16'];
-    return spacings[index] || 'mb-8';
+    // Spacing based on actual time differences: 6, 6, 6, 12, 12 months = 1:1:1:2:2 ratio (doubled for better visual spacing)
+    const spacings = ['mb-16', 'mb-16', 'mb-16', 'mb-32', 'mb-32'];
+    return spacings[index] || 'mb-16';
   };
 
   const handleCardClick = (index: number) => {
@@ -74,28 +74,42 @@ const AiActTimeline = () => {
                 {/* Timeline dot */}
                 <div className="absolute left-4 w-4 h-4 bg-gradient-to-r from-brand-blue to-brand-green rounded-full border-4 border-gray-900 z-10"></div>
                 
-                {/* Date and title - always visible */}
-                <div 
-                  onClick={() => handleCardClick(index)}
-                  className="ml-16 flex items-center space-x-4 cursor-pointer hover:text-brand-blue transition-colors duration-200"
-                >
-                  <span className="text-sm font-semibold text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full whitespace-nowrap">
-                    {item.date}
-                  </span>
-                  <h3 className="text-lg font-bold text-white">
-                    {item.title}
-                  </h3>
-                  {getStatusIcon(item.status)}
-                </div>
+                {/* Collapsed state - only date visible */}
+                {expandedIndex !== index && (
+                  <div 
+                    onClick={() => handleCardClick(index)}
+                    className="ml-16 flex items-center space-x-3 cursor-pointer hover:text-brand-blue transition-colors duration-200"
+                  >
+                    <span className="text-sm font-semibold text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full whitespace-nowrap">
+                      {item.date}
+                    </span>
+                    <span className="text-lg font-bold text-white">
+                      {item.title}
+                    </span>
+                    {getStatusIcon(item.status)}
+                  </div>
+                )}
                 
                 {/* Expanded content card - only for selected item */}
                 {expandedIndex === index && (
-                  <div className="ml-16 mt-4 relative">
-                    {/* Triangle pointer */}
-                    <div className="absolute -left-6 top-4 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-gray-700/80 border-t-8 border-t-transparent border-b-8 border-b-transparent"></div>
+                  <div className="ml-16 relative">
+                    {/* Triangle pointer - positioned higher up */}
+                    <div className="absolute -left-6 top-2 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-gray-700/80 border-t-8 border-t-transparent border-b-8 border-b-transparent"></div>
                     
-                    {/* Content box */}
-                    <div className="bg-gradient-to-r from-gray-800/80 to-gray-700/60 backdrop-blur-sm rounded-lg border border-brand-blue/30 p-6 animate-fade-in">
+                    {/* Content box with date and title inside */}
+                    <div 
+                      onClick={() => handleCardClick(index)}
+                      className="bg-gradient-to-r from-gray-800/80 to-gray-700/60 backdrop-blur-sm rounded-lg border border-brand-blue/30 p-6 animate-fade-in cursor-pointer"
+                    >
+                      <div className="flex items-center space-x-4 mb-4">
+                        <span className="text-sm font-semibold text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full whitespace-nowrap">
+                          {item.date}
+                        </span>
+                        <h3 className="text-xl font-bold text-white">
+                          {item.title}
+                        </h3>
+                        {getStatusIcon(item.status)}
+                      </div>
                       <p className="text-gray-300 leading-relaxed">
                         {item.body}
                       </p>
