@@ -28,14 +28,15 @@ const AiActTimeline = () => {
     }
   };
 
-  const getSpacingClass = (index: number) => {
+  const getSpacingValue = (index: number) => {
     // Timeline spacing: Feb24->Aug24 (6mo, 32u), Aug24->Feb25 (6mo, 32u), Feb25->Aug25 (6mo, 32u), Aug25->Aug26 (12mo, 64u), Aug26->Aug27 (12mo, 64u)
     const timeGaps = [6, 6, 6, 12, 12]; // months between each milestone
-    
-    if (index >= timeGaps.length) return 'mb-32';
-    
-    // Direct mapping: 6 months = 32 units (mb-32), 12 months = 64 units (mb-64)
-    return timeGaps[index] === 6 ? 'mb-32' : 'mb-64';
+
+    // No extra spacing after the last item
+    if (index >= timeGaps.length) return 0;
+
+    // Direct mapping: 6 months = 128px (8rem), 12 months = 256px (16rem)
+    return timeGaps[index] === 6 ? 128 : 256;
   };
 
   const handleCardClick = (index: number) => {
@@ -66,17 +67,18 @@ const AiActTimeline = () => {
             {timelineItems.map((item, index) => (
               <div 
                 key={index} 
-                className={`relative ${getSpacingClass(index)} ${
+                className={`relative ${
                   timelineAnimation.isVisible 
                     ? 'opacity-100 translate-x-0' 
                     : 'opacity-0 translate-x-10'
                 }`}
                 style={{ 
+                  marginBottom: getSpacingValue(index),
                   transitionDelay: timelineAnimation.isVisible ? `${index * 200}ms` : '0ms' 
                 }}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-4 w-4 h-4 bg-gradient-to-r from-brand-blue to-brand-green rounded-full border-4 border-gray-900 z-10"></div>
+                <div className="absolute top-0 left-4 w-4 h-4 bg-gradient-to-r from-brand-blue to-brand-green rounded-full border-4 border-gray-900 z-10"></div>
                 
                 {/* Collapsed state - only date visible */}
                 {expandedIndex !== index && (
