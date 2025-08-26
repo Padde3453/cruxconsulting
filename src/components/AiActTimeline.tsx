@@ -35,8 +35,8 @@ const AiActTimeline = () => {
     // No extra spacing after the last item
     if (index >= timeGaps.length) return 0;
 
-    // Direct mapping: 6 months = 128px (8rem), 12 months = 256px (16rem)
-    return timeGaps[index] === 6 ? 128 : 256;
+    // Direct mapping: 6 months = 64px (4rem), 12 months = 128px (8rem)
+    return timeGaps[index] === 6 ? 64 : 128;
   };
 
   const handleCardClick = (index: number) => {
