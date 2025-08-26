@@ -431,19 +431,23 @@
       "title": "KI-Gesetz risikobasierter Ansatz für KI-Systeme",
       "prohibited": {
         "title": "Verboten",
-        "description": "KI-Systeme mit unannehmbaren Risiken sind verboten"
+        "description": "KI-Systeme mit unannehmbaren Risiken sind verboten",
+        "details": "Social Scoring, Gesichtserkennung, Dark-Pattern-KI, Manipulation"
       },
       "highRisk": {
         "title": "Hohes Risiko",
-        "description": "Strenge Anforderungen für Konformitätsbewertungen und Dokumentation"
+        "description": "Strenge Anforderungen für Konformitätsbewertungen und Dokumentation",
+        "details": "Sicherheitskomponenten in kritischer Infrastruktur, Beschäftigung & Leistung am Arbeitsplatz, Zugang zu Bildung, Zugang zu öffentlichen Dienstleistungen, Verwendung in Versicherungen, Kreditbewertung, Grenzkontrolle, Justizsysteme"
       },
-      "transparency": {
-        "title": "Transparenzrisiken",
-        "description": "Begrenzte Verpflichtungen für Transparenz und Benutzerinformation"
+      "limited": {
+        "title": "Begrenztes Risiko",
+        "description": "Begrenzte Verpflichtungen für Transparenz und Benutzerinformation",
+        "details": "Allzweck-KI und KI-Systeme mit spezifischen Transparenzanforderungen wie Chatbots, Emotionserkennungssysteme"
       },
       "minimal": {
         "title": "Minimales bis kein Risiko",
-        "description": "Keine spezifischen Verpflichtungen unter dem KI-Gesetz"
+        "description": "Keine spezifischen Verpflichtungen unter dem KI-Gesetz",
+        "details": "KI-unterstützte Videospiele, Spam-Filter"
       }
     },
     "timeline": {

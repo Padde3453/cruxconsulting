@@ -431,19 +431,23 @@
       "title": "AI Act Risk-Based Approach for AI Systems",
       "prohibited": {
         "title": "Prohibited",
-        "description": "AI systems that pose unacceptable risks are banned"
+        "description": "AI systems that pose unacceptable risks are banned",
+        "details": "Social scoring, facial recognition, dark pattern AI, manipulation"
       },
       "highRisk": {
         "title": "High-risk",
-        "description": "Strict requirements for conformity assessments and documentation"
+        "description": "Strict requirements for conformity assessments and documentation",
+        "details": "Safety components in critical infrastructure, employment & performance in work, access to education, access to public services, use in insurance, credit scoring, border control, justice systems"
       },
-      "transparency": {
-        "title": "Transparency risks",
-        "description": "Limited obligations for transparency and information to users"
+      "limited": {
+        "title": "Limited risk",
+        "description": "Limited obligations for transparency and information to users",
+        "details": "General purpose AI and AI systems with specific transparency requirements such as chatbots, emotion recognition systems"
       },
       "minimal": {
         "title": "Minimal to no risk",
-        "description": "No specific obligations under the AI Act"
+        "description": "No specific obligations under the AI Act",
+        "details": "AI-enabled video games, spam filters"
       }
     },
     "timeline": {

@@ -68,28 +68,28 @@ const AiCompliance = () => {
       title: t('aiCompliance.riskLevels.prohibited.title'),
       description: t('aiCompliance.riskLevels.prohibited.description'),
       color: 'from-red-600 to-red-800',
-      details: "Social scoring, facial recognition, dark pattern AI, manipulation"
+      details: t('aiCompliance.riskLevels.prohibited.details')
     },
     {
       number: "2", 
       title: t('aiCompliance.riskLevels.highRisk.title'),
       description: t('aiCompliance.riskLevels.highRisk.description'),
       color: 'from-orange-500 to-red-600',
-      details: "Safety components in critical infrastructure, employment & performance in work, access to education, access to public services, use in insurance, credit scoring, border control, justice systems"
+      details: t('aiCompliance.riskLevels.highRisk.details')
     },
     {
       number: "3",
-      title: t('aiCompliance.riskLevels.transparency.title'),
-      description: t('aiCompliance.riskLevels.transparency.description'),
+      title: t('aiCompliance.riskLevels.limited.title'),
+      description: t('aiCompliance.riskLevels.limited.description'),
       color: 'from-yellow-500 to-orange-500',
-      details: "General purpose AI and AI systems with specific transparency requirements such as chatbots, emotion recognition systems"
+      details: t('aiCompliance.riskLevels.limited.details')
     },
     {
       number: "4",
       title: t('aiCompliance.riskLevels.minimal.title'),
       description: t('aiCompliance.riskLevels.minimal.description'),
       color: 'from-green-500 to-yellow-500',
-      details: "AI-enabled video games, spam filters"
+      details: t('aiCompliance.riskLevels.minimal.details')
     }
   ];
 
