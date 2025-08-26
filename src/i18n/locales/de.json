@@ -403,25 +403,25 @@
       "subtitle": "Praxisnahe Automatisierungen und ihre Wirkung",
       "cases": [
         {
-          "title": "Marketing-Agentur Automatisierung",
-          "timeSaved": "75% Zeitersparnis",
-          "investment": "6.000 € einmalig",
-          "roi": "4,5x in 6 Monaten",
-          "description": "Automatisiertes Kunden-Onboarding, Kampagnen-Reporting und Rechnungsstellung, verbesserte Kundenzufriedenheit um 40%."
+          "title": "Globale Ausschreibungsplattform KI-Sortierung",
+          "timeSaved": "1,5 Stunden pro Tag",
+          "investment": "3.500 €",
+          "roi": "600% ROI im Jahr (aufgrund besonderer Effekte)",
+          "description": "Ein Industriekunde nutzt eine öffentliche Ausschreibungsplattform, um globale Ausschreibungen zu finden. Die Plattformfilter sind nicht zufriedenstellend und Ausschreibungen werden in allen Weltsprachen erwähnt. Wir ziehen diese Daten und die KI sortiert alle Ausschreibungen vor und gibt sie sortiert und übersetzt aus, was dem Team täglich 1,5 Stunden spart."
         },
         {
-          "title": "E‑Commerce Bestellabwicklung",
-          "timeSaved": "500+ Bestellungen/Tag automatisiert",
-          "investment": "8.500 € einmalig",
-          "roi": "3,2x in 4 Monaten",
-          "description": "End-to-End Bestell-zu-Erfüllung Automatisierung inkl. Lager, Versandkoordination und Kundenkommunikation."
+          "title": "Steuerberatung Kunden-Onboarding",
+          "timeSaved": "2 Stunden pro Tag",
+          "investment": "4.500 €",
+          "roi": "geschätzt 330%",
+          "description": "Eine große Steuerberatung automatisierte das Kunden-Onboarding und optimierte die repetitive Bearbeitung, während sie sich mehr auf den Kunden als Person konzentrierte. Jetzt sind Dokumentenaustausch und Onboarding automatisiert und eine bessere Erfahrung für Steuerberater und Kunde."
         },
         {
-          "title": "HR-Prozessoptimierung",
-          "timeSaved": "60% schnelleres Hiring",
-          "investment": "4.000 € einmalig",
-          "roi": "2,8x in 3 Monaten",
-          "description": "Verschlankter Prozess vom Screening bis zum Onboarding, deutlich bessere Kandidatenerfahrung."
+          "title": "Deutschlandweite Outreach-Kampagne",
+          "timeSaved": "Ca. 50 Stunden insgesamt",
+          "investment": "1.500 €",
+          "roi": "400%",
+          "description": "Ein Kunde plante eine deutschlandweite Outreach-Kampagne, um neue Kunden mit personalisierter Ansprache zu gewinnen. Die KI übernahm alle Recherchen, organisierte und reicherte Daten an und schrieb eine individuelle Begrüßung. Der Kunde gewann den ersten Kunden innerhalb von 15 Minuten nach Start der Automatisierung."
         }
       ]
     },

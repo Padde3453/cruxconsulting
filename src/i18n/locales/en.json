@@ -403,25 +403,25 @@
       "subtitle": "Real-world automations and their impact",
       "cases": [
         {
-          "title": "Marketing Agency Automation",
-          "timeSaved": "75% time saved",
-          "investment": "€6,000 one-time",
-          "roi": "4.5x in 6 months",
-          "description": "Automated client onboarding, campaign reporting, and invoice generation, improving client satisfaction by 40%."
+          "title": "Global Tender Platform AI Sorting",
+          "timeSaved": "1.5 hours per day",
+          "investment": "€3,500",
+          "roi": "600% ROI on the year (due to special effects)",
+          "description": "An industrial client uses a public tender platform to find global tenders. The platform filters are not satisfactory and tenders are mentioned in all of worlds languages. We pull this data and AI pre-sorts all tenders and outputs them sorted and all translated saving the team 1.5 hours each day."
         },
         {
-          "title": "E-commerce Order Processing",
-          "timeSaved": "500+ orders/day automated",
-          "investment": "€8,500 one-time",
-          "roi": "3.2x in 4 months",
-          "description": "End-to-end order-to-fulfillment automation including inventory management, shipping coordination, and customer updates."
+          "title": "Tax Consultancy Client Onboarding",
+          "timeSaved": "2 hours per day",
+          "investment": "€4,500",
+          "roi": "estimated at 330%",
+          "description": "A large tax consultancy automated the client onboarding, streamlining the repetitive processing while focusing more on the client as a person. Now document sharing and onboarding is automated and a better experience for tax consultant and client."
         },
         {
-          "title": "HR Process Optimization",
-          "timeSaved": "60% faster hiring",
-          "investment": "€4,000 one-time",
-          "roi": "2.8x in 3 months",
-          "description": "Streamlined hiring from application screening to onboarding, significantly improving candidate experience."
+          "title": "German-wide Outreach Campaign",
+          "timeSaved": "Ca. 50 hours in total",
+          "investment": "€1,500",
+          "roi": "400%",
+          "description": "A client planned a German wide outreach campaign to win new clients with customized massaging. AI did all research and organized and enriched data and wrote a custom salutation. The client made the first client within 15 minutes of starting the automation."
         }
       ]
     },
