@@ -29,24 +29,13 @@ const AiActTimeline = () => {
   };
 
   const getSpacingClass = (index: number) => {
-    // Calculate spacing based on actual time differences between milestones
-    // Timeline: Feb 2024 -> Aug 2024 (6mo) -> Feb 2025 (6mo) -> Aug 2025 (6mo) -> Aug 2026 (12mo) -> Aug 2027 (12mo)
-    // Time differences in months: [6, 6, 6, 12, 12]
-    // Convert to relative spacing units (base unit = 6 months)
+    // Timeline spacing: Feb24->Aug24 (6mo, 32u), Aug24->Feb25 (6mo, 32u), Feb25->Aug25 (6mo, 32u), Aug25->Aug26 (12mo, 64u), Aug26->Aug27 (12mo, 64u)
     const timeGaps = [6, 6, 6, 12, 12]; // months between each milestone
-    const baseSpacing = 8; // Base Tailwind spacing unit (32px)
     
     if (index >= timeGaps.length) return 'mb-32';
     
-    // Calculate proportional spacing: (timeGap / 6) * baseSpacing * 4 for better visual separation
-    const multiplier = (timeGaps[index] / 6) * baseSpacing;
-    const spacingValue = multiplier * 4; // Increase overall spacing for better visibility
-    
-    // Map to closest Tailwind spacing classes
-    if (spacingValue <= 32) return 'mb-32';
-    else if (spacingValue <= 48) return 'mb-48';
-    else if (spacingValue <= 64) return 'mb-64';
-    else return 'mb-80';
+    // Direct mapping: 6 months = 32 units (mb-32), 12 months = 64 units (mb-64)
+    return timeGaps[index] === 6 ? 'mb-32' : 'mb-64';
   };
 
   const handleCardClick = (index: number) => {
