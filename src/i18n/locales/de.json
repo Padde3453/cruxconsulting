@@ -653,18 +653,25 @@
     }
   },
   "process": {
+    "title": "Unser Prozess",
+    "subtitle": "Wie wir Ihr Unternehmen mit KI-gestützten Lösungen transformieren",
     "listen": {
-      "title": "Zuhören & Verstehen"
+      "title": "Zuhören & Verstehen",
+      "description": "Wir beginnen damit, Ihre Geschäftsherausforderungen, aktuellen Prozesse und spezifischen Ziele tiefgreifend zu verstehen, um die besten KI-Möglichkeiten zu identifizieren."
     },
     "analyze": {
-      "title": "Analysieren & Gestalten"
+      "title": "Analysieren & Gestalten",
+      "description": "Unsere Experten analysieren Ihre Arbeitsabläufe und gestalten maßgeschneiderte KI-Lösungen, die sich nahtlos in Ihre bestehenden Systeme integrieren."
     },
     "implement": {
-      "title": "Entwickeln & Bereitstellen"
+      "title": "Entwickeln & Bereitstellen",
+      "description": "Wir entwickeln und implementieren maßgeschneiderte KI-Lösungen mit modernster Technologie und gewährleisten eine reibungslose Bereitstellung und Integration."
     },
     "transform": {
-      "title": "Transformieren & Skalieren"
-    }
+      "title": "Transformieren & Skalieren",
+      "description": "Erleben Sie, wie sich Ihr Unternehmen transformiert, während KI-Automatisierung Zeit freigibt, Fehler reduziert und Ihr Team sich auf strategisches Wachstum konzentrieren kann."
+    },
+    "beginJourney": "Beginnen Sie Ihre KI-Reise"
   },
   "navigation": {
     "services": "Leistungen",

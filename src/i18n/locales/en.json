@@ -653,18 +653,25 @@
     }
   },
   "process": {
+    "title": "Our Process",
+    "subtitle": "How we transform your business with AI-powered solutions",
     "listen": {
-      "title": "Listen & Understand"
+      "title": "Listen & Understand",
+      "description": "We start by deeply understanding your business challenges, current processes, and specific goals to identify the best AI opportunities."
     },
     "analyze": {
-      "title": "Analyze & Design"
+      "title": "Analyze & Design",
+      "description": "Our experts analyze your workflows and design tailored AI solutions that integrate seamlessly with your existing systems."
     },
     "implement": {
-      "title": "Develop & Deploy"
+      "title": "Develop & Deploy",
+      "description": "We develop and implement custom AI solutions using cutting-edge technology, ensuring smooth deployment and integration."
     },
     "transform": {
-      "title": "Transform & Scale"
-    }
+      "title": "Transform & Scale",
+      "description": "Watch your business transform as AI automation frees up time, reduces errors, and enables your team to focus on strategic growth."
+    },
+    "beginJourney": "Begin Your AI Journey"
   },
   "navigation": {
     "services": "Services",

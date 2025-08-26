@@ -10,10 +10,16 @@ const ProcessSection = () => {
   const { t } = useTranslation();
 
   const handleBooking = () => {
-    toast({
-      title: "Booking Request",
-      description: "We'll contact you within 24 hours to schedule your consultation.",
-    });
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Fallback toast if contact section not found
+      toast({
+        title: "Booking Request",
+        description: "We'll contact you within 24 hours to schedule your consultation.",
+      });
+    }
   };
 
   const steps = [
