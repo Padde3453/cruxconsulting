@@ -602,6 +602,56 @@
       "paragraph3": "Wir verwenden keine Cookies für Marketing-, Analyse- oder Tracking-Zwecke, die Ihre Zustimmung gemäß DSGVO-Bestimmungen erfordern würden."
     }
   },
+  "about": {
+    "title": "Über Crux Consulting",
+    "whyCrux": {
+      "title": "Warum CRUX Consulting?",
+      "description": "In der heutigen sich schnell entwickelnden digitalen Landschaft brauchen Unternehmen mehr als nur Technologie – sie brauchen strategische Partner, die sowohl das Potenzial als auch die Herausforderungen der KI-Implementierung verstehen. Bei Crux Consulting schlagen wir die Brücke zwischen modernsten KI-Fähigkeiten und praktischen Geschäftslösungen. Wir liefern nicht nur Technologie; wir transformieren, wie Sie arbeiten, denken und in der KI-gesteuerten Zukunft konkurrieren."
+    },
+    "whoWeAre": {
+      "title": "Wer Wir Sind"
+    },
+    "patrick": {
+      "title": "Patrick Reverchon",
+      "subtitle": "Gründer & Geschäftsführer",
+      "quote": "Ich glaube, dass KI Menschen stärken und nicht ersetzen sollte. Meine Mission ist es, Unternehmen dabei zu helfen, das Potenzial der KI zu nutzen, während menschliche Kreativität und Entscheidungsfindung im Mittelpunkt all dessen stehen, was wir tun.",
+      "linkedIn": "Auf LinkedIn vernetzen",
+      "location": "München, Deutschland"
+    },
+    "team": {
+      "title": "Unser Team & Wachstum",
+      "description": "Crux Consulting basiert auf einer Grundlage tiefer technischer Expertise kombiniert mit echter Geschäftserfahrung. Unser Team besteht aus KI-Spezialisten, Unternehmensberatern und Branchenexperten, die erfolgreich KI-Lösungen in verschiedenen Sektoren implementiert haben.",
+      "ctoSearch": "Wir suchen derzeit einen Chief Technology Officer!",
+      "ctoDescription": "Sind Sie leidenschaftlich für KI und bereit, die Zukunft der Geschäftsautomatisierung mitzugestalten? Wir suchen einen visionären CTO, der unsere technische Strategie leitet und uns hilft, unsere Wirkung zu skalieren. Wenn Sie daran interessiert sind, sich unserer Mission anzuschließen, würden wir gerne von Ihnen hören."
+    },
+    "howWeWork": {
+      "title": "Wie Wir Arbeiten",
+      "tailoredFirst": {
+        "title": "Maßgeschneidert Zuerst",
+        "description": "Jede Lösung, die wir entwickeln, ist speziell für Ihren einzigartigen Geschäftskontext, Ihre Herausforderungen und Ziele konzipiert."
+      },
+      "fastButThoughtful": {
+        "title": "Schnell aber Durchdacht",
+        "description": "Wir bewegen uns schnell, um Ergebnisse zu liefern, während wir sicherstellen, dass jede Entscheidung strategisch fundiert und nachhaltig ist."
+      },
+      "aiNativeBusinessLed": {
+        "title": "KI-Nativ, Geschäftsgeführt",
+        "description": "Wir kombinieren modernste KI-Technologie mit tiefer Geschäftskompetenz, um Lösungen zu schaffen, die wirklich etwas bewegen."
+      },
+      "privacyCompliance": {
+        "title": "Datenschutz & Compliance Zuerst",
+        "description": "Alle unsere Lösungen werden mit DSGVO-Konformität und Datenschutz als grundlegende Prinzipien entwickelt, nicht als Nachgedanken."
+      }
+    },
+    "joinUs": {
+      "title": "Möchten Sie Uns Beitreten?",
+      "description": "Wir sind immer auf der Suche nach talentierten Personen, die unsere Leidenschaft für KI und Geschäftstransformation teilen. Ob Sie Entwickler, Berater oder Geschäftsstratege sind, wenn Sie sich für die Schnittstelle von KI und Geschäftswert begeistern, würden wir gerne von Ihnen hören.",
+      "encouragement": "Wir glauben daran, ein kollaboratives Umfeld zu fördern, in dem Innovation gedeiht und jedes Teammitglied einen bedeutungsvollen Einfluss haben kann. Helfen Sie uns dabei, die Zukunft KI-gestützter Geschäftslösungen zu gestalten.",
+      "developerQuestion": "Sind Sie ein Entwickler, der es liebt, komplexe Probleme zu lösen?",
+      "developerDescription": "Wir sind besonders daran interessiert, uns mit talentierten Entwicklern zu vernetzen, die leidenschaftlich für KI, Automatisierung und die Schaffung von Lösungen sind, die einen echten Unterschied für Unternehmen machen.",
+      "sendApplication": "Ihre Bewerbung Senden"
+    }
+  },
   "process": {
     "listen": {
       "title": "Zuhören & Verstehen"

@@ -602,6 +602,56 @@
       "paragraph3": "We do not use cookies for marketing, analytics, or tracking purposes that would require your consent under GDPR regulations."
     }
   },
+  "about": {
+    "title": "About Crux Consulting",
+    "whyCrux": {
+      "title": "Why CRUX Consulting?",
+      "description": "In today's rapidly evolving digital landscape, businesses need more than just technology – they need strategic partners who understand both the potential and the challenges of AI implementation. At Crux Consulting, we bridge the gap between cutting-edge AI capabilities and practical business solutions. We don't just deliver technology; we transform how you work, think, and compete in the AI-powered future."
+    },
+    "whoWeAre": {
+      "title": "Who We Are"
+    },
+    "patrick": {
+      "title": "Patrick Reverchon",
+      "subtitle": "Founder & CEO",
+      "quote": "I believe that AI should empower people, not replace them. My mission is to help businesses harness AI's potential while keeping human creativity and decision-making at the center of everything we do.",
+      "linkedIn": "Connect on LinkedIn",
+      "location": "Munich, Germany"
+    },
+    "team": {
+      "title": "Our Team & Growth",
+      "description": "Crux Consulting is built on a foundation of deep technical expertise combined with real-world business experience. Our team consists of AI specialists, business consultants, and industry experts who have successfully implemented AI solutions across various sectors.",
+      "ctoSearch": "We're currently seeking a Chief Technology Officer!",
+      "ctoDescription": "Are you passionate about AI and ready to help shape the future of business automation? We're looking for a visionary CTO to lead our technical strategy and help us scale our impact. If you're interested in joining our mission, we'd love to hear from you."
+    },
+    "howWeWork": {
+      "title": "How We Work",
+      "tailoredFirst": {
+        "title": "Tailored First",
+        "description": "Every solution we create is specifically designed for your unique business context, challenges, and goals."
+      },
+      "fastButThoughtful": {
+        "title": "Fast but Thoughtful",
+        "description": "We move quickly to deliver results while ensuring every decision is strategically sound and sustainable."
+      },
+      "aiNativeBusinessLed": {
+        "title": "AI-Native, Business-Led",
+        "description": "We combine cutting-edge AI technology with deep business acumen to create solutions that truly move the needle."
+      },
+      "privacyCompliance": {
+        "title": "Privacy & Compliance First",
+        "description": "All our solutions are built with GDPR compliance and data privacy as foundational principles, not afterthoughts."
+      }
+    },
+    "joinUs": {
+      "title": "Want to Join Us?",
+      "description": "We're always looking for talented individuals who share our passion for AI and business transformation. Whether you're a developer, consultant, or business strategist, if you're excited about the intersection of AI and business value, we'd love to hear from you.",
+      "encouragement": "We believe in fostering a collaborative environment where innovation thrives and every team member can make a meaningful impact. Join us in shaping the future of AI-powered business solutions.",
+      "developerQuestion": "Are you a developer who loves solving complex problems?",
+      "developerDescription": "We're especially interested in connecting with talented developers who are passionate about AI, automation, and creating solutions that make a real difference for businesses.",
+      "sendApplication": "Send Your Application"
+    }
+  },
   "process": {
     "listen": {
       "title": "Listen & Understand"
