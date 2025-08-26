@@ -389,27 +389,43 @@
         }
       ]
     },
-    "examples": [
-      {
-        "title": "Marketing-Agentur Automatisierung",
-        "description": "Automatisiertes Kunden-Onboarding, Kampagnen-Reporting und Rechnungsstellung, reduzierte manuelle Arbeit um 75% und verbesserte Kundenzufriedenheit um 40%.",
-        "results": "75% weniger manuelle Arbeit, 40% bessere Kundenzufriedenheit"
-      },
-      {
-        "title": "E-Commerce Bestellabwicklung",
-        "description": "Vollständige Bestellung-zu-Erfüllung Automatisierung inklusive Lagerverwaltung, Versandkoordination und Kundenkommunikation, verarbeitet 500+ Bestellungen täglich.",
-        "results": "500+ Bestellungen täglich automatisch verarbeitet"
-      },
-      {
-        "title": "HR-Prozess Optimierung",
-        "description": "Optimierter Einstellungsprozess von Bewerbungsscreening bis Onboarding, reduzierte Zeit bis zur Einstellung um 60% und verbesserte Kandidatenerfahrung erheblich.",
-        "results": "60% schnellerer Einstellungsprozess"
-      }
-    ],
+    "labels": {
+      "timeSaved": "Zeitersparnis",
+      "investment": "Investition",
+      "roi": "ROI"
+    },
+    "examples": {
+      "title": "Automatisierungsbeispiele",
+      "subtitle": "Praxisnahe Automatisierungen und ihre Wirkung",
+      "cases": [
+        {
+          "title": "Marketing-Agentur Automatisierung",
+          "timeSaved": "75% Zeitersparnis",
+          "investment": "6.000 € einmalig",
+          "roi": "4,5x in 6 Monaten",
+          "description": "Automatisiertes Kunden-Onboarding, Kampagnen-Reporting und Rechnungsstellung, verbesserte Kundenzufriedenheit um 40%."
+        },
+        {
+          "title": "E‑Commerce Bestellabwicklung",
+          "timeSaved": "500+ Bestellungen/Tag automatisiert",
+          "investment": "8.500 € einmalig",
+          "roi": "3,2x in 4 Monaten",
+          "description": "End-to-End Bestell-zu-Erfüllung Automatisierung inkl. Lager, Versandkoordination und Kundenkommunikation."
+        },
+        {
+          "title": "HR-Prozessoptimierung",
+          "timeSaved": "60% schnelleres Hiring",
+          "investment": "4.000 € einmalig",
+          "roi": "2,8x in 3 Monaten",
+          "description": "Verschlankter Prozess vom Screening bis zum Onboarding, deutlich bessere Kandidatenerfahrung."
+        }
+      ]
+    },
     "cta": {
       "title": "Bereit, Ihre Geschäftsprozesse zu transformieren?",
       "description": "Lassen Sie uns besprechen, wie individuelle Automatisierung Ihre spezifischen Arbeitsabläufe revolutionieren und Ihre Produktivität steigern kann.",
-      "button": "Beratung für individuelle Automatisierung buchen"
+      "button": "Beratung für individuelle Automatisierung buchen",
+      "buttonText": "Beratung für individuelle Automatisierung buchen"
     }
   },
   "aiCompliance": {

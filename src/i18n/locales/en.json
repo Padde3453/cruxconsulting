@@ -389,27 +389,43 @@
         }
       ]
     },
-    "examples": [
-      {
-        "title": "Marketing Agency Automation",
-        "description": "Automated client onboarding, campaign reporting, and invoice generation, reducing manual work by 75% and improving client satisfaction scores by 40%.",
-        "results": "75% less manual work, 40% better client satisfaction"
-      },
-      {
-        "title": "E-commerce Order Processing",
-        "description": "Complete order-to-fulfillment automation including inventory management, shipping coordination, and customer communication, processing 500+ orders daily.",
-        "results": "500+ orders processed daily automatically"
-      },
-      {
-        "title": "HR Process Optimization",
-        "description": "Streamlined hiring process from application screening to onboarding, reducing time-to-hire by 60% and improving candidate experience significantly.",
-        "results": "60% faster hiring process"
-      }
-    ],
+    "labels": {
+      "timeSaved": "Time saved",
+      "investment": "Investment",
+      "roi": "ROI"
+    },
+    "examples": {
+      "title": "Automation Examples",
+      "subtitle": "Real-world automations and their impact",
+      "cases": [
+        {
+          "title": "Marketing Agency Automation",
+          "timeSaved": "75% time saved",
+          "investment": "€6,000 one-time",
+          "roi": "4.5x in 6 months",
+          "description": "Automated client onboarding, campaign reporting, and invoice generation, improving client satisfaction by 40%."
+        },
+        {
+          "title": "E-commerce Order Processing",
+          "timeSaved": "500+ orders/day automated",
+          "investment": "€8,500 one-time",
+          "roi": "3.2x in 4 months",
+          "description": "End-to-end order-to-fulfillment automation including inventory management, shipping coordination, and customer updates."
+        },
+        {
+          "title": "HR Process Optimization",
+          "timeSaved": "60% faster hiring",
+          "investment": "€4,000 one-time",
+          "roi": "2.8x in 3 months",
+          "description": "Streamlined hiring from application screening to onboarding, significantly improving candidate experience."
+        }
+      ]
+    },
     "cta": {
       "title": "Ready to Transform Your Business Processes?",
       "description": "Let's discuss how custom automation can revolutionize your specific workflows and boost your productivity.",
-      "button": "Schedule Custom Automation Consultation"
+      "button": "Schedule Custom Automation Consultation",
+      "buttonText": "Schedule Custom Automation Consultation"
     }
   },
   "aiCompliance": {
