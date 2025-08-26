@@ -372,20 +372,24 @@
       "subtitle": "Maßgeschneiderte Automatisierungslösungen, die Ihre einzigartigen Geschäftsprozesse und Arbeitsabläufe transformieren.",
       "description": "Custom Automation Solutions sind unsere Antwort auf die individuellen Bedürfnisse Ihres Unternehmens. Während standardisierte Lösungen oft nicht perfekt passen, entwickeln wir maßgeschneiderte Automatisierungen, die Ihre spezifischen Prozesse optimieren und Ihre Effizienz drastisch steigern."
     },
+    "intro": {
+      "text": "Während Standard-Lösungen selten perfekt passen, entwickeln wir maßgeschneiderte Automatisierungen, die Ihre spezifischen Prozesse optimieren und Ihre Effizienz drastisch steigern. Von einfacher Aufgaben-Automatisierung bis zu komplexer Workflow-Orchestrierung erstellen wir Lösungen, die mit Ihrem Unternehmen mitwachsen."
+    },
     "process": {
       "title": "Unser individueller Automatisierungsprozess",
+      "subtitle": "Ein systematischer Ansatz zur Transformation Ihrer Geschäftsabläufe durch intelligente Automatisierung",
       "steps": [
         {
-          "title": "Tiefgreifende Analyse",
-          "description": "Wir analysieren Ihre aktuellen Prozesse, um Automatisierungsmöglichkeiten zu identifizieren und die perfekte Lösung für Ihre Bedürfnisse zu entwickeln."
+          "description": "Wir hören sorgfältig zu, verstehen Ihre aktuellen Arbeitsabläufe und identifizieren Schmerzpunkte, die Ihre Geschäftstätigkeiten verlangsamen."
         },
         {
-          "title": "Individuelle Entwicklung",
-          "description": "Unsere Experten entwickeln maßgeschneiderte Automatisierungslösungen mit modernsten Technologien, die sich nahtlos in Ihre bestehenden Systeme integrieren."
+          "description": "Unsere Experten führen eine gründliche Analyse Ihrer Prozesse durch, kartieren Ineffizienzen und entwickeln die optimale Automatisierungsstrategie für Ihre Bedürfnisse."
         },
         {
-          "title": "Implementierung & Schulung",
-          "description": "Wir implementieren die Lösung in Ihrer Umgebung und schulen Ihr Team, um maximale Akzeptanz und Effizienz sicherzustellen."
+          "description": "Wir entwickeln und implementieren maßgeschneiderte Automatisierungslösungen mit modernsten Technologien, die sich nahtlos in Ihre bestehenden Systeme integrieren."
+        },
+        {
+          "description": "Erleben Sie, wie sich Ihr Unternehmen transformiert, während automatisierte Prozesse wertvolle Zeit freisetzen, Fehler reduzieren und Ihr Team sich auf strategische Aktivitäten konzentrieren kann."
         }
       ]
     },
@@ -596,6 +600,20 @@
       "paragraph1": "Unsere Website verwendet nur unbedingt erforderliche Cookies, die für den technischen Betrieb der Website wesentlich sind. Diese Cookies sind für die grundlegende Website-Funktionalität erforderlich und benötigen nicht Ihre Zustimmung.",
       "paragraph2": "Wir verwenden ein funktionales Cookie zur Speicherung von Sidebar-Einstellungen, das nach 7 Tagen abläuft. Dieses Cookie wird als unbedingt erforderlich für die Bereitstellung des von Ihnen angeforderten Dienstes betrachtet.",
       "paragraph3": "Wir verwenden keine Cookies für Marketing-, Analyse- oder Tracking-Zwecke, die Ihre Zustimmung gemäß DSGVO-Bestimmungen erfordern würden."
+    }
+  },
+  "process": {
+    "listen": {
+      "title": "Zuhören & Verstehen"
+    },
+    "analyze": {
+      "title": "Analysieren & Gestalten"
+    },
+    "implement": {
+      "title": "Entwickeln & Bereitstellen"
+    },
+    "transform": {
+      "title": "Transformieren & Skalieren"
     }
   },
   "navigation": {

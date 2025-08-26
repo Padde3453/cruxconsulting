@@ -372,20 +372,24 @@
       "subtitle": "Tailored automation solutions that transform your unique business processes and workflows.",
       "description": "Custom Automation Solutions sind unsere Antwort auf die individuellen Bedürfnisse Ihres Unternehmens. Während standardisierte Lösungen oft nicht perfekt passen, entwickeln wir maßgeschneiderte Automatisierungen, die Ihre spezifischen Prozesse optimieren und Ihre Effizienz drastisch steigern."
     },
+    "intro": {
+      "text": "While off-the-shelf solutions rarely fit perfectly, we develop custom automations that optimize your specific processes and dramatically increase your efficiency. From simple task automation to complex workflow orchestration, we create solutions that scale with your business."
+    },
     "process": {
       "title": "Our Custom Automation Process",
+      "subtitle": "A systematic approach to transforming your business operations through intelligent automation",
       "steps": [
         {
-          "title": "Deep Analysis",
-          "description": "We analyze your current processes to identify automation opportunities and design the perfect solution for your needs."
+          "description": "We carefully listen to your challenges, understand your current workflows, and identify pain points that are slowing down your business operations."
         },
         {
-          "title": "Custom Development",
-          "description": "Our experts develop tailored automation solutions using the latest technologies that integrate seamlessly with your existing systems."
+          "description": "Our experts conduct a thorough analysis of your processes, mapping inefficiencies and designing the optimal automation strategy tailored to your needs."
         },
         {
-          "title": "Implementation & Training",
-          "description": "We implement the solution in your environment and train your team to ensure maximum adoption and efficiency."
+          "description": "We develop and deploy custom automation solutions using cutting-edge technologies, ensuring seamless integration with your existing systems and tools."
+        },
+        {
+          "description": "Watch your business transform as automated processes free up valuable time, reduce errors, and enable your team to focus on high-value strategic activities."
         }
       ]
     },
@@ -596,6 +600,20 @@
       "paragraph1": "Our website uses only strictly necessary cookies that are essential for the technical operation of the website. These cookies are required for basic website functionality and do not require your consent.",
       "paragraph2": "We use one functional cookie for storing sidebar preferences, which expires after 7 days. This cookie is considered strictly necessary for providing the service you requested.",
       "paragraph3": "We do not use cookies for marketing, analytics, or tracking purposes that would require your consent under GDPR regulations."
+    }
+  },
+  "process": {
+    "listen": {
+      "title": "Listen & Understand"
+    },
+    "analyze": {
+      "title": "Analyze & Design"
+    },
+    "implement": {
+      "title": "Develop & Deploy"
+    },
+    "transform": {
+      "title": "Transform & Scale"
     }
   },
   "navigation": {
