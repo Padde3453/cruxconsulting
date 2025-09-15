@@ -1,28 +1,22 @@
-# Stage 1: Build the application
-FROM node:20-slim AS build
-LABEL authors="erik"
+# Use the official Bun image as a base
+FROM oven/bun:1 AS base
+WORKDIR /usr/src/app
 
-# Install Bun
-RUN apt-get update && apt-get install -y curl unzip
-RUN curl -fsSL https://bun.sh/install | bash
-ENV PATH="/root/.bun/bin:${PATH}"
+# Install dependencies into a temporary directory to leverage caching
+FROM base AS install
+RUN mkdir -p /temp/dev
+COPY package.json bun.lockb /temp/dev/
+RUN cd /temp/dev && bun install
 
-# Set up the working directory
-WORKDIR /app
-
-# Copy package manager files and install dependencies
-COPY package.json bun.lockb ./
-RUN bun install
-
-# Copy the rest of the application source code
+# Copy the application code and build the project
+FROM base AS prerelease
+COPY --from=install /temp/dev/node_modules node_modules
 COPY . .
-
-# Build the application
 RUN bun run build
 
-# Stage 2: Serve the application
+# Create the final production image
 FROM nginx:stable-alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=prerelease /usr/src/app/dist /usr/share/nginx/html
 
 # Expose port 80 and start nginx
 EXPOSE 80
