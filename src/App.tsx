@@ -19,6 +19,7 @@ import Workshops from "./pages/services/Workshops";
 import ProcessAudit from "./pages/services/ProcessAudit";
 import Automation from "./pages/services/Automation";
 import AiCompliance from "./pages/services/AiCompliance";
+import CruxChatbotScript from "./components/CruxChatbotScript";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <CruxChatbotScript />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
