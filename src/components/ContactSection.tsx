@@ -39,7 +39,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
 
     try {
       // Send to webhook
-      const webhookUrl = "https://www.dailyjokenewsletter.com/webhook/f009142b-95d3-4bae-9979-d9aad7ecfd04";
+      const webhookUrl = "https://n8n-j4ogc84ccogk8gwogc8s88cc.crux-consulting.ai/webhook/f009142b-95d3-4bae-9979-d9aad7ecfd04";
       
       const response = await fetch(webhookUrl, {
         method: "POST",
