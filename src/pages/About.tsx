@@ -134,18 +134,22 @@ const AboutContent = () => {
           }`}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {(t('about.whoWeAre.team', { returnObjects: true }) as any[]).map((member: any, index: number) => (
-              <TeamMemberCard
-                key={index}
-                name={member.name}
-                position={member.position}
-                photo={member.photo}
-                photoWaving={member.photoWaving}
-                overlayText={member.overlayText}
-                linkedIn={member.linkedIn}
-                location={member.location}
-              />
-            ))}
+            {(() => {
+              const teamData = t('about.whoWeAre.team', { returnObjects: true });
+              const teamArray = Array.isArray(teamData) ? teamData : [];
+              return teamArray.map((member: any, index: number) => (
+                <TeamMemberCard
+                  key={index}
+                  name={member.name}
+                  position={member.position}
+                  photo={member.photo}
+                  photoWaving={member.photoWaving}
+                  overlayText={member.overlayText}
+                  linkedIn={member.linkedIn}
+                  location={member.location}
+                />
+              ));
+            })()}
           </div>
         </div>
 
