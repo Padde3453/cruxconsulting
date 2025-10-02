@@ -630,22 +630,22 @@
           "location": "Madrid, Spanien"
         },
         {
-          "name": "Teammitglied 3",
-          "position": "Positionstitel",
-          "photo": "/lovable-uploads/placeholder.png",
-          "photoWaving": "/lovable-uploads/placeholder-waving.png",
-          "overlayText": "Platzhalter-Mission für Teammitglied 3.",
-          "linkedIn": "https://linkedin.com/placeholder",
-          "location": "Stadt, Land"
+          "name": "Hassan Syed",
+          "position": "Senior Software Engineer",
+          "photo": "/lovable-uploads/hassan-regular.jpg",
+          "photoWaving": "/lovable-uploads/hassan-waving.png",
+          "overlayText": "Noch am Überlegen",
+          "linkedIn": "https://www.linkedin.com/in/hassan-syed-fe/",
+          "location": "Berlin, Deutschland"
         },
         {
-          "name": "Teammitglied 4",
-          "position": "Positionstitel",
-          "photo": "/lovable-uploads/placeholder.png",
-          "photoWaving": "/lovable-uploads/placeholder-waving.png",
-          "overlayText": "Platzhalter-Mission für Teammitglied 4.",
-          "linkedIn": "https://linkedin.com/placeholder",
-          "location": "Stadt, Land"
+          "name": "Khizar Aziz",
+          "position": "Senior Software Engineer",
+          "photo": "/lovable-uploads/khizar-regular.jpg",
+          "photoWaving": "/lovable-uploads/khizar-waving.png",
+          "overlayText": "Noch am Überlegen",
+          "linkedIn": "https://www.linkedin.com/in/khizaraziz/",
+          "location": "Berlin, Deutschland"
         }
       ]
     },

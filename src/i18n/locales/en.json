@@ -630,22 +630,22 @@
           "location": "Madrid, Spain"
         },
         {
-          "name": "Team Member 3",
-          "position": "Position Title",
-          "photo": "/lovable-uploads/placeholder.png",
-          "photoWaving": "/lovable-uploads/placeholder-waving.png",
-          "overlayText": "Placeholder mission statement for team member 3.",
-          "linkedIn": "https://linkedin.com/placeholder",
-          "location": "City, Country"
+          "name": "Hassan Syed",
+          "position": "Senior Software Engineer",
+          "photo": "/lovable-uploads/hassan-regular.jpg",
+          "photoWaving": "/lovable-uploads/hassan-waving.png",
+          "overlayText": "Still thinking",
+          "linkedIn": "https://www.linkedin.com/in/hassan-syed-fe/",
+          "location": "Berlin, Germany"
         },
         {
-          "name": "Team Member 4",
-          "position": "Position Title",
-          "photo": "/lovable-uploads/placeholder.png",
-          "photoWaving": "/lovable-uploads/placeholder-waving.png",
-          "overlayText": "Placeholder mission statement for team member 4.",
-          "linkedIn": "https://linkedin.com/placeholder",
-          "location": "City, Country"
+          "name": "Khizar Aziz",
+          "position": "Senior Software Engineer",
+          "photo": "/lovable-uploads/khizar-regular.jpg",
+          "photoWaving": "/lovable-uploads/khizar-waving.png",
+          "overlayText": "Still thinking",
+          "linkedIn": "https://www.linkedin.com/in/khizaraziz/",
+          "location": "Berlin, Germany"
         }
       ]
     },
