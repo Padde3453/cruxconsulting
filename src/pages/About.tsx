@@ -195,38 +195,38 @@ const AboutContent = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
-              <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-lg transition-all duration-300">
+            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105">
+              <h3 className="text-xl font-bold text-brand-blue mb-3 transition-colors duration-300">
                 {t('about.howWeWork.tailoredFirst.title')}
               </h3>
-              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-96 transition-all duration-500 overflow-hidden">
                 {t('about.howWeWork.tailoredFirst.description')}
               </p>
             </Card>
 
-            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
-              <h3 className="text-xl font-bold text-brand-green mb-3 group-hover:text-lg transition-all duration-300">
+            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105">
+              <h3 className="text-xl font-bold text-brand-green mb-3 transition-colors duration-300">
                 {t('about.howWeWork.fastButThoughtful.title')}
               </h3>
-              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-96 transition-all duration-500 overflow-hidden">
                 {t('about.howWeWork.fastButThoughtful.description')}
               </p>
             </Card>
 
-            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
-              <h3 className="text-xl font-bold text-brand-blue mb-3 group-hover:text-lg transition-all duration-300">
+            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105">
+              <h3 className="text-xl font-bold text-brand-blue mb-3 transition-colors duration-300">
                 {t('about.howWeWork.aiNativeBusinessLed.title')}
               </h3>
-              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-96 transition-all duration-500 overflow-hidden">
                 {t('about.howWeWork.aiNativeBusinessLed.description')}
               </p>
             </Card>
 
-            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 overflow-hidden">
-              <h3 className="text-xl font-bold text-brand-green mb-3 group-hover:text-lg transition-all duration-300">
+            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105">
+              <h3 className="text-xl font-bold text-brand-green mb-3 transition-colors duration-300">
                 {t('about.howWeWork.privacyCompliance.title')}
               </h3>
-              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-300 overflow-hidden">
+              <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-96 transition-all duration-500 overflow-hidden">
                 {t('about.howWeWork.privacyCompliance.description')}
               </p>
             </Card>
