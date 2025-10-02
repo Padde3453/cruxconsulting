@@ -621,13 +621,13 @@
           "location": "Munich, Germany"
         },
         {
-          "name": "Team Member 2",
-          "position": "Position Title",
-          "photo": "/lovable-uploads/placeholder.png",
-          "photoWaving": "/lovable-uploads/placeholder-waving.png",
-          "overlayText": "Placeholder mission statement for team member 2.",
-          "linkedIn": "https://linkedin.com/placeholder",
-          "location": "City, Country"
+          "name": "Erik Dziekonski Bautista",
+          "position": "AI Expert",
+          "photo": "/lovable-uploads/erik-regular.jpg",
+          "photoWaving": "/lovable-uploads/erik-waving.png",
+          "overlayText": "AI is fascinating to me for many years and with Crux Consulting I want to use the power of AI to create the biggest positive impact possible",
+          "linkedIn": "https://www.linkedin.com/in/erik-dziekonski-bautista/",
+          "location": "Madrid, Spain"
         },
         {
           "name": "Team Member 3",
