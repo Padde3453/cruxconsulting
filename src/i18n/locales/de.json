@@ -609,14 +609,45 @@
       "description": "In der heutigen sich schnell entwickelnden digitalen Landschaft brauchen Unternehmen mehr als nur Technologie – sie brauchen strategische Partner, die sowohl das Potenzial als auch die Herausforderungen der KI-Implementierung verstehen. Bei Crux Consulting schlagen wir die Brücke zwischen modernsten KI-Fähigkeiten und praktischen Geschäftslösungen. Wir liefern nicht nur Technologie; wir transformieren, wie Sie arbeiten, denken und in der KI-gesteuerten Zukunft konkurrieren."
     },
     "whoWeAre": {
-      "title": "Wer Wir Sind"
-    },
-    "patrick": {
-      "title": "Patrick Reverchon",
-      "subtitle": "Gründer & Geschäftsführer",
-      "quote": "Ich glaube, dass KI Menschen stärken und nicht ersetzen sollte. Meine Mission ist es, Unternehmen dabei zu helfen, das Potenzial der KI zu nutzen, während menschliche Kreativität und Entscheidungsfindung im Mittelpunkt all dessen stehen, was wir tun.",
-      "linkedIn": "Auf LinkedIn vernetzen",
-      "location": "München, Deutschland"
+      "title": "Wer Wir Sind",
+      "team": [
+        {
+          "name": "Patrick Reverchon",
+          "position": "Gründer & CEO",
+          "photo": "/lovable-uploads/patrick-regular.jpg",
+          "photoWaving": "/lovable-uploads/patrick-waving.png",
+          "overlayText": "Ich glaube, dass KI Menschen dabei unterstützen sollte, kreativer, strategischer und menschlicher zu sein. Deshalb habe ich CRUX gegründet – um Organisationen zu helfen, KI so einzusetzen, dass ihre Stärken verstärkt und ihre Werte gewahrt werden.",
+          "linkedIn": "https://www.linkedin.com/in/patrick-reverchon/",
+          "location": "München, Deutschland"
+        },
+        {
+          "name": "Teammitglied 2",
+          "position": "Positionstitel",
+          "photo": "/lovable-uploads/placeholder.png",
+          "photoWaving": "/lovable-uploads/placeholder-waving.png",
+          "overlayText": "Platzhalter-Mission für Teammitglied 2.",
+          "linkedIn": "https://linkedin.com/placeholder",
+          "location": "Stadt, Land"
+        },
+        {
+          "name": "Teammitglied 3",
+          "position": "Positionstitel",
+          "photo": "/lovable-uploads/placeholder.png",
+          "photoWaving": "/lovable-uploads/placeholder-waving.png",
+          "overlayText": "Platzhalter-Mission für Teammitglied 3.",
+          "linkedIn": "https://linkedin.com/placeholder",
+          "location": "Stadt, Land"
+        },
+        {
+          "name": "Teammitglied 4",
+          "position": "Positionstitel",
+          "photo": "/lovable-uploads/placeholder.png",
+          "photoWaving": "/lovable-uploads/placeholder-waving.png",
+          "overlayText": "Platzhalter-Mission für Teammitglied 4.",
+          "linkedIn": "https://linkedin.com/placeholder",
+          "location": "Stadt, Land"
+        }
+      ]
     },
     "team": {
       "title": "Unser Team & Wachstum",

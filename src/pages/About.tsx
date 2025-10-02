@@ -1,10 +1,11 @@
 
-import { Linkedin, MapPin, Rocket, Users, ArrowRight } from "lucide-react";
+import { Rocket, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import FloatingElements from "@/components/FloatingElements";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { TeamMemberCard } from "@/components/TeamMemberCard";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTranslation } from 'react-i18next';
 
@@ -125,45 +126,26 @@ const AboutContent = () => {
           </h2>
         </div>
 
-        {/* Patrick Reverchon */}
+        {/* Team Members Grid */}
         <div 
           ref={patrickRef.elementRef}
           className={`mb-12 transition-all duration-1000 ${
             patrickRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="flex flex-col md:flex-row items-start gap-6 mb-6">
-            <img 
-              src="/lovable-uploads/meonwebsite.png" 
-              alt="Patrick Reverchon" 
-              className="w-32 h-32 rounded-lg object-cover"
-            />
-            <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-2">{t('about.patrick.title')}</h3>
-              <p className="text-brand-blue font-semibold mb-4">{t('about.patrick.subtitle')}</p>
-            </div>
-          </div>
-          
-          <blockquote className="text-gray-300 text-lg leading-relaxed mb-4 italic">
-            "{t('about.patrick.quote')}"
-          </blockquote>
-          
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2 text-brand-blue">
-              <Linkedin size={18} />
-              <a 
-                href="https://www.linkedin.com/in/patrick-reverchon/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-              >
-                {t('about.patrick.linkedIn')}
-              </a>
-            </div>
-            <div className="flex items-center gap-2 text-gray-400">
-              <MapPin size={18} />
-              <span>{t('about.patrick.location')}</span>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {(t('about.whoWeAre.team', { returnObjects: true }) as any[]).map((member: any, index: number) => (
+              <TeamMemberCard
+                key={index}
+                name={member.name}
+                position={member.position}
+                photo={member.photo}
+                photoWaving={member.photoWaving}
+                overlayText={member.overlayText}
+                linkedIn={member.linkedIn}
+                location={member.location}
+              />
+            ))}
           </div>
         </div>
 
