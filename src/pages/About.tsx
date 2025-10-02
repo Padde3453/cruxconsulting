@@ -107,7 +107,7 @@ const AboutContent = () => {
           <h2 className="text-3xl font-bold mb-6 text-brand-blue">
             {t('about.whyCrux.title')}
           </h2>
-          <p className="text-gray-300 text-lg leading-relaxed">
+          <p className="text-gray-300 text-lg leading-loose">
             {t('about.whyCrux.description')}
           </p>
         </div>
