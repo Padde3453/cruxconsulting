@@ -31,7 +31,7 @@ export const TeamMemberCard = ({
       {/* Image container with 9:16 aspect ratio */}
       <div
         className="relative w-full overflow-hidden rounded-lg cursor-pointer mb-4"
-        style={{ aspectRatio: "9/16" }}
+        style={{ paddingBottom: "177.78%" }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleClick}
@@ -40,20 +40,22 @@ export const TeamMemberCard = ({
         <img
           src={photo}
           alt={name}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-0 ${
+          loading="eager"
+          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-0 ${
             isHovered ? "opacity-0" : "opacity-100"
           }`}
         />
         
         {/* Waving photo with overlay text */}
         <div
-          className={`absolute inset-0 transition-opacity duration-0 ${
+          className={`absolute top-0 left-0 w-full h-full transition-opacity duration-0 ${
             isHovered ? "opacity-100" : "opacity-0"
           }`}
         >
           <img
             src={photoWaving}
             alt={`${name} waving`}
+            loading="eager"
             className="w-full h-full object-cover"
           />
           
