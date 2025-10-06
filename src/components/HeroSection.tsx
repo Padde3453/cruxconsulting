@@ -18,7 +18,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [rotatingWords.length]);
@@ -39,10 +39,9 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         <div className="mb-8"></div>
         
         <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in-up">
-          <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block mb-4">
             {t('hero.title')}
           </span>
-          <br />
           <div className="relative h-[1.2em] overflow-hidden inline-block min-w-full">
             <AnimatePresence mode="wait">
               <motion.span
