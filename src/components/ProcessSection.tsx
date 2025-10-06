@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from 'react-i18next';
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ProcessSection = () => {
   const { toast } = useToast();
@@ -62,12 +63,21 @@ const ProcessSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {steps.map((step, index) => (
-            <Card 
-              key={index}
-              className="bg-gray-800/30 border-gray-700 overflow-hidden group hover:bg-gray-800/50 transition-all duration-500 animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+          {steps.map((step, index) => {
+            const cardAnimation = useScrollAnimation();
+            
+            return (
+              <div
+                key={index}
+                ref={cardAnimation.elementRef}
+                className={`transition-all duration-700 ${
+                  cardAnimation.isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <Card className="bg-gray-800/30 border-gray-700 overflow-hidden group hover:bg-gray-800/50 transition-all duration-500">
               <div className="aspect-video overflow-hidden">
                 <img 
                   src={step.image} 
@@ -82,10 +92,12 @@ const ProcessSection = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-white">{step.title}</h3>
                 </div>
-                <p className="text-gray-400">{step.description}</p>
-              </div>
-            </Card>
-          ))}
+                  <p className="text-gray-400">{step.description}</p>
+                </div>
+              </Card>
+            </div>
+            );
+          })}
         </div>
 
         <div className="text-center">

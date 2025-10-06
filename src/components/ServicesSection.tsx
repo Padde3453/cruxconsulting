@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { CheckCircle, Plus, TrendingUp, Clock, Users, DollarSign } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface ServicesSectionProps {
   onBooking: () => void;
@@ -85,9 +86,20 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
+            const cardAnimation = useScrollAnimation();
             
             return (
-              <Card key={index} className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300 flex flex-col h-full">
+              <div 
+                key={index}
+                ref={cardAnimation.elementRef}
+                className={`transition-all duration-700 ${
+                  cardAnimation.isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300 flex flex-col h-full">
                 <div className="flex items-center space-x-4 mb-4">
                   <IconComponent className="text-brand-blue h-8 w-8" />
                   <div>
@@ -106,14 +118,15 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
                     </div>
                   ))}
                 </div>
-                <Button 
-                  onClick={() => handleServiceClick(index)} 
-                  variant="secondary" 
-                  className="w-full mt-auto"
-                >
-                  {t('services.learnMore')} <Plus className="ml-2 h-4 w-4" />
-                </Button>
-              </Card>
+                  <Button 
+                    onClick={() => handleServiceClick(index)} 
+                    variant="secondary" 
+                    className="w-full mt-auto"
+                  >
+                    {t('services.learnMore')} <Plus className="ml-2 h-4 w-4" />
+                  </Button>
+                </Card>
+              </div>
             );
           })}
         </div>

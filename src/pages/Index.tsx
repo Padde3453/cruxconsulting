@@ -23,11 +23,8 @@ const Index = () => {
 
   // Scroll animations for each section
   const whyCruxAnimation = useScrollAnimation();
-  const servicesAnimation = useScrollAnimation();
   const einsteinAnimation = useScrollAnimation();
   const statsAnimation = useScrollAnimation();
-  const processAnimation = useScrollAnimation();
-  const blogAnimation = useScrollAnimation();
   const contactAnimation = useScrollAnimation();
 
   useEffect(() => {
@@ -55,7 +52,7 @@ const Index = () => {
       {/* Why Crux Section */}
       <div 
         ref={whyCruxAnimation.elementRef}
-        className={`transition-all duration-1000 ${
+        className={`transition-all duration-700 ${
           whyCruxAnimation.isVisible 
             ? 'opacity-100 translate-y-0' 
             : 'opacity-0 translate-y-10'
@@ -65,21 +62,12 @@ const Index = () => {
       </div>
 
       {/* Services Section */}
-      <div 
-        ref={servicesAnimation.elementRef}
-        className={`transition-all duration-1000 ${
-          servicesAnimation.isVisible 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-10'
-        }`}
-      >
-        <ServicesSection onBooking={handleBooking} />
-      </div>
+      <ServicesSection onBooking={handleBooking} />
 
       {/* Einstein Quote Section */}
       <div 
         ref={einsteinAnimation.elementRef}
-        className={`transition-all duration-1000 ${
+        className={`transition-all duration-700 ${
           einsteinAnimation.isVisible 
             ? 'opacity-100 translate-y-0' 
             : 'opacity-0 translate-y-10'
@@ -91,7 +79,7 @@ const Index = () => {
       {/* Stats Section */}
       <div 
         ref={statsAnimation.elementRef}
-        className={`transition-all duration-1000 ${
+        className={`transition-all duration-700 ${
           statsAnimation.isVisible 
             ? 'opacity-100 translate-y-0' 
             : 'opacity-0 translate-y-10'
@@ -101,33 +89,15 @@ const Index = () => {
       </div>
 
       {/* Process Section */}
-      <div 
-        ref={processAnimation.elementRef}
-        className={`transition-all duration-1000 ${
-          processAnimation.isVisible 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-10'
-        }`}
-      >
-        <ProcessSection />
-      </div>
+      <ProcessSection />
 
       {/* Blog Preview Section */}
-      <div 
-        ref={blogAnimation.elementRef}
-        className={`transition-all duration-1000 ${
-          blogAnimation.isVisible 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-10'
-        }`}
-      >
-        <BlogPreviewSection />
-      </div>
+      <BlogPreviewSection />
 
       {/* Contact Section */}
       <div 
         ref={contactAnimation.elementRef}
-        className={`transition-all duration-1000 ${
+        className={`transition-all duration-700 ${
           contactAnimation.isVisible 
             ? 'opacity-100 translate-y-0' 
             : 'opacity-0 translate-y-10'

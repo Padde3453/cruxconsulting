@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { blogPosts, getMostRecentPosts, getCategoryColor } from "@/data/blogPosts";
 import { useTranslation } from 'react-i18next';
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const BlogPreviewSection = () => {
   const navigate = useNavigate();
@@ -37,9 +38,22 @@ const BlogPreviewSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {recentPosts.map(post => 
-            <Link key={post.id} to={`/blog/${post.id}`} className="block h-full">
-              <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col">
+          {recentPosts.map((post, index) => {
+            const cardAnimation = useScrollAnimation();
+            
+            return (
+              <div
+                key={post.id}
+                ref={cardAnimation.elementRef}
+                className={`transition-all duration-700 ${
+                  cardAnimation.isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <Link to={`/blog/${post.id}`} className="block h-full">
+                  <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col">
                 <div className="aspect-video bg-gray-700 overflow-hidden flex-shrink-0">
                   <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                 </div>
@@ -57,13 +71,15 @@ const BlogPreviewSection = () => {
                     {post.summary}
                   </p>
                   
-                  <div className="text-xs text-gray-400 mt-auto">
-                    {post.date} • {post.author}
+                    <div className="text-xs text-gray-400 mt-auto">
+                      {post.date} • {post.author}
+                    </div>
                   </div>
-                </div>
-              </Card>
-            </Link>
-          )}
+                </Card>
+              </Link>
+            </div>
+            );
+          })}
         </div>
 
         <div className="text-center">
