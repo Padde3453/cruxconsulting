@@ -2,6 +2,7 @@
   "hero": {
     "title": "AI-Powered",
     "subtitle": "Business Growth",
+    "rotatingWords": ["Business Growth", "Innovation", "Efficiency"],
     "description": "Transform your SME with cutting-edge AI solutions. Fast, precise, transformative.",
     "cta": "Start Your Transformation",
     "responseTime": "24h",

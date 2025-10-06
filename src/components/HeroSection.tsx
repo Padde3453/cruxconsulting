@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
 
 interface HeroSectionProps {
   onBooking: () => void;
@@ -9,6 +10,21 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const { t } = useTranslation();
+  const rotatingWords = t('hero.rotatingWords', { returnObjects: true }) as string[];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
+        setIsTransitioning(false);
+      }, 500);
+    }, 1500);
+
+    return () => clearInterval(interval);
+  }, [rotatingWords.length]);
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -25,12 +41,27 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
         <div className="mb-8"></div>
         
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent animate-fade-in-up">
-          {t('hero.title')}
-          <br />
-          <span className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-            {t('hero.subtitle')}
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in-up">
+          <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            {t('hero.title')}
           </span>
+          <br />
+          <div className="relative h-[1.2em] overflow-hidden inline-block">
+            <span 
+              className={`absolute inset-0 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent transition-all duration-500 ${
+                isTransitioning ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
+              }`}
+            >
+              {rotatingWords[currentWordIndex]}
+            </span>
+            <span 
+              className={`absolute inset-0 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent transition-all duration-500 ${
+                isTransitioning ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+              }`}
+            >
+              {rotatingWords[(currentWordIndex + 1) % rotatingWords.length]}
+            </span>
+          </div>
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto animate-fade-in-up" style={{

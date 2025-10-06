@@ -1,7 +1,8 @@
 {
   "hero": {
-    "title": "KI-gestütztes",
+    "title": "KI-gestützt",
     "subtitle": "Wachstum",
+    "rotatingWords": ["Wachstum", "Innovation", "Effizienz"],
     "description": "Transformieren Sie Ihr Unternehmen mit modernsten KI-Lösungen. Schnell, präzise, transformativ.",
     "cta": "Starten Sie Ihre Transformation",
     "responseTime": "24h",
