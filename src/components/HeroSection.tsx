@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface HeroSectionProps {
   onBooking: () => void;
@@ -16,12 +17,8 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
-        setIsTransitioning(false);
-      }, 500);
-    }, 1500);
+      setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [rotatingWords.length]);
@@ -47,20 +44,21 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           </span>
           <br />
           <div className="relative h-[1.2em] overflow-hidden inline-block min-w-full">
-            <span 
-              className={`block w-full bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent transition-all duration-500 ${
-                isTransitioning ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
-              }`}
-            >
-              {rotatingWords[currentWordIndex]}
-            </span>
-            <span 
-              className={`absolute top-0 left-0 w-full bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent transition-all duration-500 ${
-                isTransitioning ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
-              }`}
-            >
-              {rotatingWords[(currentWordIndex + 1) % rotatingWords.length]}
-            </span>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentWordIndex}
+                initial={{ y: '100%', opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: '-100%', opacity: 0 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 50,
+                }}
+                className="block w-full bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent"
+              >
+                {rotatingWords[currentWordIndex]}
+              </motion.span>
+            </AnimatePresence>
           </div>
         </h1>
         
