@@ -17,6 +17,7 @@ RUN bun run build
 # Create the final production image
 FROM nginx:stable-alpine
 COPY --from=prerelease /usr/src/app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80 and start nginx
 EXPOSE 80
