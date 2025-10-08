@@ -56,14 +56,6 @@ const InstagramPost = () => {
       return false;
     }
 
-    if (formData.caption.trim() && countWords(formData.caption) < 15) {
-      toast({
-        title: "Validation Error",
-        description: "Caption must contain at least 15 words if provided.",
-        variant: "destructive",
-      });
-      return false;
-    }
 
     // Email validation if provided
     if (formData.email.trim()) {
@@ -269,11 +261,6 @@ const InstagramPost = () => {
                   disabled={isSubmitting}
                   rows={4}
                 />
-                {formData.caption.trim() && (
-                  <p className="text-xs text-gray-500 mt-1">
-                    {countWords(formData.caption)} words (minimum 15 required if provided)
-                  </p>
-                )}
               </div>
 
               {/* Question 4: Instagram Profile */}

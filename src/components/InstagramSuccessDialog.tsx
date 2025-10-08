@@ -11,6 +11,7 @@ const InstagramSuccessDialog = ({ isOpen }: InstagramSuccessDialogProps) => {
 
   const handleGoHome = () => {
     navigate("/");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
