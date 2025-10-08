@@ -19,6 +19,7 @@ import Workshops from "./pages/services/Workshops";
 import ProcessAudit from "./pages/services/ProcessAudit";
 import Automation from "./pages/services/Automation";
 import AiCompliance from "./pages/services/AiCompliance";
+import InstagramPost from "./pages/InstagramPost";
 import CruxChatbotScript from "./components/CruxChatbotScript";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/services/ai-compliance" element={<AiCompliance />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/instagrampost" element={<InstagramPost />} />
           {/* ISOLATED DEMO ROUTES */}
           <Route path="/demo/bandwerk" element={<BandwerkDemo />} />
           <Route path="/demo/instagram" element={<InstagramDemo />} />
