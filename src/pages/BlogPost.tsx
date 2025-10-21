@@ -78,10 +78,15 @@ const BlogPost = () => {
             />
           </div>
 
-          {/* Translation Notice - Only for German */}
-          {currentLang === 'de' && (
+          {/* Translation Notice */}
+          {blogPost.originalLanguage === 'en' && currentLang === 'de' && (
             <div className="text-sm text-gray-400 mb-4 italic">
               Dies ist eine automatische Übersetzung ins Deutsche, der Artikel wurde im Original in Englisch geschrieben
+            </div>
+          )}
+          {blogPost.originalLanguage === 'de' && currentLang === 'en' && (
+            <div className="text-sm text-gray-400 mb-4 italic">
+              This is an automatic translation into English, the article was originally written in German
             </div>
           )}
 

@@ -17,6 +17,7 @@ export interface BlogPost {
   image: string;
   date: string;
   author: string;
+  originalLanguage: 'en' | 'de';
 }
 
 export const blogPosts: BlogPost[] = [
@@ -24,6 +25,7 @@ export const blogPosts: BlogPost[] = [
     id: 1,
     category: "PROCESS AUTOMATION",
     slug: "should-you-automate-that-process",
+    originalLanguage: 'en',
     title: {
       en: "Should You Automate That Process? A Practical Guide for SMEs",
       de: "Sollten Sie diesen Prozess automatisieren? Ein praktischer Leitfaden für KMU"
@@ -272,6 +274,7 @@ export const blogPosts: BlogPost[] = [
     id: 2,
     category: "PROCESS AUTOMATION",
     slug: "making-employees-more-efficient-vs-making-them-redundant",
+    originalLanguage: 'en',
     title: {
       en: "Making Employees More Efficient vs. Making Them Redundant: The Real Role of AI in SMEs",
       de: "Mitarbeiter effizienter machen vs. sie überflüssig machen: Die wahre Rolle von KI in KMU"
@@ -486,6 +489,7 @@ export const blogPosts: BlogPost[] = [
     id: 3,
     category: "AI EDUCATION",
     slug: "what-ai-can-actually-do-for-your-business",
+    originalLanguage: 'en',
     title: {
       en: "What AI Can Actually Do for Your Business — And What’s Just Hype",
       de: "What AI Can Actually Do for Your Business — And What’s Just Hype" // TODO: Translate
@@ -794,6 +798,7 @@ export const blogPosts: BlogPost[] = [
     id: 4,
     category: "PROCESS AUTOMATION",
     slug: "5-tasks-to-automate-now",
+    originalLanguage: 'en',
     title: {
       en: "5 Business Tasks SMEs Should Automate Now",
       de: "5 Geschäftsaufgaben, die KMU jetzt automatisieren sollten"
@@ -878,6 +883,7 @@ export const blogPosts: BlogPost[] = [
     id: 5,
     category: "SALES & SERVICE",
     slug: "frustrating-bots-to-expert-teammates",
+    originalLanguage: 'en',
     title: {
       en: "From Frustrating Bots to 24/7 Sales and Expert Teammates",
       de: "Von frustrierenden Bots zu 24/7-Verkauf und Experten-Teammitgliedern"

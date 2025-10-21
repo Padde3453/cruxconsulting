@@ -119,12 +119,20 @@ Add new blog posts using this exact structure in `src/data/blogPosts.ts`:
 {
   id: 7, // Must be unique - increment from highest existing ID
   category: "AI STRATEGY", // Choose from available categories (see below)
-  title: "Your Blog Post Title Here",
-  summary: "A compelling 2-3 sentence summary that appears on preview cards and overview page...",
+  originalLanguage: 'en', // 'en' for English or 'de' for German - indicates original language
+  title: {
+    en: "Your Blog Post Title Here",
+    de: "Ihr Blogbeitrag Titel Hier"
+  },
+  summary: {
+    en: "A compelling 2-3 sentence summary that appears on preview cards and overview page...",
+    de: "Eine überzeugende 2-3 Satz Zusammenfassung, die auf Vorschaukarten und Übersichtsseite erscheint..."
+  },
   image: "/lovable-uploads/your-image-filename.png", // Path to uploaded image
   date: "June 15, 2024", // Format: "Month DD, YYYY"
   author: "Patrick Müller", // Author name
-  content: `
+  content: {
+    en: `
     <p>Your full blog post content goes here. Use HTML formatting for rich content.</p>
     
     <h2>Section Heading</h2>
@@ -144,7 +152,14 @@ Add new blog posts using this exact structure in `src/data/blogPosts.ts`:
     
     <h3>Subsection</h3>
     <p>Continue with more detailed content...</p>
+  `,
+    de: `
+    <p>Deutscher Inhalt des Blogposts hier. Verwenden Sie HTML-Formatierung für Rich Content.</p>
+    
+    <h2>Abschnittsüberschrift</h2>
+    <p>Mehr Inhalt mit <strong>fettem Text</strong> und <em>kursivem Text</em>.</p>
   `
+  }
 }
 ```
 
@@ -153,15 +168,17 @@ Add new blog posts using this exact structure in `src/data/blogPosts.ts`:
 **Required Fields:**
 - `id`: Unique number (increment from highest existing)
 - `category`: Must match available categories
-- `title`: Descriptive title (keep under 60 characters for best display)
-- `summary`: 2-3 sentences for preview cards (plain text only)
+- `title`: Descriptive title for both languages (keep under 60 characters for best display)
+- `summary`: 2-3 sentences for preview cards in both languages (plain text only)
 - `image`: Path to image file in `/lovable-uploads/`
 - `date`: Human-readable date format
 - `author`: Author name
-- `content`: Full HTML content for the blog post (use template literals with backticks)
+- `content`: Full HTML content for the blog post in both languages (use template literals with backticks)
+- `originalLanguage`: Must be either `'en'` or `'de'` to indicate which language the post was originally written in
 
 **Content Field Formatting:**
 - **IMPORTANT**: Use template literals (backticks `) instead of quotes for the content field
+- Content must be provided in **both English and German** with `en` and `de` keys
 - Use HTML markup for rich formatting on individual blog post pages
 - Supported tags: `<p>`, `<br>`, `<h2>`, `<h3>`, `<strong>`, `<em>`, `<ul>`, `<ol>`, `<li>`, `<a>`, `<blockquote>`
 - Structure content with clear paragraphs using `<p>` tags
@@ -170,20 +187,41 @@ Add new blog posts using this exact structure in `src/data/blogPosts.ts`:
 - Keep content well-structured and readable
 - The HTML content will be automatically rendered on individual blog post pages
 
+**Translation Disclaimers:**
+- The system **automatically displays translation disclaimers** based on the `originalLanguage` field
+- If `originalLanguage: 'en'` and user views in German → shows German translation notice
+- If `originalLanguage: 'de'` and user views in English → shows English translation notice
+- No manual disclaimer text needed - it's handled automatically
+- This makes it clear to readers which version is the original
+
 **Template Literal Example for Content:**
 ```typescript
-content: `
-  <h2>Your Main Heading</h2>
-  <p>Your paragraph content with <strong>bold text</strong> and <em>italic text</em>.</p>
-  
-  <h3>Subheading</h3>
-  <ul>
-    <li>List item one</li>
-    <li>List item two</li>
-  </ul>
-  
-  <p>More content with <a href="https://example.com" target="_blank">external links</a>.</p>
-`
+content: {
+  en: `
+    <h2>Your Main Heading</h2>
+    <p>Your paragraph content with <strong>bold text</strong> and <em>italic text</em>.</p>
+    
+    <h3>Subheading</h3>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+    </ul>
+    
+    <p>More content with <a href="https://example.com" target="_blank">external links</a>.</p>
+  `,
+  de: `
+    <h2>Ihre Hauptüberschrift</h2>
+    <p>Ihr Absatzinhalt mit <strong>fettem Text</strong> und <em>kursivem Text</em>.</p>
+    
+    <h3>Unterüberschrift</h3>
+    <ul>
+      <li>Listeneintrag eins</li>
+      <li>Listeneintrag zwei</li>
+    </ul>
+    
+    <p>Mehr Inhalt mit <a href="https://example.com" target="_blank">externen Links</a>.</p>
+  `
+}
 ```
 
 ### Image Management
@@ -274,12 +312,20 @@ The system is fully responsive across all devices:
 {
   id: 8,
   category: "AI STRATEGY",
-  title: "Implementing AI in Small Business Operations",
-  summary: "Learn practical steps to integrate AI tools into your small business operations without overwhelming your team or budget.",
+  originalLanguage: 'en', // Set to 'en' or 'de' based on original writing language
+  title: {
+    en: "Implementing AI in Small Business Operations",
+    de: "KI in kleinen Geschäftsabläufen implementieren"
+  },
+  summary: {
+    en: "Learn practical steps to integrate AI tools into your small business operations without overwhelming your team or budget.",
+    de: "Lernen Sie praktische Schritte zur Integration von KI-Tools in Ihre kleinen Geschäftsabläufe, ohne Ihr Team oder Budget zu überfordern."
+  },
   image: "/lovable-uploads/ai-small-business.png",
   date: "June 20, 2024",
   author: "Patrick Müller",
-  content: `
+  content: {
+    en: `
     <p>Small businesses today have unprecedented access to AI tools that were once reserved for large corporations. The key is knowing where to start and how to implement these tools effectively.</p>
     
     <h2>Start Small, Think Big</h2>
@@ -301,7 +347,14 @@ The system is fully responsive across all devices:
     </blockquote>
     
     <p>For more resources on AI implementation, visit <a href="https://example.com" target="_blank">our comprehensive guide</a>.</p>
+  `,
+    de: `
+    <p>Kleine Unternehmen haben heute beispiellosen Zugang zu KI-Tools, die einst großen Konzernen vorbehalten waren. Der Schlüssel liegt darin, zu wissen, wo man anfangen und wie man diese Tools effektiv implementieren kann.</p>
+    
+    <h2>Klein anfangen, groß denken</h2>
+    <p>Die erfolgreichsten KI-Implementierungen beginnen mit <strong>kleinen, fokussierten Projekten</strong>, die spezifische Probleme ansprechen.</p>
   `
+  }
 }
 ```
 
