@@ -11,7 +11,8 @@ import { useTranslation } from 'react-i18next';
 
 const Blog = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language as 'en' | 'de';
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -53,7 +54,7 @@ const Blog = () => {
               <Link key={post.id} to={`/blog/${post.id}`} className="block">
                 <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
                   <div className="aspect-video bg-gray-700 overflow-hidden">
-                    <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                    <img src={post.image} alt={post.title[currentLang]} className="w-full h-full object-cover" />
                   </div>
                   
                   <div className="p-6">
@@ -62,11 +63,11 @@ const Blog = () => {
                     </div>
                     
                     <h3 className="text-xl font-bold text-white mb-3 leading-tight">
-                      {post.title[t('language') as 'en' | 'de']}
+                      {post.title[currentLang]}
                     </h3>
                     
                     <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                      {post.summary[t('language') as 'en' | 'de']}
+                      {post.summary[currentLang]}
                     </p>
                     
                     <div className="text-xs text-gray-400">

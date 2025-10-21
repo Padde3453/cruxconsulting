@@ -9,7 +9,8 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const BlogPreviewSection = () => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language as 'en' | 'de';
   
   // Get the 3 most recent posts automatically
   const recentPosts = getMostRecentPosts(blogPosts, 3);
@@ -55,7 +56,7 @@ const BlogPreviewSection = () => {
                 <Link to={`/blog/${post.id}`} className="block h-full">
                   <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col">
                 <div className="aspect-video bg-gray-700 overflow-hidden flex-shrink-0">
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                  <img src={post.image} alt={post.title[currentLang]} className="w-full h-full object-cover" />
                 </div>
                 
                 <div className="p-4 flex flex-col flex-grow">
@@ -64,11 +65,11 @@ const BlogPreviewSection = () => {
                   </div>
                   
                   <h3 className="text-lg font-bold text-white mb-2 leading-tight line-clamp-2">
-                    {post.title}
+                    {post.title[currentLang]}
                   </h3>
                   
                   <p className="text-gray-300 mb-3 text-sm leading-relaxed line-clamp-3 flex-grow">
-                    {post.summary}
+                    {post.summary[currentLang]}
                   </p>
                   
                     <div className="text-xs text-gray-400 mt-auto">

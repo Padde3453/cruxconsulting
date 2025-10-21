@@ -6,9 +6,12 @@ import { ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { blogPosts, getCategoryColor, type BlogPost as BlogPostType } from "@/data/blogPosts";
+import { useTranslation } from 'react-i18next';
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language as 'en' | 'de';
   const [blogPost, setBlogPost] = useState<BlogPostType | null>(null);
 
   useEffect(() => {
@@ -56,7 +59,7 @@ const BlogPost = () => {
 
           {/* Title */}
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            {blogPost.title}
+            {blogPost.title[currentLang]}
           </h1>
 
           {/* Meta Information */}
@@ -70,20 +73,20 @@ const BlogPost = () => {
           <div className="aspect-video bg-gray-700 overflow-hidden rounded-lg mb-8">
             <img 
               src={blogPost.image} 
-              alt={blogPost.title} 
+              alt={blogPost.title[currentLang]} 
               className="w-full h-full object-cover"
             />
           </div>
 
           {/* Summary */}
           <div className="text-xl text-gray-300 mb-8 p-6 bg-gray-800/50 rounded-lg border-l-4 border-brand-blue">
-            {blogPost.summary}
+            {blogPost.summary[currentLang]}
           </div>
 
           {/* Content - Now properly renders HTML */}
           <div 
             className="prose prose-lg prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-lg prose-strong:text-white prose-em:text-gray-200 prose-a:text-brand-blue hover:prose-a:text-brand-green prose-ul:text-gray-300 prose-ol:text-gray-300 prose-li:text-gray-300"
-            dangerouslySetInnerHTML={{ __html: blogPost.content }}
+            dangerouslySetInnerHTML={{ __html: blogPost.content[currentLang] }}
           />
 
           {/* Back to Blog Button */}
