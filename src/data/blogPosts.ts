@@ -1237,11 +1237,7 @@ export const blogPosts: BlogPost[] = [
     date: "October 21, 2025",
     author: "Patrick Reverchon",
     content: {
-      en: `<p>Too many artificial intelligence (AI) implementation projects fail, and this has nothing to do with the goal of introducing AI, but rather with the approach we take to implement change projects in companies. But this doesn't have to be the case — by starting small, we achieve a lot of positive results without great risk.</p>
-
-<br><br>
-
-<p>Have you ever participated in a project that was supposed to change processes, workflows, or services? Probably yes. And most likely, you don't have good memories of it.</p>
+      en: `<p>Have you ever participated in a project that was supposed to change processes, workflows, or services? Probably yes. And most likely, you don't have good memories of it.</p>
 
 <br>
 
@@ -1339,11 +1335,7 @@ export const blogPosts: BlogPost[] = [
 <br>
 
 <p>If this topic interests you or if you just have a comment on this article, feel free to contact us — we look forward to hearing from you. Either book a conversation with us or contact us via email at kontakt@crux-consulting.ai.</p>`,
-      de: `<p>Zu viele Projekte zur Einführung von künstlicher Intelligenz (KI) scheitern, das liegt nicht überhaupt nicht an dem Ziel KI einzuführen, sondern an der Herangehensweise wie wir Änderungsprojekte in Unternehmen umsetzen. Aber das muss nicht sein, indem wir klein anfangen, erreichen wir viel positives ohne großes Risiko.</p>
-
-<br><br>
-
-<p>Haben Sie schon einmal an einem Projekt teilgenommen, das Prozesse, Abläufe oder Services verändern sollte? Vermutlich schon. Und höchstwahrscheinlich haben Sie keine gute Erinnerung daran.</p>
+      de: `<p>Haben Sie schon einmal an einem Projekt teilgenommen, das Prozesse, Abläufe oder Services verändern sollte? Vermutlich schon. Und höchstwahrscheinlich haben Sie keine gute Erinnerung daran.</p>
 
 <br>
 
