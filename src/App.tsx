@@ -21,8 +21,16 @@ import Automation from "./pages/services/Automation";
 import AiCompliance from "./pages/services/AiCompliance";
 import InstagramPost from "./pages/InstagramPost";
 import CruxChatbotScript from "./components/CruxChatbotScript";
+import { Navigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const queryClient = new QueryClient();
+
+const BlogRedirect = () => {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language.startsWith('de') ? 'de' : 'en';
+  return <Navigate to={`/${currentLang}/blog`} replace />;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -34,6 +42,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<BlogRedirect />} />
           <Route path="/:lang/blog" element={<Blog />} />
           <Route path="/:lang/blog/:slug" element={<BlogPost />} />
           <Route path="/services" element={<Services />} />
