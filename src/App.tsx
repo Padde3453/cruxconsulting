@@ -23,6 +23,7 @@ import InstagramPost from "./pages/InstagramPost";
 import CruxChatbotScript from "./components/CruxChatbotScript";
 import { Navigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient();
 
@@ -34,11 +35,12 @@ const BlogRedirect = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <CruxChatbotScript />
-      <BrowserRouter>
+    <HelmetProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <CruxChatbotScript />
+        <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -62,7 +64,8 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </TooltipProvider>
+      </TooltipProvider>
+    </HelmetProvider>
   </QueryClientProvider>
 );
 

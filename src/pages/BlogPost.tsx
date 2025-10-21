@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
@@ -45,6 +46,10 @@ const BlogPost = () => {
   if (!blogPost) {
     return (
       <div className="min-h-screen bg-gray-900 text-white">
+        <Helmet>
+          <title>Blog Post Not Found | Crux Consulting</title>
+          <meta name="robots" content="noindex" />
+        </Helmet>
         <Header />
         <div className="pt-32 pb-16 text-center">
           <h1 className="text-4xl font-bold mb-4">Blog Post Not Found</h1>
@@ -60,8 +65,79 @@ const BlogPost = () => {
     );
   }
 
+  const currentUrl = `https://crux-consulting.ai/${currentLang}/blog/${blogPost.slug}`;
+  const alternateUrl = currentLang === 'en' ? `https://crux-consulting.ai/de/blog/${blogPost.slug}` : `https://crux-consulting.ai/en/blog/${blogPost.slug}`;
+  
+  // Create structured data for Article
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blogPost.title[currentLang],
+    "description": blogPost.summary[currentLang],
+    "image": `https://crux-consulting.ai${blogPost.image}`,
+    "datePublished": blogPost.date,
+    "dateModified": blogPost.date,
+    "author": {
+      "@type": "Person",
+      "name": blogPost.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Crux Consulting",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://crux-consulting.ai/LogoIconOnly.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": currentUrl
+    },
+    "inLanguage": currentLang,
+    "articleSection": blogPost.category
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <html lang={currentLang} />
+        <title>{blogPost.title[currentLang]} | Crux Consulting</title>
+        <meta name="title" content={`${blogPost.title[currentLang]} | Crux Consulting`} />
+        <meta name="description" content={blogPost.summary[currentLang]} />
+        <meta name="author" content={blogPost.author} />
+        <link rel="canonical" href={currentUrl} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:title" content={blogPost.title[currentLang]} />
+        <meta property="og:description" content={blogPost.summary[currentLang]} />
+        <meta property="og:image" content={`https://crux-consulting.ai${blogPost.image}`} />
+        <meta property="og:locale" content={currentLang === 'de' ? 'de_DE' : 'en_US'} />
+        <meta property="og:site_name" content="Crux Consulting" />
+        <meta property="article:published_time" content={blogPost.date} />
+        <meta property="article:author" content={blogPost.author} />
+        <meta property="article:section" content={blogPost.category} />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={currentUrl} />
+        <meta name="twitter:title" content={blogPost.title[currentLang]} />
+        <meta name="twitter:description" content={blogPost.summary[currentLang]} />
+        <meta name="twitter:image" content={`https://crux-consulting.ai${blogPost.image}`} />
+        
+        {/* Hreflang for alternate language versions */}
+        <link rel="alternate" hrefLang={currentLang === 'en' ? 'de' : 'en'} href={alternateUrl} />
+        <link rel="alternate" hrefLang={currentLang} href={currentUrl} />
+        <link rel="alternate" hrefLang="x-default" href={`https://crux-consulting.ai/en/blog/${blogPost.slug}`} />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+      
       <Header />
 
       {/* Blog Post Content */}
