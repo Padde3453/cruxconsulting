@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
@@ -11,8 +11,19 @@ import { useTranslation } from 'react-i18next';
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
   const { i18n } = useTranslation();
+  const navigate = useNavigate();
   const currentLang = (i18n.language.startsWith('de') ? 'de' : 'en') as 'en' | 'de';
   const [blogPost, setBlogPost] = useState<BlogPostType | null>(null);
+
+  const handleBooking = () => {
+    navigate("/");
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   useEffect(() => {
     if (id) {
@@ -103,11 +114,12 @@ const BlogPost = () => {
 
           {/* Contact Us Button */}
           <div className="mt-12 text-center">
-            <Link to="/#contact">
-              <Button className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 mx-auto">
-                <span>{currentLang === 'de' ? 'Kontaktieren Sie uns' : 'Contact Us'}</span>
-              </Button>
-            </Link>
+            <Button 
+              onClick={handleBooking}
+              className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 mx-auto"
+            >
+              <span>{currentLang === 'de' ? 'Kontaktieren Sie uns' : 'Contact Us'}</span>
+            </Button>
           </div>
         </div>
       </article>
