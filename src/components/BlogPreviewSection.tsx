@@ -10,7 +10,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const BlogPreviewSection = () => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const currentLang = i18n.language as 'en' | 'de';
+  const currentLang = (i18n.language.startsWith('de') ? 'de' : 'en') as 'en' | 'de';
   
   // Get the 3 most recent posts automatically
   const recentPosts = getMostRecentPosts(blogPosts, 3);

@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 const Blog = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
-  const currentLang = i18n.language as 'en' | 'de';
+  const currentLang = (i18n.language.startsWith('de') ? 'de' : 'en') as 'en' | 'de';
 
   const scrollToTop = () => {
     window.scrollTo({
