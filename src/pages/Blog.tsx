@@ -62,11 +62,11 @@ const Blog = () => {
                     </div>
                     
                     <h3 className="text-xl font-bold text-white mb-3 leading-tight">
-                      {post.title}
+                      {post.title[t('language') as 'en' | 'de']}
                     </h3>
                     
                     <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                      {post.summary}
+                      {post.summary[t('language') as 'en' | 'de']}
                     </p>
                     
                     <div className="text-xs text-gray-400">

@@ -1,24 +1,42 @@
 export interface BlogPost {
   id: number;
   category: string;
-  title: string;
-  summary: string;
+  slug: string;
+  title: {
+    en: string;
+    de: string;
+  };
+  summary: {
+    en: string;
+    de: string;
+  };
+  content: {
+    en: string;
+    de: string;
+  };
   image: string;
   date: string;
   author: string;
-  content: string;
 }
 
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
     category: "PROCESS AUTOMATION",
-    title: "Should You Automate That Process? A Practical Guide for SMEs",
-    summary: "Not every business process is worth automating — and some shouldn’t even exist in the first place.",
+    slug: "should-you-automate-that-process",
+    title: {
+      en: "Should You Automate That Process? A Practical Guide for SMEs",
+      de: "Should You Automate That Process? A Practical Guide for SMEs" // TODO: Translate
+    },
+    summary: {
+      en: "Not every business process is worth automating — and some shouldn't even exist in the first place.",
+      de: "Not every business process is worth automating — and some shouldn't even exist in the first place." // TODO: Translate
+    },
     image: "/lovable-uploads/Blog4small.jpeg",
     date: "March 6, 2025",
     author: "Patrick Reverchon",
-    content: `<p>With all the excitement around AI and automation, it’s easy to fall into the trap of thinking <em>everything</em> should be automated. But here’s the truth: <strong>not every business process is worth automating — and some shouldn’t even exist in the first place</strong>.</p>
+    content: {
+      en: `<p>With all the excitement around AI and automation, it's easy to fall into the trap of thinking <em>everything</em> should be automated. But here's the truth: <strong>not every business process is worth automating — and some shouldn't even exist in the first place</strong>.</p>
 
 <br>
 
@@ -34,15 +52,15 @@ export const blogPosts: BlogPost[] = [
 
 <br>
 
-<p>Many companies run outdated workflows simply because "we’ve always done it this way." But automation doesn’t fix broken logic — it just runs it faster.</p>
+<p>Many companies run outdated workflows simply because "we've always done it this way." But automation doesn't fix broken logic — it just runs it faster.</p>
 
 <br>
 
-<p><strong>Example:</strong> A logistics company was spending hours a week manually confirming delivery addresses by phone. But the real issue wasn’t speed — it was that the confirmation process was redundant. By reworking their intake form, they removed the need for that step entirely.</p>
+<p><strong>Example:</strong> A logistics company was spending hours a week manually confirming delivery addresses by phone. But the real issue wasn't speed — it was that the confirmation process was redundant. By reworking their intake form, they removed the need for that step entirely.</p>
 
 <br>
 
-<p><strong>Rule of thumb:</strong> Don’t automate bad processes. Eliminate or improve them first.</p>
+<p><strong>Rule of thumb:</strong> Don't automate bad processes. Eliminate or improve them first.</p>
 
 <br><br>
 
@@ -50,7 +68,7 @@ export const blogPosts: BlogPost[] = [
 
 <br>
 
-<p>Automation is not free. Even with no-code tools like n8n, Zapier, or Make.com, there’s still a cost: in time, setup, integration, and occasionally licensing.</p>
+<p>Automation is not free. Even with no-code tools like n8n, Zapier, or Make.com, there's still a cost: in time, setup, integration, and occasionally licensing.</p>
 
 <br>
 
@@ -78,11 +96,11 @@ export const blogPosts: BlogPost[] = [
 
 <br>
 
-<p>This is often the trickiest question. You know the process is worth improving. You know it’s costing you time. But <strong>how do you actually automate it?</strong> And is it even possible with the tools you have?</p>
+<p>This is often the trickiest question. You know the process is worth improving. You know it's costing you time. But <strong>how do you actually automate it?</strong> And is it even possible with the tools you have?</p>
 
 <br>
 
-<p>This is where many SMEs get stuck — because the answer isn’t always obvious, and internal IT teams (if they exist at all) are often overloaded or lack the specialized knowledge for AI-enabled automation.</p>
+<p>This is where many SMEs get stuck — because the answer isn't always obvious, and internal IT teams (if they exist at all) are often overloaded or lack the specialized knowledge for AI-enabled automation.</p>
 
 <br>
 
@@ -98,19 +116,19 @@ export const blogPosts: BlogPost[] = [
 
 <br>
 
-<p>Here’s the truth: <strong>You don’t know what you don’t know</strong>. And that’s not a weakness — it’s a reality in a fast-moving field like AI and automation.</p>
+<p>Here's the truth: <strong>You don't know what you don't know</strong>. And that's not a weakness — it's a reality in a fast-moving field like AI and automation.</p>
 
 <br>
 
-<p>At <strong>Crux Consulting</strong>, we’ve worked with SMEs across Europe in every sector — from farms to freight, legal to logistics. What we’ve seen again and again is that <em>some of the best automation opportunities only emerge through an honest conversation</em>.</p>
+<p>At <strong>Crux Consulting</strong>, we've worked with SMEs across Europe in every sector — from farms to freight, legal to logistics. What we've seen again and again is that <em>some of the best automation opportunities only emerge through an honest conversation</em>.</p>
 
 <br>
 
-<p>Sometimes, a process you thought was “too human” can actually be 80% automated. Other times, we uncover hidden inefficiencies that were never questioned — and solve them entirely. The key is understanding your workflows, your goals, and what’s technically possible today (which is more than most expect).</p>
+<p>Sometimes, a process you thought was "too human" can actually be 80% automated. Other times, we uncover hidden inefficiencies that were never questioned — and solve them entirely. The key is understanding your workflows, your goals, and what's technically possible today (which is more than most expect).</p>
 
 <br>
 
-<p><strong>In short:</strong> You don’t need to guess. You just need to ask the right questions — and have the right partner.</p>
+<p><strong>In short:</strong> You don't need to guess. You just need to ask the right questions — and have the right partner.</p>
 
 <br><br>
 
@@ -132,17 +150,27 @@ export const blogPosts: BlogPost[] = [
 
 <br>
 
-<p><a href="/contact" target="_blank"><strong>Not sure where to begin? Let’s have a conversation — no jargon, no hard sell, just practical advice tailored to your business.</strong></a></p>`
+<p><a href="/contact" target="_blank"><strong>Not sure where to begin? Let's have a conversation — no jargon, no hard sell, just practical advice tailored to your business.</strong></a></p>`,
+      de: "TODO: Translate" // TODO: Add German translation
+    }
   },
   {
     id: 2,
     category: "PROCESS AUTOMATION",
-    title: "Making Employees More Efficient vs. Making Them Redundant: The Real Role of AI in SMEs",
-    summary: "I is reshaping the workplace — but not in the way Hollywood makes it seem. While flashy headlines often warn about robots “stealing our jobs,” the reality, especially for small and medium-sized enterprises (SMEs), is much more nuanced and full of opportunity.",
+    slug: "making-employees-more-efficient-vs-making-them-redundant",
+    title: {
+      en: "Making Employees More Efficient vs. Making Them Redundant: The Real Role of AI in SMEs",
+      de: "Making Employees More Efficient vs. Making Them Redundant: The Real Role of AI in SMEs" // TODO: Translate
+    },
+    summary: {
+      en: "I is reshaping the workplace — but not in the way Hollywood makes it seem. While flashy headlines often warn about robots “stealing our jobs,” the reality, especially for small and medium-sized enterprises (SMEs), is much more nuanced and full of opportunity.",
+      de: "I is reshaping the workplace — but not in the way Hollywood makes it seem. While flashy headlines often warn about robots “stealing our jobs,” the reality, especially for small and medium-sized enterprises (SMEs), is much more nuanced and full of opportunity." // TODO: Translate
+    },
     image: "/lovable-uploads/Blog3small.jpeg",
     date: "March 29, 2025",
     author: "Patrick Reverchon",
-    content: `<p>AI is reshaping the workplace — but not in the way Hollywood makes it seem. While flashy headlines often warn about robots “stealing our jobs,” the reality, especially for small and medium-sized enterprises (SMEs), is much more nuanced and full of opportunity.</p>
+    content: {
+      en: `<p>AI is reshaping the workplace — but not in the way Hollywood makes it seem. While flashy headlines often warn about robots “stealing our jobs,” the reality, especially for small and medium-sized enterprises (SMEs), is much more nuanced and full of opportunity.</p>
 
 <br>
 
@@ -257,17 +285,27 @@ export const blogPosts: BlogPost[] = [
 
 <br>
 
-<p><a href="/contact" target="_blank"><strong>Want to explore how AI can make your business more efficient — without cutting your team? Let’s talk.</strong></a></p>`
+<p><a href="/contact" target="_blank"><strong>Want to explore how AI can make your business more efficient — without cutting your team? Let’s talk.</strong></a></p>`,
+      de: "TODO: Translate" // TODO: Add German translation
+    }
   },
   {
     id: 3,
     category: "AI EDUCATION",
-    title: "What AI Can Actually Do for Your Business — And What’s Just Hype",
-    summary: "Artificial Intelligence (AI) is everywhere right now — from news headlines and industry panels to software pitches and dinner table debates. But what is really useful for you — and what is just hype?",
+    slug: "what-ai-can-actually-do-for-your-business",
+    title: {
+      en: "What AI Can Actually Do for Your Business — And What’s Just Hype",
+      de: "What AI Can Actually Do for Your Business — And What’s Just Hype" // TODO: Translate
+    },
+    summary: {
+      en: "Artificial Intelligence (AI) is everywhere right now — from news headlines and industry panels to software pitches and dinner table debates. But what is really useful for you — and what is just hype?",
+      de: "Artificial Intelligence (AI) is everywhere right now — from news headlines and industry panels to software pitches and dinner table debates. But what is really useful for you — and what is just hype?" // TODO: Translate
+    },
     image: "/lovable-uploads/Blog2small.jpeg",
     date: "April 15, 2025",
     author: "Patrick Reverchon",
-    content: `<h2>What AI Can Actually Do for Your Business — And What’s Just Hype</h2>
+    content: {
+      en: `<h2>What AI Can Actually Do for Your Business — And What’s Just Hype</h2>
 
 <p>Artificial Intelligence (AI) is everywhere right now — from news headlines and industry panels to software pitches and dinner table debates. But if you’re running a small or medium-sized business, especially in sectors like legal services, logistics, tax consultancy, or agriculture, you might be asking yourself:</p>
 
@@ -411,20 +449,27 @@ export const blogPosts: BlogPost[] = [
 
 <br>
 
-<p><a href="/contact" target="_blank"><strong>Let’s talk about where AI could save you time and stress — starting this week.</strong></a></p>`
-
+<p><a href="/contact" target="_blank"><strong>Let’s talk about where AI could save you time and stress — starting this week.</strong></a></p>`,
+      de: "TODO: Translate" // TODO: Add German translation
+    }
   },
-
-
   {   
     id: 4,
     category: "PROCESS AUTOMATION",
-    title: "5 Business Tasks SMEs Should Automate Now",
-    summary: "Running a business today means juggling dozens of tasks every week — from sending invoices and replying to emails, to updating spreadsheets and booking meetings. If your team is spending hours each week on repetitive tasks, you're not just wasting time — you're leaving money on the table.",
+    slug: "5-tasks-to-automate-now",
+    title: {
+      en: "5 Business Tasks SMEs Should Automate Now",
+      de: "5 Business Tasks SMEs Should Automate Now" // TODO: Translate
+    },
+    summary: {
+      en: "Running a business today means juggling dozens of tasks every week — from sending invoices and replying to emails, to updating spreadsheets and booking meetings. If your team is spending hours each week on repetitive tasks, you're not just wasting time — you're leaving money on the table.",
+      de: "Running a business today means juggling dozens of tasks every week — from sending invoices and replying to emails, to updating spreadsheets and booking meetings. If your team is spending hours each week on repetitive tasks, you're not just wasting time — you're leaving money on the table." // TODO: Translate
+    },
     image: "/lovable-uploads/Blog1small.jpeg",
     date: "May 30, 2025",
     author: "Patrick Reverchon",
-    content: `<h2>Stop Wasting Time: 5 Business Tasks SMEs Should Automate Now</h2>
+    content: {
+      en: `<h2>Stop Wasting Time: 5 Business Tasks SMEs Should Automate Now</h2>
 
 
 <br>The good news? <strong>Smart automation isn't just for big tech companies anymore.</strong> Thanks to easy-to-use tools and custom solutions, small and mid-sized companies can now automate key parts of their operations without hiring a developer or changing everything overnight.</br>
@@ -456,43 +501,83 @@ export const blogPosts: BlogPost[] = [
 
 <br>At <strong>Crux Consulting</strong>, we specialize in helping small and mid-sized businesses unlock time, save money, and <strong>scale smarter through automation and AI</strong>. Our solutions are custom-built for companies between 30–200 employees — not for tech giants.</br>
 
-<br><a href="/contact" target="_blank"><strong>Ready to stop wasting time and start automating? Let's talk about your first quick win.</strong></a></br>`
+<br><a href="/contact" target="_blank"><strong>Ready to stop wasting time and start automating? Let's talk about your first quick win.</strong></a></br>`,
+      de: `<h2>Stop Wasting Time: 5 Business Tasks SMEs Should Automate Now</h2>
+
+
+<br>The good news? <strong>Smart automation isn't just for big tech companies anymore.</strong> Thanks to easy-to-use tools and custom solutions, small and mid-sized companies can now automate key parts of their operations without hiring a developer or changing everything overnight.</br>
+
+<br>Here are five common tasks that <em>SMEs like yours</em> can start automating right away — and how it can help you save time, reduce errors, and focus on what really matters: your clients.</br>
+
+<br><h2>1. Client Onboarding</h3></br>
+<p>Whether you're a law firm, tax consultant, or logistics provider — onboarding new clients often means repeating the same steps: sending welcome emails, requesting documents, filling out forms. These steps can all be <strong>automated into a smooth, digital workflow</strong>.</p>
+<p><strong>Result:</strong> No more chasing clients for paperwork. Everything gets done faster, and your team has more time to build relationships — not fill out PDFs.</p>
+
+<br><h2>2. Invoice Creation and Follow-Up</h3></br>
+<p>Still creating invoices manually and chasing late payments? Automate it. Connect your CRM or spreadsheet to an invoice tool that sends bills automatically, sets due dates, and triggers polite reminders when payments are overdue.</p>
+<p><strong>Result:</strong> You get paid faster and reduce stress — without anyone on your team sending "Just checking in" emails again.</p>
+
+<br><h2>3. Scheduling and Calendar Management</h3></br>
+<p>How many emails go back and forth before a client meeting is booked? Automating your scheduling with tools like <a href="https://calendly.com/" target="_blank">Calendly</a> or Microsoft Bookings lets clients choose a slot that works — with no email ping-pong.</p>
+<p><strong>Result:</strong> You save time, reduce no-shows, and give your clients a better experience from the very first meeting.</p>
+
+<br><h2>4. Reporting and Dashboards</h3></br>
+<p>If you're pulling data from Excel or typing up weekly reports manually — stop. Reporting tools can pull data from your systems automatically and update dashboards in real time. Whether it's sales performance, warehouse stock, or project status — it's all visible at a glance.</p>
+<p><strong>Result:</strong> Faster decisions, less manual work, and a team that always knows what's going on.</p>
+
+<br><h2>5. Email Sorting and Document Management</h3></br>
+<p>Legal firms, accountants, and even farmers often deal with dozens (or hundreds) of emails and attachments. AI tools can now <strong>automatically sort emails, extract documents, rename them properly, and store them in the right folder</strong> — all without lifting a finger.</p>
+<p><strong>Result:</strong> A clean inbox, organized files, and no more time wasted hunting for that one attachment from last week.</p>
+
+<br><h2>Why This Matters for SMEs</h2></br>
+<p>You don't need a 10-person IT department to automate. You just need the right partner who understands your business and your goals.</p>
+
+<br>At <strong>Crux Consulting</strong>, we specialize in helping small and mid-sized businesses unlock time, save money, and <strong>scale smarter through automation and AI</strong>. Our solutions are custom-built for companies between 30–200 employees — not for tech giants.</br>
+
+<br><a href="/contact" target="_blank"><strong>Ready to stop wasting time and start automating? Let's talk about your first quick win.</strong></a></br>` // TODO: Translate
+    }
   },
-
-
   {   
     id: 5,
     category: "SALES & SERVICE",
-    title: "From Frustrating Bots to 24/7 Sales and Expert Teammates",
-    summary: "For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion. But here’s the thing: That old era is over..",
+    slug: "frustrating-bots-to-expert-teammates",
+    title: {
+      en: "From Frustrating Bots to 24/7 Sales and Expert Teammates",
+      de: "From Frustrating Bots to 24/7 Sales and Expert Teammates" // TODO: Translate
+    },
+    summary: {
+      en: "For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion. But here's the thing: That old era is over.",
+      de: "For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion. But here's the thing: That old era is over." // TODO: Translate
+    },
     image: "/lovable-uploads/blogchatbot.png",
     date: "Aug 19, 2025",
     author: "Patrick Reverchon",
-    content: `<h2>From Frustrating Bots to 24/7 Sales and Expert Teammates</h2>
+    content: {
+      en: `<h2>From Frustrating Bots to 24/7 Sales and Expert Teammates</h2>
 
 
-  <p>If you’ve ever found yourself stuck in an endless chatbot loop – clicking buttons, repeating the same question, or yelling “talk to a human!” at your screen – you’re not alone.</p>
+  <p>If you've ever found yourself stuck in an endless chatbot loop – clicking buttons, repeating the same question, or yelling "talk to a human!" at your screen – you're not alone.</p>
 
   <p>For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion.</p>
 
-  <p>But here’s the thing: That old era is over.</p>
+  <p>But here's the thing: That old era is over.</p>
 
-  <h2>So, what’s changed?</h2>
+  <h2>So, what's changed?</h2>
 
-  <p>Today’s web-based AI assistants are smarter, faster, and far more useful than their predecessors. And at Crux Consulting, we’re helping companies turn them into true digital assets.</p>
+  <p>Today's web-based AI assistants are smarter, faster, and far more useful than their predecessors. And at Crux Consulting, we're helping companies turn them into true digital assets.</p>
 
-  <p>Let’s break down what makes the new generation of chatbots such a game-changer.</p>
+  <p>Let's break down what makes the new generation of chatbots such a game-changer.</p>
 
   <hr>
 
   <h3>1. Why Chatbots Got a Bad Reputation (And Deserved It)</h3>
 
-  <p>For most of the 2010s, chatbots were rule-based systems. That meant they could only respond based on pre-set options – “Press 1 for this, 2 for that.” If your question didn’t match one of their canned answers, you were stuck.</p>
+  <p>For most of the 2010s, chatbots were rule-based systems. That meant they could only respond based on pre-set options – "Press 1 for this, 2 for that." If your question didn't match one of their canned answers, you were stuck.</p>
 
   <ul>
-    <li>They didn’t understand your question.</li>
-    <li>They couldn’t explain things in different ways.</li>
-    <li>They didn’t know when something had changed – like a new return policy or a product update.</li>
+    <li>They didn't understand your question.</li>
+    <li>They couldn't explain things in different ways.</li>
+    <li>They didn't know when something had changed – like a new return policy or a product update.</li>
   </ul>
 
   <p>These early bots felt robotic because they were. The result? Most users abandoned them within seconds and went looking for a human.</p>
@@ -501,18 +586,18 @@ export const blogPosts: BlogPost[] = [
 
   <h3>2. The New Generation: Smarter, More Human, Truly Helpful</h3>
 
-  <p>Today’s AI chatbots are built very differently.</p>
+  <p>Today's AI chatbots are built very differently.</p>
 
-  <p>They can <strong>understand natural language</strong> – so you don’t need to phrase things in a certain way. You just ask, like you would with a colleague. Behind the scenes, they process massive amounts of information and can be trained on everything from your product catalog to your service terms and internal guides.</p>
+  <p>They can <strong>understand natural language</strong> – so you don't need to phrase things in a certain way. You just ask, like you would with a colleague. Behind the scenes, they process massive amounts of information and can be trained on everything from your product catalog to your service terms and internal guides.</p>
 
-  <p>What’s even better? They’re not limited to static content.</p>
+  <p>What's even better? They're not limited to static content.</p>
 
   <p>Modern chatbots can access <strong>real-time delivery data</strong> via Shopify APIs, check the <strong>status of a refund</strong> through your customer service platform, or integrate with tools like Notion, Jira, or your CRM to deliver the right update, at the right time.</p>
 
   <p>Other examples include:</p>
   <ul>
-    <li>A logistics company’s chatbot checking truck locations and estimated arrivals in real time.</li>
-    <li>A law firm’s assistant instantly pulling relevant clauses from 300+ contracts when someone asks about a term.</li>
+    <li>A logistics company's chatbot checking truck locations and estimated arrivals in real time.</li>
+    <li>A law firm's assistant instantly pulling relevant clauses from 300+ contracts when someone asks about a term.</li>
   </ul>
 
   <p>These bots can:</p>
@@ -522,13 +607,13 @@ export const blogPosts: BlogPost[] = [
     <li><strong>Speak 50+ languages</strong>, ensuring no customer is left behind.</li>
   </ul>
 
-  <p>Done right, they’re more than just a support tool – they become a <strong>digital sales agent</strong> that’s available 24/7, always up to date, and always on message.</p>
+  <p>Done right, they're more than just a support tool – they become a <strong>digital sales agent</strong> that's available 24/7, always up to date, and always on message.</p>
 
   <hr>
 
   <h3>3. Not Just for Customers – A Quiet Revolution for Internal Teams</h3>
 
-  <p>AI chatbots don’t just belong on the front line of your website. Their real power starts to show when you plug them into your internal systems.</p>
+  <p>AI chatbots don't just belong on the front line of your website. Their real power starts to show when you plug them into your internal systems.</p>
 
   <p>Imagine this:</p>
   <ul>
@@ -542,23 +627,23 @@ export const blogPosts: BlogPost[] = [
   <p>Internally, a good chatbot becomes <strong>the colleague who always knows</strong>:</p>
   <ul>
     <li>Where things are.</li>
-    <li>What’s changed.</li>
-    <li>Who’s responsible.</li>
+    <li>What's changed.</li>
+    <li>Who's responsible.</li>
   </ul>
 
-  <p>It’s like having your company’s brain at your fingertips.</p>
+  <p>It's like having your company's brain at your fingertips.</p>
 
   <hr>
 
   <h2>At Crux Consulting, We Build Chatbots That Actually Work</h2>
 
-  <p>The magic doesn’t happen automatically. These assistants need the right setup, the right data, and smart integration with your systems. That’s where we come in.</p>
+  <p>The magic doesn't happen automatically. These assistants need the right setup, the right data, and smart integration with your systems. That's where we come in.</p>
 
   <p><strong>Our approach:</strong></p>
   <ul>
     <li>We help you identify the right use cases – internal or external.</li>
     <li>We connect your chatbot to live data, not static content.</li>
-    <li>We ensure it’s always up to date, always reliable, and always relevant.</li>
+    <li>We ensure it's always up to date, always reliable, and always relevant.</li>
   </ul>
 
   <p>With the right foundation, a chatbot becomes more than just a button in the corner of your screen. It becomes:</p>
@@ -574,13 +659,122 @@ export const blogPosts: BlogPost[] = [
   <hr>
 
   <p><strong>Curious what this could look like for your business?</strong><br>
-  Let’s talk. We’d love to show you what’s possible.</p>
+  Let's talk. We'd love to show you what's possible.</p>
 
-  <p><a href="https://crux-consulting.ai/services/ai-chatbot" target="_blank" rel="noopener noreferrer">👉 Explore our AI Assistant Solutions</a></p>`
+  <p><a href="https://crux-consulting.ai/services/ai-chatbot" target="_blank" rel="noopener noreferrer">👉 Explore our AI Assistant Solutions</a></p>`,
+      de: `<h2>From Frustrating Bots to 24/7 Sales and Expert Teammates</h2>
+
+
+  <p>If you've ever found yourself stuck in an endless chatbot loop – clicking buttons, repeating the same question, or yelling "talk to a human!" at your screen – you're not alone.</p>
+
+  <p>For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion.</p>
+
+  <p>But here's the thing: That old era is over.</p>
+
+  <h2>So, what's changed?</h2>
+
+  <p>Today's web-based AI assistants are smarter, faster, and far more useful than their predecessors. And at Crux Consulting, we're helping companies turn them into true digital assets.</p>
+
+  <p>Let's break down what makes the new generation of chatbots such a game-changer.</p>
+
+  <hr>
+
+  <h3>1. Why Chatbots Got a Bad Reputation (And Deserved It)</h3>
+
+  <p>For most of the 2010s, chatbots were rule-based systems. That meant they could only respond based on pre-set options – "Press 1 for this, 2 for that." If your question didn't match one of their canned answers, you were stuck.</p>
+
+  <ul>
+    <li>They didn't understand your question.</li>
+    <li>They couldn't explain things in different ways.</li>
+    <li>They didn't know when something had changed – like a new return policy or a product update.</li>
+  </ul>
+
+  <p>These early bots felt robotic because they were. The result? Most users abandoned them within seconds and went looking for a human.</p>
+
+  <hr>
+
+  <h3>2. The New Generation: Smarter, More Human, Truly Helpful</h3>
+
+  <p>Today's AI chatbots are built very differently.</p>
+
+  <p>They can <strong>understand natural language</strong> – so you don't need to phrase things in a certain way. You just ask, like you would with a colleague. Behind the scenes, they process massive amounts of information and can be trained on everything from your product catalog to your service terms and internal guides.</p>
+
+  <p>What's even better? They're not limited to static content.</p>
+
+  <p>Modern chatbots can access <strong>real-time delivery data</strong> via Shopify APIs, check the <strong>status of a refund</strong> through your customer service platform, or integrate with tools like Notion, Jira, or your CRM to deliver the right update, at the right time.</p>
+
+  <p>Other examples include:</p>
+  <ul>
+    <li>A logistics company's chatbot checking truck locations and estimated arrivals in real time.</li>
+    <li>A law firm's assistant instantly pulling relevant clauses from 300+ contracts when someone asks about a term.</li>
+  </ul>
+
+  <p>These bots can:</p>
+  <ul>
+    <li><strong>Learn your business deeply</strong>, even the edge cases.</li>
+    <li><strong>Stay constantly updated</strong>, so you never share outdated info.</li>
+    <li><strong>Speak 50+ languages</strong>, ensuring no customer is left behind.</li>
+  </ul>
+
+  <p>Done right, they're more than just a support tool – they become a <strong>digital sales agent</strong> that's available 24/7, always up to date, and always on message.</p>
+
+  <hr>
+
+  <h3>3. Not Just for Customers – A Quiet Revolution for Internal Teams</h3>
+
+  <p>AI chatbots don't just belong on the front line of your website. Their real power starts to show when you plug them into your internal systems.</p>
+
+  <p>Imagine this:</p>
+  <ul>
+    <li>A new employee needs the latest slide deck for a project – they just ask the assistant, and it fetches the latest version instantly.</li>
+    <li>A colleague needs to understand how a complex internal tool works – the assistant explains it, based on documentation <em>and</em> previous support tickets.</li>
+    <li>A team lead wants updates on all open action items for a key client – the bot pulls them from different tools and summarizes the status.</li>
+  </ul>
+
+  <p>Instead of sifting through dozens of files, chasing Slack messages, or emailing five departments, people just ask the chatbot – and get what they need.</p>
+
+  <p>Internally, a good chatbot becomes <strong>the colleague who always knows</strong>:</p>
+  <ul>
+    <li>Where things are.</li>
+    <li>What's changed.</li>
+    <li>Who's responsible.</li>
+  </ul>
+
+  <p>It's like having your company's brain at your fingertips.</p>
+
+  <hr>
+
+  <h2>At Crux Consulting, We Build Chatbots That Actually Work</h2>
+
+  <p>The magic doesn't happen automatically. These assistants need the right setup, the right data, and smart integration with your systems. That's where we come in.</p>
+
+  <p><strong>Our approach:</strong></p>
+  <ul>
+    <li>We help you identify the right use cases – internal or external.</li>
+    <li>We connect your chatbot to live data, not static content.</li>
+    <li>We ensure it's always up to date, always reliable, and always relevant.</li>
+  </ul>
+
+  <p>With the right foundation, a chatbot becomes more than just a button in the corner of your screen. It becomes:</p>
+  <ul>
+    <li>Your hardest-working salesperson.</li>
+    <li>Your most organized project manager.</li>
+    <li>Your always-available support rep.</li>
+    <li>Your sharpest team assistant.</li>
+  </ul>
+
+  <p>And it never sleeps.</p>
+
+  <hr>
+
+  <p><strong>Curious what this could look like for your business?</strong><br>
+  Let's talk. We'd love to show you what's possible.</p>
+
+  <p><a href="https://crux-consulting.ai/services/ai-chatbot" target="_blank" rel="noopener noreferrer">👉 Explore our AI Assistant Solutions</a></p>` // TODO: Translate
+    }
   }
   
 ];
-
 
 // Helper function to parse date strings and sort by most recent
 export const getMostRecentPosts = (posts: BlogPost[], count: number = 3): BlogPost[] => {
@@ -604,6 +798,8 @@ export const getCategoryColor = (category: string): string => {
       return "text-purple-400";
     case "AUTOMATION":
       return "text-cyan-400";
+    case "SALES & SERVICE":
+      return "text-orange-400";
     default:
       return "text-gray-400";
   }
