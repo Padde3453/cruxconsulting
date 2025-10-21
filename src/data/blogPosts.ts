@@ -1418,7 +1418,7 @@ export const blogPosts: BlogPost[] = [
   <li>Wenn sich kein Mehrwert ergibt, ist das auch ein wichtiges Ergebnis und eine Weiterführung oder Ausbau kann mit offensichtlichen Argumenten abgelehnt werden</li>
   <li>Mitarbeiter können von der neuen Lösung überzeugt werden und unterstützen somit Folgeprojekte mehr</li>
   <li>Dem Management wird die Unsicherheit genommen, ob es geht, wie es geht und wie das Ergebnis aussehen kann</li>
-  <li>Alle beteiligten haben wertvolle Erfahrungen gesammelt, welche zukünftige Projekte beschleunigt und nur noch erfolgreicher macht</li>
+  <li>Alle Beteiligten haben wertvolle Erfahrungen gesammelt, welche zukünftige Projekte beschleunigt und nur noch erfolgreicher macht</li>
   <li>Kürzere Projekte kosten weniger und bergen somit von Beginn an ein geringeres Risiko</li>
 </ol>
 
