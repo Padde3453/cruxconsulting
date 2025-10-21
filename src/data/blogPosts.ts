@@ -266,7 +266,6 @@ export const blogPosts: BlogPost[] = [
 <br>
 
 <p><a href="/contact" target="_blank"><strong>Nicht sicher, wo Sie anfangen sollen? Lassen Sie uns ein Gespräch führen — ohne Fachjargon, ohne harten Verkauf, nur praktische Beratung, die auf Ihr Unternehmen zugeschnitten ist.</strong></a></p>`
-
     }
   },
   {
@@ -480,44 +479,7 @@ export const blogPosts: BlogPost[] = [
 
 <br>
 
-<p><strong>Überlegung:</strong> Ihrem Team zu helfen, mit KI zu wachsen, ist nicht nur eine Gefälligkeit — es ist eine geschäftliche Notwendigkeit. Ihr Wettbewerbsvorteil hängt von einer Belegschaft ab, die <em>versteht, wie man die Werkzeuge nutzt, die die Zukunft formen</em>.</p>
-
-<br><br>
-
-<h2>Wie KMU die richtige Balance finden können</h2>
-
-<br>
-
-<p>Der Schlüssel liegt nicht darin, zwischen Menschen oder KI zu wählen — sondern Arbeitsabläufe zu gestalten, in denen sie sich <strong>gegenseitig ergänzen</strong>.</p>
-
-<br>
-
-<ul>
-  <li>Nutzen Sie KI, um sich wiederholende Arbeit zu eliminieren, nicht menschliche Rollen</li>
-  <li>Schulen Sie Ihr Team im Umgang mit KI-Tools</li>
-  <li>Halten Sie Menschen bei dem, was sie am besten können — Probleme lösen, Kunden bedienen und das Geschäft ausbauen</li>
-</ul>
-
-<br>
-
-<p><strong>Denken Sie daran:</strong> KI kann die Kapazität Ihres Teams um 20–40% steigern, ohne den Personalbestand zu erhöhen. Das ist keine Überflüssigkeit — das ist Wachstum.</p>
-
-<br><br>
-
-<h3>Abschließende Gedanken: Befähigen, nicht ersetzen</h3>
-
-<br>
-
-<p>KI ist nicht hier, um Menschen überflüssig zu machen. Sie ist hier, um <strong>die Hindernisse zu beseitigen</strong>, die sie bremsen.</p>
-
-<br>
-
-<p>KMU, die diese Denkweise annehmen, werden schneller vorankommen, mehr Wert für Kunden liefern und Top-Talente anziehen. Diejenigen, die KI fürchten oder ignorieren, werden zurückfallen — nicht weil die Technologie übernommen hat, sondern weil <em>sie ihr Team nicht darauf vorbereitet haben, damit zu gedeihen</em>.</p>
-
-<br>
-
-<p><a href="/contact" target="_blank"><strong>Möchten Sie erkunden, wie KI Ihr Unternehmen effizienter machen kann — ohne Ihr Team zu reduzieren? Lassen Sie uns sprechen.</strong></a></p>`
-
+<p><strong>Überlegung:</strong> Ihrem Team zu helfen, mit KI zu wachsen, ist nicht nur eine Gefälligkeit — es ist eine geschäftliche Notwendigkeit. Ihr Wettbewerbsvorteil hängt von einer Belegschaft ab, die <em>versteht, wie man die Werkzeuge nutzt, die die Zukunft formen</em>.</p>`
     }
   },
   {
@@ -826,7 +788,6 @@ export const blogPosts: BlogPost[] = [
 <br>
 
 <p><a href="/contact" target="_blank"><strong>Lassen Sie uns darüber sprechen, wo KI Ihnen Zeit und Stress sparen könnte — ab dieser Woche.</strong></a></p>`
-
     }
   },
   {   
@@ -911,7 +872,6 @@ export const blogPosts: BlogPost[] = [
 <br>Bei <strong>Crux Consulting</strong> sind wir darauf spezialisiert, kleinen und mittelständischen Unternehmen zu helfen, Zeit freizusetzen, Geld zu sparen und <strong>durch Automatisierung und KI intelligenter zu skalieren</strong>. Unsere Lösungen sind maßgeschneidert für Unternehmen mit 30–200 Mitarbeitern — nicht für Tech-Giganten.</br>
 
 <br><a href="/contact" target="_blank"><strong>Bereit, keine Zeit mehr zu verschwenden und mit der Automatisierung zu beginnen? Lassen Sie uns über Ihren ersten schnellen Erfolg sprechen.</strong></a></br>`
-
     }
   },
   {   
@@ -920,11 +880,11 @@ export const blogPosts: BlogPost[] = [
     slug: "frustrating-bots-to-expert-teammates",
     title: {
       en: "From Frustrating Bots to 24/7 Sales and Expert Teammates",
-      de: "From Frustrating Bots to 24/7 Sales and Expert Teammates" // TODO: Translate
+      de: "Von frustrierenden Bots zu 24/7-Verkauf und Experten-Teammitgliedern"
     },
     summary: {
       en: "For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion. But here's the thing: That old era is over.",
-      de: "For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion. But here's the thing: That old era is over." // TODO: Translate
+      de: "Jahrelang hatten Chatbots einen schlechten Ruf. Und ehrlich gesagt, haben sie ihn verdient. Sie waren kaum mehr als verherrlichte FAQ-Menüs, starr und oft frustrierender als hilfreich. Unternehmen fügten sie ihren Websites hinzu und dachten, sie böten 24/7-Support, aber in Wirklichkeit boten sie nur 24/7-Verwirrung. Aber hier ist die Sache: Diese alte Ära ist vorbei."
     },
     image: "/lovable-uploads/blogchatbot.png",
     date: "Aug 19, 2025",
@@ -932,222 +892,220 @@ export const blogPosts: BlogPost[] = [
     content: {
       en: `<h2>From Frustrating Bots to 24/7 Sales and Expert Teammates</h2>
 
+<p>If you've ever found yourself stuck in an endless chatbot loop – clicking buttons, repeating the same question, or yelling "talk to a human!" at your screen – you're not alone.</p>
 
-  <p>If you've ever found yourself stuck in an endless chatbot loop – clicking buttons, repeating the same question, or yelling "talk to a human!" at your screen – you're not alone.</p>
+<p>For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion.</p>
 
-  <p>For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion.</p>
+<p>But here's the thing: That old era is over.</p>
 
-  <p>But here's the thing: That old era is over.</p>
+<h2>So, what's changed?</h2>
 
-  <h2>So, what's changed?</h2>
+<p>Today's web-based AI assistants are smarter, faster, and far more useful than their predecessors. And at Crux Consulting, we're helping companies turn them into true digital assets.</p>
 
-  <p>Today's web-based AI assistants are smarter, faster, and far more useful than their predecessors. And at Crux Consulting, we're helping companies turn them into true digital assets.</p>
+<p>Let's break down what makes the new generation of chatbots such a game-changer.</p>
 
-  <p>Let's break down what makes the new generation of chatbots such a game-changer.</p>
+<hr>
 
-  <hr>
+<h3>1. Why Chatbots Got a Bad Reputation (And Deserved It)</h3>
 
-  <h3>1. Why Chatbots Got a Bad Reputation (And Deserved It)</h3>
+<p>For most of the 2010s, chatbots were rule-based systems. That meant they could only respond based on pre-set options – "Press 1 for this, 2 for that." If your question didn't match one of their canned answers, you were stuck.</p>
 
-  <p>For most of the 2010s, chatbots were rule-based systems. That meant they could only respond based on pre-set options – "Press 1 for this, 2 for that." If your question didn't match one of their canned answers, you were stuck.</p>
+<ul>
+  <li>They didn't understand your question.</li>
+  <li>They couldn't explain things in different ways.</li>
+  <li>They didn't know when something had changed – like a new return policy or a product update.</li>
+</ul>
 
-  <ul>
-    <li>They didn't understand your question.</li>
-    <li>They couldn't explain things in different ways.</li>
-    <li>They didn't know when something had changed – like a new return policy or a product update.</li>
-  </ul>
+<p>These early bots felt robotic because they were. The result? Most users abandoned them within seconds and went looking for a human.</p>
 
-  <p>These early bots felt robotic because they were. The result? Most users abandoned them within seconds and went looking for a human.</p>
+<hr>
 
-  <hr>
+<h3>2. The New Generation: Smarter, More Human, Truly Helpful</h3>
 
-  <h3>2. The New Generation: Smarter, More Human, Truly Helpful</h3>
+<p>Today's AI chatbots are built very differently.</p>
 
-  <p>Today's AI chatbots are built very differently.</p>
+<p>They can <strong>understand natural language</strong> – so you don't need to phrase things in a certain way. You just ask, like you would with a colleague. Behind the scenes, they process massive amounts of information and can be trained on everything from your product catalog to your service terms and internal guides.</p>
 
-  <p>They can <strong>understand natural language</strong> – so you don't need to phrase things in a certain way. You just ask, like you would with a colleague. Behind the scenes, they process massive amounts of information and can be trained on everything from your product catalog to your service terms and internal guides.</p>
+<p>What's even better? They're not limited to static content.</p>
 
-  <p>What's even better? They're not limited to static content.</p>
+<p>Modern chatbots can access <strong>real-time delivery data</strong> via Shopify APIs, check the <strong>status of a refund</strong> through your customer service platform, or integrate with tools like Notion, Jira, or your CRM to deliver the right update, at the right time.</p>
 
-  <p>Modern chatbots can access <strong>real-time delivery data</strong> via Shopify APIs, check the <strong>status of a refund</strong> through your customer service platform, or integrate with tools like Notion, Jira, or your CRM to deliver the right update, at the right time.</p>
+<p>Other examples include:</p>
+<ul>
+  <li>A logistics company's chatbot checking truck locations and estimated arrivals in real time.</li>
+  <li>A law firm's assistant instantly pulling relevant clauses from 300+ contracts when someone asks about a term.</li>
+</ul>
 
-  <p>Other examples include:</p>
-  <ul>
-    <li>A logistics company's chatbot checking truck locations and estimated arrivals in real time.</li>
-    <li>A law firm's assistant instantly pulling relevant clauses from 300+ contracts when someone asks about a term.</li>
-  </ul>
+<p>These bots can:</p>
+<ul>
+  <li><strong>Learn your business deeply</strong>, even the edge cases.</li>
+  <li><strong>Stay constantly updated</strong>, so you never share outdated info.</li>
+  <li><strong>Speak 50+ languages</strong>, ensuring no customer is left behind.</li>
+</ul>
 
-  <p>These bots can:</p>
-  <ul>
-    <li><strong>Learn your business deeply</strong>, even the edge cases.</li>
-    <li><strong>Stay constantly updated</strong>, so you never share outdated info.</li>
-    <li><strong>Speak 50+ languages</strong>, ensuring no customer is left behind.</li>
-  </ul>
+<p>Done right, they're more than just a support tool – they become a <strong>digital sales agent</strong> that's available 24/7, always up to date, and always on message.</p>
 
-  <p>Done right, they're more than just a support tool – they become a <strong>digital sales agent</strong> that's available 24/7, always up to date, and always on message.</p>
+<hr>
 
-  <hr>
+<h3>3. Not Just for Customers – A Quiet Revolution for Internal Teams</h3>
 
-  <h3>3. Not Just for Customers – A Quiet Revolution for Internal Teams</h3>
+<p>AI chatbots don't just belong on the front line of your website. Their real power starts to show when you plug them into your internal systems.</p>
 
-  <p>AI chatbots don't just belong on the front line of your website. Their real power starts to show when you plug them into your internal systems.</p>
+<p>Imagine this:</p>
+<ul>
+  <li>A new employee needs the latest slide deck for a project – they just ask the assistant, and it fetches the latest version instantly.</li>
+  <li>A colleague needs to understand how a complex internal tool works – the assistant explains it, based on documentation <em>and</em> previous support tickets.</li>
+  <li>A team lead wants updates on all open action items for a key client – the bot pulls them from different tools and summarizes the status.</li>
+</ul>
 
-  <p>Imagine this:</p>
-  <ul>
-    <li>A new employee needs the latest slide deck for a project – they just ask the assistant, and it fetches the latest version instantly.</li>
-    <li>A colleague needs to understand how a complex internal tool works – the assistant explains it, based on documentation <em>and</em> previous support tickets.</li>
-    <li>A team lead wants updates on all open action items for a key client – the bot pulls them from different tools and summarizes the status.</li>
-  </ul>
+<p>Instead of sifting through dozens of files, chasing Slack messages, or emailing five departments, people just ask the chatbot – and get what they need.</p>
 
-  <p>Instead of sifting through dozens of files, chasing Slack messages, or emailing five departments, people just ask the chatbot – and get what they need.</p>
+<p>Internally, a good chatbot becomes <strong>the colleague who always knows</strong>:</p>
+<ul>
+  <li>Where things are.</li>
+  <li>What's changed.</li>
+  <li>Who's responsible.</li>
+</ul>
 
-  <p>Internally, a good chatbot becomes <strong>the colleague who always knows</strong>:</p>
-  <ul>
-    <li>Where things are.</li>
-    <li>What's changed.</li>
-    <li>Who's responsible.</li>
-  </ul>
+<p>It's like having your company's brain at your fingertips.</p>
 
-  <p>It's like having your company's brain at your fingertips.</p>
+<hr>
 
-  <hr>
+<h2>At Crux Consulting, We Build Chatbots That Actually Work</h2>
 
-  <h2>At Crux Consulting, We Build Chatbots That Actually Work</h2>
+<p>The magic doesn't happen automatically. These assistants need the right setup, the right data, and smart integration with your systems. That's where we come in.</p>
 
-  <p>The magic doesn't happen automatically. These assistants need the right setup, the right data, and smart integration with your systems. That's where we come in.</p>
+<p><strong>Our approach:</strong></p>
+<ul>
+  <li>We help you identify the right use cases – internal or external.</li>
+  <li>We connect your chatbot to live data, not static content.</li>
+  <li>We ensure it's always up to date, always reliable, and always relevant.</li>
+</ul>
 
-  <p><strong>Our approach:</strong></p>
-  <ul>
-    <li>We help you identify the right use cases – internal or external.</li>
-    <li>We connect your chatbot to live data, not static content.</li>
-    <li>We ensure it's always up to date, always reliable, and always relevant.</li>
-  </ul>
+<p>With the right foundation, a chatbot becomes more than just a button in the corner of your screen. It becomes:</p>
+<ul>
+  <li>Your hardest-working salesperson.</li>
+  <li>Your most organized project manager.</li>
+  <li>Your always-available support rep.</li>
+  <li>Your sharpest team assistant.</li>
+</ul>
 
-  <p>With the right foundation, a chatbot becomes more than just a button in the corner of your screen. It becomes:</p>
-  <ul>
-    <li>Your hardest-working salesperson.</li>
-    <li>Your most organized project manager.</li>
-    <li>Your always-available support rep.</li>
-    <li>Your sharpest team assistant.</li>
-  </ul>
+<p>And it never sleeps.</p>
 
-  <p>And it never sleeps.</p>
+<hr>
 
-  <hr>
+<p><strong>Curious what this could look like for your business?</strong><br>
+Let's talk. We'd love to show you what's possible.</p>
 
-  <p><strong>Curious what this could look like for your business?</strong><br>
-  Let's talk. We'd love to show you what's possible.</p>
-
-  <p><a href="https://crux-consulting.ai/services/ai-chatbot" target="_blank" rel="noopener noreferrer">👉 Explore our AI Assistant Solutions</a></p>`,
+<p><a href="https://crux-consulting.ai/services/ai-chatbot" target="_blank" rel="noopener noreferrer">👉 Explore our AI Assistant Solutions</a></p>`,
       de: `<h2>From Frustrating Bots to 24/7 Sales and Expert Teammates</h2>
 
+<p>If you've ever found yourself stuck in an endless chatbot loop – clicking buttons, repeating the same question, or yelling "talk to a human!" at your screen – you're not alone.</p>
 
-  <p>If you've ever found yourself stuck in an endless chatbot loop – clicking buttons, repeating the same question, or yelling "talk to a human!" at your screen – you're not alone.</p>
+<p>For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion.</p>
 
-  <p>For years, chatbots had a bad name. And frankly, they deserved it. They were little more than glorified FAQ menus, rigid and often more frustrating than helpful. Businesses added them to their websites thinking they were offering 24/7 support, but in reality, they just offered 24/7 confusion.</p>
+<p>But here's the thing: That old era is over.</p>
 
-  <p>But here's the thing: That old era is over.</p>
+<h2>So, what's changed?</h2>
 
-  <h2>So, what's changed?</h2>
+<p>Today's web-based AI assistants are smarter, faster, and far more useful than their predecessors. And at Crux Consulting, we're helping companies turn them into true digital assets.</p>
 
-  <p>Today's web-based AI assistants are smarter, faster, and far more useful than their predecessors. And at Crux Consulting, we're helping companies turn them into true digital assets.</p>
+<p>Let's break down what makes the new generation of chatbots such a game-changer.</p>
 
-  <p>Let's break down what makes the new generation of chatbots such a game-changer.</p>
+<hr>
 
-  <hr>
+<h3>1. Why Chatbots Got a Bad Reputation (And Deserved It)</h3>
 
-  <h3>1. Why Chatbots Got a Bad Reputation (And Deserved It)</h3>
+<p>For most of the 2010s, chatbots were rule-based systems. That meant they could only respond based on pre-set options – "Press 1 for this, 2 for that." If your question didn't match one of their canned answers, you were stuck.</p>
 
-  <p>For most of the 2010s, chatbots were rule-based systems. That meant they could only respond based on pre-set options – "Press 1 for this, 2 for that." If your question didn't match one of their canned answers, you were stuck.</p>
+<ul>
+  <li>They didn't understand your question.</li>
+  <li>They couldn't explain things in different ways.</li>
+  <li>They didn't know when something had changed – like a new return policy or a product update.</li>
+</ul>
 
-  <ul>
-    <li>They didn't understand your question.</li>
-    <li>They couldn't explain things in different ways.</li>
-    <li>They didn't know when something had changed – like a new return policy or a product update.</li>
-  </ul>
+<p>These early bots felt robotic because they were. The result? Most users abandoned them within seconds and went looking for a human.</p>
 
-  <p>These early bots felt robotic because they were. The result? Most users abandoned them within seconds and went looking for a human.</p>
+<hr>
 
-  <hr>
+<h3>2. The New Generation: Smarter, More Human, Truly Helpful</h3>
 
-  <h3>2. The New Generation: Smarter, More Human, Truly Helpful</h3>
+<p>Today's AI chatbots are built very differently.</p>
 
-  <p>Today's AI chatbots are built very differently.</p>
+<p>They can <strong>understand natural language</strong> – so you don't need to phrase things in a certain way. You just ask, like you would with a colleague. Behind the scenes, they process massive amounts of information and can be trained on everything from your product catalog to your service terms and internal guides.</p>
 
-  <p>They can <strong>understand natural language</strong> – so you don't need to phrase things in a certain way. You just ask, like you would with a colleague. Behind the scenes, they process massive amounts of information and can be trained on everything from your product catalog to your service terms and internal guides.</p>
+<p>What's even better? They're not limited to static content.</p>
 
-  <p>What's even better? They're not limited to static content.</p>
+<p>Modern chatbots can access <strong>real-time delivery data</strong> via Shopify APIs, check the <strong>status of a refund</strong> through your customer service platform, or integrate with tools like Notion, Jira, or your CRM to deliver the right update, at the right time.</p>
 
-  <p>Modern chatbots can access <strong>real-time delivery data</strong> via Shopify APIs, check the <strong>status of a refund</strong> through your customer service platform, or integrate with tools like Notion, Jira, or your CRM to deliver the right update, at the right time.</p>
+<p>Other examples include:</p>
+<ul>
+  <li>A logistics company's chatbot checking truck locations and estimated arrivals in real time.</li>
+  <li>A law firm's assistant instantly pulling relevant clauses from 300+ contracts when someone asks about a term.</li>
+</ul>
 
-  <p>Other examples include:</p>
-  <ul>
-    <li>A logistics company's chatbot checking truck locations and estimated arrivals in real time.</li>
-    <li>A law firm's assistant instantly pulling relevant clauses from 300+ contracts when someone asks about a term.</li>
-  </ul>
+<p>These bots can:</p>
+<ul>
+  <li><strong>Learn your business deeply</strong>, even the edge cases.</li>
+  <li><strong>Stay constantly updated</strong>, so you never share outdated info.</li>
+  <li><strong>Speak 50+ languages</strong>, ensuring no customer is left behind.</li>
+</ul>
 
-  <p>These bots can:</p>
-  <ul>
-    <li><strong>Learn your business deeply</strong>, even the edge cases.</li>
-    <li><strong>Stay constantly updated</strong>, so you never share outdated info.</li>
-    <li><strong>Speak 50+ languages</strong>, ensuring no customer is left behind.</li>
-  </ul>
+<p>Done right, they're more than just a support tool – they become a <strong>digital sales agent</strong> that's available 24/7, always up to date, and always on message.</p>
 
-  <p>Done right, they're more than just a support tool – they become a <strong>digital sales agent</strong> that's available 24/7, always up to date, and always on message.</p>
+<hr>
 
-  <hr>
+<h3>3. Not Just for Customers – A Quiet Revolution for Internal Teams</h3>
 
-  <h3>3. Not Just for Customers – A Quiet Revolution for Internal Teams</h3>
+<p>AI chatbots don't just belong on the front line of your website. Their real power starts to show when you plug them into your internal systems.</p>
 
-  <p>AI chatbots don't just belong on the front line of your website. Their real power starts to show when you plug them into your internal systems.</p>
+<p>Imagine this:</p>
+<ul>
+  <li>A new employee needs the latest slide deck for a project – they just ask the assistant, and it fetches the latest version instantly.</li>
+  <li>A colleague needs to understand how a complex internal tool works – the assistant explains it, based on documentation <em>and</em> previous support tickets.</li>
+  <li>A team lead wants updates on all open action items for a key client – the bot pulls them from different tools and summarizes the status.</li>
+</ul>
 
-  <p>Imagine this:</p>
-  <ul>
-    <li>A new employee needs the latest slide deck for a project – they just ask the assistant, and it fetches the latest version instantly.</li>
-    <li>A colleague needs to understand how a complex internal tool works – the assistant explains it, based on documentation <em>and</em> previous support tickets.</li>
-    <li>A team lead wants updates on all open action items for a key client – the bot pulls them from different tools and summarizes the status.</li>
-  </ul>
+<p>Instead of sifting through dozens of files, chasing Slack messages, or emailing five departments, people just ask the chatbot – and get what they need.</p>
 
-  <p>Instead of sifting through dozens of files, chasing Slack messages, or emailing five departments, people just ask the chatbot – and get what they need.</p>
+<p>Internally, a good chatbot becomes <strong>the colleague who always knows</strong>:</p>
+<ul>
+  <li>Where things are.</li>
+  <li>What's changed.</li>
+  <li>Who's responsible.</li>
+</ul>
 
-  <p>Internally, a good chatbot becomes <strong>the colleague who always knows</strong>:</p>
-  <ul>
-    <li>Where things are.</li>
-    <li>What's changed.</li>
-    <li>Who's responsible.</li>
-  </ul>
+<p>It's like having your company's brain at your fingertips.</p>
 
-  <p>It's like having your company's brain at your fingertips.</p>
+<hr>
 
-  <hr>
+<h2>At Crux Consulting, We Build Chatbots That Actually Work</h2>
 
-  <h2>At Crux Consulting, We Build Chatbots That Actually Work</h2>
+<p>The magic doesn't happen automatically. These assistants need the right setup, the right data, and smart integration with your systems. That's where we come in.</p>
 
-  <p>The magic doesn't happen automatically. These assistants need the right setup, the right data, and smart integration with your systems. That's where we come in.</p>
+<p><strong>Our approach:</strong></p>
+<ul>
+  <li>We help you identify the right use cases – internal or external.</li>
+  <li>We connect your chatbot to live data, not static content.</li>
+  <li>We ensure it's always up to date, always reliable, and always relevant.</li>
+</ul>
 
-  <p><strong>Our approach:</strong></p>
-  <ul>
-    <li>We help you identify the right use cases – internal or external.</li>
-    <li>We connect your chatbot to live data, not static content.</li>
-    <li>We ensure it's always up to date, always reliable, and always relevant.</li>
-  </ul>
+<p>With the right foundation, a chatbot becomes more than just a button in the corner of your screen. It becomes:</p>
+<ul>
+  <li>Your hardest-working salesperson.</li>
+  <li>Your most organized project manager.</li>
+  <li>Your always-available support rep.</li>
+  <li>Your sharpest team assistant.</li>
+</ul>
 
-  <p>With the right foundation, a chatbot becomes more than just a button in the corner of your screen. It becomes:</p>
-  <ul>
-    <li>Your hardest-working salesperson.</li>
-    <li>Your most organized project manager.</li>
-    <li>Your always-available support rep.</li>
-    <li>Your sharpest team assistant.</li>
-  </ul>
+<p>And it never sleeps.</p>
 
-  <p>And it never sleeps.</p>
+<hr>
 
-  <hr>
+<p><strong>Curious what this could look like for your business?</strong><br>
+Let's talk. We'd love to show you what's possible.</p>
 
-  <p><strong>Curious what this could look like for your business?</strong><br>
-  Let's talk. We'd love to show you what's possible.</p>
-
-  <p><a href="https://crux-consulting.ai/services/ai-chatbot" target="_blank" rel="noopener noreferrer">👉 Explore our AI Assistant Solutions</a></p>` // TODO: Translate
+<p><a href="https://crux-consulting.ai/services/ai-chatbot" target="_blank" rel="noopener noreferrer">👉 Explore our AI Assistant Solutions</a></p>`
     }
   }
   
