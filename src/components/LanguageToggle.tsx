@@ -1,11 +1,14 @@
 
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
 const LanguageToggle = () => {
   const { i18n } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const currentLanguage = i18n.language;
@@ -18,6 +21,21 @@ const LanguageToggle = () => {
   const changeLanguage = (langCode: string) => {
     i18n.changeLanguage(langCode);
     setIsOpen(false);
+
+    // Update URL if on blog pages
+    const currentPath = location.pathname;
+    
+    // Check if we're on a language-prefixed blog route
+    const blogMatch = currentPath.match(/^\/(en|de)\/blog(\/.*)?$/);
+    if (blogMatch) {
+      const restOfPath = blogMatch[2] || '';
+      navigate(`/${langCode}/blog${restOfPath}`, { replace: true });
+    }
+    // Check if we're on a non-prefixed blog route and add prefix
+    else if (currentPath.startsWith('/blog')) {
+      const restOfPath = currentPath.substring(5); // Remove '/blog'
+      navigate(`/${langCode}/blog${restOfPath}`, { replace: true });
+    }
   };
 
   const currentLang = languages.find(lang => lang.code === currentLanguage) || languages[0];

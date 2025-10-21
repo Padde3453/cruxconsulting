@@ -1,9 +1,9 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Menu, ArrowLeft, Linkedin, Instagram } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { blogPosts, getCategoryColor, getMostRecentPosts } from "@/data/blogPosts";
@@ -12,6 +12,17 @@ import { useTranslation } from 'react-i18next';
 const Blog = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
+  const { lang } = useParams<{ lang?: string }>();
+
+  // Apply language from URL if present
+  useEffect(() => {
+    if (lang && (lang === 'en' || lang === 'de')) {
+      if (i18n.language !== lang) {
+        i18n.changeLanguage(lang);
+      }
+    }
+  }, [lang, i18n]);
+
   const currentLang = (i18n.language.startsWith('de') ? 'de' : 'en') as 'en' | 'de';
 
   const scrollToTop = () => {
@@ -51,7 +62,7 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sortedPosts.map(post => 
-              <Link key={post.id} to={`/blog/${post.slug}`} className="block">
+              <Link key={post.id} to={`/${currentLang}/blog/${post.slug}`} className="block">
                 <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
                   <div className="aspect-video bg-gray-700 overflow-hidden">
                     <img src={post.image} alt={post.title[currentLang]} className="w-full h-full object-cover" />

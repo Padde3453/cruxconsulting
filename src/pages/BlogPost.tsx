@@ -9,11 +9,21 @@ import { blogPosts, getCategoryColor, type BlogPost as BlogPostType } from "@/da
 import { useTranslation } from 'react-i18next';
 
 const BlogPost = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug, lang } = useParams<{ slug: string; lang?: string }>();
   const { i18n } = useTranslation();
   const navigate = useNavigate();
-  const currentLang = (i18n.language.startsWith('de') ? 'de' : 'en') as 'en' | 'de';
   const [blogPost, setBlogPost] = useState<BlogPostType | null>(null);
+
+  // Apply language from URL if present
+  useEffect(() => {
+    if (lang && (lang === 'en' || lang === 'de')) {
+      if (i18n.language !== lang) {
+        i18n.changeLanguage(lang);
+      }
+    }
+  }, [lang, i18n]);
+
+  const currentLang = (i18n.language.startsWith('de') ? 'de' : 'en') as 'en' | 'de';
 
   const handleBooking = () => {
     navigate("/");
@@ -58,7 +68,7 @@ const BlogPost = () => {
       <article className="pt-32 pb-16">
         <div className="max-w-4xl mx-auto px-6">
           {/* Back to Blog Link */}
-          <Link to="/blog" className="inline-flex items-center text-brand-blue hover:text-brand-green transition-colors mb-8">
+          <Link to={`/${currentLang}/blog`} className="inline-flex items-center text-brand-blue hover:text-brand-green transition-colors mb-8">
             <ArrowLeft size={20} className="mr-2" />
             {currentLang === 'de' ? 'Zurück zu den Blogs' : 'Back to Blog'}
           </Link>
