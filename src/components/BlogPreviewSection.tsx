@@ -73,7 +73,7 @@ const BlogPreviewSection = () => {
                   </p>
                   
                     <div className="text-xs text-gray-400 mt-auto">
-                      {post.date} • {post.author}
+                      {post.date} • {currentLang === 'de' ? 'Von' : 'By'} {post.author}
                     </div>
                   </div>
                 </Card>

@@ -71,7 +71,7 @@ const Blog = () => {
                     </p>
                     
                     <div className="text-xs text-gray-400">
-                      {post.date} • {post.author}
+                      {post.date} • {currentLang === 'de' ? 'Von' : 'By'} {post.author}
                     </div>
                   </div>
                 </Card>

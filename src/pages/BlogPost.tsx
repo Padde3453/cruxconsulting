@@ -66,7 +66,7 @@ const BlogPost = () => {
           <div className="text-gray-400 mb-8 flex items-center space-x-4">
             <span>{blogPost.date}</span>
             <span>•</span>
-            <span>By {blogPost.author}</span>
+            <span>{currentLang === 'de' ? 'Von' : 'By'} {blogPost.author}</span>
           </div>
 
           {/* Featured Image */}
