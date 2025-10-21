@@ -1230,8 +1230,8 @@ export const blogPosts: BlogPost[] = [
       de: "Warum KI-Projekte scheitern und was man dagegen tun kann"
     },
     summary: {
-      en: "Especially in a time when change is inevitable, we should learn to implement projects successfully in order to remain competitive.",
-      de: "Besonders in einer Zeit, in der Veränderungen unumgänglich sind, sollten wir lernen Projekte erfolgreich umzusetzen, um wettbewerbsfähig zu bleiben."
+      en: "Too many artificial intelligence (AI) implementation projects fail, and this has nothing to do with the goal of introducing AI, but rather with the approach we take to implement change projects in companies. But this doesn't have to be the case — by starting small, we achieve a lot of positive results without great risk.",
+      de: "Zu viele Projekte zur Einführung von künstlicher Intelligenz (KI) scheitern, das liegt nicht überhaupt nicht an dem Ziel KI einzuführen, sondern an der Herangehensweise wie wir Änderungsprojekte in Unternehmen umsetzen. Aber das muss nicht sein, indem wir klein anfangen, erreichen wir viel positives ohne großes Risiko."
     },
     image: "/lovable-uploads/Blog6small.webp",
     date: "October 21, 2025",
