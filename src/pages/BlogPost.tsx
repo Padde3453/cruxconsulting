@@ -49,7 +49,7 @@ const BlogPost = () => {
           {/* Back to Blog Link */}
           <Link to="/blog" className="inline-flex items-center text-brand-blue hover:text-brand-green transition-colors mb-8">
             <ArrowLeft size={20} className="mr-2" />
-            Back to Blog
+            {currentLang === 'de' ? 'Zurück zu den Blogs' : 'Back to Blog'}
           </Link>
 
           {/* Category */}
@@ -101,12 +101,11 @@ const BlogPost = () => {
             dangerouslySetInnerHTML={{ __html: blogPost.content[currentLang] }}
           />
 
-          {/* Back to Blog Button */}
+          {/* Contact Us Button */}
           <div className="mt-12 text-center">
-            <Link to="/blog">
+            <Link to="/#contact">
               <Button className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 mx-auto">
-                <ArrowLeft size={16} />
-                <span>Back to All Articles</span>
+                <span>{currentLang === 'de' ? 'Kontaktieren Sie uns' : 'Contact Us'}</span>
               </Button>
             </Link>
           </div>
