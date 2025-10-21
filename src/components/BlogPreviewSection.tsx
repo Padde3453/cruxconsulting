@@ -53,7 +53,7 @@ const BlogPreviewSection = () => {
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <Link to={`/blog/${post.id}`} className="block h-full">
+                <Link to={`/blog/${post.slug}`} className="block h-full">
                   <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col">
                 <div className="aspect-video bg-gray-700 overflow-hidden flex-shrink-0">
                   <img src={post.image} alt={post.title[currentLang]} className="w-full h-full object-cover" />

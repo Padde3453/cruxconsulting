@@ -51,7 +51,7 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sortedPosts.map(post => 
-              <Link key={post.id} to={`/blog/${post.id}`} className="block">
+              <Link key={post.id} to={`/blog/${post.slug}`} className="block">
                 <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
                   <div className="aspect-video bg-gray-700 overflow-hidden">
                     <img src={post.image} alt={post.title[currentLang]} className="w-full h-full object-cover" />

@@ -9,7 +9,7 @@ import { blogPosts, getCategoryColor, type BlogPost as BlogPostType } from "@/da
 import { useTranslation } from 'react-i18next';
 
 const BlogPost = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const { i18n } = useTranslation();
   const navigate = useNavigate();
   const currentLang = (i18n.language.startsWith('de') ? 'de' : 'en') as 'en' | 'de';
@@ -26,11 +26,11 @@ const BlogPost = () => {
   };
 
   useEffect(() => {
-    if (id) {
-      const post = blogPosts.find(post => post.id === parseInt(id));
+    if (slug) {
+      const post = blogPosts.find(post => post.slug === slug);
       setBlogPost(post || null);
     }
-  }, [id]);
+  }, [slug]);
 
   if (!blogPost) {
     return (
