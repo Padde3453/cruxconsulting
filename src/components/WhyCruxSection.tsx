@@ -21,13 +21,18 @@ const WhyCruxSection = () => {
             </div>
           </div>
 
-          {/* Image - 30% width - hidden on mobile */}
+          {/* Video - 30% width - hidden on mobile */}
           <div className="lg:col-span-3 hidden lg:flex justify-center">
-            <img 
-              src="/lovable-uploads/europe_flag.png" 
-              alt="European Union Flag" 
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
               className="w-full h-auto max-w-sm object-contain rounded-lg shadow-lg"
-            />
+              aria-label="European Union Flag Animation"
+            >
+              <source src="/lovable-uploads/europe_flag_animated.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
