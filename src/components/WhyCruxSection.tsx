@@ -26,7 +26,7 @@ const WhyCruxSection = () => {
             <img 
               src="/lovable-uploads/europe_flag.gif" 
               alt="European Union Flag" 
-              className="w-full h-auto max-w-sm object-contain rounded-lg shadow-lg"
+              className="w-full h-auto max-w-[434px] object-contain rounded-lg shadow-lg"
             />
           </div>
         </div>
