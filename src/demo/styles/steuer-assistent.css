@@ -60,9 +60,12 @@
 /* Column Header */
 .column-header {
   display: flex;
-  align-items: flex-start;
-  padding: 16px 8px;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
   position: relative;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .toggle-button {
@@ -86,11 +89,14 @@
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 2px;
-  margin-left: 8px;
   white-space: nowrap;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Chat Column Styles */
@@ -98,6 +104,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 }
 
 .tax-chat-column.left {
@@ -277,13 +284,15 @@
   flex-direction: column;
   height: 100%;
   background-color: #234168;
+  overflow: hidden;
 }
 
 .info-content {
   flex: 1;
-  padding: 30px;
+  padding: 20px;
   overflow-y: auto;
   color: white;
+  min-height: 0;
 }
 
 .info-content::-webkit-scrollbar {
