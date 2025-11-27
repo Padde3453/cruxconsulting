@@ -57,14 +57,28 @@ const TaxChatColumn = ({ title, webhookUrl, isExpanded, onToggle, colorTheme }: 
       });
 
       if (response.ok) {
-        const data = await response.json();
-        const botMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          text: data.response || data.message || 'Antwort erhalten',
-          sender: 'bot',
-          timestamp: new Date()
-        };
-        setMessages(prev => [...prev, botMessage]);
+        const responseText = await response.text();
+        let botResponse = 'Antwort erhalten';
+        
+        try {
+          // Try to parse as JSON
+          const data = JSON.parse(responseText);
+          botResponse = data.response || data.message || responseText;
+        } catch {
+          // If not JSON, use the plain text response directly
+          botResponse = responseText;
+        }
+        
+        // Only show message if it's not just "Workflow was started"
+        if (botResponse && botResponse !== 'Workflow was started') {
+          const botMessage: Message = {
+            id: (Date.now() + 1).toString(),
+            text: botResponse,
+            sender: 'bot',
+            timestamp: new Date()
+          };
+          setMessages(prev => [...prev, botMessage]);
+        }
       } else {
         throw new Error('Webhook request failed');
       }
