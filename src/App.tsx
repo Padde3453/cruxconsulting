@@ -14,6 +14,7 @@ import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 import BandwerkDemo from "./demo/pages/BandwerkDemo";
 import InstagramDemo from "./demo/pages/InstagramDemo";
+import SteuerAssistentDemo from "./demo/pages/SteuerAssistentDemo";
 import AiChatbot from "./pages/services/AiChatbot";
 import Workshops from "./pages/services/Workshops";
 import ProcessAudit from "./pages/services/ProcessAudit";
@@ -60,6 +61,7 @@ const App = () => (
           {/* ISOLATED DEMO ROUTES */}
           <Route path="/demo/bandwerk" element={<BandwerkDemo />} />
           <Route path="/demo/instagram" element={<InstagramDemo />} />
+          <Route path="/demo/steuer-assistent" element={<SteuerAssistentDemo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
