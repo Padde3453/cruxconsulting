@@ -33,7 +33,7 @@ const SteuerAssistentDemo = () => {
         <div className={`column column-left ${getColumnClass("left")}`}>
           <TaxChatColumn
             title="Offener KI-Chat"
-            webhookUrl="https://n8n-j4ogc84ccogk8gwogc8s88cc.crux-consulting.ai/webhook-test/905230cf-b689-4677-aa0d-b8fb6255f730"
+            webhookUrl="https://n8n-j4ogc84ccogk8gwogc8s88cc.crux-consulting.ai/webhook/905230cf-b689-4677-aa0d-b8fb6255f730"
             isExpanded={expandedColumns.left}
             onToggle={() => toggleColumn("left")}
             colorTheme="left"
