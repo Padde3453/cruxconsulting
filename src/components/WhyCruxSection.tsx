@@ -24,7 +24,7 @@ const WhyCruxSection = () => {
           {/* Image - 30% width - hidden on mobile */}
           <div className="lg:col-span-3 hidden lg:flex justify-center">
             <img 
-              src="/lovable-uploads/europe_flag.png" 
+              src="/lovable-uploads/europe_flag.gif" 
               alt="European Union Flag" 
               className="w-full h-auto max-w-sm object-contain rounded-lg shadow-lg"
             />
