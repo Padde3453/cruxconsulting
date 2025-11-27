@@ -33,9 +33,9 @@ const InfoColumn = ({ title, isExpanded, onToggle }: InfoColumnProps) => {
 
             <h3>Linke Spalte - Offener KI-Chat</h3>
             <p>
-              <strong>Allgemeiner, sicherer interner Chat</strong>. Hat <strong>keinen</strong> Zugriff auf Kundendaten.
-              Nutzen Sie diesen für allgemeine Fachfragen, momentan ist hier ein offenes KI-Modell am Werk, teilen Sie
-              also bitte KEINE KUNDENSPEZIFISCHEN oder INTERNE INFORMATIONEN.
+              <strong>Allgemeiner KI Chatbot</strong>. Hat <strong>keinen</strong> Zugriff auf Kundendaten. Dieser wäre
+              Nutzbar für allgemeine Anfragen an eine KI wie Chat GPT, nur sicherer. Für die Demo ist hier ein offenes
+              KI-Modell am Werk, teilen Sie also bitte KEINE KUNDENSPEZIFISCHEN oder INTERNE INFORMATIONEN.
             </p>
 
             <h3>Mittlere Spalte - Ihr Steuer-Assistent</h3>
@@ -52,6 +52,11 @@ const InfoColumn = ({ title, isExpanded, onToggle }: InfoColumnProps) => {
                 LINK
               </a>{" "}
               ansehen.
+            </p>
+
+            <p>
+              Ohne Datenbank gibt es keine Chathistorie, daher verschwindet Ihr Chatverlauf mit einem neuen laden der
+              Seite.
             </p>
 
             <p>Beispielfragen welche Sie dem Assistenten stellen können:</p>
