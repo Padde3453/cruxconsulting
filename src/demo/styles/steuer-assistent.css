@@ -101,7 +101,7 @@
 /* Chat Column Styles */
 .tax-chat-column {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex: 1;
   min-height: 0;
   overflow: hidden;
@@ -113,6 +113,14 @@
 
 .tax-chat-column.middle {
   background-color: #1e3a5f;
+}
+
+.chat-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .chat-messages {
