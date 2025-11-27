@@ -64,7 +64,7 @@ const InfoColumn = ({ title, isExpanded, onToggle }: InfoColumnProps) => {
             </ul>
 
             <p>
-              Feedback und Wünsche können Sie gerne über diesen{" "}
+              <strong>Feedback und Wünsche</strong> können Sie gerne über diesen{" "}
               <a href="https://forms.gle/yVBHHUyknrL28CJW7" target="_blank" rel="noopener noreferrer">
                 LINK
               </a>{" "}
