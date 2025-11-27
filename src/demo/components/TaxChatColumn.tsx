@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Send, Plus, Minus } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
 interface Message {
   id: string;
@@ -125,7 +126,11 @@ const TaxChatColumn = ({ title, webhookUrl, isExpanded, onToggle, colorTheme }: 
                 className={`message ${message.sender === 'user' ? 'message-user' : 'message-bot'}`}
               >
                 <div className="message-bubble">
-                  {message.text}
+                  {message.sender === 'bot' ? (
+                    <ReactMarkdown>{message.text}</ReactMarkdown>
+                  ) : (
+                    message.text
+                  )}
                 </div>
               </div>
             ))}
