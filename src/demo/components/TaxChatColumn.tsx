@@ -117,7 +117,7 @@ const TaxChatColumn = ({ title, webhookUrl, isExpanded, onToggle, colorTheme }: 
       </div>
 
       {isExpanded && (
-        <>
+        <div className="chat-content-wrapper">
           <div className="chat-messages">
             {messages.map((message) => (
               <div
@@ -160,7 +160,7 @@ const TaxChatColumn = ({ title, webhookUrl, isExpanded, onToggle, colorTheme }: 
               <Send size={20} />
             </button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
