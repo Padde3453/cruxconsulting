@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Plus, Minus } from 'lucide-react';
+import { Send, Plus, Minus, MessageCircle, ClipboardList } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { toast } from '@/hooks/use-toast';
 
@@ -156,7 +156,11 @@ const TaxChatColumn = ({ title, webhookUrl, isExpanded, onToggle, colorTheme }: 
         >
           {isExpanded ? <Minus size={20} /> : <Plus size={20} />}
         </button>
-        <div className="vertical-title">{title}</div>
+        <div className="vertical-title">
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+            {colorTheme === 'left' ? '💬' : '📋'} {title}
+          </span>
+        </div>
       </div>
 
       {isExpanded && (

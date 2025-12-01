@@ -188,6 +188,15 @@
   border-bottom-right-radius: 4px;
 }
 
+/* Accent colors for user messages */
+.tax-chat-column.left .message-user .message-bubble {
+  background-color: #4a9eb5;
+}
+
+.tax-chat-column.middle .message-user .message-bubble {
+  background-color: #7b6fa8;
+}
+
 .message-bot .message-bubble {
   background-color: #2d4a6f;
   border-bottom-left-radius: 4px;
@@ -296,6 +305,15 @@
   background-color: rgba(255, 255, 255, 0.08);
 }
 
+/* Accent colors for input focus */
+.tax-chat-column.left .chat-input:focus {
+  border-color: #4a9eb5;
+}
+
+.tax-chat-column.middle .chat-input:focus {
+  border-color: #7b6fa8;
+}
+
 .chat-input:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -317,6 +335,23 @@
 .send-button:hover:not(:disabled) {
   background-color: #6b8fb8;
   transform: scale(1.05);
+}
+
+/* Accent colors for send button */
+.tax-chat-column.left .send-button {
+  background-color: #4a9eb5;
+}
+
+.tax-chat-column.left .send-button:hover:not(:disabled) {
+  background-color: #3d8ca3;
+}
+
+.tax-chat-column.middle .send-button {
+  background-color: #7b6fa8;
+}
+
+.tax-chat-column.middle .send-button:hover:not(:disabled) {
+  background-color: #6a5f96;
 }
 
 .send-button:disabled {
