@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Send, Plus, Minus } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import { toast } from '@/hooks/use-toast';
 
 interface Message {
   id: string;
@@ -16,6 +17,19 @@ interface TaxChatColumnProps {
   onToggle: () => void;
   colorTheme: 'left' | 'middle';
 }
+
+const MAX_MESSAGE_LENGTH = 2000;
+const CHAR_COUNTER_THRESHOLD = 1800;
+
+// Helper function to get or create session ID
+const getSessionId = (): string => {
+  let sessionId = sessionStorage.getItem('chatSessionId');
+  if (!sessionId) {
+    sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    sessionStorage.setItem('chatSessionId', sessionId);
+  }
+  return sessionId;
+};
 
 const TaxChatColumn = ({ title, webhookUrl, isExpanded, onToggle, colorTheme }: TaxChatColumnProps) => {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -34,6 +48,16 @@ const TaxChatColumn = ({ title, webhookUrl, isExpanded, onToggle, colorTheme }: 
   const sendMessage = async () => {
     if (!inputValue.trim() || isTyping) return;
 
+    // Validate message length
+    if (inputValue.length > MAX_MESSAGE_LENGTH) {
+      toast({
+        title: "Nachricht zu lang",
+        description: `Die Nachricht darf maximal ${MAX_MESSAGE_LENGTH} Zeichen enthalten.`,
+        variant: "destructive"
+      });
+      return;
+    }
+
     const userMessage: Message = {
       id: Date.now().toString(),
       text: inputValue,
@@ -46,6 +70,7 @@ const TaxChatColumn = ({ title, webhookUrl, isExpanded, onToggle, colorTheme }: 
     setIsTyping(true);
 
     try {
+      const sessionId = getSessionId();
       const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
@@ -53,7 +78,8 @@ const TaxChatColumn = ({ title, webhookUrl, isExpanded, onToggle, colorTheme }: 
         },
         body: JSON.stringify({
           message: inputValue,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
+          sessionId: sessionId
         })
       });
 
@@ -85,6 +111,22 @@ const TaxChatColumn = ({ title, webhookUrl, isExpanded, onToggle, colorTheme }: 
       }
     } catch (error) {
       console.error('Error sending message:', error);
+      
+      // Determine error type and show appropriate feedback
+      let errorTitle = 'Verbindungsfehler';
+      let errorDescription = 'Es gab einen Fehler bei der Verbindung zum Server.';
+      
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        errorTitle = 'Netzwerkfehler';
+        errorDescription = 'Bitte überprüfen Sie Ihre Internetverbindung.';
+      }
+      
+      toast({
+        title: errorTitle,
+        description: errorDescription,
+        variant: "destructive"
+      });
+      
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         text: 'Entschuldigung, es gab einen Fehler bei der Verbindung.',
@@ -147,18 +189,36 @@ const TaxChatColumn = ({ title, webhookUrl, isExpanded, onToggle, colorTheme }: 
           </div>
 
           <div className="chat-input-container">
-            <input
-              type="text"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="Nachricht eingeben..."
-              className="chat-input"
-              disabled={isTyping}
-            />
+            <div style={{ position: 'relative', flex: 1 }}>
+              <input
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Nachricht eingeben..."
+                className="chat-input"
+                disabled={isTyping}
+                maxLength={MAX_MESSAGE_LENGTH}
+              />
+              {inputValue.length > CHAR_COUNTER_THRESHOLD && (
+                <div 
+                  style={{
+                    position: 'absolute',
+                    bottom: '8px',
+                    right: '12px',
+                    fontSize: '12px',
+                    color: inputValue.length >= MAX_MESSAGE_LENGTH ? '#ef4444' : '#94a3b8',
+                    fontWeight: '500',
+                    pointerEvents: 'none'
+                  }}
+                >
+                  {inputValue.length}/{MAX_MESSAGE_LENGTH}
+                </div>
+              )}
+            </div>
             <button
               onClick={sendMessage}
-              disabled={!inputValue.trim() || isTyping}
+              disabled={!inputValue.trim() || isTyping || inputValue.length > MAX_MESSAGE_LENGTH}
               className="send-button"
               aria-label="Send message"
             >
