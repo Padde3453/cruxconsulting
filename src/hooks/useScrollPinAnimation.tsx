@@ -18,10 +18,10 @@ export const useScrollPinAnimation = (cardCount: number = 4): ScrollPinAnimation
   const stickyRef = useRef<HTMLDivElement>(null);
   const [isComplete, setIsComplete] = useState(false);
 
-  // Track scroll progress within the container
+  // Track scroll progress within the container - start when section enters viewport
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start end", "end end"] // Start when top of section reaches bottom of viewport
   });
 
   // Title animation (animates immediately)
