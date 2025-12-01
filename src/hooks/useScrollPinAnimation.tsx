@@ -25,14 +25,14 @@ export const useScrollPinAnimation = (cardCount: number = 4): ScrollPinAnimation
   });
 
   // Title animation (animates first)
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
-  const titleY = useTransform(scrollYProgress, [0, 0.05], [-20, 0]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.08], [0, 1]);
+  const titleY = useTransform(scrollYProgress, [0, 0.08], [-20, 0]);
 
-  // Define animation thresholds for each card
+  // Define animation thresholds for each card - much earlier start, more overlap
   const getCardThresholds = (index: number, total: number) => {
-    const startBase = 0.1;
-    const spacing = 0.15;
-    const duration = 0.2;
+    const startBase = 0.05;  // Start much earlier
+    const spacing = 0.12;    // Less spacing between cards
+    const duration = 0.25;   // Longer duration for smoother animation
     
     const start = startBase + (index * spacing);
     const end = start + duration;
@@ -63,10 +63,10 @@ export const useScrollPinAnimation = (cardCount: number = 4): ScrollPinAnimation
     cardScale.push(useTransform(scrollYProgress, [start, end], [0.9, 1]));
   }
 
-  // Mark animation as complete when last card finishes
+  // Mark animation as complete when last card finishes (earlier threshold)
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (latest) => {
-      if (latest >= 0.75 && !isComplete) {
+      if (latest >= 0.6 && !isComplete) {
         setIsComplete(true);
       }
     });
