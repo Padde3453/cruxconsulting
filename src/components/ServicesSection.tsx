@@ -74,6 +74,7 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
     }
   ];
 
+  // Call all hooks unconditionally (Rules of Hooks)
   const prefersReducedMotion = useReducedMotion();
   const {
     containerRef,
@@ -86,7 +87,7 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
     titleY
   } = useScrollPinAnimation(services.length);
 
-  // If user prefers reduced motion, show all cards immediately
+  // Render simplified version for users who prefer reduced motion
   if (prefersReducedMotion) {
     return (
       <section id="services" className="py-24 relative overflow-x-hidden">
@@ -150,6 +151,7 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
     );
   }
 
+  // Render scroll-pinned animation version
   return (
     <section id="services" className="relative overflow-x-hidden">
       {/* Outer wrapper with extra height for scroll distance */}
