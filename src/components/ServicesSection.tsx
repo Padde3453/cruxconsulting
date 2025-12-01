@@ -158,7 +158,7 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
   return (
     <section id="services" className="relative overflow-x-hidden">
       {/* Outer wrapper with extra height for scroll distance */}
-      <div ref={containerRef} className="h-[120vh]">
+      <div ref={containerRef} className="h-[105vh]">
         
         {/* Sticky container - stays in viewport during scroll */}
         <div 
