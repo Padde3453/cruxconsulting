@@ -73,31 +73,49 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
     }
   ];
 
+  const titleAnimation = useScrollAnimation(0.1);
+  const cardsAnimation = useScrollAnimation(0.2);
+
   return (
-    <section id="services" className="py-24 relative">
+    <section id="services" className="py-24 relative overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div 
+          ref={titleAnimation.elementRef}
+          className={`text-center mb-16 transition-all duration-600 ${
+            titleAnimation.isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 -translate-y-5'
+          }`}
+        >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
             {t('services.title')}
           </h2>
           <p className="text-gray-300 max-w-3xl mx-auto text-center text-xl font-bold">{t('services.subtitle')}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div 
+          ref={cardsAnimation.elementRef}
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8"
+        >
           {services.map((service, index) => {
             const IconComponent = service.icon;
-            const cardAnimation = useScrollAnimation();
+            // Alternating pattern: 0,2 from left | 1,3 from right (desktop)
+            // Mobile: all from left
+            const isEven = index % 2 === 0;
+            const animationClass = cardsAnimation.isVisible 
+              ? 'opacity-100 translate-x-0 scale-100' 
+              : isEven 
+                ? 'opacity-0 -translate-x-[60px] xl:-translate-x-[60px] scale-95' 
+                : 'opacity-0 -translate-x-[60px] xl:translate-x-[60px] scale-95';
             
             return (
               <div 
                 key={index}
-                ref={cardAnimation.elementRef}
-                className={`transition-all duration-700 ${
-                  cardAnimation.isVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                className={`transition-all duration-700 ease-out ${animationClass}`}
+                style={{ 
+                  transitionDelay: `${index * 150}ms`,
+                  willChange: 'transform, opacity'
+                }}
               >
                 <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300 flex flex-col h-full">
                 <div className="flex items-center space-x-4 mb-4">
