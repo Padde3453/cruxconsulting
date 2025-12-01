@@ -86,6 +86,9 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
     titleOpacity,
     titleY
   } = useScrollPinAnimation(services.length);
+  
+  // Create button opacity transform at top level (not conditionally)
+  const buttonOpacity = useTransform(titleOpacity, [0.5, 1], [0, 1]);
 
   // Render simplified version for users who prefer reduced motion
   if (prefersReducedMotion) {
@@ -155,7 +158,7 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
   return (
     <section id="services" className="relative overflow-x-hidden">
       {/* Outer wrapper with extra height for scroll distance */}
-      <div ref={containerRef} className="h-[300vh] md:h-[350vh]">
+      <div ref={containerRef} className="h-[200vh]">
         
         {/* Sticky container - stays in viewport during scroll */}
         <div 
@@ -228,7 +231,7 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
             <motion.div 
               className="mt-12 flex justify-center"
               style={{
-                opacity: isComplete ? 1 : useTransform(titleOpacity, [0.5, 1], [0, 1])
+                opacity: isComplete ? 1 : buttonOpacity
               }}
             >
               <Button 
