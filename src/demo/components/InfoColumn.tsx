@@ -59,6 +59,11 @@ const InfoColumn = ({ title, isExpanded, onToggle }: InfoColumnProps) => {
               Seite.
             </p>
 
+            <p>Folgende fiktive Personen haben wir für Sie angelegt.</p>
+            <ul>
+              <li>Biedermann, Brecht, Einstein, Luxemburg, Muster, Reverchon</li>
+            </ul>
+
             <p>Beispielfragen welche Sie dem Assistenten stellen können:</p>
             <ul>
               <li>Welche Dokumente haben wir für die Kundin</li>
