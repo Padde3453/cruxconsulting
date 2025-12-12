@@ -104,7 +104,7 @@ const Header = ({ onBooking }: HeaderProps) => {
   ];
 
   return (
-    <nav className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl bg-gray-900/90 backdrop-blur-sm border border-gray-700/50 rounded-full shadow-lg shadow-black/20">
+    <nav className="fixed top-[25px] left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl bg-gray-900/65 backdrop-blur-sm border border-gray-700/50 rounded-full shadow-lg shadow-black/20">
       <div className="px-8 py-1 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 pl-4" onClick={scrollToTop}>
           <img 
