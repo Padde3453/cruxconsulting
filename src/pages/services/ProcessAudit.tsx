@@ -166,7 +166,9 @@ const ProcessAuditAndAutomation = () => {
             <Button 
               onClick={handleBooking}
               size="lg" 
-              className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white rounded-full px-12 py-6 text-xl flex items-center space-x-3 mx-auto transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              variant="gradient"
+              enableMouseGradient
+              className="rounded-full px-12 py-6 text-xl flex items-center space-x-3 mx-auto shadow-lg hover:shadow-xl"
             >
               <span>{t('processAudit.cta.buttonText')}</span>
               <ArrowRight size={24} />
