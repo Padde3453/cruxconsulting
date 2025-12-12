@@ -54,7 +54,7 @@ const BlogPost = () => {
         <div className="pt-32 pb-16 text-center">
           <h1 className="text-4xl font-bold mb-4">Blog Post Not Found</h1>
           <Link to="/blog">
-            <Button className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-6 py-3 flex items-center space-x-2 mx-auto">
+            <Button variant="gradient" enableMouseGradient className="rounded-full px-6 py-3 flex items-center space-x-2 mx-auto">
               <ArrowLeft size={16} />
               <span>Back to Blog</span>
             </Button>
@@ -202,7 +202,9 @@ const BlogPost = () => {
           <div className="mt-12 text-center">
             <Button 
               onClick={handleBooking}
-              className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 mx-auto"
+              variant="gradient"
+              enableMouseGradient
+              className="rounded-full px-8 py-3 flex items-center space-x-2 mx-auto"
             >
               <span>{currentLang === 'de' ? 'Kontaktieren Sie uns' : 'Contact Us'}</span>
             </Button>
