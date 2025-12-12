@@ -104,13 +104,13 @@ const Header = ({ onBooking }: HeaderProps) => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800">
-      <div className="max-w-7xl mx-auto px-6 py-1 flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2" onClick={scrollToTop}>
+    <nav className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl bg-gray-900/90 backdrop-blur-sm border border-gray-700/50 rounded-full shadow-lg shadow-black/20">
+      <div className="px-8 py-1 flex justify-between items-center">
+        <Link to="/" className="flex items-center space-x-2 pl-4" onClick={scrollToTop}>
           <img 
             alt="Crux Consulting" 
             src="/lovable-uploads/Logotext.png" 
-            className="h-20 w-auto cursor-pointer object-contain" 
+            className="h-16 w-auto cursor-pointer object-contain" 
           />
         </Link>
 
@@ -203,7 +203,7 @@ const Header = ({ onBooking }: HeaderProps) => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-gray-800">
+        <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-gray-900/95 backdrop-blur-sm border border-gray-700/50 rounded-3xl shadow-lg">
           <div className="px-6 py-4 space-y-4">
             <button 
               onClick={handleServicesNavigation}
