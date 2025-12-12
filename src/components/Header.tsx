@@ -180,7 +180,9 @@ const Header = ({ onBooking }: HeaderProps) => {
           <LanguageToggle />
           <Button 
             onClick={handleBooking} 
-            className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-6 py-2 flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
+            variant="gradient"
+            enableMouseGradient
+            className="rounded-full px-6 py-2 flex items-center space-x-2"
           >
             <span>{t('navigation.bookConsultation')}</span>
             <Plus size={16} />
@@ -243,7 +245,9 @@ const Header = ({ onBooking }: HeaderProps) => {
             </button>
             <Button 
               onClick={handleBooking} 
-              className="w-full bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-6 py-2 flex items-center justify-center space-x-2"
+              variant="gradient"
+              enableMouseGradient
+              className="w-full rounded-full px-6 py-2 flex items-center justify-center space-x-2"
             >
               <span>{t('navigation.bookConsultation')}</span>
               <Plus size={16} />

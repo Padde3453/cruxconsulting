@@ -86,7 +86,9 @@ const BlogPreviewSection = () => {
         <div className="text-center">
           <Button 
             onClick={handleViewAllArticles}
-            className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 mx-auto"
+            variant="gradient"
+            enableMouseGradient
+            className="rounded-full px-8 py-3 flex items-center space-x-2 mx-auto"
           >
             <span>{t('blog.viewAll')}</span>
             <ArrowRight size={16} />

@@ -211,7 +211,9 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
 
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white"
+                variant="gradient"
+                enableMouseGradient
+                className="w-full"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}

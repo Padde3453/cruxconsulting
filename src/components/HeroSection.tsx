@@ -70,7 +70,13 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style={{
           animationDelay: '0.4s'
         }}>
-          <Button onClick={onBooking} size="lg" className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-4 text-lg flex items-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-2xl">
+          <Button 
+            onClick={onBooking} 
+            size="lg" 
+            variant="gradient"
+            enableMouseGradient
+            className="rounded-full px-8 py-4 text-lg flex items-center space-x-2"
+          >
             <span>{t('hero.cta')}</span>
             <Plus size={20} />
           </Button>
