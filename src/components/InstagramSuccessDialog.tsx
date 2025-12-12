@@ -33,7 +33,7 @@ const InstagramSuccessDialog = ({ isOpen }: InstagramSuccessDialogProps) => {
               rel="noopener noreferrer"
               className="inline-block"
             >
-              <Button className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white px-8 py-6 text-lg">
+              <Button variant="gradient" enableMouseGradient className="px-8 py-6 text-lg">
                 Visit Our Instagram
               </Button>
             </a>

@@ -326,7 +326,9 @@ const InstagramPost = () => {
               {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white py-6 text-lg"
+                variant="gradient"
+                enableMouseGradient
+                className="w-full py-6 text-lg"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Submitting..." : "Submit Your Creation"}

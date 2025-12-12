@@ -30,7 +30,7 @@ const NotFound = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/">
-                <Button className="bg-gradient-to-r from-brand-blue to-brand-green hover:from-brand-blue/80 hover:to-brand-green/80 text-white rounded-full px-8 py-3 flex items-center space-x-2 transition-all duration-300 transform hover:scale-105">
+                <Button variant="gradient" enableMouseGradient className="rounded-full px-8 py-3 flex items-center space-x-2">
                   <Home size={20} />
                   <span>Return to Home</span>
                 </Button>
