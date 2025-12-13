@@ -40,14 +40,15 @@ function getImageSize(width: number): number {
 const HUMAN_NATURAL_WIDTH = 620;
 const ROBOT_NATURAL_WIDTH = 580;
 
-// Raw fingertip offsets (based on natural image dimensions)
-const HUMAN_FINGERTIP_RAW = { x: -294, y: 148 };
-const ROBOT_FINGERTIP_RAW = { x: 287, y: -129 };
+// Raw fingertip offsets (based on natural image dimensions, measured from center)
+const HUMAN_FINGERTIP_RAW = { x: -297, y: 148 };
+const ROBOT_FINGERTIP_RAW = { x: 286, y: -129 };
 
 // Trajectory configuration (angles in degrees)
+// 0° = right, 90° = down, -90° = up, 180° = left
 // Robot enters from bottom-left, human enters from top-right
-const ROBOT_TRAJECTORY_ANGLE = -135; // degrees (bottom-left direction)
-const HUMAN_TRAJECTORY_ANGLE = 45;   // degrees (top-right direction)
+const ROBOT_TRAJECTORY_ANGLE = 135;  // degrees (bottom-left direction: down + left)
+const HUMAN_TRAJECTORY_ANGLE = -45;  // degrees (top-right direction: up + right)
 
 // Rotation values for each phase
 const HUMAN_ROTATION = { start: 0, meeting: -10, end: -15 };
