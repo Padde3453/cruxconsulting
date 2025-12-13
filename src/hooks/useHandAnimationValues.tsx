@@ -57,7 +57,18 @@ export const useHandAnimationValues = () => {
     };
 
     // Target corners: Human -> Top-Right, Robot -> Bottom-Left
-    const targetCorner = isHuman ? { x: windowSize.width, y: 0 } : { x: 0, y: windowSize.height };
+    // On mobile/tablet (< 1024px), steepen robot hand trajectory to avoid CTA button overlap
+    const isMobileOrTablet = windowSize.width < 1024;
+    
+    let targetCorner;
+    if (isHuman) {
+      targetCorner = { x: windowSize.width, y: 0 };
+    } else {
+      // Robot hand: offset downward on mobile/tablet for steeper angle
+      targetCorner = isMobileOrTablet
+        ? { x: -50, y: windowSize.height + (windowSize.height * 0.3) }
+        : { x: 0, y: windowSize.height };
+    }
 
     // Calculate the trajectory vector (Center to Corner)
     const trajectoryVector = {
