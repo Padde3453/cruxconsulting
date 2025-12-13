@@ -16,7 +16,7 @@ const FINGERTIP_OFFSETS = {
 // Distance multipliers based on hand image width
 const DISTANCE_MULTIPLIERS = {
   start: 1.5, // 150% of hand width past center (fully off-screen)
-  end: 0.5, // 60% of hand width from center (hands frame the content)
+  end: 0.5, // 50% of hand width from center (hands frame the content)
 };
 
 export const useHandAnimationValues = () => {
@@ -59,14 +59,14 @@ export const useHandAnimationValues = () => {
     // Target corners: Human -> Top-Right, Robot -> Bottom-Left
     // On mobile/tablet (< 1024px), steepen robot hand trajectory to avoid CTA button overlap
     const isMobileOrTablet = windowSize.width < 1024;
-    
+
     let targetCorner;
     if (isHuman) {
       targetCorner = { x: windowSize.width, y: 0 };
     } else {
       // Robot hand: offset downward on mobile/tablet for steeper angle
       targetCorner = isMobileOrTablet
-        ? { x: -50, y: windowSize.height + (windowSize.height * 0.3) }
+        ? { x: -70, y: windowSize.height + windowSize.height * 0.3 }
         : { x: 0, y: windowSize.height };
     }
 
