@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import humanHandImg from "@/assets/human-hand.png";
 import robotHandImg from "@/assets/robot-hand.png";
 import { useHandAnimationValues } from "@/hooks/useHandAnimationValues";
+import { BlueSparkles } from "@/components/BlueSparkles";
 
 interface HeroSectionProps {
   onBooking: () => void;
@@ -18,6 +19,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const [animationPhase, setAnimationPhase] = useState<"waiting" | "hands-in" | "text">(
     "waiting",
   );
+  const [showSparkles, setShowSparkles] = useState(false);
   
 
   // Get dynamically calculated hand positions
@@ -38,6 +40,13 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
       setTimeout(() => {
         setAnimationPhase("hands-in");
       }, initialDelay),
+    );
+
+    // Sparkles start when hands meet (3s after hands-in starts)
+    timers.push(
+      setTimeout(() => {
+        setShowSparkles(true);
+      }, initialDelay + 3000),
     );
 
     // Phase 2: Text phase starts 1.5s after hands meet (hands meet at 3s)
@@ -119,6 +128,15 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           }}
         ></div>
       </div>
+
+      {/* Blue Sparkles Effect - triggers when hands meet */}
+      <BlueSparkles
+        color="#3B82F6"
+        opacity={0.8}
+        size={2}
+        spread={15}
+        isActive={showSparkles}
+      />
 
 
 
