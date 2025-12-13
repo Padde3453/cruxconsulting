@@ -31,20 +31,20 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
       setAnimationPhase('hands-in');
     }, initialDelay));
     
-    // Phase 2: Spark appears when hands meet (after 1.5s of hands moving)
+    // Phase 2: Spark appears when hands meet (after 3s of hands moving - slower)
     timers.push(setTimeout(() => {
       setAnimationPhase('spark');
-    }, initialDelay + 1500));
+    }, initialDelay + 3000));
     
-    // Phase 3: Hands move apart (after spark holds for 0.8s)
+    // Phase 3: Hands move apart (after spark holds for 1.5s)
     timers.push(setTimeout(() => {
       setAnimationPhase('hands-out');
-    }, initialDelay + 2300));
+    }, initialDelay + 4500));
     
-    // Phase 4: Text appears (after hands have moved apart - 1.2s)
+    // Phase 4: Text appears (after hands have moved apart - 2.5s)
     timers.push(setTimeout(() => {
       setAnimationPhase('text');
-    }, initialDelay + 3500));
+    }, initialDelay + 7000));
     
     return () => timers.forEach(timer => clearTimeout(timer));
   }, [hasSeenLoading]);
@@ -87,30 +87,30 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const getHumanHandPosition = () => {
     switch (animationPhase) {
       case 'waiting':
-        return { x: '100vw', y: '-100vh' }; // Off screen top-right
+        return { x: '80vw', y: '-80vh' }; // Off screen top-right
       case 'hands-in':
       case 'spark':
-        return { x: '0vw', y: '0vh' }; // Center meeting point
+        return { x: '15vw', y: '-5vh' }; // Meeting point - fingers just touch
       case 'hands-out':
       case 'text':
-        return { x: '60vw', y: '-60vh' }; // Top-right corner
+        return { x: '50vw', y: '-40vh' }; // Top-right corner, still visible
       default:
-        return { x: '100vw', y: '-100vh' };
+        return { x: '80vw', y: '-80vh' };
     }
   };
 
   const getRobotHandPosition = () => {
     switch (animationPhase) {
       case 'waiting':
-        return { x: '-100vw', y: '100vh' }; // Off screen bottom-left
+        return { x: '-80vw', y: '80vh' }; // Off screen bottom-left
       case 'hands-in':
       case 'spark':
-        return { x: '0vw', y: '0vh' }; // Center meeting point
+        return { x: '-15vw', y: '5vh' }; // Meeting point - fingers just touch
       case 'hands-out':
       case 'text':
-        return { x: '-60vw', y: '60vh' }; // Bottom-left corner
+        return { x: '-50vw', y: '40vh' }; // Bottom-left corner, still visible
       default:
-        return { x: '-100vw', y: '100vh' };
+        return { x: '-80vw', y: '80vh' };
     }
   };
 
@@ -234,22 +234,21 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         style={{
           top: '50%',
           left: '50%',
-          marginTop: '-150px',
-          marginLeft: '-50px',
+          marginTop: '-200px',
+          marginLeft: '0px',
         }}
-        initial={{ x: '100vw', y: '-100vh' }}
+        initial={{ x: '80vw', y: '-80vh' }}
         animate={getHumanHandPosition()}
         transition={{
           type: 'spring',
-          stiffness: 50,
-          damping: 15,
-          duration: 1.5,
+          stiffness: 20,
+          damping: 12,
         }}
       >
         <img 
           src={humanHand} 
           alt="Human hand" 
-          className="w-[300px] md:w-[400px] lg:w-[500px] h-auto"
+          className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
           style={{ transform: 'rotate(-20deg)' }}
         />
       </motion.div>
@@ -260,22 +259,21 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         style={{
           top: '50%',
           left: '50%',
-          marginTop: '-50px',
-          marginLeft: '-250px',
+          marginTop: '-100px',
+          marginLeft: '-350px',
         }}
-        initial={{ x: '-100vw', y: '100vh' }}
+        initial={{ x: '-80vw', y: '80vh' }}
         animate={getRobotHandPosition()}
         transition={{
           type: 'spring',
-          stiffness: 50,
-          damping: 15,
-          duration: 1.5,
+          stiffness: 20,
+          damping: 12,
         }}
       >
         <img 
           src={robotHand} 
           alt="Robot hand" 
-          className="w-[300px] md:w-[400px] lg:w-[500px] h-auto"
+          className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
           style={{ transform: 'rotate(15deg)' }}
         />
       </motion.div>
