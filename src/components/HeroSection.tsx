@@ -15,9 +15,10 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const { t } = useTranslation();
   const rotatingWords = t("hero.rotatingWords", { returnObjects: true }) as string[];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [animationPhase, setAnimationPhase] = useState<"waiting" | "hands-in" | "spark" | "hands-out" | "text">(
+  const [animationPhase, setAnimationPhase] = useState<"waiting" | "hands-in" | "explosion" | "text">(
     "waiting",
   );
+  const [hideHands, setHideHands] = useState(false);
   const [showDebug, setShowDebug] = useState(false);
 
   // Get dynamically calculated hand positions
@@ -40,25 +41,25 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
       }, initialDelay),
     );
 
-    // Phase 2: Spark appears when hands meet (after 3s of hands moving - slower)
+    // Phase 2: Explosion starts when hands meet (after 3s of hands moving)
     timers.push(
       setTimeout(() => {
-        setAnimationPhase("spark");
+        setAnimationPhase("explosion");
       }, initialDelay + 3000),
     );
 
-    // Phase 3: Hands move apart (after spark holds for 1.5s)
+    // Hide hands after explosion covers screen (1.5s into explosion)
     timers.push(
       setTimeout(() => {
-        setAnimationPhase("hands-out");
+        setHideHands(true);
       }, initialDelay + 4500),
     );
 
-    // Phase 4: Text appears (after hands have moved apart - 2.5s)
+    // Phase 3: Text phase starts (explosion fade completes at ~2.5s)
     timers.push(
       setTimeout(() => {
         setAnimationPhase("text");
-      }, initialDelay + 7000),
+      }, initialDelay + 5500),
     );
 
     return () => timers.forEach((timer) => clearTimeout(timer));
@@ -106,10 +107,9 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         pos = humanHand.start;
         break;
       case "hands-in":
-      case "spark":
+      case "explosion":
         pos = humanHand.meeting;
         break;
-      case "hands-out":
       case "text":
         pos = humanHand.end;
         break;
@@ -126,10 +126,9 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         pos = robotHand.start;
         break;
       case "hands-in":
-      case "spark":
+      case "explosion":
         pos = robotHand.meeting;
         break;
-      case "hands-out":
       case "text":
         pos = robotHand.end;
         break;
@@ -137,6 +136,12 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         pos = robotHand.start;
     }
     return { x: pos.x, y: pos.y, rotate: pos.rotate };
+  };
+
+  // Calculate explosion scale needed to cover entire screen
+  const getExplosionScale = () => {
+    const diagonal = Math.sqrt(windowWidth * windowWidth + windowHeight * windowHeight);
+    return diagonal / 10; // Start at 10px, scale to cover diagonal
   };
 
 
@@ -163,53 +168,85 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
       </div>
 
 
-      {/* Human Hand - Coming from top-right */}
+      {/* Light Explosion Effect */}
       <motion.div
-        className="absolute z-10 pointer-events-none"
+        className="absolute z-30 pointer-events-none bg-white rounded-full"
         style={{
-          top: 0,
-          left: 0,
+          width: 10,
+          height: 10,
+          top: "50%",
+          left: "50%",
+          x: "-50%",
+          y: "-50%",
         }}
-        initial={getHumanHandPosition()}
-        animate={getHumanHandPosition()}
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{
+          scale: animationPhase === "explosion" || animationPhase === "text" ? getExplosionScale() : 0,
+          opacity: animationPhase === "explosion" ? 1 : 0,
+        }}
         transition={{
-          type: "spring",
-          stiffness: 20,
-          damping: 12,
+          scale: {
+            duration: 1.5,
+            ease: [0.95, 0.05, 0.795, 0.035], // easeInExpo
+          },
+          opacity: {
+            duration: animationPhase === "text" ? 1.0 : 0.3,
+            delay: animationPhase === "text" ? 0 : 0,
+          },
         }}
-      >
-        <motion.img 
-          src={humanHandImg} 
-          alt="Human hand" 
-          className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
-          animate={{ rotate: getHumanHandPosition().rotate }}
-          transition={{ type: "spring", stiffness: 20, damping: 12 }}
-        />
-      </motion.div>
+      />
+
+      {/* Human Hand - Coming from top-right */}
+      {!hideHands && (
+        <motion.div
+          className="absolute z-10 pointer-events-none"
+          style={{
+            top: 0,
+            left: 0,
+          }}
+          initial={getHumanHandPosition()}
+          animate={getHumanHandPosition()}
+          transition={{
+            type: "spring",
+            stiffness: 20,
+            damping: 12,
+          }}
+        >
+          <motion.img 
+            src={humanHandImg} 
+            alt="Human hand" 
+            className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
+            animate={{ rotate: getHumanHandPosition().rotate }}
+            transition={{ type: "spring", stiffness: 20, damping: 12 }}
+          />
+        </motion.div>
+      )}
 
       {/* Robot Hand - Coming from bottom-left */}
-      <motion.div
-        className="absolute z-10 pointer-events-none"
-        style={{
-          top: 0,
-          left: 0,
-        }}
-        initial={getRobotHandPosition()}
-        animate={getRobotHandPosition()}
-        transition={{
-          type: "spring",
-          stiffness: 20,
-          damping: 12,
-        }}
-      >
-        <motion.img 
-          src={robotHandImg} 
-          alt="Robot hand" 
-          className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
-          animate={{ rotate: getRobotHandPosition().rotate }}
-          transition={{ type: "spring", stiffness: 20, damping: 12 }}
-        />
-      </motion.div>
+      {!hideHands && (
+        <motion.div
+          className="absolute z-10 pointer-events-none"
+          style={{
+            top: 0,
+            left: 0,
+          }}
+          initial={getRobotHandPosition()}
+          animate={getRobotHandPosition()}
+          transition={{
+            type: "spring",
+            stiffness: 20,
+            damping: 12,
+          }}
+        >
+          <motion.img 
+            src={robotHandImg} 
+            alt="Robot hand" 
+            className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
+            animate={{ rotate: getRobotHandPosition().rotate }}
+            transition={{ type: "spring", stiffness: 20, damping: 12 }}
+          />
+        </motion.div>
+      )}
 
       {/* Text Content */}
       <motion.div
