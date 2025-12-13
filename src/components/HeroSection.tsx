@@ -17,10 +17,10 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
 
   // Check if loading screen will be shown (first visit) or not (reload)
   useEffect(() => {
-    const hasSeenLoading = sessionStorage.getItem('hasSeenLoadingScreen');
-    // If loading screen is shown, wait for it to finish (6.5s) + 1s delay
-    // If already seen (reload), just 1s delay
-    const delay = hasSeenLoading ? 1000 : 7500;
+    const hasSeenLoading = sessionStorage.getItem('hasSeenLoading');
+    // If loading screen is shown, wait for it to finish (6.5s) + 0.5s delay
+    // If already seen (reload), just 0.5s delay
+    const delay = hasSeenLoading ? 500 : 7000;
     
     const timer = setTimeout(() => {
       setShouldAnimate(true);
