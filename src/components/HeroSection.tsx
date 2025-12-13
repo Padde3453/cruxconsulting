@@ -4,6 +4,8 @@ import { Plus } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import humanHand from '@/assets/human-hand.png';
+import robotHand from '@/assets/robot-hand.png';
 
 interface HeroSectionProps {
   onBooking: () => void;
@@ -13,20 +15,38 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const { t } = useTranslation();
   const rotatingWords = t('hero.rotatingWords', { returnObjects: true }) as string[];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [shouldAnimate, setShouldAnimate] = useState(false);
+  const [animationPhase, setAnimationPhase] = useState<'waiting' | 'hands-in' | 'spark' | 'hands-out' | 'text'>('waiting');
   
   // Check synchronously if loading screen was already shown
   const hasSeenLoading = typeof window !== 'undefined' && sessionStorage.getItem('hasSeenLoading') === 'true';
 
-  // Delay animation start based on whether loading screen is showing
+  // Animation sequence controller
   useEffect(() => {
-    // If loading screen already seen (reload), short delay. Otherwise wait for loading to finish.
-    const delay = hasSeenLoading ? 500 : 7000;
+    const initialDelay = hasSeenLoading ? 500 : 7000;
     
-    const timer = setTimeout(() => {
-      setShouldAnimate(true);
-    }, delay);
-    return () => clearTimeout(timer);
+    const timers: NodeJS.Timeout[] = [];
+    
+    // Phase 1: Start hands animation
+    timers.push(setTimeout(() => {
+      setAnimationPhase('hands-in');
+    }, initialDelay));
+    
+    // Phase 2: Spark appears when hands meet (after 1.5s of hands moving)
+    timers.push(setTimeout(() => {
+      setAnimationPhase('spark');
+    }, initialDelay + 1500));
+    
+    // Phase 3: Hands move apart (after spark holds for 0.8s)
+    timers.push(setTimeout(() => {
+      setAnimationPhase('hands-out');
+    }, initialDelay + 2300));
+    
+    // Phase 4: Text appears (after hands have moved apart - 1.2s)
+    timers.push(setTimeout(() => {
+      setAnimationPhase('text');
+    }, initialDelay + 3500));
+    
+    return () => timers.forEach(timer => clearTimeout(timer));
   }, [hasSeenLoading]);
 
   useEffect(() => {
@@ -37,7 +57,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     return () => clearInterval(interval);
   }, [rotatingWords.length]);
 
-  // Animation variants for fly-in from below
+  // Animation variants for text fly-in from below
   const containerVariants = {
     hidden: {},
     visible: {
@@ -63,6 +83,50 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     },
   };
 
+  // Hand positions based on animation phase
+  const getHumanHandPosition = () => {
+    switch (animationPhase) {
+      case 'waiting':
+        return { x: '100vw', y: '-100vh' }; // Off screen top-right
+      case 'hands-in':
+      case 'spark':
+        return { x: '0vw', y: '0vh' }; // Center meeting point
+      case 'hands-out':
+      case 'text':
+        return { x: '60vw', y: '-60vh' }; // Top-right corner
+      default:
+        return { x: '100vw', y: '-100vh' };
+    }
+  };
+
+  const getRobotHandPosition = () => {
+    switch (animationPhase) {
+      case 'waiting':
+        return { x: '-100vw', y: '100vh' }; // Off screen bottom-left
+      case 'hands-in':
+      case 'spark':
+        return { x: '0vw', y: '0vh' }; // Center meeting point
+      case 'hands-out':
+      case 'text':
+        return { x: '-60vw', y: '60vh' }; // Bottom-left corner
+      default:
+        return { x: '-100vw', y: '100vh' };
+    }
+  };
+
+  const sparkOpacity = () => {
+    switch (animationPhase) {
+      case 'spark':
+        return 1;
+      case 'hands-out':
+        return 0.6;
+      case 'text':
+        return 0.15;
+      default:
+        return 0;
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
@@ -75,11 +139,153 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         }}></div>
       </div>
 
+      {/* Diagonal Spark Line - Behind everything */}
       <motion.div 
-        className="relative z-10 text-center max-w-4xl mx-auto px-6"
+        className="absolute inset-0 z-[5] pointer-events-none overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: sparkOpacity() }}
+        transition={{ duration: 0.5 }}
+      >
+        <svg 
+          className="absolute w-[200%] h-[200%]" 
+          style={{ 
+            top: '-50%', 
+            left: '-50%',
+            transform: 'rotate(-35deg)'
+          }}
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="sparkGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0%" stopColor="transparent" />
+              <stop offset="20%" stopColor="hsl(var(--brand-blue))" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="hsl(200, 100%, 70%)" stopOpacity="1" />
+              <stop offset="80%" stopColor="hsl(var(--brand-blue))" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+            <filter id="sparkGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="8" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          {/* Main spark line */}
+          <motion.line
+            x1="0%"
+            y1="50%"
+            x2="100%"
+            y2="50%"
+            stroke="url(#sparkGradient)"
+            strokeWidth="4"
+            filter="url(#sparkGlow)"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: animationPhase === 'spark' || animationPhase === 'hands-out' || animationPhase === 'text' ? 1 : 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          />
+          {/* Brighter core line */}
+          <motion.line
+            x1="0%"
+            y1="50%"
+            x2="100%"
+            y2="50%"
+            stroke="hsl(200, 100%, 85%)"
+            strokeWidth="2"
+            filter="url(#sparkGlow)"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: animationPhase === 'spark' || animationPhase === 'hands-out' || animationPhase === 'text' ? 1 : 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          />
+        </svg>
+        {/* Particle effects along the line */}
+        {(animationPhase === 'spark' || animationPhase === 'hands-out' || animationPhase === 'text') && (
+          <div className="absolute inset-0">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+                style={{
+                  left: `${5 + i * 4.5}%`,
+                  top: `${50 + (Math.random() - 0.5) * 20}%`,
+                  boxShadow: '0 0 10px 3px rgba(0, 200, 255, 0.8)',
+                }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ 
+                  opacity: [0, 1, 0],
+                  scale: [0, 1.5, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  delay: i * 0.05,
+                  repeat: animationPhase === 'text' ? 0 : Infinity,
+                  repeatDelay: 1,
+                }}
+              />
+            ))}
+          </div>
+        )}
+      </motion.div>
+
+      {/* Human Hand - Coming from top-right */}
+      <motion.div
+        className="absolute z-10 pointer-events-none"
+        style={{
+          top: '50%',
+          left: '50%',
+          marginTop: '-150px',
+          marginLeft: '-50px',
+        }}
+        initial={{ x: '100vw', y: '-100vh' }}
+        animate={getHumanHandPosition()}
+        transition={{
+          type: 'spring',
+          stiffness: 50,
+          damping: 15,
+          duration: 1.5,
+        }}
+      >
+        <img 
+          src={humanHand} 
+          alt="Human hand" 
+          className="w-[300px] md:w-[400px] lg:w-[500px] h-auto"
+          style={{ transform: 'rotate(-20deg)' }}
+        />
+      </motion.div>
+
+      {/* Robot Hand - Coming from bottom-left */}
+      <motion.div
+        className="absolute z-10 pointer-events-none"
+        style={{
+          top: '50%',
+          left: '50%',
+          marginTop: '-50px',
+          marginLeft: '-250px',
+        }}
+        initial={{ x: '-100vw', y: '100vh' }}
+        animate={getRobotHandPosition()}
+        transition={{
+          type: 'spring',
+          stiffness: 50,
+          damping: 15,
+          duration: 1.5,
+        }}
+      >
+        <img 
+          src={robotHand} 
+          alt="Robot hand" 
+          className="w-[300px] md:w-[400px] lg:w-[500px] h-auto"
+          style={{ transform: 'rotate(15deg)' }}
+        />
+      </motion.div>
+
+      {/* Text Content */}
+      <motion.div 
+        className="relative z-20 text-center max-w-4xl mx-auto px-6"
         variants={containerVariants}
         initial="hidden"
-        animate={shouldAnimate ? "visible" : "hidden"}
+        animate={animationPhase === 'text' ? "visible" : "hidden"}
       >
         <div className="mb-8"></div>
         
@@ -142,9 +348,9 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
 
       {/* Scroll indicator */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         initial={{ opacity: 0, y: 20 }}
-        animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        animate={animationPhase === 'text' ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ delay: 0.6, duration: 0.5 }}
       >
         <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center animate-bounce">
