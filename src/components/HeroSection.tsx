@@ -98,35 +98,45 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     },
   };
 
-  // Hand positions based on animation phase
+  // Hand positions based on animation phase - returns { x, y, rotate } for framer-motion
   const getHumanHandPosition = () => {
+    let pos;
     switch (animationPhase) {
       case "waiting":
-        return humanHand.start;
+        pos = humanHand.start;
+        break;
       case "hands-in":
       case "spark":
-        return humanHand.meeting;
+        pos = humanHand.meeting;
+        break;
       case "hands-out":
       case "text":
-        return humanHand.end;
+        pos = humanHand.end;
+        break;
       default:
-        return humanHand.start;
+        pos = humanHand.start;
     }
+    return { x: pos.x, y: pos.y, rotate: pos.rotate };
   };
 
   const getRobotHandPosition = () => {
+    let pos;
     switch (animationPhase) {
       case "waiting":
-        return robotHand.start;
+        pos = robotHand.start;
+        break;
       case "hands-in":
       case "spark":
-        return robotHand.meeting;
+        pos = robotHand.meeting;
+        break;
       case "hands-out":
       case "text":
-        return robotHand.end;
+        pos = robotHand.end;
+        break;
       default:
-        return robotHand.start;
+        pos = robotHand.start;
     }
+    return { x: pos.x, y: pos.y, rotate: pos.rotate };
   };
 
   const sparkOpacity = () => {

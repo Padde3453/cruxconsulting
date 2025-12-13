@@ -1,16 +1,20 @@
 import { useState, useEffect, useMemo } from "react";
 
-// Fingertip offset from image center (you'll need to fine-tune these)
-// These represent the pixel distance from the center of the hand image to the fingertip
 interface FingertipOffset {
-  x: number; // positive = right of image center
-  y: number; // positive = below image center
+  x: number;
+  y: number;
+}
+
+interface HandPosition {
+  x: number;
+  y: number;
+  rotate: number;
 }
 
 interface HandConfig {
-  start: { x: number; y: number; rotate: number };
-  meeting: { x: number; y: number; rotate: number };
-  end: { x: number; y: number; rotate: number };
+  start: HandPosition;
+  meeting: HandPosition;
+  end: HandPosition;
 }
 
 interface HandAnimationValues {
@@ -39,6 +43,32 @@ const ROBOT_NATURAL_WIDTH = 580;
 // Raw fingertip offsets (based on natural image dimensions)
 const HUMAN_FINGERTIP_RAW = { x: -294, y: 148 };
 const ROBOT_FINGERTIP_RAW = { x: 287, y: -129 };
+
+// Trajectory configuration (angles in degrees)
+// Robot enters from bottom-left, human enters from top-right
+const ROBOT_TRAJECTORY_ANGLE = -135; // degrees (bottom-left direction)
+const HUMAN_TRAJECTORY_ANGLE = 45;   // degrees (top-right direction)
+
+// Rotation values for each phase
+const HUMAN_ROTATION = { start: 0, meeting: -10, end: -15 };
+const ROBOT_ROTATION = { start: 35, meeting: 25, end: 15 };
+
+// How much of the hand remains visible at end position (0.2 = 20%)
+const VISIBLE_AT_END = 0.2;
+
+// Convert degrees to radians
+function degreesToRadians(degrees: number): number {
+  return degrees * (Math.PI / 180);
+}
+
+// Get unit vector from angle (0° = right, 90° = down, etc.)
+function getUnitVector(angleDegrees: number): { x: number; y: number } {
+  const radians = degreesToRadians(angleDegrees);
+  return {
+    x: Math.cos(radians),
+    y: Math.sin(radians),
+  };
+}
 
 export function useHandAnimationValues(): HandAnimationValues {
   const [windowSize, setWindowSize] = useState({
@@ -79,43 +109,47 @@ export function useHandAnimationValues(): HandAnimationValues {
       y: ROBOT_FINGERTIP_RAW.y * robotScale,
     };
 
-    // Rotation angles (degrees)
-    const humanRotation = { start: 0, meeting: -10, end: -15 };
-    const robotRotation = { start: 35, meeting: 25, end: 15 };
-
-    // Calculate meeting positions so fingertips touch at screen center
+    // Calculate meeting positions (fingertips touch at screen center)
     const humanMeetingX = centerX - humanFingertip.x - halfImage;
     const humanMeetingY = centerY - humanFingertip.y - halfImage;
 
     const robotMeetingX = centerX - robotFingertip.x - halfImage;
     const robotMeetingY = centerY - robotFingertip.y - halfImage;
 
-    // Start positions (off-screen)
-    const humanStartX = width + 200;
-    const humanStartY = -height - 200;
+    // Get trajectory vectors
+    const humanVector = getUnitVector(HUMAN_TRAJECTORY_ANGLE);
+    const robotVector = getUnitVector(ROBOT_TRAJECTORY_ANGLE);
 
-    const robotStartX = -imageSize - 200;
-    const robotStartY = height + 200;
+    // Calculate retreat distance: move hand so only VISIBLE_AT_END (20%) remains on screen
+    // The hand needs to move far enough that 80% is off-screen
+    const retreatDistance = imageSize * (1 - VISIBLE_AT_END);
 
-    // End positions: 20% of image remains visible on screen
-    // Human hand retreats to top-right corner
-    const humanEndX = width - imageSize * 0.2;  // 80% off-screen to the right
-    const humanEndY = -imageSize * 0.8;          // 80% off-screen above
+    // Calculate off-screen distance: retreat distance + full image size
+    const offScreenDistance = retreatDistance + imageSize;
 
-    // Robot hand retreats to bottom-left corner
-    const robotEndX = -imageSize * 0.8;          // 80% off-screen to the left
-    const robotEndY = height - imageSize * 0.2;  // 80% off-screen below
+    // Project positions along trajectory from meeting point
+    // Human hand
+    const humanEndX = humanMeetingX + humanVector.x * retreatDistance;
+    const humanEndY = humanMeetingY + humanVector.y * retreatDistance;
+    const humanStartX = humanMeetingX + humanVector.x * offScreenDistance;
+    const humanStartY = humanMeetingY + humanVector.y * offScreenDistance;
+
+    // Robot hand
+    const robotEndX = robotMeetingX + robotVector.x * retreatDistance;
+    const robotEndY = robotMeetingY + robotVector.y * retreatDistance;
+    const robotStartX = robotMeetingX + robotVector.x * offScreenDistance;
+    const robotStartY = robotMeetingY + robotVector.y * offScreenDistance;
 
     return {
       humanHand: {
-        start: { x: humanStartX, y: humanStartY, rotate: humanRotation.start },
-        meeting: { x: humanMeetingX, y: humanMeetingY, rotate: humanRotation.meeting },
-        end: { x: humanEndX, y: humanEndY, rotate: humanRotation.end },
+        start: { x: humanStartX, y: humanStartY, rotate: HUMAN_ROTATION.start },
+        meeting: { x: humanMeetingX, y: humanMeetingY, rotate: HUMAN_ROTATION.meeting },
+        end: { x: humanEndX, y: humanEndY, rotate: HUMAN_ROTATION.end },
       },
       robotHand: {
-        start: { x: robotStartX, y: robotStartY, rotate: robotRotation.start },
-        meeting: { x: robotMeetingX, y: robotMeetingY, rotate: robotRotation.meeting },
-        end: { x: robotEndX, y: robotEndY, rotate: robotRotation.end },
+        start: { x: robotStartX, y: robotStartY, rotate: ROBOT_ROTATION.start },
+        meeting: { x: robotMeetingX, y: robotMeetingY, rotate: ROBOT_ROTATION.meeting },
+        end: { x: robotEndX, y: robotEndY, rotate: ROBOT_ROTATION.end },
       },
       windowWidth: width,
       windowHeight: height,
