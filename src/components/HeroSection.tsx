@@ -3,8 +3,9 @@ import { Plus } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import humanHand from "@/assets/human-hand.png";
-import robotHand from "@/assets/robot-hand.png";
+import humanHandImg from "@/assets/human-hand.png";
+import robotHandImg from "@/assets/robot-hand.png";
+import { useHandAnimationValues } from "@/hooks/useHandAnimationValues";
 
 interface HeroSectionProps {
   onBooking: () => void;
@@ -18,7 +19,9 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     "waiting",
   );
   const [showDebug, setShowDebug] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 0);
+
+  // Get dynamically calculated hand positions
+  const { humanHand, robotHand, windowWidth, windowHeight } = useHandAnimationValues();
 
   // Check synchronously if loading screen was already shown
   const hasSeenLoading = typeof window !== "undefined" && sessionStorage.getItem("hasSeenLoading") === "true";
@@ -94,107 +97,34 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     },
   };
 
-  // Detect screen size for responsive hand positions
-  const [screenSize, setScreenSize] = useState<"mobile" | "tablet" | "desktop">("desktop");
-
-  useEffect(() => {
-    const updateScreenSize = () => {
-      const width = window.innerWidth;
-      setWindowWidth(width);
-      if (width < 640) {
-        setScreenSize("mobile");
-      } else if (width < 1024) {
-        setScreenSize("tablet");
-      } else {
-        setScreenSize("desktop");
-      }
-    };
-
-    updateScreenSize();
-    window.addEventListener("resize", updateScreenSize);
-    return () => window.removeEventListener("resize", updateScreenSize);
-  }, []);
-
-  // Hand animation configurations per screen size
-  const humanHandConfigs = {
-    desktop: {
-      start: { x: "100vw", y: "-100vh", rotate: -0 },
-      meeting: { x: "4vw", y: "-10vh", rotate: -10 },
-      end: { x: "20vw", y: "-35vh", rotate: -15 },
-      marginTop: -150,
-      marginLeft: 0,
-    },
-    tablet: {
-      start: { x: "100vw", y: "-100vh", rotate: -0 },
-      meeting: { x: "-5vw", y: "-5vh", rotate: -15 },
-      end: { x: "15vw", y: "-30vh", rotate: -20 },
-      marginTop: -100,
-      marginLeft: 50,
-    },
-    mobile: {
-      start: { x: "100vw", y: "-100vh", rotate: -0 },
-      meeting: { x: "-10vw", y: "0vh", rotate: -20 },
-      end: { x: "10vw", y: "-25vh", rotate: -25 },
-      marginTop: -50,
-      marginLeft: 80,
-    },
-  };
-
-  const robotHandConfigs = {
-    desktop: {
-      start: { x: "-100vw", y: "100vh", rotate: 35 },
-      meeting: { x: "-30vw", y: "0vh", rotate: 25 },
-      end: { x: "-50vw", y: "20vh", rotate: 15 },
-      marginTop: -100,
-      marginLeft: -250,
-    },
-    tablet: {
-      start: { x: "-100vw", y: "100vh", rotate: 35 },
-      meeting: { x: "-20vw", y: "5vh", rotate: 20 },
-      end: { x: "-40vw", y: "15vh", rotate: 10 },
-      marginTop: -80,
-      marginLeft: -180,
-    },
-    mobile: {
-      start: { x: "-100vw", y: "100vh", rotate: 35 },
-      meeting: { x: "-10vw", y: "10vh", rotate: 15 },
-      end: { x: "-30vw", y: "10vh", rotate: 5 },
-      marginTop: -50,
-      marginLeft: -120,
-    },
-  };
-
-  const humanHandConfig = humanHandConfigs[screenSize];
-  const robotHandConfig = robotHandConfigs[screenSize];
-
   // Hand positions based on animation phase
   const getHumanHandPosition = () => {
     switch (animationPhase) {
       case "waiting":
-        return humanHandConfig.start;
+        return humanHand.start;
       case "hands-in":
       case "spark":
-        return humanHandConfig.meeting;
+        return humanHand.meeting;
       case "hands-out":
       case "text":
-        return humanHandConfig.end;
+        return humanHand.end;
       default:
-        return humanHandConfig.start;
+        return humanHand.start;
     }
   };
 
   const getRobotHandPosition = () => {
     switch (animationPhase) {
       case "waiting":
-        return robotHandConfig.start;
+        return robotHand.start;
       case "hands-in":
       case "spark":
-        return robotHandConfig.meeting;
+        return robotHand.meeting;
       case "hands-out":
       case "text":
-        return robotHandConfig.end;
+        return robotHand.end;
       default:
-        return robotHandConfig.start;
+        return robotHand.start;
     }
   };
 
@@ -209,6 +139,13 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
       default:
         return 0;
     }
+  };
+
+  // Get current image size for debug display
+  const getImageSize = () => {
+    if (windowWidth >= 1024) return 700;
+    if (windowWidth >= 768) return 550;
+    return 400;
   };
 
   return (
@@ -325,12 +262,10 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
       <motion.div
         className="absolute z-10 pointer-events-none"
         style={{
-          top: "50%",
-          left: "50%",
-          marginTop: humanHandConfig.marginTop,
-          marginLeft: humanHandConfig.marginLeft,
+          top: 0,
+          left: 0,
         }}
-        initial={humanHandConfig.start}
+        initial={getHumanHandPosition()}
         animate={getHumanHandPosition()}
         transition={{
           type: "spring",
@@ -338,19 +273,23 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           damping: 12,
         }}
       >
-        <img src={humanHand} alt="Human hand" className="w-[400px] md:w-[550px] lg:w-[700px] h-auto" />
+        <motion.img 
+          src={humanHandImg} 
+          alt="Human hand" 
+          className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
+          animate={{ rotate: getHumanHandPosition().rotate }}
+          transition={{ type: "spring", stiffness: 20, damping: 12 }}
+        />
       </motion.div>
 
       {/* Robot Hand - Coming from bottom-left */}
       <motion.div
         className="absolute z-10 pointer-events-none"
         style={{
-          top: "50%",
-          left: "50%",
-          marginTop: robotHandConfig.marginTop,
-          marginLeft: robotHandConfig.marginLeft,
+          top: 0,
+          left: 0,
         }}
-        initial={robotHandConfig.start}
+        initial={getRobotHandPosition()}
         animate={getRobotHandPosition()}
         transition={{
           type: "spring",
@@ -358,7 +297,13 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           damping: 12,
         }}
       >
-        <img src={robotHand} alt="Robot hand" className="w-[400px] md:w-[550px] lg:w-[700px] h-auto" />
+        <motion.img 
+          src={robotHandImg} 
+          alt="Robot hand" 
+          className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
+          animate={{ rotate: getRobotHandPosition().rotate }}
+          transition={{ type: "spring", stiffness: 20, damping: 12 }}
+        />
       </motion.div>
 
       {/* Text Content */}
@@ -434,48 +379,42 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         <div className="fixed inset-0 z-[100] pointer-events-none">
           {/* Center Crosshair */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            {/* Vertical line */}
             <div className="absolute left-1/2 -translate-x-1/2 w-[2px] h-screen bg-red-500/70" style={{ top: '-50vh' }} />
-            {/* Horizontal line */}
             <div className="absolute top-1/2 -translate-y-1/2 h-[2px] w-screen bg-red-500/70" style={{ left: '-50vw' }} />
-            {/* Center dot */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-yellow-400 rounded-full border-2 border-red-600" />
           </div>
 
           {/* Info Panel */}
           <div className="absolute top-20 left-4 bg-black/90 p-4 rounded-lg text-white text-sm font-mono pointer-events-auto max-w-sm">
-            <div className="text-yellow-400 font-bold mb-2 text-lg">🔧 Debug Mode</div>
+            <div className="text-yellow-400 font-bold mb-2 text-lg">🔧 Debug Mode (Dynamic)</div>
             <div className="mb-3 pb-2 border-b border-gray-600">
-              <span className="text-cyan-400">Screen:</span> {screenSize} ({windowWidth}px)
+              <span className="text-cyan-400">Window:</span> {windowWidth}×{windowHeight}px
+            </div>
+            <div className="mb-3 pb-2 border-b border-gray-600">
+              <span className="text-cyan-400">Image Size:</span> {getImageSize()}px
             </div>
             <div className="mb-3 pb-2 border-b border-gray-600">
               <span className="text-cyan-400">Phase:</span> {animationPhase}
             </div>
             
             <div className="mb-3 pb-2 border-b border-gray-600">
-              <div className="text-green-400 font-bold mb-1">Human Hand (top-right → center):</div>
+              <div className="text-green-400 font-bold mb-1">Human Hand:</div>
               <div className="text-xs space-y-1 pl-2">
-                <div><span className="text-gray-400">meeting x:</span> {humanHandConfig.meeting.x}</div>
-                <div><span className="text-gray-400">meeting y:</span> {humanHandConfig.meeting.y}</div>
-                <div><span className="text-gray-400">rotate:</span> {humanHandConfig.meeting.rotate}°</div>
-                <div><span className="text-gray-400">marginTop:</span> {humanHandConfig.marginTop}px</div>
-                <div><span className="text-gray-400">marginLeft:</span> {humanHandConfig.marginLeft}px</div>
+                <div><span className="text-gray-400">meeting:</span> ({Math.round(humanHand.meeting.x)}, {Math.round(humanHand.meeting.y)})</div>
+                <div><span className="text-gray-400">rotate:</span> {humanHand.meeting.rotate}°</div>
               </div>
             </div>
             
             <div className="mb-2">
-              <div className="text-blue-400 font-bold mb-1">Robot Hand (bottom-left → center):</div>
+              <div className="text-blue-400 font-bold mb-1">Robot Hand:</div>
               <div className="text-xs space-y-1 pl-2">
-                <div><span className="text-gray-400">meeting x:</span> {robotHandConfig.meeting.x}</div>
-                <div><span className="text-gray-400">meeting y:</span> {robotHandConfig.meeting.y}</div>
-                <div><span className="text-gray-400">rotate:</span> {robotHandConfig.meeting.rotate}°</div>
-                <div><span className="text-gray-400">marginTop:</span> {robotHandConfig.marginTop}px</div>
-                <div><span className="text-gray-400">marginLeft:</span> {robotHandConfig.marginLeft}px</div>
+                <div><span className="text-gray-400">meeting:</span> ({Math.round(robotHand.meeting.x)}, {Math.round(robotHand.meeting.y)})</div>
+                <div><span className="text-gray-400">rotate:</span> {robotHand.meeting.rotate}°</div>
               </div>
             </div>
             
             <div className="text-xs text-gray-500 mt-3 pt-2 border-t border-gray-600">
-              Adjust values in humanHandConfigs[{screenSize}] and robotHandConfigs[{screenSize}]
+              Adjust fingertip offsets in useHandAnimationValues hook
             </div>
           </div>
         </div>
