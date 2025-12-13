@@ -11,77 +11,105 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
   const [phase, setPhase] = useState<'fadeIn' | 'hold' | 'transition' | 'done'>('fadeIn');
   const [displayedText, setDisplayedText] = useState('');
   const [logoOpacity, setLogoOpacity] = useState(0.1);
+  const [typewriterComplete, setTypewriterComplete] = useState(false);
+  const [logoFadeComplete, setLogoFadeComplete] = useState(false);
   
   const isGerman = i18n.language.startsWith('de');
   const slogan = isGerman 
     ? "Mit Künstlicher Intelligenz gestalten wir Zeit zu Ihren Gunsten um"
     : "We reshape time in your favour with AI";
 
-  // Logo opacity fade effect (0.1 to 1 over 3 seconds)
+  // Logo opacity fade effect (0.1 to 1 over 3 seconds) using requestAnimationFrame for smoother animation
   useEffect(() => {
     if (phase !== 'fadeIn') return;
     
-    const startTime = Date.now();
+    const startTime = performance.now();
     const duration = 3000;
+    let animationId: number;
     
-    const fadeInterval = setInterval(() => {
-      const elapsed = Date.now() - startTime;
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const newOpacity = 0.1 + (0.9 * progress); // 0.1 to 1.0
+      const newOpacity = 0.1 + (0.9 * progress);
       setLogoOpacity(newOpacity);
       
-      if (progress >= 1) {
-        clearInterval(fadeInterval);
+      if (progress < 1) {
+        animationId = requestAnimationFrame(animate);
+      } else {
+        setLogoFadeComplete(true);
       }
-    }, 16); // ~60fps
+    };
+    
+    animationId = requestAnimationFrame(animate);
 
-    return () => clearInterval(fadeInterval);
+    return () => cancelAnimationFrame(animationId);
   }, [phase]);
 
-  // Typewriter effect - starts immediately, completes in 3 seconds
+  // Typewriter effect using requestAnimationFrame for consistency
   useEffect(() => {
     if (phase !== 'fadeIn') return;
     
     const totalDuration = 3000;
-    const charDelay = totalDuration / slogan.length;
-    let currentIndex = 0;
+    const startTime = performance.now();
+    let animationId: number;
     
-    const typewriterInterval = setInterval(() => {
-      currentIndex++;
-      setDisplayedText(slogan.slice(0, currentIndex));
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / totalDuration, 1);
+      const charIndex = Math.floor(progress * slogan.length);
       
-      if (currentIndex >= slogan.length) {
-        clearInterval(typewriterInterval);
+      setDisplayedText(slogan.slice(0, charIndex + 1));
+      
+      if (progress < 1) {
+        animationId = requestAnimationFrame(animate);
+      } else {
+        // Ensure full text is displayed
+        setDisplayedText(slogan);
+        setTypewriterComplete(true);
       }
-    }, charDelay);
+    };
+    
+    animationId = requestAnimationFrame(animate);
 
-    return () => clearInterval(typewriterInterval);
+    return () => cancelAnimationFrame(animationId);
   }, [phase, slogan]);
 
-  // Phase transitions with longer timing
+  // Phase transitions - only progress when animations are complete
   useEffect(() => {
-    // After 3.2s (fadeIn + typewriter complete), move to hold phase
-    const holdTimer = setTimeout(() => {
-      setPhase('hold');
-    }, 3200);
+    // Wait for both animations to complete before moving to hold phase
+    if (typewriterComplete && logoFadeComplete && phase === 'fadeIn') {
+      // Small buffer to ensure visual completion
+      const holdTimer = setTimeout(() => {
+        setPhase('hold');
+      }, 200);
+      return () => clearTimeout(holdTimer);
+    }
+  }, [typewriterComplete, logoFadeComplete, phase]);
 
-    // After 4.5s (3.2s fadeIn + 1.3s hold), start transition
+  // Hold phase duration and transition
+  useEffect(() => {
+    if (phase !== 'hold') return;
+    
+    // Hold for 1.3s then transition
     const transitionTimer = setTimeout(() => {
       setPhase('transition');
-    }, 4500);
+    }, 1300);
 
-    // After 6.5s (give 2 seconds for transition), complete
+    return () => clearTimeout(transitionTimer);
+  }, [phase]);
+
+  // Transition phase - complete after animation finishes
+  useEffect(() => {
+    if (phase !== 'transition') return;
+    
+    // Allow 2s for transition animation
     const completeTimer = setTimeout(() => {
       setPhase('done');
       onComplete();
-    }, 6500);
+    }, 2000);
 
-    return () => {
-      clearTimeout(holdTimer);
-      clearTimeout(transitionTimer);
-      clearTimeout(completeTimer);
-    };
-  }, [onComplete]);
+    return () => clearTimeout(completeTimer);
+  }, [phase, onComplete]);
 
   // Calculate target position for logo merge (header position)
   const getTargetPosition = () => {
