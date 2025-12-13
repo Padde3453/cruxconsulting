@@ -31,7 +31,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
 
   // Animation sequence controller
   useEffect(() => {
-    const initialDelay = hasSeenLoading ? 500 : 7000;
+    const initialDelay = hasSeenLoading ? 0 : 6000;
 
     const timers: NodeJS.Timeout[] = [];
 
