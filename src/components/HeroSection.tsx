@@ -14,19 +14,20 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const rotatingWords = t('hero.rotatingWords', { returnObjects: true }) as string[];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [shouldAnimate, setShouldAnimate] = useState(false);
+  
+  // Check synchronously if loading screen was already shown
+  const hasSeenLoading = typeof window !== 'undefined' && sessionStorage.getItem('hasSeenLoading') === 'true';
 
-  // Check if loading screen will be shown (first visit) or not (reload)
+  // Delay animation start based on whether loading screen is showing
   useEffect(() => {
-    const hasSeenLoading = sessionStorage.getItem('hasSeenLoading');
-    // If loading screen is shown, wait for it to finish (6.5s) + 0.5s delay
-    // If already seen (reload), just 0.5s delay
+    // If loading screen already seen (reload), short delay. Otherwise wait for loading to finish.
     const delay = hasSeenLoading ? 500 : 7000;
     
     const timer = setTimeout(() => {
       setShouldAnimate(true);
     }, delay);
     return () => clearTimeout(timer);
-  }, []);
+  }, [hasSeenLoading]);
 
   useEffect(() => {
     const interval = setInterval(() => {
