@@ -165,11 +165,6 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         >
           <p className="text-xl md:text-2xl font-light bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
             {displayedText}
-            <motion.span
-              className="inline-block w-0.5 h-6 md:h-7 bg-brand-green ml-1 align-middle"
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-            />
           </p>
         </motion.div>
       </motion.div>
