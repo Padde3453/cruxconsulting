@@ -157,8 +157,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
             ease: [0.95, 0.05, 0.795, 0.035], // easeInExpo
           },
           opacity: {
-            duration: animationPhase === "text" ? 1.0 : 0.3,
-            delay: animationPhase === "text" ? 0 : 0,
+            duration: animationPhase === "text" ? 2.5 : 0.3,
           },
         }}
       />
@@ -211,10 +210,10 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         />
       </motion.div>
 
-      {/* Text Content - loads when explosion covers screen, revealed as it fades */}
+      {/* Text Content - loads when fading starts, revealed as white fades */}
       <div
         className={`relative z-20 text-center max-w-4xl mx-auto px-6 transition-opacity duration-300 ${
-          animationPhase === "explosion" || animationPhase === "text" ? "opacity-100" : "opacity-0"
+          animationPhase === "text" ? "opacity-100" : "opacity-0"
         }`}
       >
         <div className="mb-8"></div>
