@@ -66,7 +66,7 @@ export const useHandAnimationValues = () => {
     } else {
       // Robot hand: offset downward on mobile/tablet for steeper angle
       targetCorner = isMobileOrTablet
-        ? { x: -100, y: windowSize.height + windowSize.height * 0.9 }
+        ? { x: -50, y: windowSize.height + windowSize.height * 0.9 }
         : { x: 0, y: windowSize.height };
     }
 
