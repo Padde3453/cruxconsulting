@@ -46,13 +46,13 @@ const ROBOT_FINGERTIP_RAW = { x: 286, y: -129 };
 
 // Trajectory configuration (angles in degrees)
 // 0° = right, 90° = down, -90° = up, 180° = left
-// Robot enters from bottom-left, human enters from top-right
-const ROBOT_TRAJECTORY_ANGLE = 135;  // degrees (bottom-left direction: down + left)
-const HUMAN_TRAJECTORY_ANGLE = -45;  // degrees (top-right direction: up + right)
+// Robot enters from left side (slightly down), human enters from right side (slightly up)
+const ROBOT_TRAJECTORY_ANGLE = 160;  // degrees (left side, slightly down)
+const HUMAN_TRAJECTORY_ANGLE = -20;  // degrees (right side, slightly up)
 
-// Rotation values for each phase
-const HUMAN_ROTATION = { start: 0, meeting: -10, end: -15 };
-const ROBOT_ROTATION = { start: -10, meeting: -20, end: -30 };
+// Rotation values for each phase (all set to 0 to disable rotation)
+const HUMAN_ROTATION = { start: 0, meeting: 0, end: 0 };
+const ROBOT_ROTATION = { start: 0, meeting: 0, end: 0 };
 
 // How much of the hand remains visible at end position (0.4 = 40%)
 const VISIBLE_AT_END = 0.4;
