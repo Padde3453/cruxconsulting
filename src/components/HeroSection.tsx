@@ -95,7 +95,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   // Hand animation configurations (start, meeting, end) with x, y, and rotation
   const humanHandConfig = {
     start: { x: "100vw", y: "-100vh", rotate: -35 },
-    meeting: { x: "-40vw", y: "20vh", rotate: -25 },
+    meeting: { x: "-20vw", y: "20vh", rotate: -25 },
     end: { x: "25vw", y: "-20vh", rotate: -15 },
     // Container offsets for positioning
     marginTop: -150,
