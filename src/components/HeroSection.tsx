@@ -117,7 +117,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         return { x: "-8vw", y: "5vh" }; // Meeting point - fingers just touch
       case "hands-out":
       case "text":
-        return { x: "-40vw", y: "20vh" }; // Retract to bottom-left, stay visible
+        return { x: "-45vw", y: "20vh" }; // Retract to bottom-left, stay visible
       default:
         return { x: "-80vw", y: "80vh" };
     }
