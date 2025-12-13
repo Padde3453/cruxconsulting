@@ -52,18 +52,9 @@ export function useHandAnimationValues(): HandAnimationValues {
     const imageSize = getImageSize(width);
     const halfImage = imageSize / 2;
 
-    // Fingertip offsets from image center (adjust these to match your images)
-    // Human hand: fingertip is roughly at bottom-left of the image
-    const humanFingertip: FingertipOffset = {
-      x: -halfImage * 0.25,  // 25% left of center
-      y: halfImage * 0.4,     // 40% below center
-    };
-
-    // Robot hand: fingertip is roughly at top-right of the image
-    const robotFingertip: FingertipOffset = {
-      x: halfImage * 0.35,   // 35% right of center
-      y: -halfImage * 0.3,   // 30% above center
-    };
+    // Fingertip offsets from image center (exact pixel values)
+    const humanFingertip: FingertipOffset = { x: -294, y: 148 };
+    const robotFingertip: FingertipOffset = { x: 287, y: -129 };
 
     // Rotation angles (degrees)
     const humanRotation = { start: 0, meeting: -10, end: -15 };
