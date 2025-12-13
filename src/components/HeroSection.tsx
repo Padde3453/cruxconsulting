@@ -15,11 +15,16 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [shouldAnimate, setShouldAnimate] = useState(false);
 
-  // Delay animation start by 1 second after page load
+  // Check if loading screen will be shown (first visit) or not (reload)
   useEffect(() => {
+    const hasSeenLoading = sessionStorage.getItem('hasSeenLoadingScreen');
+    // If loading screen is shown, wait for it to finish (6.5s) + 1s delay
+    // If already seen (reload), just 1s delay
+    const delay = hasSeenLoading ? 1000 : 7500;
+    
     const timer = setTimeout(() => {
       setShouldAnimate(true);
-    }, 1000);
+    }, delay);
     return () => clearTimeout(timer);
   }, []);
 
