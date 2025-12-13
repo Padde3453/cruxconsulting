@@ -292,7 +292,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           src={robotHand}
           alt="Robot hand"
           className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
-          style={{ transform: "rotate(55deg)" }}
+          style={{ transform: "rotate(5deg)" }}
         />
       </motion.div>
 
