@@ -15,8 +15,8 @@ const FINGERTIP_OFFSETS = {
 
 // Distance multipliers based on hand image width
 const DISTANCE_MULTIPLIERS = {
-  start: 1.5,  // 150% of hand width past center (fully off-screen)
-  end: 0.6,    // 60% of hand width from center (hands frame the content)
+  start: 1.5, // 150% of hand width past center (fully off-screen)
+  end: 0.5, // 60% of hand width from center (hands frame the content)
 };
 
 export const useHandAnimationValues = () => {
@@ -57,9 +57,7 @@ export const useHandAnimationValues = () => {
     };
 
     // Target corners: Human -> Top-Right, Robot -> Bottom-Left
-    const targetCorner = isHuman
-      ? { x: windowSize.width, y: 0 }
-      : { x: 0, y: windowSize.height };
+    const targetCorner = isHuman ? { x: windowSize.width, y: 0 } : { x: 0, y: windowSize.height };
 
     // Calculate the trajectory vector (Center to Corner)
     const trajectoryVector = {
