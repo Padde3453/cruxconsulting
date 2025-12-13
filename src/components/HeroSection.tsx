@@ -13,7 +13,15 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const { t } = useTranslation();
   const rotatingWords = t('hero.rotatingWords', { returnObjects: true }) as string[];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  // Delay animation start by 1 second after page load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldAnimate(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,6 +30,32 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
 
     return () => clearInterval(interval);
   }, [rotatingWords.length]);
+
+  // Animation variants for fly-in from below
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { 
+      y: 80, 
+      opacity: 0 
+    },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: {
+        type: 'spring' as const,
+        stiffness: 60,
+        damping: 12,
+      },
+    },
+  };
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -35,10 +69,18 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         }}></div>
       </div>
 
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+      <motion.div 
+        className="relative z-10 text-center max-w-4xl mx-auto px-6"
+        variants={containerVariants}
+        initial="hidden"
+        animate={shouldAnimate ? "visible" : "hidden"}
+      >
         <div className="mb-8"></div>
         
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in-up">
+        <motion.h1 
+          className="text-6xl md:text-8xl font-bold mb-6"
+          variants={itemVariants}
+        >
           <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block mb-4">
             {t('hero.title')}
           </span>
@@ -59,17 +101,19 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
               </motion.span>
             </AnimatePresence>
           </div>
-        </h1>
+        </motion.h1>
         
-        <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto animate-fade-in-up" style={{
-          animationDelay: '0.2s'
-        }}>
+        <motion.p 
+          className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto"
+          variants={itemVariants}
+        >
           {t('hero.description')}
-        </p>
+        </motion.p>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up" style={{
-          animationDelay: '0.4s'
-        }}>
+        <motion.div 
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          variants={itemVariants}
+        >
           <Button 
             onClick={onBooking} 
             size="lg" 
@@ -87,15 +131,20 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
             </div>
             <div className="text-sm text-gray-400">{t('hero.responseTimeLabel')}</div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+      <motion.div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ delay: 0.6, duration: 0.5 }}
+      >
+        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center animate-bounce">
           <div className="w-1 h-3 bg-gradient-to-b from-brand-blue to-brand-green rounded-full mt-2 animate-pulse"></div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
