@@ -52,10 +52,10 @@ const HUMAN_TRAJECTORY_ANGLE = -45;  // degrees (top-right direction: up + right
 
 // Rotation values for each phase
 const HUMAN_ROTATION = { start: 0, meeting: -10, end: -15 };
-const ROBOT_ROTATION = { start: 35, meeting: 25, end: 15 };
+const ROBOT_ROTATION = { start: -10, meeting: -20, end: -30 };
 
-// How much of the hand remains visible at end position (0.2 = 20%)
-const VISIBLE_AT_END = 0.2;
+// How much of the hand remains visible at end position (0.1 = 10%)
+const VISIBLE_AT_END = 0.1;
 
 // Convert degrees to radians
 function degreesToRadians(degrees: number): number {
