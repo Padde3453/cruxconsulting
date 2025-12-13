@@ -15,7 +15,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const { t } = useTranslation();
   const rotatingWords = t("hero.rotatingWords", { returnObjects: true }) as string[];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [animationPhase, setAnimationPhase] = useState<"waiting" | "hands-in" | "explosion" | "text">(
+  const [animationPhase, setAnimationPhase] = useState<"waiting" | "hands-in" | "text">(
     "waiting",
   );
   
@@ -40,14 +40,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
       }, initialDelay),
     );
 
-    // Phase 2: Explosion starts when hands meet (after 3s of hands moving)
-    timers.push(
-      setTimeout(() => {
-        setAnimationPhase("explosion");
-      }, initialDelay + 3000),
-    );
-
-    // Phase 3: Text phase starts (after explosion grows - 1.5s)
+    // Phase 2: Text phase starts 1.5s after hands meet (hands meet at 3s)
     timers.push(
       setTimeout(() => {
         setAnimationPhase("text");
@@ -74,7 +67,6 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         pos = humanHand.start;
         break;
       case "hands-in":
-      case "explosion":
         pos = humanHand.meeting;
         break;
       case "text":
@@ -93,7 +85,6 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         pos = robotHand.start;
         break;
       case "hands-in":
-      case "explosion":
         pos = robotHand.meeting;
         break;
       case "text":
@@ -105,11 +96,6 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     return { x: pos.x, y: pos.y, rotate: pos.rotate };
   };
 
-  // Calculate explosion scale needed to cover entire screen
-  const getExplosionScale = () => {
-    const diagonal = Math.sqrt(windowWidth * windowWidth + windowHeight * windowHeight);
-    return diagonal / 10; // Start at 10px, scale to cover diagonal
-  };
 
 
   // Get current image size for debug display
@@ -135,32 +121,6 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
       </div>
 
 
-      {/* Light Explosion Effect */}
-      <motion.div
-        className="absolute z-30 pointer-events-none bg-white rounded-full"
-        style={{
-          width: 10,
-          height: 10,
-          top: "50%",
-          left: "50%",
-          x: "-50%",
-          y: "-50%",
-        }}
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{
-          scale: animationPhase === "explosion" || animationPhase === "text" ? getExplosionScale() : 0,
-          opacity: animationPhase === "explosion" ? 1 : 0,
-        }}
-        transition={{
-          scale: {
-            duration: 1.5,
-            ease: [0.95, 0.05, 0.795, 0.035], // easeInExpo
-          },
-          opacity: {
-            duration: animationPhase === "text" ? 2.5 : 0.3,
-          },
-        }}
-      />
 
       {/* Human Hand - Coming from top-right */}
       <motion.div
@@ -210,11 +170,16 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         />
       </motion.div>
 
-      {/* Text Content - loads when fading starts, revealed as white fades */}
-      <div
-        className={`relative z-20 text-center max-w-4xl mx-auto px-6 transition-opacity duration-300 ${
-          animationPhase === "text" ? "opacity-100" : "opacity-0"
-        }`}
+      {/* Text Content - slides in from below after hands meet */}
+      <motion.div
+        className="relative z-20 text-center max-w-4xl mx-auto px-6"
+        initial={{ opacity: 0, y: 100 }}
+        animate={animationPhase === "text" ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+        transition={{
+          type: "spring",
+          stiffness: 50,
+          damping: 15,
+        }}
       >
         <div className="mb-8"></div>
 
@@ -264,7 +229,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
             <div className="text-sm text-gray-400">{t("hero.responseTimeLabel")}</div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Scroll indicator */}
       <motion.div
