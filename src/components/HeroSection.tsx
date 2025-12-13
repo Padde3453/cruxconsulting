@@ -95,7 +95,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   // Hand animation configurations (start, meeting, end) with x, y, and rotation
   const humanHandConfig = {
     start: { x: "100vw", y: "-100vh", rotate: -35 },
-    meeting: { x: "12vw", y: "0vh", rotate: -25 },
+    meeting: { x: "40vw", y: "20vh", rotate: -25 },
     end: { x: "25vw", y: "-20vh", rotate: -15 },
     // Container offsets for positioning
     marginTop: -150,
@@ -104,8 +104,8 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
 
   const robotHandConfig = {
     start: { x: "-100vw", y: "100vh", rotate: 35 },
-    meeting: { x: "-12vw", y: "0vh", rotate: 25 },
-    end: { x: "-45vw", y: "20vh", rotate: 15 },
+    meeting: { x: "-40vw", y: "0vh", rotate: 25 },
+    end: { x: "-50vw", y: "20vh", rotate: 15 },
     // Container offsets for positioning
     marginTop: -100,
     marginLeft: -250,
@@ -282,11 +282,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           damping: 12,
         }}
       >
-        <img
-          src={humanHand}
-          alt="Human hand"
-          className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
-        />
+        <img src={humanHand} alt="Human hand" className="w-[400px] md:w-[550px] lg:w-[700px] h-auto" />
       </motion.div>
 
       {/* Robot Hand - Coming from bottom-left */}
@@ -306,11 +302,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           damping: 12,
         }}
       >
-        <img
-          src={robotHand}
-          alt="Robot hand"
-          className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
-        />
+        <img src={robotHand} alt="Robot hand" className="w-[400px] md:w-[550px] lg:w-[700px] h-auto" />
       </motion.div>
 
       {/* Text Content */}
