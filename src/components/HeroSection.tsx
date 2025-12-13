@@ -139,18 +139,6 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     return { x: pos.x, y: pos.y, rotate: pos.rotate };
   };
 
-  const sparkOpacity = () => {
-    switch (animationPhase) {
-      case "spark":
-        return 1;
-      case "hands-out":
-        return 0.6;
-      case "text":
-        return 0.15;
-      default:
-        return 0;
-    }
-  };
 
   // Get current image size for debug display
   const getImageSize = () => {
@@ -174,100 +162,6 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         ></div>
       </div>
 
-      {/* Diagonal Spark Line - Behind everything */}
-      <motion.div
-        className="absolute inset-0 z-[5] pointer-events-none overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: sparkOpacity() }}
-        transition={{ duration: 0.5 }}
-      >
-        <svg
-          className="absolute w-[200%] h-[200%]"
-          style={{
-            top: "-50%",
-            left: "-50%",
-            transform: "rotate(-35deg)",
-          }}
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient id="sparkGradient" x1="0%" y1="50%" x2="100%" y2="50%">
-              <stop offset="0%" stopColor="transparent" />
-              <stop offset="20%" stopColor="hsl(var(--brand-blue))" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="hsl(200, 100%, 70%)" stopOpacity="1" />
-              <stop offset="80%" stopColor="hsl(var(--brand-blue))" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="transparent" />
-            </linearGradient>
-            <filter id="sparkGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="8" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-          {/* Main spark line */}
-          <motion.line
-            x1="0%"
-            y1="50%"
-            x2="100%"
-            y2="50%"
-            stroke="url(#sparkGradient)"
-            strokeWidth="4"
-            filter="url(#sparkGlow)"
-            initial={{ pathLength: 0 }}
-            animate={{
-              pathLength:
-                animationPhase === "spark" || animationPhase === "hands-out" || animationPhase === "text" ? 1 : 0,
-            }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          />
-          {/* Brighter core line */}
-          <motion.line
-            x1="0%"
-            y1="50%"
-            x2="100%"
-            y2="50%"
-            stroke="hsl(200, 100%, 85%)"
-            strokeWidth="2"
-            filter="url(#sparkGlow)"
-            initial={{ pathLength: 0 }}
-            animate={{
-              pathLength:
-                animationPhase === "spark" || animationPhase === "hands-out" || animationPhase === "text" ? 1 : 0,
-            }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          />
-        </svg>
-        {/* Particle effects along the line */}
-        {(animationPhase === "spark" || animationPhase === "hands-out" || animationPhase === "text") && (
-          <div className="absolute inset-0">
-            {[...Array(20)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-1 h-1 bg-cyan-400 rounded-full"
-                style={{
-                  left: `${5 + i * 4.5}%`,
-                  top: `${50 + (Math.random() - 0.5) * 20}%`,
-                  boxShadow: "0 0 10px 3px rgba(0, 200, 255, 0.8)",
-                }}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{
-                  opacity: [0, 1, 0],
-                  scale: [0, 1.5, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  delay: i * 0.05,
-                  repeat: animationPhase === "text" ? 0 : Infinity,
-                  repeatDelay: 1,
-                }}
-              />
-            ))}
-          </div>
-        )}
-      </motion.div>
 
       {/* Human Hand - Coming from top-right */}
       <motion.div
