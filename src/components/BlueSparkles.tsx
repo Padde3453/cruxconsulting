@@ -22,6 +22,30 @@ interface Particle {
 const DURATION = 2000;         // Duration of particle emission in ms
 const PARTICLES_PER_FRAME = 30; // Number of particles created per frame during emission
 const SOURCE_RADIUS = 10;      // Radius of the central glowing orb
+const TRANSITION_DISTANCE = 30; // Distance in px for white-to-blue transition
+const WHITE = { r: 255, g: 255, b: 255 };
+
+/**
+ * Helper to parse hex color to RGB object
+ */
+const hexToRgb = (hex: string) => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return { r, g, b };
+};
+
+/**
+ * Interpolate between white and target color based on distance from center
+ */
+const getInterpolatedColor = (distance: number, targetHex: string): string => {
+  const t = Math.min(1, distance / TRANSITION_DISTANCE); // 0 at center, 1 at 30px+
+  const target = hexToRgb(targetHex);
+  const r = Math.round(WHITE.r + (target.r - WHITE.r) * t);
+  const g = Math.round(WHITE.g + (target.g - WHITE.g) * t);
+  const b = Math.round(WHITE.b + (target.b - WHITE.b) * t);
+  return `rgb(${r}, ${g}, ${b})`;
+};
 
 /**
  * Helper to convert a Hex color to an RGBA string.
@@ -122,8 +146,8 @@ export const BlueSparkles: React.FC<BlueSparklesProps> = ({ color, opacity, size
         const currentSourceOpacity = opacity * Math.max(0, timeFraction);
 
         const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, SOURCE_RADIUS);
-        gradient.addColorStop(0, getRgba(color, currentSourceOpacity)); // Core color
-        gradient.addColorStop(1, getRgba(color, 0));                    // Fade to transparent
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${currentSourceOpacity})`); // White core
+        gradient.addColorStop(1, getRgba(color, 0));                              // Fade to transparent
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -139,6 +163,9 @@ export const BlueSparkles: React.FC<BlueSparklesProps> = ({ color, opacity, size
       // 4. Update and Draw Existing Particles
       ctx.globalAlpha = opacity; // Apply global opacity to all particles
 
+      const centerX = width / 2;
+      const centerY = height / 2;
+
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
         
@@ -146,10 +173,15 @@ export const BlueSparkles: React.FC<BlueSparklesProps> = ({ color, opacity, size
         p.x += p.vx;
         p.y += p.vy;
 
-        // Draw Particle
+        // Calculate distance from center for color interpolation
+        const dx = p.x - centerX;
+        const dy = p.y - centerY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // Draw Particle with interpolated color
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
+        ctx.fillStyle = getInterpolatedColor(distance, p.color);
         ctx.fill();
 
         // Cleanup: Remove particles that have moved far off-screen
@@ -187,7 +219,7 @@ export const BlueSparkles: React.FC<BlueSparklesProps> = ({ color, opacity, size
   return (
     <canvas 
       ref={canvasRef} 
-      className="absolute inset-0 w-full h-full pointer-events-none z-50"
+      className="fixed inset-0 w-full h-full pointer-events-none z-50"
       style={{ background: 'transparent' }} 
     />
   );
