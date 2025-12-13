@@ -92,24 +92,77 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     },
   };
 
-  // Hand animation configurations (start, meeting, end) with x, y, and rotation
-  const humanHandConfig = {
-    start: { x: "100vw", y: "-100vh", rotate: -0 },
-    meeting: { x: "4vw", y: "-10vh", rotate: -10 },
-    end: { x: "20vw", y: "-35vh", rotate: -15 },
-    // Container offsets for positioning
-    marginTop: -150,
-    marginLeft: 0,
+  // Detect screen size for responsive hand positions
+  const [screenSize, setScreenSize] = useState<"mobile" | "tablet" | "desktop">("desktop");
+
+  useEffect(() => {
+    const updateScreenSize = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        setScreenSize("mobile");
+      } else if (width < 1024) {
+        setScreenSize("tablet");
+      } else {
+        setScreenSize("desktop");
+      }
+    };
+
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+    return () => window.removeEventListener("resize", updateScreenSize);
+  }, []);
+
+  // Hand animation configurations per screen size
+  const humanHandConfigs = {
+    desktop: {
+      start: { x: "100vw", y: "-100vh", rotate: -0 },
+      meeting: { x: "4vw", y: "-10vh", rotate: -10 },
+      end: { x: "20vw", y: "-35vh", rotate: -15 },
+      marginTop: -150,
+      marginLeft: 0,
+    },
+    tablet: {
+      start: { x: "100vw", y: "-100vh", rotate: -0 },
+      meeting: { x: "-5vw", y: "-5vh", rotate: -15 },
+      end: { x: "15vw", y: "-30vh", rotate: -20 },
+      marginTop: -100,
+      marginLeft: 50,
+    },
+    mobile: {
+      start: { x: "100vw", y: "-100vh", rotate: -0 },
+      meeting: { x: "-10vw", y: "0vh", rotate: -20 },
+      end: { x: "10vw", y: "-25vh", rotate: -25 },
+      marginTop: -50,
+      marginLeft: 80,
+    },
   };
 
-  const robotHandConfig = {
-    start: { x: "-100vw", y: "100vh", rotate: 35 },
-    meeting: { x: "-30vw", y: "0vh", rotate: 25 },
-    end: { x: "-50vw", y: "20vh", rotate: 15 },
-    // Container offsets for positioning
-    marginTop: -100,
-    marginLeft: -250,
+  const robotHandConfigs = {
+    desktop: {
+      start: { x: "-100vw", y: "100vh", rotate: 35 },
+      meeting: { x: "-30vw", y: "0vh", rotate: 25 },
+      end: { x: "-50vw", y: "20vh", rotate: 15 },
+      marginTop: -100,
+      marginLeft: -250,
+    },
+    tablet: {
+      start: { x: "-100vw", y: "100vh", rotate: 35 },
+      meeting: { x: "-20vw", y: "5vh", rotate: 20 },
+      end: { x: "-40vw", y: "15vh", rotate: 10 },
+      marginTop: -80,
+      marginLeft: -180,
+    },
+    mobile: {
+      start: { x: "-100vw", y: "100vh", rotate: 35 },
+      meeting: { x: "-10vw", y: "10vh", rotate: 15 },
+      end: { x: "-30vw", y: "10vh", rotate: 5 },
+      marginTop: -50,
+      marginLeft: -120,
+    },
   };
+
+  const humanHandConfig = humanHandConfigs[screenSize];
+  const robotHandConfig = robotHandConfigs[screenSize];
 
   // Hand positions based on animation phase
   const getHumanHandPosition = () => {
