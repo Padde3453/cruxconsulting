@@ -92,34 +92,53 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     },
   };
 
+  // Hand animation configurations (start, meeting, end) with x, y, and rotation
+  const humanHandConfig = {
+    start: { x: "100vw", y: "-100vh", rotate: -35 },
+    meeting: { x: "12vw", y: "0vh", rotate: -25 },
+    end: { x: "25vw", y: "-20vh", rotate: -15 },
+    // Container offsets for positioning
+    marginTop: -150,
+    marginLeft: 0,
+  };
+
+  const robotHandConfig = {
+    start: { x: "-100vw", y: "100vh", rotate: 35 },
+    meeting: { x: "-12vw", y: "0vh", rotate: 25 },
+    end: { x: "-45vw", y: "20vh", rotate: 15 },
+    // Container offsets for positioning
+    marginTop: -100,
+    marginLeft: -250,
+  };
+
   // Hand positions based on animation phase
   const getHumanHandPosition = () => {
     switch (animationPhase) {
       case "waiting":
-        return { x: "100vw", y: "-100vh" }; // Off screen top-right (further for better entry angle)
+        return humanHandConfig.start;
       case "hands-in":
       case "spark":
-        return { x: "12vw", y: "0vh" }; // Meeting point - centered vertically
+        return humanHandConfig.meeting;
       case "hands-out":
       case "text":
-        return { x: "25vw", y: "-20vh" }; // Retract to top-right, stay visible
+        return humanHandConfig.end;
       default:
-        return { x: "100vw", y: "-100vh" };
+        return humanHandConfig.start;
     }
   };
 
   const getRobotHandPosition = () => {
     switch (animationPhase) {
       case "waiting":
-        return { x: "-100vw", y: "100vh" }; // Off screen bottom-left (further for better entry angle)
+        return robotHandConfig.start;
       case "hands-in":
       case "spark":
-        return { x: "-12vw", y: "0vh" }; // Meeting point - centered vertically
+        return robotHandConfig.meeting;
       case "hands-out":
       case "text":
-        return { x: "-45vw", y: "20vh" }; // Retract to bottom-left, stay visible
+        return robotHandConfig.end;
       default:
-        return { x: "-100vw", y: "100vh" };
+        return robotHandConfig.start;
     }
   };
 
@@ -252,10 +271,10 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         style={{
           top: "50%",
           left: "50%",
-          marginTop: "-150px",
-          marginLeft: "0px",
+          marginTop: humanHandConfig.marginTop,
+          marginLeft: humanHandConfig.marginLeft,
         }}
-        initial={{ x: "100vw", y: "-100vh" }}
+        initial={humanHandConfig.start}
         animate={getHumanHandPosition()}
         transition={{
           type: "spring",
@@ -267,7 +286,6 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           src={humanHand}
           alt="Human hand"
           className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
-          style={{ transform: "rotate(-25deg)" }}
         />
       </motion.div>
 
@@ -277,10 +295,10 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         style={{
           top: "50%",
           left: "50%",
-          marginTop: "-100px",
-          marginLeft: "-250px",
+          marginTop: robotHandConfig.marginTop,
+          marginLeft: robotHandConfig.marginLeft,
         }}
-        initial={{ x: "-100vw", y: "100vh" }}
+        initial={robotHandConfig.start}
         animate={getRobotHandPosition()}
         transition={{
           type: "spring",
@@ -292,7 +310,6 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           src={robotHand}
           alt="Robot hand"
           className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
-          style={{ transform: "rotate(5deg)" }}
         />
       </motion.div>
 
