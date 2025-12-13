@@ -18,6 +18,11 @@ interface HandAnimationValues {
   robotHand: HandConfig;
   windowWidth: number;
   windowHeight: number;
+  imageSize: number;
+  humanScale: number;
+  robotScale: number;
+  scaledHumanFingertip: FingertipOffset;
+  scaledRobotFingertip: FingertipOffset;
 }
 
 // Image sizes at different breakpoints (matching the CSS classes)
@@ -26,6 +31,14 @@ function getImageSize(width: number): number {
   if (width >= 768) return 550;  // md:w-[550px]
   return 400;                     // w-[400px]
 }
+
+// Natural dimensions of the source images
+const HUMAN_NATURAL_WIDTH = 620;
+const ROBOT_NATURAL_WIDTH = 580;
+
+// Raw fingertip offsets (based on natural image dimensions)
+const HUMAN_FINGERTIP_RAW = { x: -294, y: 148 };
+const ROBOT_FINGERTIP_RAW = { x: 287, y: -129 };
 
 export function useHandAnimationValues(): HandAnimationValues {
   const [windowSize, setWindowSize] = useState({
@@ -52,16 +65,25 @@ export function useHandAnimationValues(): HandAnimationValues {
     const imageSize = getImageSize(width);
     const halfImage = imageSize / 2;
 
-    // Fingertip offsets from image center (exact pixel values)
-    const humanFingertip: FingertipOffset = { x: -294, y: 148 };
-    const robotFingertip: FingertipOffset = { x: 287, y: -129 };
+    // Calculate scale ratios based on rendered vs natural size
+    const humanScale = imageSize / HUMAN_NATURAL_WIDTH;
+    const robotScale = imageSize / ROBOT_NATURAL_WIDTH;
+
+    // Apply scaling to fingertip offsets
+    const humanFingertip: FingertipOffset = {
+      x: HUMAN_FINGERTIP_RAW.x * humanScale,
+      y: HUMAN_FINGERTIP_RAW.y * humanScale,
+    };
+    const robotFingertip: FingertipOffset = {
+      x: ROBOT_FINGERTIP_RAW.x * robotScale,
+      y: ROBOT_FINGERTIP_RAW.y * robotScale,
+    };
 
     // Rotation angles (degrees)
     const humanRotation = { start: 0, meeting: -10, end: -15 };
     const robotRotation = { start: 35, meeting: 25, end: 15 };
 
     // Calculate meeting positions so fingertips touch at screen center
-    // The image is positioned by its center, so we offset by the fingertip distance
     const humanMeetingX = centerX - humanFingertip.x - halfImage;
     const humanMeetingY = centerY - humanFingertip.y - halfImage;
 
@@ -75,13 +97,14 @@ export function useHandAnimationValues(): HandAnimationValues {
     const robotStartX = -imageSize - 200;
     const robotStartY = height + 200;
 
-    // End positions (retreated to corners)
-    const retreatDistance = Math.min(width, height) * 0.25;
-    const humanEndX = humanMeetingX + retreatDistance * 0.8;
-    const humanEndY = humanMeetingY - retreatDistance * 1.2;
+    // End positions: 20% of image remains visible on screen
+    // Human hand retreats to top-right corner
+    const humanEndX = width - imageSize * 0.2;  // 80% off-screen to the right
+    const humanEndY = -imageSize * 0.8;          // 80% off-screen above
 
-    const robotEndX = robotMeetingX - retreatDistance * 1.2;
-    const robotEndY = robotMeetingY + retreatDistance * 0.6;
+    // Robot hand retreats to bottom-left corner
+    const robotEndX = -imageSize * 0.8;          // 80% off-screen to the left
+    const robotEndY = height - imageSize * 0.2;  // 80% off-screen below
 
     return {
       humanHand: {
@@ -96,6 +119,11 @@ export function useHandAnimationValues(): HandAnimationValues {
       },
       windowWidth: width,
       windowHeight: height,
+      imageSize,
+      humanScale,
+      robotScale,
+      scaledHumanFingertip: humanFingertip,
+      scaledRobotFingertip: robotFingertip,
     };
   }, [windowSize]);
 
