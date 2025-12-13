@@ -13,11 +13,10 @@ const FINGERTIP_OFFSETS = {
   robot: { x: 287, y: -129 },
 };
 
-// Position percentages along the trajectory vector (0 = center, 1 = corner)
-const TRAJECTORY_POSITIONS = {
-  start: 1.5,    // 150% - past the corner, fully off-screen
-  meeting: 0,    // 0% - at screen center
-  end: 0.85,     // 85% - near the corner, partially visible
+// Distance multipliers based on hand image width
+const DISTANCE_MULTIPLIERS = {
+  start: 1.5,  // 150% of hand width past center (fully off-screen)
+  end: 0.6,    // 60% of hand width from center (hands frame the content)
 };
 
 export const useHandAnimationValues = () => {
@@ -68,29 +67,38 @@ export const useHandAnimationValues = () => {
       y: targetCorner.y - screenCenter.y,
     };
 
-    // Calculate positions along the trajectory (no rotation)
-    const calculatePosition = (percent: number) => {
-      // Fingertip position along the trajectory
-      const fingertipX = screenCenter.x + trajectoryVector.x * percent;
-      const fingertipY = screenCenter.y + trajectoryVector.y * percent;
+    // Normalize the trajectory vector (make it length 1)
+    const trajectoryLength = Math.sqrt(trajectoryVector.x ** 2 + trajectoryVector.y ** 2);
+    const normalizedVector = {
+      x: trajectoryVector.x / trajectoryLength,
+      y: trajectoryVector.y / trajectoryLength,
+    };
+
+    // Calculate positions based on hand width, not screen size
+    const calculatePosition = (distance: number) => {
+      // Fingertip position along the normalized trajectory
+      const fingertipX = screenCenter.x + normalizedVector.x * distance;
+      const fingertipY = screenCenter.y + normalizedVector.y * distance;
 
       // Scale the offset (no rotation applied)
       const scaledOffset = { x: offset.x * scale, y: offset.y * scale };
 
       // Calculate image top-left position
-      // We want: ImageCenter + ScaledOffset = FingertipPosition
-      // Therefore: ImageTopLeft = FingertipPosition - ScaledOffset - (ImageSize / 2)
       const imageX = fingertipX - scaledOffset.x - currentWidth / 2;
       const imageY = fingertipY - scaledOffset.y - currentHeight / 2;
 
       return { x: imageX, y: imageY, rotate: 0 };
     };
 
+    // Calculate distances based on hand image width
+    const startDistance = currentWidth * DISTANCE_MULTIPLIERS.start + trajectoryLength; // Fully off-screen
+    const endDistance = currentWidth * DISTANCE_MULTIPLIERS.end; // Hands frame the content
+
     return {
       scale,
-      start: calculatePosition(TRAJECTORY_POSITIONS.start),
-      meeting: calculatePosition(TRAJECTORY_POSITIONS.meeting),
-      end: calculatePosition(TRAJECTORY_POSITIONS.end),
+      start: calculatePosition(startDistance),
+      meeting: calculatePosition(0), // Center of screen
+      end: calculatePosition(endDistance),
     };
   };
 
