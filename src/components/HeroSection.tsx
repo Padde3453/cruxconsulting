@@ -17,6 +17,8 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const [animationPhase, setAnimationPhase] = useState<"waiting" | "hands-in" | "spark" | "hands-out" | "text">(
     "waiting",
   );
+  const [showDebug, setShowDebug] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 0);
 
   // Check synchronously if loading screen was already shown
   const hasSeenLoading = typeof window !== "undefined" && sessionStorage.getItem("hasSeenLoading") === "true";
@@ -98,6 +100,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   useEffect(() => {
     const updateScreenSize = () => {
       const width = window.innerWidth;
+      setWindowWidth(width);
       if (width < 640) {
         setScreenSize("mobile");
       } else if (width < 1024) {
@@ -426,6 +429,65 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           <div className="w-1 h-3 bg-gradient-to-b from-brand-blue to-brand-green rounded-full mt-2 animate-pulse"></div>
         </div>
       </motion.div>
+      {/* Debug Overlay */}
+      {showDebug && (
+        <div className="fixed inset-0 z-[100] pointer-events-none">
+          {/* Center Crosshair */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            {/* Vertical line */}
+            <div className="absolute left-1/2 -translate-x-1/2 w-[2px] h-screen bg-red-500/70" style={{ top: '-50vh' }} />
+            {/* Horizontal line */}
+            <div className="absolute top-1/2 -translate-y-1/2 h-[2px] w-screen bg-red-500/70" style={{ left: '-50vw' }} />
+            {/* Center dot */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-yellow-400 rounded-full border-2 border-red-600" />
+          </div>
+
+          {/* Info Panel */}
+          <div className="absolute top-20 left-4 bg-black/90 p-4 rounded-lg text-white text-sm font-mono pointer-events-auto max-w-sm">
+            <div className="text-yellow-400 font-bold mb-2 text-lg">🔧 Debug Mode</div>
+            <div className="mb-3 pb-2 border-b border-gray-600">
+              <span className="text-cyan-400">Screen:</span> {screenSize} ({windowWidth}px)
+            </div>
+            <div className="mb-3 pb-2 border-b border-gray-600">
+              <span className="text-cyan-400">Phase:</span> {animationPhase}
+            </div>
+            
+            <div className="mb-3 pb-2 border-b border-gray-600">
+              <div className="text-green-400 font-bold mb-1">Human Hand (top-right → center):</div>
+              <div className="text-xs space-y-1 pl-2">
+                <div><span className="text-gray-400">meeting x:</span> {humanHandConfig.meeting.x}</div>
+                <div><span className="text-gray-400">meeting y:</span> {humanHandConfig.meeting.y}</div>
+                <div><span className="text-gray-400">rotate:</span> {humanHandConfig.meeting.rotate}°</div>
+                <div><span className="text-gray-400">marginTop:</span> {humanHandConfig.marginTop}px</div>
+                <div><span className="text-gray-400">marginLeft:</span> {humanHandConfig.marginLeft}px</div>
+              </div>
+            </div>
+            
+            <div className="mb-2">
+              <div className="text-blue-400 font-bold mb-1">Robot Hand (bottom-left → center):</div>
+              <div className="text-xs space-y-1 pl-2">
+                <div><span className="text-gray-400">meeting x:</span> {robotHandConfig.meeting.x}</div>
+                <div><span className="text-gray-400">meeting y:</span> {robotHandConfig.meeting.y}</div>
+                <div><span className="text-gray-400">rotate:</span> {robotHandConfig.meeting.rotate}°</div>
+                <div><span className="text-gray-400">marginTop:</span> {robotHandConfig.marginTop}px</div>
+                <div><span className="text-gray-400">marginLeft:</span> {robotHandConfig.marginLeft}px</div>
+              </div>
+            </div>
+            
+            <div className="text-xs text-gray-500 mt-3 pt-2 border-t border-gray-600">
+              Adjust values in humanHandConfigs[{screenSize}] and robotHandConfigs[{screenSize}]
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Debug Toggle Button */}
+      <button
+        onClick={() => setShowDebug(!showDebug)}
+        className="fixed bottom-4 right-4 z-[110] bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg pointer-events-auto transition-colors"
+      >
+        {showDebug ? '✕ Hide Debug' : '🔧 Debug Hands'}
+      </button>
     </section>
   );
 };
