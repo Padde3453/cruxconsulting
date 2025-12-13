@@ -21,7 +21,8 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const [showDebug, setShowDebug] = useState(false);
 
   // Get dynamically calculated hand positions
-  const { humanHand, robotHand, windowWidth, windowHeight } = useHandAnimationValues();
+  const handValues = useHandAnimationValues();
+  const { humanHand, robotHand, windowWidth, windowHeight } = handValues;
 
   // Check synchronously if loading screen was already shown
   const hasSeenLoading = typeof window !== "undefined" && sessionStorage.getItem("hasSeenLoading") === "true";
@@ -386,12 +387,12 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
 
           {/* Info Panel */}
           <div className="absolute top-20 left-4 bg-black/90 p-4 rounded-lg text-white text-sm font-mono pointer-events-auto max-w-sm">
-            <div className="text-yellow-400 font-bold mb-2 text-lg">🔧 Debug Mode (Dynamic)</div>
+            <div className="text-yellow-400 font-bold mb-2 text-lg">🔧 Debug Mode (Scaled)</div>
             <div className="mb-3 pb-2 border-b border-gray-600">
               <span className="text-cyan-400">Window:</span> {windowWidth}×{windowHeight}px
             </div>
             <div className="mb-3 pb-2 border-b border-gray-600">
-              <span className="text-cyan-400">Image Size:</span> {getImageSize()}px
+              <span className="text-cyan-400">Image Size:</span> {handValues.imageSize}px
             </div>
             <div className="mb-3 pb-2 border-b border-gray-600">
               <span className="text-cyan-400">Phase:</span> {animationPhase}
@@ -400,21 +401,25 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
             <div className="mb-3 pb-2 border-b border-gray-600">
               <div className="text-green-400 font-bold mb-1">Human Hand:</div>
               <div className="text-xs space-y-1 pl-2">
+                <div><span className="text-gray-400">scale:</span> {handValues.humanScale.toFixed(2)}x</div>
+                <div><span className="text-gray-400">scaled offset:</span> ({Math.round(handValues.scaledHumanFingertip.x)}, {Math.round(handValues.scaledHumanFingertip.y)})</div>
                 <div><span className="text-gray-400">meeting:</span> ({Math.round(humanHand.meeting.x)}, {Math.round(humanHand.meeting.y)})</div>
-                <div><span className="text-gray-400">rotate:</span> {humanHand.meeting.rotate}°</div>
+                <div><span className="text-gray-400">end:</span> ({Math.round(humanHand.end.x)}, {Math.round(humanHand.end.y)})</div>
               </div>
             </div>
             
             <div className="mb-2">
               <div className="text-blue-400 font-bold mb-1">Robot Hand:</div>
               <div className="text-xs space-y-1 pl-2">
+                <div><span className="text-gray-400">scale:</span> {handValues.robotScale.toFixed(2)}x</div>
+                <div><span className="text-gray-400">scaled offset:</span> ({Math.round(handValues.scaledRobotFingertip.x)}, {Math.round(handValues.scaledRobotFingertip.y)})</div>
                 <div><span className="text-gray-400">meeting:</span> ({Math.round(robotHand.meeting.x)}, {Math.round(robotHand.meeting.y)})</div>
-                <div><span className="text-gray-400">rotate:</span> {robotHand.meeting.rotate}°</div>
+                <div><span className="text-gray-400">end:</span> ({Math.round(robotHand.end.x)}, {Math.round(robotHand.end.y)})</div>
               </div>
             </div>
             
             <div className="text-xs text-gray-500 mt-3 pt-2 border-t border-gray-600">
-              Adjust fingertip offsets in useHandAnimationValues hook
+              Raw offsets scaled by rendered/natural ratio
             </div>
           </div>
         </div>
