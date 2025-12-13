@@ -18,7 +18,6 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const [animationPhase, setAnimationPhase] = useState<"waiting" | "hands-in" | "explosion" | "text">(
     "waiting",
   );
-  const [hideHands, setHideHands] = useState(false);
   const [showDebug, setShowDebug] = useState(false);
 
   // Get dynamically calculated hand positions
@@ -48,18 +47,11 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
       }, initialDelay + 3000),
     );
 
-    // Hide hands after explosion covers screen (1.5s into explosion)
-    timers.push(
-      setTimeout(() => {
-        setHideHands(true);
-      }, initialDelay + 4500),
-    );
-
-    // Phase 3: Text phase starts (explosion fade completes at ~2.5s)
+    // Phase 3: Text phase starts (after explosion grows - 1.5s)
     timers.push(
       setTimeout(() => {
         setAnimationPhase("text");
-      }, initialDelay + 5500),
+      }, initialDelay + 4500),
     );
 
     return () => timers.forEach((timer) => clearTimeout(timer));
@@ -73,31 +65,6 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     return () => clearInterval(interval);
   }, [rotatingWords.length]);
 
-  // Animation variants for text fly-in from below
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: {
-      y: 80,
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring" as const,
-        stiffness: 60,
-        damping: 12,
-      },
-    },
-  };
 
   // Hand positions based on animation phase - returns { x, y, rotate } for framer-motion
   const getHumanHandPosition = () => {
@@ -197,67 +164,62 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
       />
 
       {/* Human Hand - Coming from top-right */}
-      {!hideHands && (
-        <motion.div
-          className="absolute z-10 pointer-events-none"
-          style={{
-            top: 0,
-            left: 0,
-          }}
-          initial={getHumanHandPosition()}
-          animate={getHumanHandPosition()}
-          transition={{
-            type: "spring",
-            stiffness: 20,
-            damping: 12,
-          }}
-        >
-          <motion.img 
-            src={humanHandImg} 
-            alt="Human hand" 
-            className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
-            animate={{ rotate: getHumanHandPosition().rotate }}
-            transition={{ type: "spring", stiffness: 20, damping: 12 }}
-          />
-        </motion.div>
-      )}
+      <motion.div
+        className="absolute z-10 pointer-events-none"
+        style={{
+          top: 0,
+          left: 0,
+        }}
+        initial={getHumanHandPosition()}
+        animate={getHumanHandPosition()}
+        transition={{
+          type: "spring",
+          stiffness: 20,
+          damping: 12,
+        }}
+      >
+        <motion.img 
+          src={humanHandImg} 
+          alt="Human hand" 
+          className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
+          animate={{ rotate: getHumanHandPosition().rotate }}
+          transition={{ type: "spring", stiffness: 20, damping: 12 }}
+        />
+      </motion.div>
 
       {/* Robot Hand - Coming from bottom-left */}
-      {!hideHands && (
-        <motion.div
-          className="absolute z-10 pointer-events-none"
-          style={{
-            top: 0,
-            left: 0,
-          }}
-          initial={getRobotHandPosition()}
-          animate={getRobotHandPosition()}
-          transition={{
-            type: "spring",
-            stiffness: 20,
-            damping: 12,
-          }}
-        >
-          <motion.img 
-            src={robotHandImg} 
-            alt="Robot hand" 
-            className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
-            animate={{ rotate: getRobotHandPosition().rotate }}
-            transition={{ type: "spring", stiffness: 20, damping: 12 }}
-          />
-        </motion.div>
-      )}
-
-      {/* Text Content */}
       <motion.div
-        className="relative z-20 text-center max-w-4xl mx-auto px-6"
-        variants={containerVariants}
-        initial="hidden"
-        animate={animationPhase === "text" ? "visible" : "hidden"}
+        className="absolute z-10 pointer-events-none"
+        style={{
+          top: 0,
+          left: 0,
+        }}
+        initial={getRobotHandPosition()}
+        animate={getRobotHandPosition()}
+        transition={{
+          type: "spring",
+          stiffness: 20,
+          damping: 12,
+        }}
+      >
+        <motion.img 
+          src={robotHandImg} 
+          alt="Robot hand" 
+          className="w-[400px] md:w-[550px] lg:w-[700px] h-auto"
+          animate={{ rotate: getRobotHandPosition().rotate }}
+          transition={{ type: "spring", stiffness: 20, damping: 12 }}
+        />
+      </motion.div>
+
+      {/* Text Content - loads when explosion covers screen, revealed as it fades */}
+      <div
+        className={`relative z-20 text-center max-w-4xl mx-auto px-6 transition-opacity duration-300 ${
+          animationPhase === "explosion" || animationPhase === "text" ? "opacity-100" : "opacity-0"
+        }`}
       >
         <div className="mb-8"></div>
 
-        <motion.h1 className="text-6xl md:text-8xl font-bold mb-6" variants={itemVariants}>
+        <h1 className="text-6xl md:text-8xl font-bold mb-6">
           <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block mb-4">
             {t("hero.title")}
           </span>
@@ -278,13 +240,13 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
               </motion.span>
             </AnimatePresence>
           </div>
-        </motion.h1>
+        </h1>
 
-        <motion.p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto" variants={itemVariants}>
+        <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
           {t("hero.description")}
-        </motion.p>
+        </p>
 
-        <motion.div className="flex flex-col sm:flex-row gap-6 justify-center items-center" variants={itemVariants}>
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <Button
             onClick={onBooking}
             size="lg"
@@ -302,8 +264,8 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
             </div>
             <div className="text-sm text-gray-400">{t("hero.responseTimeLabel")}</div>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div
