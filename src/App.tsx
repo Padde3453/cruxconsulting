@@ -1,4 +1,4 @@
-
+import { useState, useEffect } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -22,6 +22,7 @@ import Automation from "./pages/services/Automation";
 import AiCompliance from "./pages/services/AiCompliance";
 import InstagramPost from "./pages/InstagramPost";
 import CruxChatbotScript from "./components/CruxChatbotScript";
+import LoadingScreen from "./components/LoadingScreen";
 import { Navigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { HelmetProvider } from 'react-helmet-async';
@@ -34,41 +35,55 @@ const BlogRedirect = () => {
   return <Navigate to={`/${currentLang}/blog`} replace />;
 };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <HelmetProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <CruxChatbotScript />
-        <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<BlogRedirect />} />
-          <Route path="/:lang/blog" element={<Blog />} />
-          <Route path="/:lang/blog/:slug" element={<BlogPost />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/ai-chatbot" element={<AiChatbot />} />
-          <Route path="/services/ai-chatbot-team" element={<AiChatbot />} />
-          <Route path="/services/workshops" element={<Workshops />} />
-          <Route path="/services/process-audit" element={<ProcessAudit />} />
-          <Route path="/services/automation" element={<Automation />} />
-          <Route path="/services/ai-compliance" element={<AiCompliance />} />
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/instagrampost" element={<InstagramPost />} />
-          {/* ISOLATED DEMO ROUTES */}
-          <Route path="/demo/bandwerk" element={<BandwerkDemo />} />
-          <Route path="/demo/instagram" element={<InstagramDemo />} />
-          <Route path="/demo/steuer-assistent" element={<SteuerAssistentDemo />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-      </TooltipProvider>
-    </HelmetProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [showLoading, setShowLoading] = useState(() => {
+    // Only show loading screen once per session
+    const hasSeenLoading = sessionStorage.getItem('hasSeenLoading');
+    return !hasSeenLoading;
+  });
+
+  const handleLoadingComplete = () => {
+    sessionStorage.setItem('hasSeenLoading', 'true');
+    setShowLoading(false);
+  };
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <TooltipProvider>
+          {showLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
+          <Toaster />
+          <Sonner />
+          <CruxChatbotScript />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/blog" element={<BlogRedirect />} />
+              <Route path="/:lang/blog" element={<Blog />} />
+              <Route path="/:lang/blog/:slug" element={<BlogPost />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/services/ai-chatbot" element={<AiChatbot />} />
+              <Route path="/services/ai-chatbot-team" element={<AiChatbot />} />
+              <Route path="/services/workshops" element={<Workshops />} />
+              <Route path="/services/process-audit" element={<ProcessAudit />} />
+              <Route path="/services/automation" element={<Automation />} />
+              <Route path="/services/ai-compliance" element={<AiCompliance />} />
+              <Route path="/impressum" element={<Impressum />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/instagrampost" element={<InstagramPost />} />
+              {/* ISOLATED DEMO ROUTES */}
+              <Route path="/demo/bandwerk" element={<BandwerkDemo />} />
+              <Route path="/demo/instagram" element={<InstagramDemo />} />
+              <Route path="/demo/steuer-assistent" element={<SteuerAssistentDemo />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </HelmetProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
