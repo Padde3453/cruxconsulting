@@ -20,21 +20,6 @@ const TRAJECTORY_POSITIONS = {
   end: 0.85,     // 85% - near the corner, partially visible
 };
 
-// Rotation offsets for visual alignment (applied on top of trajectory angle)
-const ROTATION_OFFSETS = {
-  human: { start: 0, meeting: -10, end: -20 },
-  robot: { start: 0, meeting: 20, end: 15 },
-};
-
-// Helper: Rotate a point around (0,0)
-const rotatePoint = (x: number, y: number, angleDeg: number) => {
-  const rad = (angleDeg * Math.PI) / 180;
-  return {
-    x: x * Math.cos(rad) - y * Math.sin(rad),
-    y: x * Math.sin(rad) + y * Math.cos(rad),
-  };
-};
-
 export const useHandAnimationValues = () => {
   const [windowSize, setWindowSize] = useState({
     width: typeof window !== "undefined" ? window.innerWidth : 1200,
@@ -60,7 +45,6 @@ export const useHandAnimationValues = () => {
     const isHuman = type === "human";
     const natural = isHuman ? NATURAL_DIMS.human : NATURAL_DIMS.robot;
     const offset = isHuman ? FINGERTIP_OFFSETS.human : FINGERTIP_OFFSETS.robot;
-    const rotationOffset = isHuman ? ROTATION_OFFSETS.human : ROTATION_OFFSETS.robot;
 
     // Calculate current rendered size
     const currentWidth = getRenderedWidth(windowSize.width);
@@ -78,43 +62,35 @@ export const useHandAnimationValues = () => {
       ? { x: windowSize.width, y: 0 }
       : { x: 0, y: windowSize.height };
 
-    // 2. CALCULATE THE TRAJECTORY VECTOR (Center to Corner)
+    // Calculate the trajectory vector (Center to Corner)
     const trajectoryVector = {
       x: targetCorner.x - screenCenter.x,
       y: targetCorner.y - screenCenter.y,
     };
 
-    // Calculate trajectory angle using atan2
-    const trajectoryAngleRad = Math.atan2(trajectoryVector.y, trajectoryVector.x);
-    const trajectoryAngleDeg = (trajectoryAngleRad * 180) / Math.PI;
-
-    // 3. CALCULATE POSITIONS ALONG THE TRAJECTORY
-    const calculatePosition = (percent: number, rotation: number) => {
+    // Calculate positions along the trajectory (no rotation)
+    const calculatePosition = (percent: number) => {
       // Fingertip position along the trajectory
       const fingertipX = screenCenter.x + trajectoryVector.x * percent;
       const fingertipY = screenCenter.y + trajectoryVector.y * percent;
 
-      // Scale the offset
+      // Scale the offset (no rotation applied)
       const scaledOffset = { x: offset.x * scale, y: offset.y * scale };
 
-      // Rotate the offset to match the hand's rotation
-      const rotatedOffset = rotatePoint(scaledOffset.x, scaledOffset.y, rotation);
-
       // Calculate image top-left position
-      // We want: ImageCenter + RotatedOffset = FingertipPosition
-      // Therefore: ImageTopLeft = FingertipPosition - RotatedOffset - (ImageSize / 2)
-      const imageX = fingertipX - rotatedOffset.x - currentWidth / 2;
-      const imageY = fingertipY - rotatedOffset.y - currentHeight / 2;
+      // We want: ImageCenter + ScaledOffset = FingertipPosition
+      // Therefore: ImageTopLeft = FingertipPosition - ScaledOffset - (ImageSize / 2)
+      const imageX = fingertipX - scaledOffset.x - currentWidth / 2;
+      const imageY = fingertipY - scaledOffset.y - currentHeight / 2;
 
-      return { x: imageX, y: imageY, rotate: rotation };
+      return { x: imageX, y: imageY, rotate: 0 };
     };
 
     return {
       scale,
-      trajectoryAngle: trajectoryAngleDeg,
-      start: calculatePosition(TRAJECTORY_POSITIONS.start, rotationOffset.start),
-      meeting: calculatePosition(TRAJECTORY_POSITIONS.meeting, rotationOffset.meeting),
-      end: calculatePosition(TRAJECTORY_POSITIONS.end, rotationOffset.end),
+      start: calculatePosition(TRAJECTORY_POSITIONS.start),
+      meeting: calculatePosition(TRAJECTORY_POSITIONS.meeting),
+      end: calculatePosition(TRAJECTORY_POSITIONS.end),
     };
   };
 
