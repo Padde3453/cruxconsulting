@@ -90,10 +90,10 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         return { x: '80vw', y: '-80vh' }; // Off screen top-right
       case 'hands-in':
       case 'spark':
-        return { x: '15vw', y: '-5vh' }; // Meeting point - fingers just touch
+        return { x: '-5vw', y: '10vh' }; // Meeting point - moved closer to center
       case 'hands-out':
       case 'text':
-        return { x: '50vw', y: '-40vh' }; // Top-right corner, still visible
+        return { x: '20vw', y: '-15vh' }; // Retract less - stay visible on screen
       default:
         return { x: '80vw', y: '-80vh' };
     }
@@ -105,10 +105,10 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         return { x: '-80vw', y: '80vh' }; // Off screen bottom-left
       case 'hands-in':
       case 'spark':
-        return { x: '-15vw', y: '5vh' }; // Meeting point - fingers just touch
+        return { x: '5vw', y: '-10vh' }; // Meeting point - moved closer to center
       case 'hands-out':
       case 'text':
-        return { x: '-50vw', y: '40vh' }; // Bottom-left corner, still visible
+        return { x: '-20vw', y: '15vh' }; // Retract less - stay visible on screen
       default:
         return { x: '-80vw', y: '80vh' };
     }
