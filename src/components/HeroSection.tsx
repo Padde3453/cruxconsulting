@@ -16,22 +16,27 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const { t } = useTranslation();
   const rotatingWords = t("hero.rotatingWords", { returnObjects: true }) as string[];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  // Check if hero animation was already played this session
+  const hasPlayedHeroAnimation = typeof window !== "undefined" && sessionStorage.getItem("hasPlayedHeroAnimation") === "true";
+  const hasSeenLoading = typeof window !== "undefined" && sessionStorage.getItem("hasSeenLoading") === "true";
+
+  // If animation already played, start in final state
   const [animationPhase, setAnimationPhase] = useState<"waiting" | "hands-in" | "text">(
-    "waiting",
+    hasPlayedHeroAnimation ? "text" : "waiting",
   );
   const [showSparkles, setShowSparkles] = useState(false);
-  
 
   // Get dynamically calculated hand positions
   const handValues = useHandAnimationValues();
   const { humanHand, robotHand, windowWidth, windowHeight } = handValues;
 
-  // Check synchronously if loading screen was already shown
-  const hasSeenLoading = typeof window !== "undefined" && sessionStorage.getItem("hasSeenLoading") === "true";
-
-  // Animation sequence controller
+  // Animation sequence controller - only runs if animation hasn't played yet
   useEffect(() => {
-    const initialDelay = hasSeenLoading ? 0 : 6000;
+    // Skip animation if already played
+    if (hasPlayedHeroAnimation) return;
+
+    // Start immediately (0ms) if loading screen already shown, otherwise wait for it
+    const initialDelay = hasSeenLoading ? 0 : 5000;
 
     const timers: NodeJS.Timeout[] = [];
 
@@ -53,11 +58,13 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     timers.push(
       setTimeout(() => {
         setAnimationPhase("text");
+        // Mark animation as played so it doesn't replay when returning to page
+        sessionStorage.setItem("hasPlayedHeroAnimation", "true");
       }, initialDelay + 4500),
     );
 
     return () => timers.forEach((timer) => clearTimeout(timer));
-  }, [hasSeenLoading]);
+  }, [hasSeenLoading, hasPlayedHeroAnimation]);
 
   useEffect(() => {
     const interval = setInterval(() => {
