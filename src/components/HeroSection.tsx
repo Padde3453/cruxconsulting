@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import humanHandImg from "@/assets/human-hand.png";
 import robotHandImg from "@/assets/robot-hand.png";
@@ -16,13 +16,18 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   const { t } = useTranslation();
   const rotatingWords = t("hero.rotatingWords", { returnObjects: true }) as string[];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  // Check if hero animation was already played this session
-  const hasPlayedHeroAnimation = typeof window !== "undefined" && sessionStorage.getItem("hasPlayedHeroAnimation") === "true";
-  const hasSeenLoading = typeof window !== "undefined" && sessionStorage.getItem("hasSeenLoading") === "true";
+  
+  // Use ref to check sessionStorage only once at mount - prevents re-reading on re-renders
+  const hasPlayedRef = useRef(
+    typeof window !== "undefined" && sessionStorage.getItem("hasPlayedHeroAnimation") === "true"
+  );
+  const hasSeenLoadingRef = useRef(
+    typeof window !== "undefined" && sessionStorage.getItem("hasSeenLoading") === "true"
+  );
 
   // If animation already played, start in final state
   const [animationPhase, setAnimationPhase] = useState<"waiting" | "hands-in" | "text">(
-    hasPlayedHeroAnimation ? "text" : "waiting",
+    hasPlayedRef.current ? "text" : "waiting",
   );
   const [showSparkles, setShowSparkles] = useState(false);
 
@@ -33,10 +38,10 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   // Animation sequence controller - only runs if animation hasn't played yet
   useEffect(() => {
     // Skip animation if already played
-    if (hasPlayedHeroAnimation) return;
+    if (hasPlayedRef.current) return;
 
     // Start immediately (0ms) if loading screen already shown, otherwise wait for it
-    const initialDelay = hasSeenLoading ? 0 : 5000;
+    const initialDelay = hasSeenLoadingRef.current ? 0 : 5000;
 
     const timers: NodeJS.Timeout[] = [];
 
@@ -64,7 +69,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     );
 
     return () => timers.forEach((timer) => clearTimeout(timer));
-  }, [hasSeenLoading, hasPlayedHeroAnimation]);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
