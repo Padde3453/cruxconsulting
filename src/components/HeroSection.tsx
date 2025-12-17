@@ -31,9 +31,9 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
   );
   const [showSparkles, setShowSparkles] = useState(false);
 
-  // Get dynamically calculated hand positions
+  // Get dynamically calculated hand positions and meeting point
   const handValues = useHandAnimationValues();
-  const { humanHand, robotHand, windowWidth, windowHeight } = handValues;
+  const { humanHand, robotHand, windowWidth, windowHeight, meetingPoint } = handValues;
 
   // Animation sequence controller - only runs if animation hasn't played yet
   useEffect(() => {
@@ -116,16 +116,6 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     }
     return { x: pos.x, y: pos.y, rotate: pos.rotate };
   };
-
-
-
-  // Get current image size for debug display
-  const getImageSize = () => {
-    if (windowWidth >= 1024) return 700;
-    if (windowWidth >= 768) return 550;
-    return 400;
-  };
-
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
@@ -141,13 +131,14 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
         ></div>
       </div>
 
-      {/* Blue Sparkles Effect - triggers when hands meet */}
+      {/* Blue Sparkles Effect - triggers when hands meet, spawns at meeting point */}
       <BlueSparkles
         color="#3B82F6"
         opacity={0.8}
         size={2}
         spread={15}
         isActive={showSparkles}
+        spawnPoint={meetingPoint}
       />
 
 
