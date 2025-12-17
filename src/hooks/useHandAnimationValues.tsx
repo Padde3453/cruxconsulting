@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useMeetingPoint, MeetingPoint } from "./useMeetingPoint";
 
 // 1. CONFIGURATION
 // The natural dimensions of your raw images (used for scaling calculations)
@@ -20,18 +20,8 @@ const DISTANCE_MULTIPLIERS = {
 };
 
 export const useHandAnimationValues = () => {
-  const [windowSize, setWindowSize] = useState({
-    width: typeof window !== "undefined" ? window.innerWidth : 1200,
-    height: typeof window !== "undefined" ? window.innerHeight : 800,
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // Get the centralized meeting point - single source of truth
+  const { meetingPoint, windowSize } = useMeetingPoint();
 
   // Matches Tailwind classes: w-[400px] md:w-[550px] lg:w-[700px]
   const getRenderedWidth = (width: number) => {
@@ -40,7 +30,7 @@ export const useHandAnimationValues = () => {
     return 400;
   };
 
-  const calculateHand = (type: "human" | "robot") => {
+  const calculateHand = (type: "human" | "robot", targetPoint: MeetingPoint) => {
     const isHuman = type === "human";
     const natural = isHuman ? NATURAL_DIMS.human : NATURAL_DIMS.robot;
     const offset = isHuman ? FINGERTIP_OFFSETS.human : FINGERTIP_OFFSETS.robot;
@@ -49,12 +39,6 @@ export const useHandAnimationValues = () => {
     const currentWidth = getRenderedWidth(windowSize.width);
     const scale = currentWidth / natural.width;
     const currentHeight = natural.height * scale;
-
-    // Screen positions
-    const screenCenter = {
-      x: windowSize.width / 2,
-      y: windowSize.height / 2,
-    };
 
     // Target corners: Human -> Top-Right, Robot -> Bottom-Left
     // On mobile/tablet (< 1024px), steepen robot hand trajectory to avoid CTA button overlap
@@ -70,10 +54,11 @@ export const useHandAnimationValues = () => {
         : { x: 0, y: windowSize.height };
     }
 
-    // Calculate the trajectory vector (Center to Corner)
+    // Calculate the trajectory vector (Meeting Point to Corner)
+    // This is the key change: we use the shared meeting point instead of screen center
     const trajectoryVector = {
-      x: targetCorner.x - screenCenter.x,
-      y: targetCorner.y - screenCenter.y,
+      x: targetCorner.x - targetPoint.x,
+      y: targetCorner.y - targetPoint.y,
     };
 
     // Normalize the trajectory vector (make it length 1)
@@ -85,9 +70,9 @@ export const useHandAnimationValues = () => {
 
     // Calculate positions based on hand width, not screen size
     const calculatePosition = (distance: number) => {
-      // Fingertip position along the normalized trajectory
-      const fingertipX = screenCenter.x + normalizedVector.x * distance;
-      const fingertipY = screenCenter.y + normalizedVector.y * distance;
+      // Fingertip position along the normalized trajectory from the meeting point
+      const fingertipX = targetPoint.x + normalizedVector.x * distance;
+      const fingertipY = targetPoint.y + normalizedVector.y * distance;
 
       // Scale the offset (no rotation applied)
       const scaledOffset = { x: offset.x * scale, y: offset.y * scale };
@@ -106,7 +91,7 @@ export const useHandAnimationValues = () => {
     return {
       scale,
       start: calculatePosition(startDistance),
-      meeting: calculatePosition(0), // Center of screen
+      meeting: calculatePosition(0), // At the meeting point (distance = 0)
       end: calculatePosition(endDistance),
     };
   };
@@ -115,11 +100,10 @@ export const useHandAnimationValues = () => {
     windowWidth: windowSize.width,
     windowHeight: windowSize.height,
     imageSize: getRenderedWidth(windowSize.width),
-    humanHand: calculateHand("human"),
-    robotHand: calculateHand("robot"),
+    humanHand: calculateHand("human", meetingPoint),
+    robotHand: calculateHand("robot", meetingPoint),
     humanScale: getRenderedWidth(windowSize.width) / NATURAL_DIMS.human.width,
     robotScale: getRenderedWidth(windowSize.width) / NATURAL_DIMS.robot.width,
-    scaledHumanFingertip: { x: 0, y: 0 },
-    scaledRobotFingertip: { x: 0, y: 0 },
+    meetingPoint, // Export the meeting point for other components (BlueSparkles)
   };
 };

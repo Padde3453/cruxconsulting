@@ -7,6 +7,7 @@ interface BlueSparklesProps {
   size: number;    // Average radius of particles in pixels
   spread: number;  // Deviation in degrees (0 = line, 90 = full circle)
   isActive: boolean; // Controls when the animation starts
+  spawnPoint: { x: number; y: number }; // Exact pixel coordinates where particles spawn
 }
 
 interface Particle {
@@ -60,7 +61,7 @@ const getRgba = (hex: string, alpha: number) => {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
 
-export const BlueSparkles: React.FC<BlueSparklesProps> = ({ color, opacity, size, spread, isActive }) => {
+export const BlueSparkles: React.FC<BlueSparklesProps> = ({ color, opacity, size, spread, isActive, spawnPoint }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const hasStartedRef = useRef(false);
 
@@ -95,9 +96,10 @@ export const BlueSparkles: React.FC<BlueSparklesProps> = ({ color, opacity, size
     handleResize();
 
     // --- Particle Factory ---
+    // Uses the spawnPoint prop as the exact origin for all particles
     const createParticles = (count: number) => {
-      const startX = width / 2;
-      const startY = height / 2;
+      const startX = spawnPoint.x;
+      const startY = spawnPoint.y;
       
       // We aim for the top-left (0,0) and bottom-right (width, height) corners.
       // Math.atan2(height, width) gives the angle to the bottom-right corner.
@@ -136,22 +138,19 @@ export const BlueSparkles: React.FC<BlueSparklesProps> = ({ color, opacity, size
       // 1. Clear Canvas
       ctx.clearRect(0, 0, width, height);
       
-      // 2. Draw Central Source (The "Hole" Filler)
+      // 2. Draw Central Source (The "Hole" Filler) at the spawn point
       if (elapsed < DURATION) {
-        const centerX = width / 2;
-        const centerY = height / 2;
-        
         // Calculate fade-out ratio (1 -> 0)
         const timeFraction = 1 - (elapsed / DURATION);
         const currentSourceOpacity = opacity * Math.max(0, timeFraction);
 
-        const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, SOURCE_RADIUS);
+        const gradient = ctx.createRadialGradient(spawnPoint.x, spawnPoint.y, 0, spawnPoint.x, spawnPoint.y, SOURCE_RADIUS);
         gradient.addColorStop(0, `rgba(255, 255, 255, ${currentSourceOpacity})`); // White core
         gradient.addColorStop(1, getRgba(color, 0));                              // Fade to transparent
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(centerX, centerY, SOURCE_RADIUS, 0, Math.PI * 2);
+        ctx.arc(spawnPoint.x, spawnPoint.y, SOURCE_RADIUS, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -163,9 +162,6 @@ export const BlueSparkles: React.FC<BlueSparklesProps> = ({ color, opacity, size
       // 4. Update and Draw Existing Particles
       ctx.globalAlpha = opacity; // Apply global opacity to all particles
 
-      const centerX = width / 2;
-      const centerY = height / 2;
-
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
         
@@ -173,9 +169,9 @@ export const BlueSparkles: React.FC<BlueSparklesProps> = ({ color, opacity, size
         p.x += p.vx;
         p.y += p.vy;
 
-        // Calculate distance from center for color interpolation
-        const dx = p.x - centerX;
-        const dy = p.y - centerY;
+        // Calculate distance from spawn point for color interpolation
+        const dx = p.x - spawnPoint.x;
+        const dy = p.y - spawnPoint.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         // Draw Particle with interpolated color
