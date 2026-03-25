@@ -13,7 +13,7 @@ interface HeaderProps {
 const Header = ({ onBooking }: HeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [dropdownTimeout, setDropdownTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
