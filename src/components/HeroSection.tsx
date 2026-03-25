@@ -43,7 +43,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
     // Start immediately (0ms) if loading screen already shown, otherwise wait for it
     const initialDelay = hasSeenLoadingRef.current ? 0 : 5000;
 
-    const timers: NodeJS.Timeout[] = [];
+    const timers: ReturnType<typeof setTimeout>[] = [];
 
     // Phase 1: Start hands animation
     timers.push(
