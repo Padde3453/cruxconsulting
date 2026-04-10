@@ -288,18 +288,24 @@ const TenderAssistant = () => {
       <section className="py-12 relative">
         <div
           ref={blogAnimation.elementRef}
-          className={`max-w-4xl mx-auto px-6 text-center transition-all duration-1000 ${
-            blogAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className="max-w-4xl mx-auto px-6 text-center"
         >
           <p className="text-2xl md:text-3xl font-semibold text-gray-200">
-            {t('tenderAssistant.blogReference')}{' '}
-            <Link
-              to={`/${currentLang}/blog`}
-              className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent hover:opacity-80 transition-opacity underline decoration-brand-blue"
-            >
-              {t('tenderAssistant.blogLink')}
-            </Link>
+            <TypewriterText
+              text={t('tenderAssistant.blogReference') + ' '}
+              startTyping={blogAnimation.isVisible}
+            />
+            {blogAnimation.isVisible && (
+              <Link
+                to={`/${currentLang}/blog`}
+                className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent hover:opacity-80 transition-opacity underline decoration-brand-blue"
+              >
+                <TypewriterText
+                  text={t('tenderAssistant.blogLink')}
+                  startTyping={blogAnimation.isVisible}
+                />
+              </Link>
+            )}
           </p>
         </div>
       </section>
