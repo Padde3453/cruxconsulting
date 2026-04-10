@@ -36,6 +36,14 @@ const BlogRedirect = () => {
   return <Navigate to={`/${currentLang}/blog`} replace />;
 };
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
 const App = () => {
   const [showLoading, setShowLoading] = useState(() => {
     // Only show loading screen once per session
