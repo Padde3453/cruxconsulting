@@ -42,6 +42,27 @@ const TypewriterText = ({ text, startTyping, onComplete }: { text: string; start
   );
 };
 
+const BlogTypewriter = ({ isVisible, currentLang }: { isVisible: boolean; currentLang: string }) => {
+  const { t } = useTranslation();
+  const [firstDone, setFirstDone] = useState(false);
+  const handleFirstComplete = useCallback(() => setFirstDone(true), []);
+  const blogText = t('tenderAssistant.blogReference') + ' ';
+  const linkText = t('tenderAssistant.blogLink');
+
+  return (
+    <>
+      <TypewriterText text={blogText} startTyping={isVisible} onComplete={handleFirstComplete} />
+      {firstDone && (
+        <Link
+          to={`/${currentLang}/blog`}
+          className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent hover:opacity-80 transition-opacity underline decoration-brand-blue"
+        >
+          <TypewriterText text={linkText} startTyping={true} />
+        </Link>
+      )}
+    </>
+  );
+
 const AnimatedProgressBar = ({ targetPercent, gradient }: { targetPercent: number; gradient: string }) => {
   const [width, setWidth] = useState(0);
   const barRef = useRef<HTMLDivElement>(null);
