@@ -16,6 +16,29 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+const TypewriterText = ({ text, startTyping }: { text: string; startTyping: boolean }) => {
+  const [displayedCount, setDisplayedCount] = useState(0);
+
+  useEffect(() => {
+    if (!startTyping) {
+      setDisplayedCount(0);
+      return;
+    }
+    if (displayedCount >= text.length) return;
+    const timeout = setTimeout(() => setDisplayedCount(prev => prev + 1), 50);
+    return () => clearTimeout(timeout);
+  }, [startTyping, displayedCount, text.length]);
+
+  return (
+    <span>
+      {text.slice(0, displayedCount)}
+      {startTyping && displayedCount < text.length && (
+        <span className="inline-block w-[2px] h-[1em] bg-gray-200 align-middle ml-[1px] animate-pulse" />
+      )}
+    </span>
+  );
+};
+
 const AnimatedProgressBar = ({ targetPercent, gradient }: { targetPercent: number; gradient: string }) => {
   const [width, setWidth] = useState(0);
   const barRef = useRef<HTMLDivElement>(null);
