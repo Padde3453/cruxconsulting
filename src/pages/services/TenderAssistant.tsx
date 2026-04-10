@@ -8,17 +8,57 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const AnimatedProgressBar = ({ targetPercent, gradient }: { targetPercent: number; gradient: string }) => {
+  const [width, setWidth] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setWidth(targetPercent), 200);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (barRef.current) observer.observe(barRef.current);
+    return () => observer.disconnect();
+  }, [targetPercent]);
+
+  return (
+    <div ref={barRef} className="w-full h-3 bg-gray-600 rounded-full overflow-hidden">
+      <div
+        className={`h-full rounded-full bg-gradient-to-r ${gradient} transition-all duration-1500 ease-out`}
+        style={{ width: `${width}%`, transitionDuration: '1.5s' }}
+      />
+    </div>
+  );
+};
 
 const TenderAssistant = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const currentLang = i18n.language.startsWith('de') ? 'de' : 'en';
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const heroAnimation = useScrollAnimation();
   const challengesAnimation = useScrollAnimation();
   const solutionAnimation = useScrollAnimation();
   const pricingAnimation = useScrollAnimation();
   const blogAnimation = useScrollAnimation();
+  const faqAnimation = useScrollAnimation();
   const ctaAnimation = useScrollAnimation();
 
   const handleBooking = () => {
@@ -58,12 +98,16 @@ const TenderAssistant = () => {
     t('tenderAssistant.pricing.features.5'),
   ];
 
+  const faqItems = Array.from({ length: 6 }, (_, i) => ({
+    question: t(`tenderAssistant.faq.${i + 1}.question`),
+    answer: t(`tenderAssistant.faq.${i + 1}.answer`),
+  }));
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
       <FloatingElements />
       <Header onBooking={handleBooking} />
 
-      {/* Rotating icon keyframes */}
       <style>{`
         @keyframes rotateY {
           0% { transform: rotateY(0deg); }
@@ -161,12 +205,7 @@ const TenderAssistant = () => {
                     93%
                   </span>
                 </div>
-                <div className="w-full h-3 bg-gray-600 rounded-full overflow-hidden">
-                  <div
-                    className="h-full rounded-full bg-gradient-to-r from-brand-blue to-brand-green transition-all duration-1000"
-                    style={{ width: '93%' }}
-                  />
-                </div>
+                <AnimatedProgressBar targetPercent={93} gradient="from-brand-blue to-brand-green" />
                 <p className="text-gray-300 mt-3 text-center">{t('tenderAssistant.projectManagement.stat')}</p>
               </div>
             </Card>
@@ -190,12 +229,7 @@ const TenderAssistant = () => {
                     66%
                   </span>
                 </div>
-                <div className="w-full h-3 bg-gray-600 rounded-full overflow-hidden">
-                  <div
-                    className="h-full rounded-full bg-gradient-to-r from-brand-green to-brand-blue transition-all duration-1000"
-                    style={{ width: '66%' }}
-                  />
-                </div>
+                <AnimatedProgressBar targetPercent={66} gradient="from-brand-green to-brand-blue" />
                 <p className="text-gray-300 mt-3 text-center">{t('tenderAssistant.autoFill.stat')}</p>
               </div>
             </Card>
@@ -244,6 +278,38 @@ const TenderAssistant = () => {
               {t('tenderAssistant.blogLink')}
             </Link>
           </p>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 relative">
+        <div
+          ref={faqAnimation.elementRef}
+          className={`max-w-3xl mx-auto px-6 transition-all duration-1000 ${
+            faqAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              {t('tenderAssistant.faq.title')}
+            </h2>
+          </div>
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqItems.map((item, index) => (
+              <AccordionItem
+                key={index}
+                value={`faq-${index}`}
+                className="bg-gray-800/30 border border-gray-700 rounded-lg px-6 overflow-hidden"
+              >
+                <AccordionTrigger className="text-left text-lg font-semibold text-white hover:no-underline py-5">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-300 leading-relaxed text-base">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 
