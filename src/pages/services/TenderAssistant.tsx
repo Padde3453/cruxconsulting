@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -62,6 +62,7 @@ const BlogTypewriter = ({ isVisible, currentLang }: { isVisible: boolean; curren
       )}
     </>
   );
+};
 
 const AnimatedProgressBar = ({ targetPercent, gradient }: { targetPercent: number; gradient: string }) => {
   const [width, setWidth] = useState(0);
