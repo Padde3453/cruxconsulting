@@ -65,6 +65,7 @@ const App = () => {
           <Sonner />
           <CruxChatbotScript />
           <BrowserRouter>
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
