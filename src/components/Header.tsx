@@ -96,11 +96,11 @@ const Header = ({ onBooking }: HeaderProps) => {
   };
 
   const serviceLinks = [
-    { path: '/services/ai-chatbot', label: t('aiChatbot.title') },
-    { path: '/services/workshops', label: t('workshops.title') },
-    { path: '/services/process-audit', label: t('processAudit.title') },
-    { path: '/services/automation', label: t('automation.title') },
-    { path: '/services/ai-compliance', label: t('aiCompliance.title') }
+    { path: '/services/workshops', label: 'AI & Automation Workshops' },
+    { path: '/services/process-audit', label: 'Process Audit & Process Automation' },
+    { path: '/services/automation', label: 'Custom Automation Services' },
+    { path: '/services/ai-chatbot', label: 'AI Chatbots Internal & External' },
+    { path: '/services/ai-compliance', label: 'AI Compliance Consulting (EU AI Act)' }
   ];
 
   return (
