@@ -8,13 +8,61 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+const TypewriterText = ({ text, startTyping, onComplete }: { text: string; startTyping: boolean; onComplete?: () => void }) => {
+  const [displayedCount, setDisplayedCount] = useState(0);
+
+  useEffect(() => {
+    if (!startTyping) {
+      setDisplayedCount(0);
+      return;
+    }
+    if (displayedCount >= text.length) {
+      onComplete?.();
+      return;
+    }
+    const timeout = setTimeout(() => setDisplayedCount(prev => prev + 1), 50);
+    return () => clearTimeout(timeout);
+  }, [startTyping, displayedCount, text.length, onComplete]);
+
+  return (
+    <span>
+      {text.slice(0, displayedCount)}
+      {startTyping && displayedCount < text.length && (
+        <span className="inline-block w-[2px] h-[1em] bg-gray-200 align-middle ml-[1px] animate-pulse" />
+      )}
+    </span>
+  );
+};
+
+const BlogTypewriter = ({ isVisible, currentLang }: { isVisible: boolean; currentLang: string }) => {
+  const { t } = useTranslation();
+  const [firstDone, setFirstDone] = useState(false);
+  const handleFirstComplete = useCallback(() => setFirstDone(true), []);
+  const blogText = t('tenderAssistant.blogReference') + ' ';
+  const linkText = t('tenderAssistant.blogLink');
+
+  return (
+    <>
+      <TypewriterText text={blogText} startTyping={isVisible} onComplete={handleFirstComplete} />
+      {firstDone && (
+        <Link
+          to={`/${currentLang}/blog`}
+          className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent hover:opacity-80 transition-opacity underline decoration-brand-blue"
+        >
+          <TypewriterText text={linkText} startTyping={true} />
+        </Link>
+      )}
+    </>
+  );
+};
 
 const AnimatedProgressBar = ({ targetPercent, gradient }: { targetPercent: number; gradient: string }) => {
   const [width, setWidth] = useState(0);
@@ -265,18 +313,10 @@ const TenderAssistant = () => {
       <section className="py-12 relative">
         <div
           ref={blogAnimation.elementRef}
-          className={`max-w-4xl mx-auto px-6 text-center transition-all duration-1000 ${
-            blogAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className="max-w-4xl mx-auto px-6 text-center"
         >
-          <p className="text-2xl md:text-3xl font-semibold text-gray-200">
-            {t('tenderAssistant.blogReference')}{' '}
-            <Link
-              to={`/${currentLang}/blog`}
-              className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent hover:opacity-80 transition-opacity underline decoration-brand-blue"
-            >
-              {t('tenderAssistant.blogLink')}
-            </Link>
+          <p className="text-2xl md:text-3xl font-semibold text-gray-200 min-h-[2.5em]">
+            <BlogTypewriter isVisible={blogAnimation.isVisible} currentLang={currentLang} />
           </p>
         </div>
       </section>
