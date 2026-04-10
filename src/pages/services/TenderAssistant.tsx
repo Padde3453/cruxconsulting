@@ -18,6 +18,7 @@ const TenderAssistant = () => {
   const challengesAnimation = useScrollAnimation();
   const solutionAnimation = useScrollAnimation();
   const pricingAnimation = useScrollAnimation();
+  const blogAnimation = useScrollAnimation();
   const ctaAnimation = useScrollAnimation();
 
   const handleBooking = () => {
@@ -32,19 +33,16 @@ const TenderAssistant = () => {
 
   const challenges = [
     {
-      number: "01",
       icon: Clock,
       title: t('tenderAssistant.challenges.1.title'),
       description: t('tenderAssistant.challenges.1.description'),
     },
     {
-      number: "02",
       icon: AlertTriangle,
       title: t('tenderAssistant.challenges.2.title'),
       description: t('tenderAssistant.challenges.2.description'),
     },
     {
-      number: "03",
       icon: Copy,
       title: t('tenderAssistant.challenges.3.title'),
       description: t('tenderAssistant.challenges.3.description'),
@@ -64,6 +62,18 @@ const TenderAssistant = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
       <FloatingElements />
       <Header onBooking={handleBooking} />
+
+      {/* Rotating icon keyframes */}
+      <style>{`
+        @keyframes rotateY {
+          0% { transform: rotateY(0deg); }
+          100% { transform: rotateY(360deg); }
+        }
+        .icon-rotate-y {
+          animation: rotateY 3s linear infinite;
+          transform-style: preserve-3d;
+        }
+      `}</style>
 
       {/* Hero Section */}
       <section className="pt-32 pb-8 relative">
@@ -104,10 +114,9 @@ const TenderAssistant = () => {
               return (
                 <Card key={index} className="bg-gray-800/30 border-gray-700 p-8 hover:bg-gray-800/50 transition-all duration-300">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-brand-blue to-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
-                      <span className="text-2xl font-bold text-white">{challenge.number}</span>
+                    <div className="icon-rotate-y mx-auto mb-6" style={{ perspective: '600px' }}>
+                      <IconComponent className="w-14 h-14 text-brand-blue mx-auto" />
                     </div>
-                    <IconComponent className="w-8 h-8 text-brand-blue mx-auto mb-4" />
                     <h3 className="text-xl font-bold text-white mb-4">{challenge.title}</h3>
                     <p className="text-gray-300 leading-relaxed">{challenge.description}</p>
                   </div>
@@ -132,9 +141,9 @@ const TenderAssistant = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             {/* Project Management Component */}
-            <Card className="bg-gray-800/30 border-gray-700 p-8 hover:bg-gray-800/50 transition-all duration-300">
+            <Card className="bg-gray-800/30 border-gray-700 p-8 hover:bg-gray-800/50 transition-all duration-300 flex flex-col">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-brand-blue to-blue-600 rounded-lg flex items-center justify-center">
                   <ShieldCheck className="w-6 h-6 text-white" />
@@ -143,19 +152,27 @@ const TenderAssistant = () => {
                   {t('tenderAssistant.projectManagement.title')}
                 </h3>
               </div>
-              <p className="text-gray-300 leading-relaxed mb-6">
+              <p className="text-gray-300 leading-relaxed mb-6 flex-1">
                 {t('tenderAssistant.projectManagement.description')}
               </p>
-              <div className="bg-gradient-to-r from-brand-blue/20 to-brand-green/20 border border-brand-blue/30 rounded-lg p-6 text-center">
-                <span className="text-5xl font-bold bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-                  93%+
-                </span>
-                <p className="text-gray-300 mt-2">{t('tenderAssistant.projectManagement.stat')}</p>
+              <div className="bg-gradient-to-r from-brand-blue/10 to-brand-green/10 border border-brand-blue/30 rounded-lg p-6">
+                <div className="text-center mb-3">
+                  <span className="text-5xl font-bold bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
+                    93%
+                  </span>
+                </div>
+                <div className="w-full h-3 bg-gray-600 rounded-full overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-brand-blue to-brand-green transition-all duration-1000"
+                    style={{ width: '93%' }}
+                  />
+                </div>
+                <p className="text-gray-300 mt-3 text-center">{t('tenderAssistant.projectManagement.stat')}</p>
               </div>
             </Card>
 
             {/* Auto-Fill Component */}
-            <Card className="bg-gray-800/30 border-gray-700 p-8 hover:bg-gray-800/50 transition-all duration-300">
+            <Card className="bg-gray-800/30 border-gray-700 p-8 hover:bg-gray-800/50 transition-all duration-300 flex flex-col">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-brand-green to-green-600 rounded-lg flex items-center justify-center">
                   <FileText className="w-6 h-6 text-white" />
@@ -164,14 +181,22 @@ const TenderAssistant = () => {
                   {t('tenderAssistant.autoFill.title')}
                 </h3>
               </div>
-              <p className="text-gray-300 leading-relaxed mb-6">
+              <p className="text-gray-300 leading-relaxed mb-6 flex-1">
                 {t('tenderAssistant.autoFill.description')}
               </p>
-              <div className="bg-gradient-to-r from-brand-green/20 to-brand-blue/20 border border-brand-green/30 rounded-lg p-6 text-center">
-                <span className="text-5xl font-bold bg-gradient-to-r from-brand-green to-brand-blue bg-clip-text text-transparent">
-                  66%
-                </span>
-                <p className="text-gray-300 mt-2">{t('tenderAssistant.autoFill.stat')}</p>
+              <div className="bg-gradient-to-r from-brand-green/10 to-brand-blue/10 border border-brand-green/30 rounded-lg p-6">
+                <div className="text-center mb-3">
+                  <span className="text-5xl font-bold bg-gradient-to-r from-brand-green to-brand-blue bg-clip-text text-transparent">
+                    66%
+                  </span>
+                </div>
+                <div className="w-full h-3 bg-gray-600 rounded-full overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-brand-green to-brand-blue transition-all duration-1000"
+                    style={{ width: '66%' }}
+                  />
+                </div>
+                <p className="text-gray-300 mt-3 text-center">{t('tenderAssistant.autoFill.stat')}</p>
               </div>
             </Card>
           </div>
@@ -182,38 +207,43 @@ const TenderAssistant = () => {
       <section className="py-16 relative">
         <div
           ref={pricingAnimation.elementRef}
-          className={`max-w-4xl mx-auto px-6 transition-all duration-1000 ${
+          className={`max-w-3xl mx-auto px-6 transition-all duration-1000 ${
             pricingAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <Card className="bg-gradient-to-br from-gray-800/60 to-gray-700/40 border-gray-600/50 p-10">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-                {t('tenderAssistant.pricing.title')}
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {pricingFeatures.map((feature, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-brand-green flex-shrink-0" />
-                  <span className="text-gray-200">{feature}</span>
-                </div>
-              ))}
-            </div>
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
+              {t('tenderAssistant.pricing.title')}
+            </h2>
+          </div>
+          <div className="flex flex-col gap-5">
+            {pricingFeatures.map((feature, index) => (
+              <div key={index} className="flex items-center gap-4">
+                <CheckCircle className="w-7 h-7 text-brand-green flex-shrink-0" />
+                <span className="text-lg text-gray-200">{feature}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Blog cross-reference */}
-            <div className="mt-8 text-center">
-              <p className="text-gray-400">
-                {t('tenderAssistant.blogReference')}{' '}
-                <Link
-                  to={`/${currentLang}/blog`}
-                  className="text-brand-blue hover:text-brand-green transition-colors underline"
-                >
-                  {t('tenderAssistant.blogLink')}
-                </Link>
-              </p>
-            </div>
-          </Card>
+      {/* Blog Reference Section */}
+      <section className="py-12 relative">
+        <div
+          ref={blogAnimation.elementRef}
+          className={`max-w-4xl mx-auto px-6 text-center transition-all duration-1000 ${
+            blogAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <p className="text-2xl md:text-3xl font-semibold text-gray-200">
+            {t('tenderAssistant.blogReference')}{' '}
+            <Link
+              to={`/${currentLang}/blog`}
+              className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent hover:opacity-80 transition-opacity underline decoration-brand-blue"
+            >
+              {t('tenderAssistant.blogLink')}
+            </Link>
+          </p>
         </div>
       </section>
 
