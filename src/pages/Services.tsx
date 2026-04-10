@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Bot, Lightbulb, ClipboardList, Settings, Scale } from "lucide-react";
+import { ArrowRight, Bot, Lightbulb, ClipboardList, Settings, Scale, FileSearch } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingElements from "@/components/FloatingElements";
@@ -173,8 +173,15 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
             {[
+              {
+                title: t('tenderAssistant.title'),
+                description: t('tenderAssistant.shortDescription'),
+                path: '/services/tender-assistant',
+                gradient: 'from-cyan-500 to-brand-blue',
+                icon: FileSearch
+              },
               {
                 title: t('aiChatbot.title'),
                 description: t('aiChatbot.hero.description'),

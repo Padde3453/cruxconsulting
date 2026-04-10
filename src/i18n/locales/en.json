@@ -712,5 +712,54 @@
     "about": "About",
     "contact": "Contact",
     "bookConsultation": "Book Consultation"
+  },
+  "tenderAssistant": {
+    "title": "Tender Assistant",
+    "subtitle": "You win tenders, you would have otherwise lost.",
+    "shortDescription": "Win more tenders with AI-powered project management and auto-fill — faster, more accurate, fewer errors.",
+    "challengesTitle": "The Challenges",
+    "challenges": {
+      "1": {
+        "title": "Time-Consuming Evaluation",
+        "description": "Tenders are long and complex — it takes hours and days until you evaluate if a tender is actually interesting for the company."
+      },
+      "2": {
+        "title": "Error-Prone Process",
+        "description": "Tenders are prone to errors and a minor error leads to direct exclusion."
+      },
+      "3": {
+        "title": "Repetitive Data Entry",
+        "description": "Tenders are partially repetitive, requiring the same standard information over and over again, but in different formats."
+      }
+    },
+    "solutionTitle": "One Solution — Two Components",
+    "projectManagement": {
+      "title": "Project Management",
+      "description": "We analyse the tender fit with your company's expertise and capabilities and provide you a sophisticated reasoning you can base your decision on. We also break the entire tender down into clear ToDos and regularly check all documentation so that the possibility for mistakes decreases significantly.",
+      "stat": "reduction in errors"
+    },
+    "autoFill": {
+      "title": "Auto-Fill",
+      "description": "We train an AI based on your previous tenders and provide you an auto-fill for repetitive tender data so that the forms are filled faster and more accurately than ever before.",
+      "stat": "average time saved"
+    },
+    "pricing": {
+      "title": "One Monthly Price — All In — Active Within 3 Days",
+      "features": [
+        "Personal onboarding and ongoing support",
+        "Unlimited tenders",
+        "Project management tool and unlimited auto-fills",
+        "Always the best and most accurate AI in the background",
+        "Highest level of data security (all hosting in Europe)",
+        "Short termination timelines, no risk"
+      ]
+    },
+    "blogReference": "Want to learn more about AI in business?",
+    "blogLink": "Visit our blog",
+    "cta": {
+      "title": "Ready to Win More Tenders?",
+      "description": "Ask questions, get in touch, or book a free demo — we're here to help you succeed.",
+      "buttonText": "Get in Touch"
+    }
   }
 }

@@ -96,6 +96,7 @@ const Header = ({ onBooking }: HeaderProps) => {
   };
 
   const serviceLinks = [
+    { path: '/services/tender-assistant', label: 'Tender Assistant' },
     { path: '/services/workshops', label: 'AI & Automation Workshops' },
     { path: '/services/process-audit', label: 'Process Audit & Process Automation' },
     { path: '/services/automation', label: 'Custom Automation Services' },
