@@ -293,22 +293,8 @@ const TenderAssistant = () => {
           ref={blogAnimation.elementRef}
           className="max-w-4xl mx-auto px-6 text-center"
         >
-          <p className="text-2xl md:text-3xl font-semibold text-gray-200">
-            <TypewriterText
-              text={t('tenderAssistant.blogReference') + ' '}
-              startTyping={blogAnimation.isVisible}
-            />
-            {blogAnimation.isVisible && (
-              <Link
-                to={`/${currentLang}/blog`}
-                className="bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent hover:opacity-80 transition-opacity underline decoration-brand-blue"
-              >
-                <TypewriterText
-                  text={t('tenderAssistant.blogLink')}
-                  startTyping={blogAnimation.isVisible}
-                />
-              </Link>
-            )}
+          <p className="text-2xl md:text-3xl font-semibold text-gray-200 min-h-[2.5em]">
+            <BlogTypewriter isVisible={blogAnimation.isVisible} currentLang={currentLang} />
           </p>
         </div>
       </section>
