@@ -712,5 +712,54 @@
     "about": "Über uns",
     "contact": "Kontakt",
     "bookConsultation": "Beratung buchen"
+  },
+  "tenderAssistant": {
+    "title": "Tender Assistant",
+    "subtitle": "Sie gewinnen Ausschreibungen, die Sie sonst verloren hätten.",
+    "shortDescription": "Gewinnen Sie mehr Ausschreibungen mit KI-gestütztem Projektmanagement und Auto-Fill — schneller, genauer, weniger Fehler.",
+    "challengesTitle": "Die Herausforderungen",
+    "challenges": {
+      "1": {
+        "title": "Zeitaufwändige Bewertung",
+        "description": "Ausschreibungen sind lang und komplex — es dauert Stunden und Tage, bis Sie bewerten können, ob eine Ausschreibung tatsächlich interessant für das Unternehmen ist."
+      },
+      "2": {
+        "title": "Fehleranfälliger Prozess",
+        "description": "Ausschreibungen sind fehleranfällig und ein kleiner Fehler führt zum direkten Ausschluss."
+      },
+      "3": {
+        "title": "Repetitive Dateneingabe",
+        "description": "Ausschreibungen sind teilweise repetitiv und erfordern die gleichen Standardinformationen immer wieder, aber in unterschiedlichen Formaten."
+      }
+    },
+    "solutionTitle": "Eine Lösung — Zwei Komponenten",
+    "projectManagement": {
+      "title": "Projektmanagement",
+      "description": "Wir analysieren die Passung der Ausschreibung mit der Expertise und den Fähigkeiten Ihres Unternehmens und liefern Ihnen eine fundierte Begründung, auf die Sie Ihre Entscheidung stützen können. Außerdem unterteilen wir die gesamte Ausschreibung in klare Aufgaben und überprüfen regelmäßig alle Dokumente, sodass die Fehlerwahrscheinlichkeit erheblich sinkt.",
+      "stat": "Fehlerreduktion"
+    },
+    "autoFill": {
+      "title": "Auto-Fill",
+      "description": "Wir trainieren eine KI auf Basis Ihrer bisherigen Ausschreibungen und bieten Ihnen ein Auto-Fill für wiederkehrende Ausschreibungsdaten, sodass die Formulare schneller und genauer als je zuvor ausgefüllt werden.",
+      "stat": "durchschnittliche Zeitersparnis"
+    },
+    "pricing": {
+      "title": "Ein Monatspreis — All-In — Aktiv innerhalb von 3 Tagen",
+      "features": [
+        "Persönliches Onboarding und laufender Support",
+        "Unbegrenzte Ausschreibungen",
+        "Projektmanagement-Tool und unbegrenzte Auto-Fills",
+        "Immer die beste und genaueste KI im Hintergrund",
+        "Höchstes Maß an Datensicherheit (gesamtes Hosting in Europa)",
+        "Kurze Kündigungsfristen, kein Risiko"
+      ]
+    },
+    "blogReference": "Möchten Sie mehr über KI im Geschäftsbereich erfahren?",
+    "blogLink": "Besuchen Sie unseren Blog",
+    "cta": {
+      "title": "Bereit, mehr Ausschreibungen zu gewinnen?",
+      "description": "Stellen Sie Fragen, nehmen Sie Kontakt auf oder buchen Sie eine kostenlose Demo — wir helfen Ihnen gerne weiter.",
+      "buttonText": "Kontakt aufnehmen"
+    }
   }
 }
