@@ -16,7 +16,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const TypewriterText = ({ text, startTyping }: { text: string; startTyping: boolean }) => {
+const TypewriterText = ({ text, startTyping, onComplete }: { text: string; startTyping: boolean; onComplete?: () => void }) => {
   const [displayedCount, setDisplayedCount] = useState(0);
 
   useEffect(() => {
@@ -24,10 +24,13 @@ const TypewriterText = ({ text, startTyping }: { text: string; startTyping: bool
       setDisplayedCount(0);
       return;
     }
-    if (displayedCount >= text.length) return;
+    if (displayedCount >= text.length) {
+      onComplete?.();
+      return;
+    }
     const timeout = setTimeout(() => setDisplayedCount(prev => prev + 1), 50);
     return () => clearTimeout(timeout);
-  }, [startTyping, displayedCount, text.length]);
+  }, [startTyping, displayedCount, text.length, onComplete]);
 
   return (
     <span>
