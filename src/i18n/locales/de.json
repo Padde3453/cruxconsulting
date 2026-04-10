@@ -756,6 +756,33 @@
     },
     "blogReference": "Neugierig? Erfahren Sie mehr in unseren",
     "blogLink": "Blogs",
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "1": {
+        "question": "Funktioniert dieser Service für Ausschreibungen und RFPs branchenübergreifend?",
+        "answer": "Absolut — er funktioniert branchenübergreifend, themenübergreifend und über verschiedene Prozesse hinweg. Der Service ist sehr vielseitig und arbeitet auch mit einer Vielzahl von Dateiformaten und Dokumenten."
+      },
+      "2": {
+        "question": "Unsere Ausschreibungen sind lang und enthalten viele verschiedene Dateitypen — ist das ein Problem?",
+        "answer": "Kein Problem, ganz im Gegenteil. Je komplexer die Ausschreibung, desto größer der skalierbare Effekt der Software. Sie funktioniert mit vielen verschiedenen Dateitypen, sogar Scans. Und je länger Sie mit dem Service arbeiten, desto besser wird er."
+      },
+      "3": {
+        "question": "Ausschreibungen enthalten hochsensible Daten — ist das sicher?",
+        "answer": "Absolut. Erstens hosten wir alle Dienste ausschließlich in Europa. Zweitens erhalten Sie aus Sicherheitsgründen Ihre eigene Datenbank, und die verwendete Künstliche Intelligenz erfüllt ebenfalls die höchsten Sicherheitsstandards."
+      },
+      "4": {
+        "question": "Wie lange dauert es, bis der Service voll einsatzbereit ist?",
+        "answer": "Nur eine Stunde effektive Arbeit plus vielleicht eine Stunde Schulung, um sicherzustellen, dass das Team die Software sicher beherrscht. Wir unterstützen Sie während des gesamten Prozesses und auch während der Service läuft."
+      },
+      "5": {
+        "question": "Wie sieht der Implementierungsprozess aus?",
+        "answer": "Buchen Sie eine kostenlose Demo über das Kontaktformular oder direkt eine Google Meet-Sitzung mit unserem Gründer über den untenstehenden Link. Wir zeigen Ihnen alles und beantworten alle Fragen. Möglicherweise können wir es sogar an einem praktischen Beispiel ausprobieren. Ein passendes Angebot für Sie ist schnell gefunden — Sie erhalten Ihre Zugangsdaten und sind bereit, mehr Ausschreibungen schneller und besser als je zuvor zu gewinnen."
+      },
+      "6": {
+        "question": "Wir sind ein sehr kleines Unternehmen — sind Ausschreibungen und dieser Service für uns geeignet?",
+        "answer": "Ausschreibungen sind etwas speziell und erfordern oft Referenzen in Bereichen ähnlich der geforderten Leistung. Aber wenn Sie sicher sind, dass Sie diese erfüllen und Ausschreibungen einreichen möchten, ermöglicht Ihnen unser Service genau das. Möglicherweise haben Sie nicht die Kapazität, den langwierigen Prozess zum Ausfüllen von Ausschreibungen durchzugehen, aber mit unserem Tender Assistant ist es schneller und einfacher als je zuvor."
+      }
+    },
     "cta": {
       "title": "Bereit, mehr Ausschreibungen zu gewinnen?",
       "description": "Stellen Sie Fragen, nehmen Sie Kontakt auf oder buchen Sie eine kostenlose Demo — wir helfen Ihnen gerne weiter.",
