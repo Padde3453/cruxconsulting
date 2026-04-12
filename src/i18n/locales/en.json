@@ -730,6 +730,9 @@
     "pricing": {
       "title": "One Monthly Price — All In — Active Within 3 Days",
       "features": [
+        "Significant time savings",
+        "Additional pair of eyes, higher level of confidence, fewer mistakes",
+        "Constant overview of tender fill status",
         "Personal onboarding and ongoing support",
         "Unlimited tenders",
         "Project management tool and unlimited auto-fills",
@@ -744,14 +747,14 @@
       "title": "Frequently Asked Questions",
       "1": {
         "question": "Does this service work for tenders and RFPs across industries?",
-        "answer": "Absolutely — it works across industries, topics, and different processes. The service is very versatile and also works across a wide range of file types and documents."
+        "answer": "Absolutely, it works across industries, topics, and different processes. The service is very versatile and also works across a wide range of file types and documents."
       },
       "2": {
-        "question": "Our tenders are long and include many different file types, is that a problem?",
+        "question": "Our tenders are long and include many different file types. Is that a problem?",
         "answer": "No problem at all, quite the opposite. The more complex the tender, the bigger the scalable effect of the software. It works across many different file types, even scans. And the longer you work with the service, the better it gets."
       },
       "3": {
-        "question": "Tenders include highly sensitive data, is this secure?",
+        "question": "Tenders include highly sensitive data. Is this secure?",
         "answer": "Absolutely. First, we host all services in Europe only. Secondly, you receive your own database for security reasons, and the Artificial Intelligence used also fulfils the highest security standards."
       },
       "4": {
@@ -759,11 +762,11 @@
         "answer": "Only an hour of effective work plus maybe one hour of training to make sure the team is fully confident in using the software. We support you all along the way and while the service is running."
       },
       "5": {
-        "question": "How does the implementation process look like?",
-        "answer": "Book a free demo with us via the contact form or directly book a Google Meet session with our founder via the link below. We show you everything and answer all questions you may have. We might even be able to try it out on a practical example. Finding a great deal for you is done quickly — you receive your credentials and you are ready to win more tenders faster and better than ever before."
+        "question": "How does the implementation process look?",
+        "answer": "Book a free demo with us via the contact form or directly book a Google Meet session with our founder via the link below. We show you everything and answer all questions you may have. We might even be able to try it out on a practical example. Finding a great deal for you is done quickly, you receive your credentials and you are ready to win more tenders faster and better than ever before."
       },
       "6": {
-        "question": "We are a very small business, are tenders and this service for us?",
+        "question": "We are a very small business. Are tenders and this service for us?",
         "answer": "Tenders are a bit specific and often require references in areas similar to the required service. But if you are confident you fulfil this and want to submit tenders, our service enables you to do that. You might not have the capacity to go through the lengthy process to fill tenders, but with our Tender Assistant it is much faster and easier than ever before."
       }
     },

@@ -746,6 +746,9 @@
     "pricing": {
       "title": "Ein Monatspreis — All-In — Aktiv innerhalb von 3 Tagen",
       "features": [
+        "Erhebliche Zeitersparnis",
+        "Zusätzliches Augenpaar, höheres Vertrauen, weniger Fehler",
+        "Ständiger Überblick über den Bearbeitungsstand der Ausschreibung",
         "Persönliches Onboarding und laufender Support",
         "Unbegrenzte Ausschreibungen",
         "Projektmanagement-Tool und unbegrenzte Auto-Fills",
@@ -760,14 +763,14 @@
       "title": "Häufig gestellte Fragen",
       "1": {
         "question": "Funktioniert dieser Service für Ausschreibungen und RFPs branchenübergreifend?",
-        "answer": "Absolut — er funktioniert branchenübergreifend, themenübergreifend und über verschiedene Prozesse hinweg. Der Service ist sehr vielseitig und arbeitet auch mit einer Vielzahl von Dateiformaten und Dokumenten."
+        "answer": "Absolut, er funktioniert branchenübergreifend, themenübergreifend und über verschiedene Prozesse hinweg. Der Service ist sehr vielseitig und arbeitet auch mit einer Vielzahl von Dateiformaten und Dokumenten."
       },
       "2": {
-        "question": "Unsere Ausschreibungen sind lang und enthalten viele verschiedene Dateitypen — ist das ein Problem?",
+        "question": "Unsere Ausschreibungen sind lang und enthalten viele verschiedene Dateitypen. Ist das ein Problem?",
         "answer": "Kein Problem, ganz im Gegenteil. Je komplexer die Ausschreibung, desto größer der skalierbare Effekt der Software. Sie funktioniert mit vielen verschiedenen Dateitypen, sogar Scans. Und je länger Sie mit dem Service arbeiten, desto besser wird er."
       },
       "3": {
-        "question": "Ausschreibungen enthalten hochsensible Daten — ist das sicher?",
+        "question": "Ausschreibungen enthalten hochsensible Daten. Ist das sicher?",
         "answer": "Absolut. Erstens hosten wir alle Dienste ausschließlich in Europa. Zweitens erhalten Sie aus Sicherheitsgründen Ihre eigene Datenbank, und die verwendete Künstliche Intelligenz erfüllt ebenfalls die höchsten Sicherheitsstandards."
       },
       "4": {
@@ -776,10 +779,10 @@
       },
       "5": {
         "question": "Wie sieht der Implementierungsprozess aus?",
-        "answer": "Buchen Sie eine kostenlose Demo über das Kontaktformular oder direkt eine Google Meet-Sitzung mit unserem Gründer über den untenstehenden Link. Wir zeigen Ihnen alles und beantworten alle Fragen. Möglicherweise können wir es sogar an einem praktischen Beispiel ausprobieren. Ein passendes Angebot für Sie ist schnell gefunden — Sie erhalten Ihre Zugangsdaten und sind bereit, mehr Ausschreibungen schneller und besser als je zuvor zu gewinnen."
+        "answer": "Buchen Sie eine kostenlose Demo über das Kontaktformular oder direkt eine Google Meet-Sitzung mit unserem Gründer über den untenstehenden Link. Wir zeigen Ihnen alles und beantworten alle Fragen. Möglicherweise können wir es sogar an einem praktischen Beispiel ausprobieren. Ein passendes Angebot für Sie ist schnell gefunden, Sie erhalten Ihre Zugangsdaten und sind bereit, mehr Ausschreibungen schneller und besser als je zuvor zu gewinnen."
       },
       "6": {
-        "question": "Wir sind ein sehr kleines Unternehmen — sind Ausschreibungen und dieser Service für uns geeignet?",
+        "question": "Wir sind ein sehr kleines Unternehmen. Sind Ausschreibungen und dieser Service für uns geeignet?",
         "answer": "Ausschreibungen sind etwas speziell und erfordern oft Referenzen in Bereichen ähnlich der geforderten Leistung. Aber wenn Sie sicher sind, dass Sie diese erfüllen und Ausschreibungen einreichen möchten, ermöglicht Ihnen unser Service genau das. Möglicherweise haben Sie nicht die Kapazität, den langwierigen Prozess zum Ausfüllen von Ausschreibungen durchzugehen, aber mit unserem Tender Assistant ist es schneller und einfacher als je zuvor."
       }
     },
