@@ -137,14 +137,9 @@ const TenderAssistant = () => {
     },
   ];
 
-  const pricingFeatures = [
-    t('tenderAssistant.pricing.features.0'),
-    t('tenderAssistant.pricing.features.1'),
-    t('tenderAssistant.pricing.features.2'),
-    t('tenderAssistant.pricing.features.3'),
-    t('tenderAssistant.pricing.features.4'),
-    t('tenderAssistant.pricing.features.5'),
-  ];
+  const pricingFeatures = Array.from({ length: 9 }, (_, i) =>
+    t(`tenderAssistant.pricing.features.${i}`)
+  );
 
   const faqItems = Array.from({ length: 6 }, (_, i) => ({
     question: t(`tenderAssistant.faq.${i + 1}.question`),
