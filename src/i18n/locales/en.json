@@ -34,11 +34,7 @@
       "title": "More Revenue",
       "subtitle": "through high-quality customers",
       "description": "Increase your revenue by attracting and retaining high-quality customers through intelligent automation and strategic insights.",
-      "features": [
-        "Automated lead generation",
-        "Customer relationship management",
-        "Sales funnel optimization"
-      ],
+      "features": ["Automated lead generation", "Customer relationship management", "Sales funnel optimization"],
       "services": [
         "Lead generation automation",
         "Client relationship management systems",
@@ -51,11 +47,7 @@
       "title": "More Free Time",
       "subtitle": "through automation of manual tasks",
       "description": "Reclaim valuable time by automating repetitive and manual tasks, allowing you to focus on what matters most.",
-      "features": [
-        "Process automation solutions",
-        "Workflow optimization",
-        "Task scheduling systems"
-      ],
+      "features": ["Process automation solutions", "Workflow optimization", "Task scheduling systems"],
       "services": [
         "Process automation solutions",
         "Document management systems",
@@ -68,11 +60,7 @@
       "title": "Better Client Experience",
       "subtitle": "through fast, reliable service",
       "description": "Deliver exceptional client experiences with fast, reliable service that works even when you're busy.",
-      "features": [
-        "Customer service automation",
-        "Client portal development",
-        "Service delivery tracking"
-      ],
+      "features": ["Customer service automation", "Client portal development", "Service delivery tracking"],
       "services": [
         "Customer service chatbots",
         "Automated response systems",
@@ -85,11 +73,7 @@
       "title": "Less Cost, Better Solution",
       "subtitle": "through intelligent sourcing",
       "description": "Reduce costs while improving solutions through intelligent sourcing and market analysis.",
-      "features": [
-        "Cost analysis and optimization",
-        "Automated market research",
-        "ROI tracking and reporting"
-      ],
+      "features": ["Cost analysis and optimization", "Automated market research", "ROI tracking and reporting"],
       "services": [
         "Cost analysis and optimization",
         "Vendor comparison systems",
@@ -340,7 +324,7 @@
         "description": "Comprehensive analysis of your existing processes using AI-powered tools to identify bottlenecks and inefficiencies."
       },
       {
-        "title": "Improvement and Automation Recommendations", 
+        "title": "Improvement and Automation Recommendations",
         "description": "Detailed suggestions for optimizing workflows and implementing automation solutions tailored to your business needs."
       },
       {
@@ -763,11 +747,11 @@
         "answer": "Absolutely — it works across industries, topics, and different processes. The service is very versatile and also works across a wide range of file types and documents."
       },
       "2": {
-        "question": "Our tenders are long and include many different file types — is that a problem?",
+        "question": "Our tenders are long and include many different file types, is that a problem?",
         "answer": "No problem at all, quite the opposite. The more complex the tender, the bigger the scalable effect of the software. It works across many different file types, even scans. And the longer you work with the service, the better it gets."
       },
       "3": {
-        "question": "Tenders include highly sensitive data — is this secure?",
+        "question": "Tenders include highly sensitive data, is this secure?",
         "answer": "Absolutely. First, we host all services in Europe only. Secondly, you receive your own database for security reasons, and the Artificial Intelligence used also fulfils the highest security standards."
       },
       "4": {
@@ -779,7 +763,7 @@
         "answer": "Book a free demo with us via the contact form or directly book a Google Meet session with our founder via the link below. We show you everything and answer all questions you may have. We might even be able to try it out on a practical example. Finding a great deal for you is done quickly — you receive your credentials and you are ready to win more tenders faster and better than ever before."
       },
       "6": {
-        "question": "We are a very small business — are tenders and this service for us?",
+        "question": "We are a very small business, are tenders and this service for us?",
         "answer": "Tenders are a bit specific and often require references in areas similar to the required service. But if you are confident you fulfil this and want to submit tenders, our service enables you to do that. You might not have the capacity to go through the lengthy process to fill tenders, but with our Tender Assistant it is much faster and easier than ever before."
       }
     },
