@@ -19,20 +19,22 @@ interface BlogPostMeta {
   date: string;
 }
 
-// Read blog posts from the source file
-const blogPostsPath = path.resolve(__dirname, '../src/data/blogPosts.ts');
-const blogPostsContent = fs.readFileSync(blogPostsPath, 'utf-8');
+// Read blog post slugs and dates from individual files in src/data/blog/
+const blogDir = path.resolve(__dirname, '../src/data/blog');
+const blogFiles = fs.readdirSync(blogDir).filter(f => f.endsWith('.ts') && f !== 'index.ts' && f !== 'types.ts' && !f.startsWith('_'));
 
-const slugMatches = blogPostsContent.matchAll(/slug:\s*["']([^"']+)["']/g);
-const dateMatches = blogPostsContent.matchAll(/date:\s*["']([^"']+)["']/g);
-
-const slugs = Array.from(slugMatches).map(m => m[1]);
-const dates = Array.from(dateMatches).map(m => m[1]);
-
-const blogPosts: BlogPostMeta[] = slugs.map((slug, index) => ({
-  slug,
-  date: dates[index] || new Date().toISOString()
-}));
+const blogPosts: BlogPostMeta[] = [];
+for (const file of blogFiles) {
+  const content = fs.readFileSync(path.join(blogDir, file), 'utf-8');
+  const slugMatch = content.match(/slug:\s*["']([^"']+)["']/);
+  const dateMatch = content.match(/date:\s*["']([^"']+)["']/);
+  if (slugMatch) {
+    blogPosts.push({
+      slug: slugMatch[1],
+      date: dateMatch ? dateMatch[1] : new Date().toISOString()
+    });
+  }
+}
 
 // Static pages — these are the ACTUAL routes in the app router
 // Non-language-prefixed pages (no /en/ or /de/ prefix)
