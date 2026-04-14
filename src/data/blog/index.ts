@@ -6,6 +6,7 @@ import { whatAiCanActuallyDo } from './what-ai-can-actually-do';
 import { fiveTasksToAutomateNow } from './5-tasks-to-automate-now';
 import { frustratingBotsToExpertTeammates } from './frustrating-bots-to-expert-teammates';
 import { whyAiProjectsFail } from './why-ai-projects-fail';
+import { tendersTheoryVsReality } from './tenders-theory-vs-reality';
 import type { BlogPost } from './types';
 
 export const blogPosts: BlogPost[] = [
@@ -15,6 +16,7 @@ export const blogPosts: BlogPost[] = [
   fiveTasksToAutomateNow,
   frustratingBotsToExpertTeammates,
   whyAiProjectsFail,
+  tendersTheoryVsReality,
 ];
 
 // Helper function to parse date strings and sort by most recent
