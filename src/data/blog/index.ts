@@ -7,6 +7,7 @@ import { fiveTasksToAutomateNow } from './5-tasks-to-automate-now';
 import { frustratingBotsToExpertTeammates } from './frustrating-bots-to-expert-teammates';
 import { whyAiProjectsFail } from './why-ai-projects-fail';
 import { tendersTheoryVsReality } from './tenders-theory-vs-reality';
+import { saveHoursOnRfpResponses } from './save-hours-on-rfp-responses';
 import type { BlogPost } from './types';
 
 export const blogPosts: BlogPost[] = [
@@ -17,6 +18,7 @@ export const blogPosts: BlogPost[] = [
   frustratingBotsToExpertTeammates,
   whyAiProjectsFail,
   tendersTheoryVsReality,
+  saveHoursOnRfpResponses,
 ];
 
 // Helper function to parse date strings and sort by most recent
