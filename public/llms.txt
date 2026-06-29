@@ -1,0 +1,29 @@
+# Crux Consulting
+
+> AI-native business consulting. We help companies implement AI, automate processes, and build custom solutions that actually work.
+
+## Pages
+
+- [/](/): Homepage — AI-native business consulting services and value proposition.
+- [/about](/about): About Crux Consulting — team, mission, and how we work.
+- [/services](/services): Full services overview including AI chatbots, workshops, process audits, automation, AI compliance, and tender assistant.
+- [/services/ai-chatbot](/services/ai-chatbot): AI chatbot and virtual assistant solutions for sales and customer service.
+- [/services/workshops](/services/workshops): AI workshops and training programs for teams.
+- [/services/process-audit](/services/process-audit): Business process analysis to identify automation and AI opportunities.
+- [/services/automation](/services/automation): Workflow and task automation implementation.
+- [/services/ai-compliance](/services/ai-compliance): AI governance, compliance, and risk management.
+- [/services/tender-assistant](/services/tender-assistant): AI-powered tender and RFP response assistance.
+- [/impressum](/impressum): Legal imprint and company information.
+- [/privacy](/privacy): Privacy policy and data protection information.
+
+## Blog
+
+- [/en/blog](/en/blog): Blog index with insights on AI, automation, and business strategy.
+- [/en/blog/why-ai-projects-fail](/en/blog/why-ai-projects-fail): Why AI Projects Fail — common pitfalls and how to avoid them.
+- [/en/blog/tenders-theory-vs-reality](/en/blog/tenders-theory-vs-reality): Tenders: Great in Theory, Tough on Companies in Reality.
+
+## Optional
+
+- [/de/blog](/de/blog): German-language blog index.
+- [/demo/bandwerk](/demo/bandwerk): Isolated demo page for Bandwerk chatbot.
+- [/demo/steuer-assistent](/demo/steuer-assistent): Isolated demo page for tax assistant chatbot.
