@@ -222,7 +222,7 @@ const AboutContent = () => {
               </p>
             </Card>
 
-            <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-gray-700 p-6 group cursor-pointer transition-all duration-300 hover:scale-105">
+            <Card className="bg-white/5 backdrop-blur-md border-white/10 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 shadow-lg shadow-black/20">
               <h3 className="text-xl font-bold text-brand-green mb-3 transition-colors duration-300">
                 {t('about.howWeWork.privacyCompliance.title')}
               </h3>
