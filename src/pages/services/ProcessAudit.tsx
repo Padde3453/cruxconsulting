@@ -57,6 +57,10 @@ const ProcessAuditAndAutomation = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="Process Audit & Automation — Crux Consulting"
+        description="Comprehensive process audits that uncover automation opportunities and deliver measurable efficiency gains across your organization."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />

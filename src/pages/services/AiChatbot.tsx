@@ -125,6 +125,10 @@ const AiChatbot = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="AI Chatbot Service — Crux Consulting"
+        description="Custom AI chatbots that act like expert teammates: multilingual, branded, and integrated into your workflows to support customers and staff."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />
