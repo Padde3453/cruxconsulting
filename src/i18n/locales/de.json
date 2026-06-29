@@ -103,6 +103,7 @@
       "subtitle": "Entdecken Sie unser umfassendes Angebot an KI-Lösungen zur Transformation Ihrer Geschäftsprozesse"
     },
     "learnMore": "Mehr Erfahren",
+    "learnMoreAbout": "Mehr über {{service}} erfahren",
     "exploreAll": "Alle Services erkunden",
     "servicesWeOffer": "Services, die wir anbieten:",
     "readyToDiscover": "Bereit, die nächste Stufe der Wertschöpfung zu entdecken?",
