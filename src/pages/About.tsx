@@ -214,7 +214,7 @@ const AboutContent = () => {
             </Card>
 
             <Card className="bg-white/5 backdrop-blur-md border-white/10 p-6 group cursor-pointer transition-all duration-300 hover:scale-105 shadow-lg shadow-black/20">
-              <h3 className="text-xl font-bold text-brand-blue mb-3 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-3 transition-colors duration-300">
                 {t('about.howWeWork.aiNativeBusinessLed.title')}
               </h3>
               <p className="text-gray-300 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-96 transition-all duration-500 overflow-hidden">
