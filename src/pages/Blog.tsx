@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { blogPosts, getCategoryColor, getMostRecentPosts } from "@/data/blogPosts";
 import { useTranslation } from 'react-i18next';
+import SEO from "@/components/SEO";
 
 const Blog = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -37,6 +38,10 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
+      <SEO
+        title="Blog — Insights on AI, Automation & Business"
+        description="Practical insights on AI adoption, automation, tender responses, and business transformation from the Crux Consulting team."
+      />
       <Header />
 
       {/* Hero Section */}
