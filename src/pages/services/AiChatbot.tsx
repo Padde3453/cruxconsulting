@@ -7,6 +7,7 @@ import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import SEO from "@/components/SEO";
 
 const AiChatbot = () => {
   const { t } = useTranslation();
@@ -124,6 +125,10 @@ const AiChatbot = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="AI Chatbot Service — Crux Consulting"
+        description="Custom AI chatbots that act like expert teammates: multilingual, branded, and integrated into your workflows to support customers and staff."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />

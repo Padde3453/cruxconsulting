@@ -14,6 +14,7 @@ import BlogPreviewSection from "@/components/BlogPreviewSection";
 import EinsteinQuoteSection from "@/components/EinsteinQuoteSection";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -42,6 +43,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="Crux Consulting — AI-Native Business Consulting"
+        description="AI-native consulting for digital transformation, automation, and tender response. Tailored solutions that deliver measurable business outcomes."
+        canonicalPath="/"
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />

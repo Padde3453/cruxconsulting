@@ -6,6 +6,7 @@ import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 
 const Automation = () => {
@@ -52,6 +53,10 @@ const Automation = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="Business Automation Services — Crux Consulting"
+        description="Streamline operations with custom automation. Reduce manual work, eliminate errors, and free your team to focus on high-value activities."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />

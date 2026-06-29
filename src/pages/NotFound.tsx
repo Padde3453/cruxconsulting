@@ -6,10 +6,15 @@ import { Link } from "react-router-dom";
 import FloatingElements from "@/components/FloatingElements";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const NotFound = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="Page Not Found — Crux Consulting"
+        description="The page you're looking for doesn't exist. Return to Crux Consulting to explore our AI consulting services and insights."
+      />
       <FloatingElements />
       
       <Header />

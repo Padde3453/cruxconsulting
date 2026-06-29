@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingElements from "@/components/FloatingElements";
 import { useTranslation } from 'react-i18next';
+import SEO from "@/components/SEO";
 
 const Impressum = () => {
   const { t } = useTranslation();
@@ -16,6 +17,10 @@ const Impressum = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="Impressum — Crux Consulting"
+        description="Legal information and imprint for Crux Consulting, a brand of Reverchon Consulting GmbH based in Berg, Germany."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />

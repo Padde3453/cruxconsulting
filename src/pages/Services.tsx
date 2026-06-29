@@ -9,6 +9,7 @@ import ValueCard from "@/components/ValueCard";
 import DeliveryPromise from "@/components/DeliveryPromise";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import SEO from "@/components/SEO";
 
 const Services = () => {
   const { t } = useTranslation();
@@ -113,6 +114,10 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="Services — AI Consulting, Automation & Tender Assistant"
+        description="Explore Crux Consulting services: AI chatbots, workshops, process audits, automation, AI compliance, and tender response assistance for businesses."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />

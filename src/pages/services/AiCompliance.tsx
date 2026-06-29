@@ -6,6 +6,7 @@ import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import SEO from "@/components/SEO";
 import AiActTimeline from "@/components/AiActTimeline";
 
 const AiCompliance = () => {
@@ -95,6 +96,10 @@ const AiCompliance = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="AI Compliance & EU AI Act — Crux Consulting"
+        description="Navigate the EU AI Act with confidence. Assess risk, build compliant AI workflows, and align governance with your business strategy."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />

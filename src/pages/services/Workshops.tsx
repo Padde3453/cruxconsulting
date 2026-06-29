@@ -6,6 +6,7 @@ import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import SEO from "@/components/SEO";
 
 const Workshops = () => {
   const { t } = useTranslation();
@@ -27,6 +28,10 @@ const Workshops = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="AI Workshops — Crux Consulting"
+        description="Hands-on AI workshops that turn curiosity into capability. Help your team identify, prioritize, and apply AI to real business problems."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />

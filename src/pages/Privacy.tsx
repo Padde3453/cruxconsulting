@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingElements from "@/components/FloatingElements";
 import { useTranslation } from 'react-i18next';
+import SEO from "@/components/SEO";
 
 const Privacy = () => {
   const { t } = useTranslation();
@@ -16,6 +17,10 @@ const Privacy = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="Privacy Policy — Crux Consulting"
+        description="How Crux Consulting collects, uses, and protects your personal data in line with GDPR and applicable privacy regulations."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />
