@@ -14,7 +14,7 @@ const WhyCruxSection = () => {
             <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent py-[5px] text-center md:text-5xl">
               {t('whyCrux.title')}
             </h2>
-            <div className="text-lg text-gray-300 leading-relaxed space-y-6">
+            <div className="text-lg text-gray-300 leading-relaxed space-y-6 text-center">
               <p>
                 {t('whyCrux.subtitle')}
               </p>
