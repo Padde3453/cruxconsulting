@@ -237,7 +237,7 @@ const Services = () => {
                   to={service.path}
                   className="inline-flex items-center space-x-2 text-brand-blue hover:text-brand-green transition-colors duration-300"
                 >
-                  <span>{t('services.learnMore')}</span>
+                  <span>{t('services.learnMoreAbout', { service: service.title })}</span>
                   <ArrowRight size={16} />
                 </Link>
               </div>

@@ -196,6 +196,7 @@ const Header = ({ onBooking }: HeaderProps) => {
           <Button 
             variant="ghost" 
             size="icon" 
+            aria-label="Open menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
             className="text-white"
           >
