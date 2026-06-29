@@ -13,6 +13,10 @@ import SEO from "@/components/SEO";
 const About = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white relative overflow-x-hidden">
+      <SEO
+        title="About Crux Consulting — Our Team & Approach"
+        description="Meet the team behind Crux Consulting. AI-native, business-led consulting with a tailored-first approach to digital transformation and automation."
+      />
       <FloatingElements />
       
       <Header />
