@@ -87,6 +87,7 @@
       "subtitle": "Explore our comprehensive range of AI solutions designed to transform your business operations"
     },
     "learnMore": "Learn More",
+    "learnMoreAbout": "Learn more about {{service}}",
     "exploreAll": "Explore All Services",
     "servicesWeOffer": "Services we offer:",
     "readyToDiscover": "Ready to discover the next level of value creation?",
