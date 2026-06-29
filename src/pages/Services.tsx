@@ -114,6 +114,10 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="Services — AI Consulting, Automation & Tender Assistant"
+        description="Explore Crux Consulting services: AI chatbots, workshops, process audits, automation, AI compliance, and tender response assistance for businesses."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />
