@@ -96,6 +96,10 @@ const AiCompliance = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="AI Compliance & EU AI Act — Crux Consulting"
+        description="Navigate the EU AI Act with confidence. Assess risk, build compliant AI workflows, and align governance with your business strategy."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />

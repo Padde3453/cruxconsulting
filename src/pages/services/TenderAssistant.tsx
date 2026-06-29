@@ -149,6 +149,10 @@ const TenderAssistant = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="Tender Assistant — AI for RFP Responses"
+        description="Cut RFP response time without sacrificing quality. AI-powered tender assistant tailored to your win themes, content library, and process."
+      />
       <FloatingElements />
       <Header onBooking={handleBooking} />
 

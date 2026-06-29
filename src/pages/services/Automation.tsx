@@ -53,6 +53,10 @@ const Automation = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+      <SEO
+        title="Business Automation Services — Crux Consulting"
+        description="Streamline operations with custom automation. Reduce manual work, eliminate errors, and free your team to focus on high-value activities."
+      />
       <FloatingElements />
       
       <Header onBooking={handleBooking} />
