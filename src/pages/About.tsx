@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTranslation } from 'react-i18next';
+import SEO from "@/components/SEO";
 
 const About = () => {
   return (
