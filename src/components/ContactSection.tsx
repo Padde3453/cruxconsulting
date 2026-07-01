@@ -95,7 +95,7 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
     <section id="contact" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
             {t('contact.title')}
           </h2>
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">

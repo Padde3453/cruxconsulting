@@ -696,7 +696,15 @@
     "blog": "Blog",
     "about": "About",
     "contact": "Contact",
-    "bookConsultation": "Book Consultation"
+    "bookConsultation": "Book Consultation",
+    "servicesMenu": {
+      "tenderAssistant": "Tender Assistant",
+      "workshops": "AI & Automation Workshops",
+      "processAudit": "Process Audit & Process Automation",
+      "automation": "Custom Automation Services",
+      "aiChatbot": "AI Chatbots Internal & External",
+      "aiCompliance": "AI Compliance Consulting (EU AI Act)"
+    }
   },
   "tenderAssistant": {
     "title": "Tender Assistant",
