@@ -50,7 +50,7 @@ const Footer = () => {
         </div>
         <div className="flex justify-center items-center">
           <p className="text-gray-500">
-            {t('footer.copyright')}
+            {t('footer.copyright', { year: new Date().getFullYear() })}
           </p>
         </div>
       </div>
