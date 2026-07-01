@@ -523,7 +523,7 @@
   "footer": {
     "privacyPolicy": "Datenschutzerklärung",
     "impressum": "Impressum",
-    "copyright": "© 2024 Crux Consulting. Alle Rechte vorbehalten."
+    "copyright": "© {{year}} Crux Consulting. Alle Rechte vorbehalten."
   },
   "impressum": {
     "title": "Impressum",

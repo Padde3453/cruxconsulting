@@ -507,7 +507,7 @@
   "footer": {
     "privacyPolicy": "Privacy Policy",
     "impressum": "Legal Notice",
-    "copyright": "© 2024 Crux Consulting. All rights reserved."
+    "copyright": "© {{year}} Crux Consulting. All rights reserved."
   },
   "impressum": {
     "title": "Legal Notice",
