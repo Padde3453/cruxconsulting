@@ -68,7 +68,7 @@ const StatsSection = () => {
               <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent mb-2">
                 {stat.value}
               </div>
-              <div className="text-gray-300 text-sm md:text-base">{stat.label}</div>
+              <div className="text-gray-300 text-sm md:text-base hyphens-auto" lang={currentLang}>{stat.label}</div>
             </Card>
           ))}
         </div>
