@@ -27,6 +27,12 @@ const DetailedServicesCarousel = () => {
       icon: FileSearch,
     },
     {
+      title: t('automation.title'),
+      description: t('automation.description'),
+      path: '/services/automation',
+      icon: Settings,
+    },
+    {
       title: t('aiChatbot.title'),
       description: t('aiChatbot.hero.description'),
       path: '/services/ai-chatbot',
@@ -43,12 +49,6 @@ const DetailedServicesCarousel = () => {
       description: t('processAudit.description'),
       path: '/services/process-audit',
       icon: ClipboardList,
-    },
-    {
-      title: t('automation.title'),
-      description: t('automation.description'),
-      path: '/services/automation',
-      icon: Settings,
     },
     {
       title: t('aiCompliance.title'),
