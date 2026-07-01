@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 
 const StatsSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language.startsWith('de') ? 'de' : 'en';
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
