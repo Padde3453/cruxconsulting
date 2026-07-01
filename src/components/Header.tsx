@@ -96,12 +96,12 @@ const Header = ({ onBooking }: HeaderProps) => {
   };
 
   const serviceLinks = [
-    { path: '/services/tender-assistant', label: 'Tender Assistant' },
-    { path: '/services/workshops', label: 'AI & Automation Workshops' },
-    { path: '/services/process-audit', label: 'Process Audit & Process Automation' },
-    { path: '/services/automation', label: 'Custom Automation Services' },
-    { path: '/services/ai-chatbot', label: 'AI Chatbots Internal & External' },
-    { path: '/services/ai-compliance', label: 'AI Compliance Consulting (EU AI Act)' }
+    { path: '/services/tender-assistant', label: t('navigation.servicesMenu.tenderAssistant') },
+    { path: '/services/workshops', label: t('navigation.servicesMenu.workshops') },
+    { path: '/services/process-audit', label: t('navigation.servicesMenu.processAudit') },
+    { path: '/services/automation', label: t('navigation.servicesMenu.automation') },
+    { path: '/services/ai-chatbot', label: t('navigation.servicesMenu.aiChatbot') },
+    { path: '/services/ai-compliance', label: t('navigation.servicesMenu.aiCompliance') }
   ];
 
   return (

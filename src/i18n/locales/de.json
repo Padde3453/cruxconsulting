@@ -712,7 +712,15 @@
     "blog": "Blog",
     "about": "Über uns",
     "contact": "Kontakt",
-    "bookConsultation": "Beratung buchen"
+    "bookConsultation": "Beratung buchen",
+    "servicesMenu": {
+      "tenderAssistant": "Tender Assistant",
+      "workshops": "KI- & Automatisierungs-Workshops",
+      "processAudit": "Prozess-Audit & Prozessautomatisierung",
+      "automation": "Individuelle Automatisierungslösungen",
+      "aiChatbot": "KI-Chatbots – intern & extern",
+      "aiCompliance": "KI-Compliance-Beratung (EU AI Act)"
+    }
   },
   "tenderAssistant": {
     "title": "Tender Assistant",
