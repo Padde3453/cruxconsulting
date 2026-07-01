@@ -94,7 +94,7 @@ const DetailedServicesCarousel = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative lg:h-[400vh]"
+      className="relative lg:h-[260vh]"
       aria-label={t('services.detailedServices.title')}
     >
       <div className="lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden flex flex-col justify-center py-20">
@@ -110,7 +110,7 @@ const DetailedServicesCarousel = () => {
         <div className="lg:overflow-hidden">
           <div
             ref={trackRef}
-            className="flex gap-8 px-6 lg:px-[10vw] flex-col lg:flex-row lg:transition-transform lg:duration-100 lg:ease-out lg:will-change-transform"
+            className="flex gap-6 px-6 lg:pl-[8vw] lg:pr-[8vw] flex-col lg:flex-row lg:will-change-transform"
             style={
               isDesktop
                 ? { transform: `translate3d(-${translate}px, 0, 0)` }
@@ -122,15 +122,15 @@ const DetailedServicesCarousel = () => {
               return (
                 <div
                   key={index}
-                  className="group bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm border border-gray-600/30 rounded-2xl p-10 hover:border-brand-blue/50 transition-colors duration-300 flex flex-col w-full lg:w-[420px] lg:min-w-[420px] lg:h-[520px] shrink-0"
+                  className="group bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm border border-gray-600/30 rounded-2xl p-8 hover:border-brand-blue/50 transition-colors duration-300 flex flex-col w-full lg:w-[360px] lg:min-w-[360px] lg:h-[440px] shrink-0"
                 >
-                  <div className="w-16 h-16 flex items-center justify-center mb-6 rounded-xl bg-white/5 border border-white/10">
-                    <IconComponent className="w-8 h-8 text-brand-blue" />
+                  <div className="w-14 h-14 flex items-center justify-center mb-5 rounded-xl bg-white/5 border border-white/10">
+                    <IconComponent className="w-7 h-7 text-brand-blue" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">
+                  <h3 className="text-xl font-bold text-white mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-gray-300 mb-8 flex-grow">
+                  <p className="text-gray-300 mb-6 flex-grow text-[15px] leading-relaxed">
                     {service.description}
                   </p>
                   <Button
