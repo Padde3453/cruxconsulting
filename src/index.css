@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent gradient text (bg-clip-text) from clipping descenders like g, y, ü */
+@layer utilities {
+  .bg-clip-text {
+    padding-bottom: 0.15em;
+    line-height: 1.2;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
