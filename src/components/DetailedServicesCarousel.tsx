@@ -15,7 +15,8 @@ import {
 } from 'lucide-react';
 
 const DetailedServicesCarousel = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language.startsWith('de') ? 'de' : 'en';
   const [index, setIndex] = useState(0);
   const [perView, setPerView] = useState(1);
 
