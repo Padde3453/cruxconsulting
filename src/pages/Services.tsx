@@ -114,7 +114,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-clip relative">
       <SEO
         title="Services — AI Consulting, Automation & Tender Assistant"
         description="Explore Crux Consulting services: AI chatbots, workshops, process audits, automation, AI compliance, and tender response assistance for businesses."
