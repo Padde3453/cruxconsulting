@@ -714,7 +714,7 @@
     "contact": "Kontakt",
     "bookConsultation": "Beratung buchen",
     "servicesMenu": {
-      "tenderAssistant": "Ausschreibungsassistent",
+      "tenderAssistant": "Ausschreibungs-Assistent",
       "workshops": "KI- & Automatisierungs-Workshops",
       "processAudit": "Prozess-Audit & Prozessautomatisierung",
       "automation": "Individuelle Automatisierungslösungen",
@@ -723,7 +723,7 @@
     }
   },
   "tenderAssistant": {
-    "title": "Tender Assistant",
+    "title": "Ausschreibungs-Assistent",
     "subtitle": "Sie gewinnen Ausschreibungen, die Sie sonst verloren hätten.",
     "shortDescription": "Gewinnen Sie mehr Ausschreibungen mit KI-gestütztem Projektmanagement und Auto-Fill — schneller, genauer, weniger Fehler.",
     "challengesTitle": "Die Herausforderungen",
