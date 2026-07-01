@@ -208,7 +208,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block mb-4">
             {t("hero.title")}
           </span>
-          <div className="relative h-[1.2em] overflow-hidden inline-block min-w-full">
+          <div className="relative h-[1.5em] overflow-hidden inline-block min-w-full">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentWordIndex}
