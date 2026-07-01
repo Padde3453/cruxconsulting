@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 
 const StatsSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language.startsWith('de') ? 'de' : 'en';
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -67,7 +68,7 @@ const StatsSection = () => {
               <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent mb-2">
                 {stat.value}
               </div>
-              <div className="text-gray-300 text-sm md:text-base">{stat.label}</div>
+              <div className="text-gray-300 text-sm md:text-base hyphens-auto" lang={currentLang}>{stat.label}</div>
             </Card>
           ))}
         </div>
