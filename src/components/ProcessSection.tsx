@@ -70,14 +70,14 @@ const ProcessSection = () => {
               <div
                 key={index}
                 ref={cardAnimation.elementRef}
-                className={`transition-all duration-700 ${
+                className={`h-full transition-all duration-700 ${
                   cardAnimation.isVisible 
                     ? 'opacity-100 translate-y-0' 
                     : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <Card className="bg-gray-800/30 border-gray-700 overflow-hidden group hover:bg-gray-800/50 transition-all duration-500">
+                <Card className="h-full flex flex-col bg-gray-800/30 border-gray-700 overflow-hidden group hover:bg-gray-800/50 transition-all duration-500">
               <div className="aspect-video overflow-hidden">
                 <img 
                   src={step.image} 
@@ -85,9 +85,9 @@ const ProcessSection = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="p-6">
-                <div className="flex items-center gap-4 mb-3">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent opacity-50">
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex items-start gap-4 mb-3">
+                  <div className="text-4xl font-bold leading-none bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent opacity-50">
                     {step.number}
                   </div>
                   <h3 className="text-2xl font-bold text-white">{step.title}</h3>
