@@ -106,7 +106,10 @@ const DetailedServicesCarousel = () => {
                       <div className="w-14 h-14 shrink-0 flex items-center justify-center rounded-xl bg-white/5 border border-white/10">
                         <IconComponent className="w-7 h-7 text-brand-blue" />
                       </div>
-                      <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight">
+                      <h3
+                        className="text-2xl lg:text-3xl font-bold text-white leading-tight hyphens-auto break-words"
+                        lang={currentLang}
+                      >
                         {service.title}
                       </h3>
                     </div>
