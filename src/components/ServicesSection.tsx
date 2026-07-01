@@ -118,8 +118,8 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
                 }}
               >
                 <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm hover:scale-105 transition-transform duration-300 flex flex-col h-full">
-                <div className="flex items-center space-x-4 mb-4">
-                  <IconComponent className="text-brand-blue h-8 w-8" />
+                <div className="flex items-start space-x-4 mb-4">
+                  <IconComponent className="text-brand-blue h-8 w-8 shrink-0 mt-1" />
                   <div>
                     <h3 className="text-2xl font-bold text-white">{service.title}</h3>
                     <p className="text-sm text-gray-400">{service.subtitle}</p>
