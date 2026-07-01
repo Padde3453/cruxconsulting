@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Bot, Lightbulb, ClipboardList, Settings, Scale, FileSearch } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingElements from "@/components/FloatingElements";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ValueCard from "@/components/ValueCard";
 import DeliveryPromise from "@/components/DeliveryPromise";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import SEO from "@/components/SEO";
+import DetailedServicesCarousel from "@/components/DetailedServicesCarousel";
 
 const Services = () => {
   const { t } = useTranslation();
@@ -166,91 +167,8 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Detailed Services Section */}
-      <section className="py-20 relative">
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent">
-              {t('services.detailedServices.title')}
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              {t('services.detailedServices.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
-            {[
-              {
-                title: t('tenderAssistant.title'),
-                description: t('tenderAssistant.shortDescription'),
-                path: '/services/tender-assistant',
-                gradient: 'from-cyan-500 to-brand-blue',
-                icon: FileSearch
-              },
-              {
-                title: t('aiChatbot.title'),
-                description: t('aiChatbot.hero.description'),
-                path: '/services/ai-chatbot',
-                gradient: 'from-brand-blue to-blue-600',
-                icon: Bot
-              },
-              {
-                title: t('workshops.title'),
-                description: t('workshops.description'),
-                path: '/services/workshops',
-                gradient: 'from-brand-green to-green-600',
-                icon: Lightbulb
-              },
-              {
-                title: t('processAudit.title'),
-                description: t('processAudit.description'),
-                path: '/services/process-audit',
-                gradient: 'from-purple-500 to-purple-700',
-                icon: ClipboardList
-              },
-              {
-                title: t('automation.title'),
-                description: t('automation.description'),
-                path: '/services/automation',
-                gradient: 'from-orange-500 to-red-600',
-                icon: Settings
-              },
-              {
-                title: t('aiCompliance.title'),
-                description: t('aiCompliance.description'),
-                path: '/services/ai-compliance',
-                gradient: 'from-indigo-500 to-purple-600',
-                icon: Scale
-              }
-            ].map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-              <div
-                key={index}
-                className="group bg-gradient-to-br from-gray-800/40 to-gray-700/30 backdrop-blur-sm border border-gray-600/30 rounded-xl p-6 hover:border-brand-blue/50 transition-all duration-300 hover:transform hover:scale-105"
-              >
-                <div className="w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent className="w-8 h-8 text-gray-300" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-300 mb-6 line-clamp-3">
-                  {service.description}
-                </p>
-                <Link
-                  to={service.path}
-                  className="inline-flex items-center space-x-2 text-brand-blue hover:text-brand-green transition-colors duration-300"
-                >
-                  <span>{t('services.learnMoreAbout', { service: service.title })}</span>
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-            );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* Detailed Services Section - Horizontal Scroll Carousel */}
+      <DetailedServicesCarousel />
 
       {/* How We Work Section */}
       <section className="py-20 relative">
