@@ -785,7 +785,8 @@
     }
   },
   "newsletter": {
-    "title": "Crux KI-Newsletter",
+    "title": "Crux Consulting Newsletter",
+    "footerTitle": "Crux Newsletter",
     "subline": "Die wichtigsten News von Crux Consulting und aus der Welt der KI für euch als mittelständisches Unternehmen",
     "germanOnly": "",
     "placeholder": "Deine E-Mail-Adresse",
