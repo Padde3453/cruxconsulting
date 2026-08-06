@@ -42,7 +42,13 @@ On mobile, the columns stack: newsletter first, then the existing links, all cen
 - All copy added to `en.json` / `de.json` under a `newsletter` key.
 - Double opt-in stays enabled in beehiiv (GDPR-friendly for a German list).
 
-## What I need from you before building
-1. Your beehiiv API key and Publication ID (I'll request them through the secure secret form when we start).
-2. Confirmation that double opt-in is on in beehiiv.
-3. The German headline/subline you want for the popup and footer, or I can draft them.
+## Copy
+German subline (popup + footer):
+"Die wichtigsten News von Crux Consulting und aus der Welt der KI für euch als mittelständisches Unternehmen"
+
+English version of the same subline, plus the German-only note, will be drafted to match.
+
+## Confirmed
+- Approach: Option B (native form + backend call).
+- Double opt-in: available and stays enabled.
+- API key and Publication ID: to be entered in the secure secret form as `BEEHIIV_API_KEY` and `BEEHIIV_PUBLICATION_ID` as the first build step.
