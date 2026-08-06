@@ -6,9 +6,14 @@ import NewsletterForm from './NewsletterForm';
 
 const STORAGE_KEY = 'newsletterPopupSeen';
 const DELAY_MS = 15000;
-// TEMPORARY: show the popup on every page load for review.
-// Set back to true to only show it once per visitor.
-const SHOW_ONCE = false;
+// Show the popup only once per visitor (persisted in localStorage).
+const SHOW_ONCE = true;
+
+// Timestamp of the first mount in this browsing session. The 15s countdown
+// starts when the visitor arrives on the site and keeps running across
+// client-side navigations, so the popup still appears on whatever page
+// they are on when the delay elapses.
+let sessionStart: number | null = null;
 
 const EXCLUDED = ['/auth', '/.lovable/oauth', '/demo/'];
 
@@ -29,9 +34,11 @@ const NewsletterPopup = () => {
     }
     if (SHOW_ONCE && localStorage.getItem(STORAGE_KEY)) return;
 
-    const timer = setTimeout(() => setOpen(true), DELAY_MS);
+    if (sessionStart === null) sessionStart = Date.now();
+    const remaining = Math.max(0, DELAY_MS - (Date.now() - sessionStart));
+    const timer = setTimeout(() => setOpen(true), remaining);
     return () => clearTimeout(timer);
-  }, [excluded, search]);
+  }, [excluded, search, pathname]);
 
   const dismiss = () => {
     localStorage.setItem(STORAGE_KEY, new Date().toISOString());
