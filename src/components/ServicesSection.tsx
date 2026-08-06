@@ -117,20 +117,20 @@ const ServicesSection = ({ onBooking }: ServicesSectionProps) => {
                   willChange: 'transform, opacity'
                 }}
               >
-                <Card className="bg-gray-900/80 border-gray-700 p-5 backdrop-blur-sm flex flex-col h-full">
-                <div className="flex items-start space-x-3 mb-3 min-h-[5rem]">
-                  <IconComponent className="text-brand-blue h-7 w-7 shrink-0 mt-1" />
+                <Card className="bg-gray-900/80 border-gray-700 p-6 backdrop-blur-sm flex flex-col h-full">
+                <div className="flex items-start space-x-3 mb-3">
+                  <IconComponent className="text-brand-blue h-8 w-8 shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-xl font-bold text-white leading-tight">{service.title}</h3>
+                    <h3 className="text-2xl font-bold text-white leading-tight">{service.title}</h3>
                     <p className="text-sm text-gray-400 mt-1">{service.subtitle}</p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-400 mb-4 min-h-[6rem]">
+                <p className="text-gray-400 mb-4">
                   {service.description}
                 </p>
-                <div className="space-y-2 mb-4 flex-grow">
+                <div className="space-y-1.5 mb-5 flex-grow">
                   {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-2 text-sm text-gray-300">
+                    <div key={featureIndex} className="flex items-center space-x-2 text-gray-300">
                       <CheckCircle className="text-brand-green h-4 w-4 shrink-0" />
                       <span>{feature}</span>
                     </div>
