@@ -109,6 +109,17 @@ const Privacy = () => {
                 <p>{t('privacy.cookies.paragraph3')}</p>
               </div>
             </div>
+
+            <div className="border-t border-gray-700 pt-8" id="newsletter">
+              <h2 className="text-2xl font-bold text-white mb-4">{t('privacy.newsletter.title')}</h2>
+              <div className="text-gray-300 space-y-4">
+                <p>{t('privacy.newsletter.paragraph1')}</p>
+                <p>{t('privacy.newsletter.paragraph2')}</p>
+                <p>{t('privacy.newsletter.paragraph3')}</p>
+                <p>{t('privacy.newsletter.paragraph4')}</p>
+                <p>{t('privacy.newsletter.paragraph5')}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
