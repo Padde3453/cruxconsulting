@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { blogPosts } from "@/data/blog";
+import { blogPosts } from "../../../data/blog";
 import { blogUrl, htmlToPlainText, resolveLanguage, services } from "../content";
 
 export default defineTool({
