@@ -94,7 +94,12 @@ const NewsletterForm = ({ onSuccess, className = '', size = 'default' }: Newslet
         </Button>
       </div>
       {error && <p className={`mt-3 ${isLg ? 'text-base' : 'text-sm'} text-red-400`}>{error}</p>}
-      <p className={`mt-3 ${isLg ? 'text-sm' : 'text-xs'} text-gray-500`}>{t('newsletter.privacyNote')}</p>
+      <p className={`mt-3 ${isLg ? 'text-sm' : 'text-xs'} text-gray-500`}>
+        {t('newsletter.privacyNote')}{' '}
+        <Link to="/privacy#newsletter" className="underline hover:text-gray-300 transition-colors">
+          {t('newsletter.privacyLink')}
+        </Link>
+      </p>
     </form>
   );
 };
