@@ -11,7 +11,7 @@ const EXCLUDED = ['/auth', '/.lovable/oauth', '/demo/'];
 
 const NewsletterPopup = () => {
   const { t, i18n } = useTranslation();
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const [open, setOpen] = useState(false);
   const isGerman = i18n.language.startsWith('de');
 
@@ -19,11 +19,16 @@ const NewsletterPopup = () => {
 
   useEffect(() => {
     if (excluded) return;
+    const forced = new URLSearchParams(search).get('newsletter') === '1';
+    if (forced) {
+      setOpen(true);
+      return;
+    }
     if (localStorage.getItem(STORAGE_KEY)) return;
 
     const timer = setTimeout(() => setOpen(true), DELAY_MS);
     return () => clearTimeout(timer);
-  }, [excluded]);
+  }, [excluded, search]);
 
   const dismiss = () => {
     localStorage.setItem(STORAGE_KEY, new Date().toISOString());
