@@ -607,6 +607,14 @@
       "paragraph1": "Our website uses only strictly necessary cookies that are essential for the technical operation of the website. These cookies are required for basic website functionality and do not require your consent.",
       "paragraph2": "We use one functional cookie for storing sidebar preferences, which expires after 7 days. This cookie is considered strictly necessary for providing the service you requested.",
       "paragraph3": "We do not use cookies for marketing, analytics, or tracking purposes that would require your consent under GDPR regulations."
+    },
+    "newsletter": {
+      "title": "Newsletter (beehiiv)",
+      "paragraph1": "When you subscribe to our newsletter, we process your email address as well as the time of your sign-up and confirmation in order to send you regular information about Crux Consulting and topics related to artificial intelligence. Providing your email address is required for delivery; any further details are voluntary.",
+      "paragraph2": "Sign-up uses a double opt-in procedure: after entering your address you receive an email asking you to confirm your subscription. We only send the newsletter once you have confirmed. To document your consent we log the sign-up and confirmation timestamps and the IP address used.",
+      "paragraph3": "The legal basis for this processing is your consent under Art. 6(1)(a) GDPR in conjunction with Sec. 7(2) no. 3 of the German Act Against Unfair Competition (UWG). You can withdraw your consent at any time with effect for the future, for example via the unsubscribe link at the end of every newsletter email or by writing to contact@crux-consulting.ai. The lawfulness of processing carried out before withdrawal remains unaffected.",
+      "paragraph4": "We use the service beehiiv, provided by beehiiv, Inc., 228 Park Ave S, PMB 41147, New York, NY 10003, USA, to send our newsletter. beehiiv processes your data as a processor on the basis of a data processing agreement pursuant to Art. 28 GDPR. Transfers to the USA are based on the EU Standard Contractual Clauses (Art. 46 GDPR) together with supplementary safeguards. For more information see beehiiv's privacy policy at https://www.beehiiv.com/privacy.",
+      "paragraph5": "Our newsletters include standard measurement features (for example whether an email was opened and which links were clicked). This analysis serves solely to improve our content and is covered by your consent. We store your data for as long as you remain subscribed; after unsubscribing we retain your email address only to document the consent given and to implement your unsubscribe request (suppression list)."
     }
   },
   "about": {

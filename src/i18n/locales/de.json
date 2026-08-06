@@ -607,6 +607,14 @@
       "paragraph1": "Unsere Website verwendet nur unbedingt erforderliche Cookies, die für den technischen Betrieb der Website wesentlich sind. Diese Cookies sind für die grundlegende Website-Funktionalität erforderlich und benötigen nicht Ihre Zustimmung.",
       "paragraph2": "Wir verwenden ein funktionales Cookie zur Speicherung von Sidebar-Einstellungen, das nach 7 Tagen abläuft. Dieses Cookie wird als unbedingt erforderlich für die Bereitstellung des von Ihnen angeforderten Dienstes betrachtet.",
       "paragraph3": "Wir verwenden keine Cookies für Marketing-, Analyse- oder Tracking-Zwecke, die Ihre Zustimmung gemäß DSGVO-Bestimmungen erfordern würden."
+    },
+    "newsletter": {
+      "title": "Newsletter (beehiiv)",
+      "paragraph1": "Wenn Sie sich für unseren Newsletter anmelden, verarbeiten wir Ihre E-Mail-Adresse sowie den Zeitpunkt der Anmeldung und Bestätigung, um Ihnen regelmäßig Informationen zu Crux Consulting und zu Themen rund um künstliche Intelligenz zuzusenden. Die Angabe der E-Mail-Adresse ist für den Versand erforderlich; weitere Angaben sind freiwillig.",
+      "paragraph2": "Die Anmeldung erfolgt im Double-Opt-in-Verfahren: Nach Ihrer Eintragung erhalten Sie eine E-Mail, in der Sie Ihre Anmeldung bestätigen müssen. Erst danach versenden wir den Newsletter. Zum Nachweis der Anmeldung protokollieren wir Anmelde- und Bestätigungszeitpunkt sowie die dabei verwendete IP-Adresse.",
+      "paragraph3": "Rechtsgrundlage der Verarbeitung ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit § 7 Abs. 2 Nr. 3 UWG. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, z. B. über den Abmeldelink am Ende jeder Newsletter-E-Mail oder per Nachricht an contact@crux-consulting.ai. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.",
+      "paragraph4": "Für den Versand nutzen wir den Dienst beehiiv der beehiiv, Inc., 228 Park Ave S, PMB 41147, New York, NY 10003, USA. beehiiv verarbeitet Ihre Daten als Auftragsverarbeiter auf Grundlage eines Auftragsverarbeitungsvertrags gemäß Art. 28 DSGVO. Eine Übermittlung in die USA erfolgt auf Basis der EU-Standardvertragsklauseln (Art. 46 DSGVO) sowie ergänzender Schutzmaßnahmen. Weitere Informationen finden Sie in der Datenschutzerklärung von beehiiv unter https://www.beehiiv.com/privacy.",
+      "paragraph5": "Die Newsletter enthalten übliche Messfunktionen (z. B. ob eine E-Mail geöffnet und welche Links angeklickt wurden). Diese Auswertung dient allein der Verbesserung unserer Inhalte und ist von Ihrer Einwilligung umfasst. Ihre Daten werden gespeichert, solange Sie den Newsletter abonniert haben; nach der Abmeldung speichern wir Ihre E-Mail-Adresse ausschließlich zum Nachweis der erteilten Einwilligung bzw. zur Umsetzung der Abmeldung (Sperrliste)."
     }
   },
   "about": {
