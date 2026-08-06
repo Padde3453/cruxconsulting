@@ -15,13 +15,9 @@ const Footer = () => {
     <footer className="border-t border-gray-800 pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-start md:justify-between gap-10">
         {/* Newsletter */}
-        <div className="w-full md:max-w-md text-center md:text-left">
-          <h2 className="text-lg font-semibold text-white">{t('newsletter.title')}</h2>
-          <p className="mt-2 text-sm text-gray-400">{t('newsletter.subline')}</p>
-          {!isGerman && (
-            <p className="mt-2 text-xs text-brand-blue">{t('newsletter.germanOnly')}</p>
-          )}
-          <NewsletterForm className="mt-4" />
+        <div className="w-full md:max-w-md text-center md:text-left py-2">
+          <h2 className="text-xl font-semibold text-white">{t('newsletter.footerTitle')}</h2>
+          <NewsletterForm className="mt-6" />
         </div>
 
         {/* Links */}

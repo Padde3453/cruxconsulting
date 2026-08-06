@@ -60,6 +60,7 @@ Deno.serve(async (req) => {
         body: JSON.stringify({
           email,
           reactivate_existing: false,
+          double_opt_override: 'on',
           send_welcome_email: true,
           utm_source: 'crux-consulting.ai',
           utm_medium: 'website',

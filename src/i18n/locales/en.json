@@ -785,7 +785,8 @@
     }
   },
   "newsletter": {
-    "title": "Crux AI Newsletter",
+    "title": "Crux Consulting Newsletter",
+    "footerTitle": "Crux Newsletter",
     "subline": "The most important news from Crux Consulting and the world of AI, made for German mid-sized companies.",
     "germanOnly": "Please note: our newsletter is currently published in German only.",
     "placeholder": "Your email address",

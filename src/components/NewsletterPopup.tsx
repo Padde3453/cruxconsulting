@@ -50,30 +50,30 @@ const NewsletterPopup = () => {
       aria-labelledby="newsletter-popup-title"
     >
       <div
-        className="relative w-full max-w-md rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-2xl"
+        className="relative w-full max-w-2xl rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 sm:p-12 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           onClick={dismiss}
           aria-label={t('newsletter.close')}
-          className="absolute right-4 top-4 text-gray-400 hover:text-white transition-colors"
+          className="absolute right-5 top-5 text-gray-400 hover:text-white transition-colors"
         >
-          <X size={20} />
+          <X size={24} />
         </button>
 
         <h2
           id="newsletter-popup-title"
-          className="text-xl font-semibold text-white pr-8"
+          className="text-2xl sm:text-3xl font-semibold text-white pr-10 leading-tight"
         >
           {t('newsletter.title')}
         </h2>
-        <p className="mt-2 text-sm text-gray-400">{t('newsletter.subline')}</p>
+        <p className="mt-4 text-base sm:text-lg text-gray-300 leading-relaxed">{t('newsletter.subline')}</p>
         {!isGerman && (
-          <p className="mt-3 text-xs text-brand-blue">{t('newsletter.germanOnly')}</p>
+          <p className="mt-4 text-sm text-brand-blue">{t('newsletter.germanOnly')}</p>
         )}
 
-        <NewsletterForm className="mt-5" />
+        <NewsletterForm className="mt-8" size="lg" />
       </div>
     </div>
   );
