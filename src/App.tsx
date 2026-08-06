@@ -11,6 +11,8 @@ import BlogPost from "./pages/BlogPost";
 import Services from "./pages/Services";
 import Impressum from "./pages/Impressum";
 import Privacy from "./pages/Privacy";
+import Auth from "./pages/Auth";
+import OAuthConsent from "./pages/OAuthConsent";
 import NotFound from "./pages/NotFound";
 import BandwerkDemo from "./demo/pages/BandwerkDemo";
 import InstagramDemo from "./demo/pages/InstagramDemo";
@@ -82,6 +84,8 @@ const App = () => {
               <Route path="/services/tender-assistant" element={<TenderAssistant />} />
               <Route path="/impressum" element={<Impressum />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
               <Route path="/instagrampost" element={<InstagramPost />} />
               {/* ISOLATED DEMO ROUTES */}
               <Route path="/demo/bandwerk" element={<BandwerkDemo />} />
