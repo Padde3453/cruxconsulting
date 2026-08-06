@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.1",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "cruxconsulting",
+      "version": "0.1.0",
+      "title": "cruxconsulting"
+    },
+    "tools": [
+      {
+        "name": "get_company_info",
+        "title": "Get company info",
+        "description": "Get public information about Crux Consulting: what the company does, how it works, and how to get in touch.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_services",
+        "title": "List services",
+        "description": "List all consulting services offered by Crux Consulting, with a short description and the page URL for each.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_service",
+        "title": "Get service details",
+        "description": "Get the full public description of one Crux Consulting service by its slug (see list_services).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Service slug, e.g. 'tender-assistant'."
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_blog_posts",
+        "title": "List blog posts",
+        "description": "List all published Crux Consulting blog posts with title, summary, category, date and URL.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "language": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "en",
+                    "de"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Language of the returned content. Defaults to English."
+            }
+          },
+          "required": [
+            "language"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_blog_post",
+        "title": "Get blog post",
+        "description": "Get the full text of one Crux Consulting blog post by its slug (see list_blog_posts).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Blog post slug, e.g. 'why-AI-projects-fail'."
+            },
+            "language": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "en",
+                    "de"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Language of the returned content. Defaults to English."
+            }
+          },
+          "required": [
+            "slug",
+            "language"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "search_content",
+        "title": "Search site content",
+        "description": "Full-text search across Crux Consulting's public services and blog posts. Returns matching items with URLs and short excerpts.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "minLength": 2,
+              "description": "Search terms, e.g. 'tender automation'."
+            },
+            "language": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "en",
+                    "de"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Language of the returned content. Defaults to English."
+            }
+          },
+          "required": [
+            "query",
+            "language"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
