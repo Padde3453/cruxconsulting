@@ -48,6 +48,9 @@ const ScrollToTop = () => {
 
 const App = () => {
   const [showLoading, setShowLoading] = useState(() => {
+    // Never delay auth / OAuth consent routes behind the intro animation.
+    const path = window.location.pathname;
+    if (path === '/auth' || path.startsWith('/.lovable/oauth')) return false;
     // Only show loading screen once per session
     const hasSeenLoading = sessionStorage.getItem('hasSeenLoading');
     return !hasSeenLoading;
