@@ -3,7 +3,7 @@
 // supabase function: mcp
 // Bundled from src/lib/mcp/index.ts by @lovable.dev/mcp-js.
 // src/lib/mcp/index.ts
-import { defineMcp } from "npm:@lovable.dev/mcp-js@0.26.1";
+import { auth, defineMcp } from "npm:@lovable.dev/mcp-js@0.26.1";
 
 // src/lib/mcp/tools/list-services.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.26.1";
@@ -2703,11 +2703,16 @@ var get_company_info_default = defineTool6({
 });
 
 // src/lib/mcp/index.ts
+var projectRef = "vumroflqhbqowjvojtvp";
 var mcp_default = defineMcp({
   name: "cruxconsulting",
   title: "cruxconsulting",
   version: "0.1.0",
-  instructions: "Public tools for the Crux Consulting website (crux-consulting.ai), an AI-native business consulting firm. Use `get_company_info` for background on the company, `list_services` / `get_service` for its consulting offerings, `list_blog_posts` / `get_blog_post` for published articles (English and German), and `search_content` to search across everything. All data is public website content.",
+  instructions: "Tools for the Crux Consulting website (crux-consulting.ai), an AI-native business consulting firm. Callers must sign in to a Crux Consulting account. Use `get_company_info` for background on the company, `list_services` / `get_service` for its consulting offerings, `list_blog_posts` / `get_blog_post` for published articles (English and German), and `search_content` to search across everything.",
+  auth: auth.oauth.issuer({
+    issuer: `https://${projectRef}.supabase.co/auth/v1`,
+    acceptedAudiences: "authenticated"
+  }),
   tools: [
     get_company_info_default,
     list_services_default,
