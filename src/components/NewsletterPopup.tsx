@@ -6,6 +6,9 @@ import NewsletterForm from './NewsletterForm';
 
 const STORAGE_KEY = 'newsletterPopupSeen';
 const DELAY_MS = 15000;
+// TEMPORARY: show the popup on every page load for review.
+// Set back to true to only show it once per visitor.
+const SHOW_ONCE = false;
 
 const EXCLUDED = ['/auth', '/.lovable/oauth', '/demo/'];
 
@@ -24,7 +27,7 @@ const NewsletterPopup = () => {
       setOpen(true);
       return;
     }
-    if (localStorage.getItem(STORAGE_KEY)) return;
+    if (SHOW_ONCE && localStorage.getItem(STORAGE_KEY)) return;
 
     const timer = setTimeout(() => setOpen(true), DELAY_MS);
     return () => clearTimeout(timer);
