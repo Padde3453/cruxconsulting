@@ -11,9 +11,11 @@ const emailSchema = z.string().trim().email().max(255);
 interface NewsletterFormProps {
   onSuccess?: () => void;
   className?: string;
+  size?: 'default' | 'lg';
 }
 
-const NewsletterForm = ({ onSuccess, className = '' }: NewsletterFormProps) => {
+const NewsletterForm = ({ onSuccess, className = '', size = 'default' }: NewsletterFormProps) => {
+  const isLg = size === 'lg';
   const { t, i18n } = useTranslation();
   const language = i18n.language.startsWith('de') ? 'de' : 'en';
   const [email, setEmail] = useState('');
@@ -53,8 +55,8 @@ const NewsletterForm = ({ onSuccess, className = '' }: NewsletterFormProps) => {
 
   if (status === 'success') {
     return (
-      <div className={`flex items-start gap-2 text-sm text-brand-green ${className}`}>
-        <CheckCircle2 size={18} className="shrink-0 mt-0.5" />
+      <div className={`flex items-start gap-2 ${isLg ? 'text-base' : 'text-sm'} text-brand-green ${className}`}>
+        <CheckCircle2 size={isLg ? 22 : 18} className="shrink-0 mt-0.5" />
         <p>{t('newsletter.success')}</p>
       </div>
     );
@@ -62,7 +64,7 @@ const NewsletterForm = ({ onSuccess, className = '' }: NewsletterFormProps) => {
 
   return (
     <form onSubmit={handleSubmit} className={`w-full ${className}`} noValidate>
-      <div className="flex flex-col sm:flex-row gap-2">
+      <div className={`flex flex-col sm:flex-row ${isLg ? 'gap-3' : 'gap-2'}`}>
         <label htmlFor="newsletter-email" className="sr-only">
           {t('newsletter.placeholder')}
         </label>
@@ -74,14 +76,15 @@ const NewsletterForm = ({ onSuccess, className = '' }: NewsletterFormProps) => {
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t('newsletter.placeholder')}
           maxLength={255}
-          className="bg-white/5 border-white/20 text-white placeholder:text-gray-500 focus-visible:ring-brand-blue"
+          className={`bg-white/5 border-white/20 text-white placeholder:text-gray-500 focus-visible:ring-brand-blue ${isLg ? 'h-14 text-base px-5' : ''}`}
         />
         <Button
           type="submit"
           variant="gradient"
           enableMouseGradient
+          size={isLg ? 'lg' : 'default'}
           disabled={status === 'loading'}
-          className="shrink-0"
+          className={`shrink-0 ${isLg ? 'h-14 px-8 text-base' : ''}`}
         >
           {status === 'loading' ? (
             <Loader2 size={16} className="animate-spin" />
@@ -90,8 +93,8 @@ const NewsletterForm = ({ onSuccess, className = '' }: NewsletterFormProps) => {
           )}
         </Button>
       </div>
-      {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
-      <p className="mt-2 text-xs text-gray-500">{t('newsletter.privacyNote')}</p>
+      {error && <p className={`mt-3 ${isLg ? 'text-base' : 'text-sm'} text-red-400`}>{error}</p>}
+      <p className={`mt-3 ${isLg ? 'text-sm' : 'text-xs'} text-gray-500`}>{t('newsletter.privacyNote')}</p>
     </form>
   );
 };
