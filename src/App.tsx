@@ -26,6 +26,7 @@ import TenderAssistant from "./pages/services/TenderAssistant";
 import InstagramPost from "./pages/InstagramPost";
 import CruxChatbotScript from "./components/CruxChatbotScript";
 import LoadingScreen from "./components/LoadingScreen";
+import NewsletterPopup from "./components/NewsletterPopup";
 import { Navigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { HelmetProvider } from 'react-helmet-async';
@@ -71,6 +72,7 @@ const App = () => {
           <CruxChatbotScript />
           <BrowserRouter>
             <ScrollToTop />
+            {!showLoading && <NewsletterPopup />}
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />

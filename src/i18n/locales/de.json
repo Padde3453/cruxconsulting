@@ -3,7 +3,11 @@
   "hero": {
     "title": "KI-gestützt",
     "subtitle": "Wachstum",
-    "rotatingWords": ["Wachstum", "Innovation", "Effizienz"],
+    "rotatingWords": [
+      "Wachstum",
+      "Innovation",
+      "Effizienz"
+    ],
     "description": "Transformieren Sie Ihr Unternehmen mit modernsten KI-Lösungen. Schnell, präzise, transformativ.",
     "cta": "Starten Sie Ihre Transformation",
     "responseTime": "24h",
@@ -153,24 +157,24 @@
   },
   "process": {
     "title": "Unser Prozess",
-    "subtitle": "Von der Beratung zur Transformation in nur wenigen Tagen, nicht Monaten",
+    "subtitle": "Wie wir Ihr Unternehmen mit KI-gestützten Lösungen transformieren",
     "listen": {
-      "title": "Zuhören",
-      "description": "Wir verstehen Ihre einzigartigen Herausforderungen und Geschäftsziele"
+      "title": "Zuhören & Verstehen",
+      "description": "Wir beginnen damit, Ihre Geschäftsherausforderungen, aktuellen Prozesse und spezifischen Ziele tiefgreifend zu verstehen, um die besten KI-Möglichkeiten zu identifizieren."
     },
     "analyze": {
-      "title": "Analysieren",
-      "description": "KI-gestützte Bewertung Ihrer aktuellen Prozesse und Potentiale"
+      "title": "Analysieren & Gestalten",
+      "description": "Unsere Experten analysieren Ihre Arbeitsabläufe und gestalten maßgeschneiderte KI-Lösungen, die sich nahtlos in Ihre bestehenden Systeme integrieren."
     },
     "implement": {
-      "title": "Umsetzen",
-      "description": "Nahtlose Integration maßgeschneiderter KI-Lösungen"
+      "title": "Entwickeln & Bereitstellen",
+      "description": "Wir entwickeln und implementieren maßgeschneiderte KI-Lösungen mit modernster Technologie und gewährleisten eine reibungslose Bereitstellung und Integration."
     },
     "transform": {
-      "title": "Transformieren",
-      "description": "Erleben Sie, wie sich Ihr Unternehmen mit messbaren Ergebnissen entwickelt"
+      "title": "Transformieren & Skalieren",
+      "description": "Erleben Sie, wie sich Ihr Unternehmen transformiert, während KI-Automatisierung Zeit freigibt, Fehler reduziert und Ihr Team sich auf strategisches Wachstum konzentrieren kann."
     },
-    "beginJourney": "Beginnen Sie Ihre Reise"
+    "beginJourney": "Beginnen Sie Ihre KI-Reise"
   },
   "blog": {
     "title": "Neueste Erkenntnisse",
@@ -341,7 +345,7 @@
         "description": "Umfassende Analyse Ihrer bestehenden Prozesse mit KI-gestützten Tools zur Identifizierung von Engpässen und Ineffizienzen."
       },
       {
-        "title": "Verbesserungs- und Automatisierungsempfehlungen", 
+        "title": "Verbesserungs- und Automatisierungsempfehlungen",
         "description": "Detaillierte Vorschläge zur Optimierung von Arbeitsabläufen und Implementierung von Automatisierungslösungen, die auf Ihre Geschäftsanforderungen zugeschnitten sind."
       },
       {
@@ -686,27 +690,6 @@
       "sendApplication": "Ihre Bewerbung Senden"
     }
   },
-  "process": {
-    "title": "Unser Prozess",
-    "subtitle": "Wie wir Ihr Unternehmen mit KI-gestützten Lösungen transformieren",
-    "listen": {
-      "title": "Zuhören & Verstehen",
-      "description": "Wir beginnen damit, Ihre Geschäftsherausforderungen, aktuellen Prozesse und spezifischen Ziele tiefgreifend zu verstehen, um die besten KI-Möglichkeiten zu identifizieren."
-    },
-    "analyze": {
-      "title": "Analysieren & Gestalten",
-      "description": "Unsere Experten analysieren Ihre Arbeitsabläufe und gestalten maßgeschneiderte KI-Lösungen, die sich nahtlos in Ihre bestehenden Systeme integrieren."
-    },
-    "implement": {
-      "title": "Entwickeln & Bereitstellen",
-      "description": "Wir entwickeln und implementieren maßgeschneiderte KI-Lösungen mit modernster Technologie und gewährleisten eine reibungslose Bereitstellung und Integration."
-    },
-    "transform": {
-      "title": "Transformieren & Skalieren",
-      "description": "Erleben Sie, wie sich Ihr Unternehmen transformiert, während KI-Automatisierung Zeit freigibt, Fehler reduziert und Ihr Team sich auf strategisches Wachstum konzentrieren kann."
-    },
-    "beginJourney": "Beginnen Sie Ihre KI-Reise"
-  },
   "navigation": {
     "services": "Leistungen",
     "blog": "Blog",
@@ -799,6 +782,22 @@
       "title": "Bereit, mehr Ausschreibungen zu gewinnen?",
       "description": "Stellen Sie Fragen, nehmen Sie Kontakt auf oder buchen Sie eine kostenlose Demo — wir helfen Ihnen gerne weiter.",
       "buttonText": "Demo buchen"
+    }
+  },
+  "newsletter": {
+    "title": "Crux KI-Newsletter",
+    "subline": "Die wichtigsten News von Crux Consulting und aus der Welt der KI für euch als mittelständisches Unternehmen",
+    "germanOnly": "",
+    "placeholder": "Deine E-Mail-Adresse",
+    "cta": "Abonnieren",
+    "success": "Fast geschafft! Bitte bestätige dein Abo über die E-Mail, die wir dir gerade geschickt haben.",
+    "close": "Newsletter-Anmeldung schließen",
+    "privacyNote": "Kostenlos, jederzeit abbestellbar. Details in unserer Datenschutzerklärung.",
+    "errors": {
+      "invalid_email": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "rate_limited": "Zu viele Versuche. Bitte versuche es gleich noch einmal.",
+      "not_configured": "Der Newsletter ist gerade nicht verfügbar. Bitte später erneut versuchen.",
+      "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
     }
   }
 }
