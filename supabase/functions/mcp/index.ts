@@ -118,7 +118,7 @@ ${s.url}`).join("\n\n")
 
 // src/lib/mcp/tools/get-service.ts
 import { defineTool as defineTool2, ToolError } from "npm:@lovable.dev/mcp-js@0.26.1";
-import { z } from "npm:zod@^3.23.8";
+import { z } from "npm:zod@^4";
 var get_service_default = defineTool2({
   name: "get_service",
   title: "Get service details",
@@ -154,7 +154,7 @@ ${service2.highlights.map((h) => `- ${h}`).join("\n")}`
 
 // src/lib/mcp/tools/list-blog-posts.ts
 import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.26.1";
-import { z as z2 } from "npm:zod@^3.23.8";
+import { z as z2 } from "npm:zod@^4";
 
 // src/data/blog/should-you-automate-that-process.ts
 var shouldYouAutomateThatProcess = {
@@ -2581,7 +2581,7 @@ ${p.url}`).join("\n\n")
 
 // src/lib/mcp/tools/get-blog-post.ts
 import { defineTool as defineTool4, ToolError as ToolError2 } from "npm:@lovable.dev/mcp-js@0.26.1";
-import { z as z3 } from "npm:zod@^3.23.8";
+import { z as z3 } from "npm:zod@^4";
 var get_blog_post_default = defineTool4({
   name: "get_blog_post",
   title: "Get blog post",
@@ -2629,7 +2629,7 @@ ${body}`
 
 // src/lib/mcp/tools/search-content.ts
 import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.26.1";
-import { z as z4 } from "npm:zod@^3.23.8";
+import { z as z4 } from "npm:zod@^4";
 var search_content_default = defineTool5({
   name: "search_content",
   title: "Search site content",
