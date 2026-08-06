@@ -807,6 +807,7 @@
       "rate_limited": "Zu viele Versuche. Bitte versuche es gleich noch einmal.",
       "not_configured": "Der Newsletter ist gerade nicht verfügbar. Bitte später erneut versuchen.",
       "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
-    }
+    },
+    "privacyLink": "Datenschutzerklärung"
   }
 }

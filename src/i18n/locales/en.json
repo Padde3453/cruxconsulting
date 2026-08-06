@@ -807,6 +807,7 @@
       "rate_limited": "Too many attempts. Please try again in a moment.",
       "not_configured": "The newsletter is not available right now. Please try again later.",
       "generic": "Something went wrong. Please try again."
-    }
+    },
+    "privacyLink": "Privacy policy"
   }
 }
