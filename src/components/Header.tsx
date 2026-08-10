@@ -1,10 +1,12 @@
 
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, Plus, ChevronDown } from "lucide-react";
+import { Menu, Plus, ChevronDown, ExternalLink } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from './LanguageToggle';
+
+const CLIENT_PORTAL_URL = "https://kundenportal.crux-consulting.ai";
 
 interface HeaderProps {
   onBooking?: () => void;
@@ -116,7 +118,7 @@ const Header = ({ onBooking }: HeaderProps) => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden lg:flex items-center gap-5 xl:gap-8">
           <div 
             className="relative"
             onMouseEnter={handleServicesDropdownEnter}
@@ -178,12 +180,21 @@ const Header = ({ onBooking }: HeaderProps) => {
           >
             {t('navigation.contact')}
           </button>
+          <a
+            href={CLIENT_PORTAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors whitespace-nowrap"
+          >
+            <span>{t('navigation.clientPortal')}</span>
+            <ExternalLink size={14} className="opacity-70" />
+          </a>
           <LanguageToggle />
           <Button 
             onClick={handleBooking} 
             variant="gradient"
             enableMouseGradient
-            className="rounded-full px-6 py-2 flex items-center space-x-2"
+            className="rounded-full px-4 xl:px-6 py-2 flex items-center space-x-2 whitespace-nowrap"
           >
             <span>{t('navigation.bookConsultation')}</span>
             <Plus size={16} />
@@ -191,8 +202,17 @@ const Header = ({ onBooking }: HeaderProps) => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center space-x-2">
+        <div className="lg:hidden flex items-center space-x-2">
           <LanguageToggle />
+          <a
+            href={CLIENT_PORTAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors text-sm whitespace-nowrap"
+          >
+            <span>{t('navigation.clientPortal')}</span>
+            <ExternalLink size={14} className="opacity-70" />
+          </a>
           <Button 
             variant="ghost" 
             size="icon" 
@@ -207,7 +227,7 @@ const Header = ({ onBooking }: HeaderProps) => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-gray-900/95 backdrop-blur-sm border border-gray-700/50 rounded-3xl shadow-lg">
+        <div className="lg:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-gray-900/95 backdrop-blur-sm border border-gray-700/50 rounded-3xl shadow-lg">
           <div className="px-6 py-4 space-y-4">
             <button 
               onClick={handleServicesNavigation}
@@ -245,6 +265,16 @@ const Header = ({ onBooking }: HeaderProps) => {
             >
               {t('navigation.contact')}
             </button>
+            <a
+              href={CLIENT_PORTAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors sm:hidden"
+            >
+              <span>{t('navigation.clientPortal')}</span>
+              <ExternalLink size={14} className="opacity-70" />
+            </a>
             <Button 
               onClick={handleBooking} 
               variant="gradient"
