@@ -118,7 +118,7 @@ const Header = ({ onBooking }: HeaderProps) => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-5 xl:gap-8">
+        <div className="hidden xl:flex items-center gap-5 xl:gap-8">
           <div 
             className="relative"
             onMouseEnter={handleServicesDropdownEnter}
@@ -184,10 +184,9 @@ const Header = ({ onBooking }: HeaderProps) => {
             href={CLIENT_PORTAL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors whitespace-nowrap"
+            className="text-gray-300 hover:text-white transition-colors whitespace-nowrap"
           >
-            <span>{t('navigation.clientPortal')}</span>
-            <ExternalLink size={14} className="opacity-70" />
+            {t('navigation.clientPortal')}
           </a>
           <LanguageToggle />
           <Button 
@@ -202,17 +201,8 @@ const Header = ({ onBooking }: HeaderProps) => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center space-x-2">
+        <div className="xl:hidden flex items-center space-x-2">
           <LanguageToggle />
-          <a
-            href={CLIENT_PORTAL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors text-sm whitespace-nowrap"
-          >
-            <span>{t('navigation.clientPortal')}</span>
-            <ExternalLink size={14} className="opacity-70" />
-          </a>
           <Button 
             variant="ghost" 
             size="icon" 
@@ -227,7 +217,7 @@ const Header = ({ onBooking }: HeaderProps) => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-gray-900/95 backdrop-blur-sm border border-gray-700/50 rounded-3xl shadow-lg">
+        <div className="xl:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-gray-900/95 backdrop-blur-sm border border-gray-700/50 rounded-3xl shadow-lg">
           <div className="px-6 py-4 space-y-4">
             <button 
               onClick={handleServicesNavigation}
@@ -270,10 +260,9 @@ const Header = ({ onBooking }: HeaderProps) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors sm:hidden"
+              className="block text-gray-300 hover:text-white transition-colors"
             >
-              <span>{t('navigation.clientPortal')}</span>
-              <ExternalLink size={14} className="opacity-70" />
+              {t('navigation.clientPortal')}
             </a>
             <Button 
               onClick={handleBooking} 
