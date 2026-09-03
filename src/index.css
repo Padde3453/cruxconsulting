@@ -99,13 +99,35 @@
 }
 
 @layer base {
+  :root {
+    --font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+                   "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-weight-default: 300;
+    color-scheme: dark;
+  }
+
   * {
     @apply border-border;
   }
 
+  html {
+    font-family: var(--font-family);
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-default);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+  /* Brand default weight: start every text element at Light (300) */
+  h1, h2, h3, h4, h5, h6, p, li, a, span, div, button, input, textarea, select, label, td, th {
+    font-family: var(--font-family);
+  }
+
 
   /* Enable list styling for blog content */
   .prose ol {
