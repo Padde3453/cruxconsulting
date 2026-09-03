@@ -208,7 +208,7 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
           <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block mb-4">
             {t("hero.title")}
           </span>
-          <div className="relative h-[1.5em] overflow-hidden inline-flex items-center justify-center min-w-full">
+          <div className="relative h-[1.6em] overflow-hidden inline-flex items-center justify-center min-w-full">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentWordIndex}
@@ -218,8 +218,9 @@ const HeroSection = ({ onBooking }: HeroSectionProps) => {
                 transition={{
                   type: "spring",
                   stiffness: 50,
+                  damping: 20,
                 }}
-                className="block w-full bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent"
+                className="block w-full pt-[0.12em] leading-none bg-gradient-to-r from-brand-blue to-brand-green bg-clip-text text-transparent"
               >
                 {rotatingWords[currentWordIndex]}
               </motion.span>
