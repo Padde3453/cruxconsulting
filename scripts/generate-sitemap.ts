@@ -20,21 +20,27 @@ interface BlogPostMeta {
 }
 
 // Read blog post slugs and dates from individual files in src/data/blog/
+// (post files only — helper/content modules such as *.de.ts / *.en.ts have no `slug:`)
 const blogDir = path.resolve(__dirname, '../src/data/blog');
 const blogFiles = fs.readdirSync(blogDir).filter(f => f.endsWith('.ts') && f !== 'index.ts' && f !== 'types.ts' && !f.startsWith('_'));
 
 const blogPosts: BlogPostMeta[] = [];
 for (const file of blogFiles) {
   const content = fs.readFileSync(path.join(blogDir, file), 'utf-8');
-  const slugMatch = content.match(/slug:\s*["']([^"']+)["']/);
-  const dateMatch = content.match(/date:\s*["']([^"']+)["']/);
-  if (slugMatch) {
+  const slugMatch = content.match(/^\s*slug:\s*["']([^"']+)["']/m);
+  // Prefer the ISO `publishedAt` field, fall back to the display `date`
+  const isoMatch = content.match(/^\s*publishedAt:\s*["'](\d{4}-\d{2}-\d{2})["']/m);
+  const dateMatch = content.match(/^\s*date:\s*["']([^"']+)["']/m);
+  if (slugMatch && !blogPosts.some(p => p.slug === slugMatch[1])) {
     blogPosts.push({
       slug: slugMatch[1],
-      date: dateMatch ? dateMatch[1] : new Date().toISOString()
+      date: isoMatch ? isoMatch[1] : dateMatch ? dateMatch[1] : new Date().toISOString()
     });
   }
 }
+
+// Newest first, so the most relevant URLs appear at the top of the sitemap
+blogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 // Static pages — these are the ACTUAL routes in the app router
 // Non-language-prefixed pages (no /en/ or /de/ prefix)
@@ -53,6 +59,8 @@ const staticPages = [
 ];
 
 function formatDate(dateStr: string): string {
+  // Already ISO (YYYY-MM-DD) — use verbatim to avoid timezone shifts
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
   try {
     const date = new Date(dateStr);
     if (isNaN(date.getTime())) {
@@ -99,7 +107,7 @@ function generateBlogUrlEntry(slug: string, lastmod: string): string {
 function generateSitemap(): string {
   const today = new Date().toISOString().split('T')[0];
   
-  let urls: string[] = [];
+  const urls: string[] = [];
 
   // Static pages (no language prefix — these are the real routes)
   for (const page of staticPages) {

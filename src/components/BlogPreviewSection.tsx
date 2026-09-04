@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { blogPosts, getMostRecentPosts, getCategoryColor } from "@/data/blogPosts";
+import { blogPosts, getMostRecentPosts, getCategoryColor, formatPostDate, getImageAlt } from "@/data/blogPosts";
 import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -56,7 +56,7 @@ const BlogPreviewSection = () => {
                 <Link to={`/${currentLang}/blog/${post.slug}`} className="block h-full">
                   <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col">
                 <div className="aspect-video bg-gray-700 overflow-hidden flex-shrink-0">
-                  <img src={post.image} alt={post.title[currentLang]} className="w-full h-full object-cover" />
+                  <img src={post.image} alt={getImageAlt(post, currentLang)} loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 
                 <div className="p-4 flex flex-col flex-grow">
@@ -73,7 +73,7 @@ const BlogPreviewSection = () => {
                   </p>
                   
                     <div className="text-xs text-gray-400 mt-auto">
-                      {post.date} • {currentLang === 'de' ? 'Von' : 'By'} {post.author}
+                      {formatPostDate(post, currentLang)} • {currentLang === 'de' ? 'Von' : 'By'} {post.author}
                     </div>
                   </div>
                 </Card>

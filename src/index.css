@@ -152,6 +152,214 @@
     margin: 0.5rem 0;
   }
 
+  /* ------------------------------------------------------------------
+     Blog article building blocks (tables, callouts, sources)
+     Scoped to .blog-content so nothing else on the site is affected.
+     ------------------------------------------------------------------ */
+
+  /* Horizontally scrollable table container (mobile-safe) */
+  .blog-content .table-wrap {
+    position: relative;
+    margin: 2rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 0.75rem;
+    /* Scroll shadows: hint that more columns exist to the right/left */
+    background:
+      linear-gradient(to right, #111827 30%, rgba(17, 24, 39, 0)),
+      linear-gradient(to right, rgba(17, 24, 39, 0), #111827 70%) 100% 0,
+      radial-gradient(farthest-side at 0 50%, rgba(1, 147, 127, 0.35), rgba(0, 0, 0, 0)),
+      radial-gradient(farthest-side at 100% 50%, rgba(39, 72, 225, 0.45), rgba(0, 0, 0, 0)) 100% 0;
+    background-color: #111827;
+    background-repeat: no-repeat;
+    background-size: 48px 100%, 48px 100%, 18px 100%, 18px 100%;
+    background-attachment: local, local, scroll, scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  }
+
+  .blog-content .table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+  .blog-content .table-wrap::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 9999px;
+  }
+
+  .blog-content .crux-table {
+    width: 100%;
+    min-width: 42rem;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    background: transparent;
+  }
+
+  /* Narrow (2-column) tables may shrink to the viewport */
+  .blog-content .crux-table--narrow {
+    min-width: 28rem;
+  }
+
+  .blog-content .crux-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: rgba(39, 72, 225, 0.22);
+    color: #ededea;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    text-align: left;
+    vertical-align: top;
+    padding: 0.85rem 1rem;
+    border-bottom: 2px solid #2748E1;
+    white-space: normal;
+  }
+
+  .blog-content .crux-table tbody td {
+    padding: 0.85rem 1rem;
+    vertical-align: top;
+    color: #d1d5db;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  .blog-content .crux-table tbody tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .blog-content .crux-table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .blog-content .crux-table tbody td:first-child,
+  .blog-content .crux-table tbody th[scope="row"] {
+    color: #ededea;
+    font-weight: 500;
+  }
+
+  /* Score cells: Crux green accent, never wrap */
+  .blog-content .crux-table .score {
+    display: inline-block;
+    color: #01937F;
+    font-weight: 600;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .blog-content .crux-table .cell-note {
+    display: block;
+    color: #9ca3af;
+    font-size: 0.85em;
+    margin: 0 0 0.15rem;
+  }
+
+  /* Blockquote inside a callout: no extra frame, just emphasis */
+  .blog-content .callout blockquote {
+    margin: 0;
+    padding-left: 1rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.25);
+    font-style: normal;
+    font-weight: 500;
+    color: #ededea;
+  }
+  .blog-content .callout blockquote p::before,
+  .blog-content .callout blockquote p::after {
+    content: none;
+  }
+
+  /* Mobile: slightly tighter cells but still readable */
+  @media (max-width: 640px) {
+    .blog-content .crux-table {
+      font-size: 0.9rem;
+    }
+    .blog-content .crux-table thead th,
+    .blog-content .crux-table tbody td {
+      padding: 0.7rem 0.8rem;
+    }
+  }
+
+  /* Callout boxes (replace 1x1 "tables" from the manuscript) */
+  .blog-content .callout {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid #01937F;
+    border-radius: 0 0.75rem 0.75rem 0;
+    background: rgba(1, 147, 127, 0.10);
+    color: #e5e7eb;
+  }
+
+  .blog-content .callout--blue {
+    border-left-color: #2748E1;
+    background: rgba(39, 72, 225, 0.12);
+  }
+
+  .blog-content .callout--warning {
+    border-left-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.10);
+  }
+
+  .blog-content .callout > :first-child {
+    margin-top: 0;
+  }
+  .blog-content .callout > :last-child {
+    margin-bottom: 0;
+  }
+
+  .blog-content .callout-title {
+    display: block;
+    color: #ededea;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-content .callout p {
+    margin: 0.5rem 0;
+    font-size: 1.05rem;
+  }
+
+  .blog-content .callout ul,
+  .blog-content .callout ol {
+    margin: 0.5rem 0 0;
+  }
+
+  .blog-content .callout li {
+    margin: 0.25rem 0;
+  }
+
+  .blog-content .lead {
+    font-size: 1.35rem;
+    line-height: 1.5;
+    color: #ededea;
+    font-weight: 500;
+  }
+
+  /* Sources list */
+  .blog-content .sources li {
+    margin: 0.6rem 0;
+  }
+  .blog-content .sources a {
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Table caption used as an accessible title */
+  .blog-content .crux-table caption {
+    caption-side: top;
+    text-align: left;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem 0.25rem;
+  }
+
   /* Respect user's motion preferences */
   @media (prefers-reduced-motion: reduce) {
     *,
