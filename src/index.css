@@ -239,6 +239,11 @@
   .blog-content .crux-table td:first-child {
     min-width: 9rem;
   }
+  /* Tables whose first column is a short score range need far less room */
+  .blog-content .crux-table--score-first th:first-child,
+  .blog-content .crux-table--score-first td:first-child {
+    min-width: 4.5rem;
+  }
 
   .blog-content .crux-table tbody tr:nth-child(even) td {
     background: rgba(255, 255, 255, 0.035);

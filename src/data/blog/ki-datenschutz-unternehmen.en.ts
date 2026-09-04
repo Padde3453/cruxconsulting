@@ -43,7 +43,7 @@ export const contentEn = `
 <p>The scale is a practical security and control scale, not a legal certification. A score of 10 does not mean a system is risk-free – only that data flows and safeguards in that scenario are designed to be as controllable as possible.</p>
 
 <div class="table-wrap">
-  <table class="crux-table">
+  <table class="crux-table crux-table--score-first">
     <thead>
       <tr>
         <th scope="col">Score</th>

@@ -43,7 +43,7 @@ export const contentDe = `
 <p>Die Skala ist eine praxisnahe Sicherheits- und Kontrollskala, keine rechtliche Zertifizierung. Ein Wert von 10 bedeutet nicht, dass ein System risikofrei ist – nur, dass Datenflüsse und Schutzmaßnahmen im jeweiligen Szenario maximal kontrollierbar angelegt sind.</p>
 
 <div class="table-wrap">
-  <table class="crux-table">
+  <table class="crux-table crux-table--score-first">
     <thead>
       <tr>
         <th scope="col">Score</th>

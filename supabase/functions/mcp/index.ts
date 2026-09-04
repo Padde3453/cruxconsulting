@@ -2575,7 +2575,7 @@ var contentDe = `
 <p>Die Skala ist eine praxisnahe Sicherheits- und Kontrollskala, keine rechtliche Zertifizierung. Ein Wert von 10 bedeutet nicht, dass ein System risikofrei ist \u2013 nur, dass Datenfl\xFCsse und Schutzma\xDFnahmen im jeweiligen Szenario maximal kontrollierbar angelegt sind.</p>
 
 <div class="table-wrap">
-  <table class="crux-table">
+  <table class="crux-table crux-table--score-first">
     <thead>
       <tr>
         <th scope="col">Score</th>
@@ -3068,7 +3068,7 @@ var contentEn = `
 <p>The scale is a practical security and control scale, not a legal certification. A score of 10 does not mean a system is risk-free \u2013 only that data flows and safeguards in that scenario are designed to be as controllable as possible.</p>
 
 <div class="table-wrap">
-  <table class="crux-table">
+  <table class="crux-table crux-table--score-first">
     <thead>
       <tr>
         <th scope="col">Score</th>
