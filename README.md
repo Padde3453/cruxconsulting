@@ -38,6 +38,7 @@ Open your new file and replace all the placeholder text:
 | `category` | One of: `"AI STRATEGY"`, `"PROCESS AUTOMATION"`, `"AI EDUCATION"`, `"AUTOMATION"`, `"SALES & SERVICE"` | `"AI STRATEGY"` |
 | `slug` | The URL-friendly name (lowercase, dashes) | `"my-new-post"` |
 | `originalLanguage` | `'en'` if written in English, `'de'` if in German | `'en'` |
+| `contentFormat` | Keep `'semantic'` — headings, lists, quotes and tables are styled automatically and paragraphs get spacing (no `<br>` needed) | `'semantic'` |
 | `title` | Post title in English AND German | — |
 | `summary` | 2-3 sentence teaser in English AND German (plain text, no HTML) | — |
 | `image` | Path to your image (upload via Lovable first) | `"/lovable-uploads/my-image.png"` |

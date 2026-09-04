@@ -46,4 +46,5 @@ export const kiDatenschutzUnternehmen: BlogPost = {
   author: "Patrick Reverchon",
   originalLanguage: "de",
   hideTranslationNotice: true,
+  contentFormat: "semantic",
 };

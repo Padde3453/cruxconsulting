@@ -29,6 +29,10 @@ export const myNewPost: BlogPost = {
   // ORIGINAL LANGUAGE — 'en' if you wrote it in English, 'de' if in German
   originalLanguage: 'en',
 
+  // CONTENT FORMAT — keep 'semantic': headings, lists, quotes and tables get proper
+  // article styling and paragraphs are spaced automatically (no <br> tags needed)
+  contentFormat: 'semantic',
+
   // TITLE — keep under 60 characters for best display
   title: {
     en: "Your English Title Here",

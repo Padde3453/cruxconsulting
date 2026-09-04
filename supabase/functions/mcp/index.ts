@@ -3558,7 +3558,8 @@ var kiDatenschutzUnternehmen = {
   publishedAt: "2026-09-04",
   author: "Patrick Reverchon",
   originalLanguage: "de",
-  hideTranslationNotice: true
+  hideTranslationNotice: true,
+  contentFormat: "semantic"
 };
 
 // src/data/blog/index.ts

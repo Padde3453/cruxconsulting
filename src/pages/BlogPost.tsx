@@ -221,7 +221,7 @@ const BlogPost = () => {
 
           {/* Content - Now properly renders HTML */}
           <div 
-            className="blog-content prose prose-lg prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-lg prose-strong:text-white prose-em:text-gray-200 prose-a:text-brand-blue hover:prose-a:text-brand-green prose-ul:text-gray-300 prose-ol:text-gray-300 prose-li:text-gray-300 prose-blockquote:text-gray-200 prose-blockquote:border-brand-green"
+            className={`blog-content ${blogPost.contentFormat === 'semantic' ? 'blog-content--semantic' : ''} prose prose-lg prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-lg prose-strong:text-white prose-em:text-gray-200 prose-a:text-brand-blue hover:prose-a:text-brand-green prose-ul:text-gray-300 prose-ol:text-gray-300 prose-li:text-gray-300 prose-blockquote:text-gray-200 prose-blockquote:border-brand-green`}
             dangerouslySetInnerHTML={{ __html: blogPost.content[currentLang] }}
           />
 

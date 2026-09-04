@@ -35,4 +35,11 @@ export interface BlogPost {
    * edited in both languages — suppresses the "automatic translation" notice.
    */
   hideTranslationNotice?: boolean;
+  /**
+   * How the HTML body is styled.
+   * - 'legacy' (default): older posts that space paragraphs with <br> tags — rendered unchanged.
+   * - 'semantic': proper article typography for h2/h3, p, ul/ol, blockquote, a, tables.
+   *   Use this for all new posts (no <br> between paragraphs needed).
+   */
+  contentFormat?: 'legacy' | 'semantic';
 }
