@@ -6,7 +6,14 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { blogPosts, getCategoryColor, type BlogPost as BlogPostType } from "@/data/blogPosts";
+import {
+  blogPosts,
+  getCategoryColor,
+  formatPostDate,
+  getImageAlt,
+  getMetaDescription,
+  type BlogPost as BlogPostType,
+} from "@/data/blogPosts";
 import { useTranslation } from 'react-i18next';
 
 const BlogPost = () => {
@@ -67,16 +74,28 @@ const BlogPost = () => {
 
   const currentUrl = `https://crux-consulting.ai/${currentLang}/blog/${blogPost.slug}`;
   const alternateUrl = currentLang === 'en' ? `https://crux-consulting.ai/de/blog/${blogPost.slug}` : `https://crux-consulting.ai/en/blog/${blogPost.slug}`;
+  const imageUrl = `https://crux-consulting.ai${blogPost.image}`;
+  const displayDate = formatPostDate(blogPost, currentLang);
+  const imageAlt = getImageAlt(blogPost, currentLang);
+  const metaDescription = getMetaDescription(blogPost, currentLang);
+  // ISO date for machine-readable metadata (older posts fall back to their display date)
+  const isoDate = blogPost.publishedAt ?? blogPost.date;
+  const showTranslationNotice =
+    !blogPost.hideTranslationNotice && blogPost.originalLanguage !== currentLang;
   
   // Create structured data for Article
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": blogPost.title[currentLang],
-    "description": blogPost.summary[currentLang],
-    "image": `https://crux-consulting.ai${blogPost.image}`,
-    "datePublished": blogPost.date,
-    "dateModified": blogPost.date,
+    "description": metaDescription,
+    "image": {
+      "@type": "ImageObject",
+      "url": imageUrl,
+      "caption": imageAlt
+    },
+    "datePublished": isoDate,
+    "dateModified": isoDate,
     "author": {
       "@type": "Person",
       "name": blogPost.author
@@ -93,8 +112,10 @@ const BlogPost = () => {
       "@type": "WebPage",
       "@id": currentUrl
     },
+    "url": currentUrl,
     "inLanguage": currentLang,
-    "articleSection": blogPost.category
+    "articleSection": blogPost.category,
+    ...(blogPost.keywords?.length ? { "keywords": blogPost.keywords.join(", ") } : {})
   };
 
   return (
@@ -104,19 +125,24 @@ const BlogPost = () => {
         <html lang={currentLang} />
         <title>{blogPost.title[currentLang]} | Crux Consulting</title>
         <meta name="title" content={`${blogPost.title[currentLang]} | Crux Consulting`} />
-        <meta name="description" content={blogPost.summary[currentLang]} />
+        <meta name="description" content={metaDescription} />
         <meta name="author" content={blogPost.author} />
+        {blogPost.keywords?.length ? (
+          <meta name="keywords" content={blogPost.keywords.join(", ")} />
+        ) : null}
         <link rel="canonical" href={currentUrl} />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content={currentUrl} />
         <meta property="og:title" content={blogPost.title[currentLang]} />
-        <meta property="og:description" content={blogPost.summary[currentLang]} />
-        <meta property="og:image" content={`https://crux-consulting.ai${blogPost.image}`} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:image:alt" content={imageAlt} />
         <meta property="og:locale" content={currentLang === 'de' ? 'de_DE' : 'en_US'} />
+        <meta property="og:locale:alternate" content={currentLang === 'de' ? 'en_US' : 'de_DE'} />
         <meta property="og:site_name" content="Crux Consulting" />
-        <meta property="article:published_time" content={blogPost.date} />
+        <meta property="article:published_time" content={isoDate} />
         <meta property="article:author" content={blogPost.author} />
         <meta property="article:section" content={blogPost.category} />
         
@@ -124,8 +150,9 @@ const BlogPost = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={currentUrl} />
         <meta name="twitter:title" content={blogPost.title[currentLang]} />
-        <meta name="twitter:description" content={blogPost.summary[currentLang]} />
-        <meta name="twitter:image" content={`https://crux-consulting.ai${blogPost.image}`} />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="twitter:image" content={imageUrl} />
+        <meta name="twitter:image:alt" content={imageAlt} />
         
         {/* Hreflang for alternate language versions */}
         <link rel="alternate" hrefLang={currentLang === 'en' ? 'de' : 'en'} href={alternateUrl} />
@@ -161,7 +188,7 @@ const BlogPost = () => {
 
           {/* Meta Information */}
           <div className="text-gray-400 mb-8 flex items-center space-x-4">
-            <span>{blogPost.date}</span>
+            <time dateTime={isoDate}>{displayDate}</time>
             <span>•</span>
             <span>{currentLang === 'de' ? 'Von' : 'By'} {blogPost.author}</span>
           </div>
@@ -170,18 +197,18 @@ const BlogPost = () => {
           <div className="aspect-video bg-gray-700 overflow-hidden rounded-lg mb-8">
             <img 
               src={blogPost.image} 
-              alt={blogPost.title[currentLang]} 
+              alt={imageAlt} 
               className="w-full h-full object-cover"
             />
           </div>
 
           {/* Translation Notice */}
-          {blogPost.originalLanguage === 'en' && currentLang === 'de' && (
+          {showTranslationNotice && currentLang === 'de' && (
             <div className="text-sm text-gray-400 mb-4 italic">
               Dies ist eine automatische Übersetzung ins Deutsche, der Artikel wurde im Original in Englisch geschrieben
             </div>
           )}
-          {blogPost.originalLanguage === 'de' && currentLang === 'en' && (
+          {showTranslationNotice && currentLang === 'en' && (
             <div className="text-sm text-gray-400 mb-4 italic">
               This is an automatic translation into English, the article was originally written in German
             </div>
@@ -194,7 +221,7 @@ const BlogPost = () => {
 
           {/* Content - Now properly renders HTML */}
           <div 
-            className="prose prose-lg prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-lg prose-strong:text-white prose-em:text-gray-200 prose-a:text-brand-blue hover:prose-a:text-brand-green prose-ul:text-gray-300 prose-ol:text-gray-300 prose-li:text-gray-300"
+            className={`blog-content ${blogPost.contentFormat === 'semantic' ? 'blog-content--semantic' : ''} prose prose-lg prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-lg prose-strong:text-white prose-em:text-gray-200 prose-a:text-brand-blue hover:prose-a:text-brand-green prose-ul:text-gray-300 prose-ol:text-gray-300 prose-li:text-gray-300 prose-blockquote:text-gray-200 prose-blockquote:border-brand-green`}
             dangerouslySetInnerHTML={{ __html: blogPost.content[currentLang] }}
           />
 

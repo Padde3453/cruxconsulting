@@ -2532,6 +2532,1036 @@ var saveHoursOnRfpResponses = {
   }
 };
 
+// src/data/blog/ki-datenschutz-unternehmen.de.ts
+var contentDe = `
+<p class="lead">Die entscheidende Frage lautet nicht: Welches KI-Modell ist das beste? Sondern: Welche Daten darf dieses Modell in unserem konkreten Betriebsmodell sehen \u2013 und wer beh\xE4lt die Kontrolle dar\xFCber?</p>
+
+<div class="callout callout--blue">
+  <strong class="callout-title">Die Kurzantwort</strong>
+  <p>Eine Corporate-Lizenz ist ein wichtiger Baustein, aber kein Freifahrtschein. F\xFCr die Sicherheit z\xE4hlen Datenfluss, Vertrag, Aufbewahrung, Zugriffe, Integrationen und die konkrete Konfiguration. Ein Tunnel sch\xFCtzt den Transport \u2013 er macht einen Cloud-Anbieter nicht automatisch zu einem lokalen System.</p>
+</div>
+
+<p>Viele Unternehmen in Deutschland, \xD6sterreich und der Schweiz stehen vor demselben Dilemma: Die Fachbereiche wollen mit modernen KI-Modellen arbeiten, w\xE4hrend Gesch\xE4ftsf\xFChrung, IT und Datenschutz verhindern m\xFCssen, dass Kundendaten, Personalinformationen oder vertrauliche Unternehmenspl\xE4ne unkontrolliert in fremde Systeme gelangen. Die gute Nachricht: Datenschutz und moderne KI schlie\xDFen sich nicht aus. Die schlechte: Eine Corporate-Lizenz allein l\xF6st die Aufgabe nicht.</p>
+
+<p>Dieser Beitrag ordnet die wichtigsten M\xF6glichkeiten auf einer Skala von 0 bis 10 ein \u2013 von extrem riskant bis extrem sicher. Verglichen werden \xF6ffentliche Chatbots, Enterprise-Angebote von OpenAI, Gemini, Grok und Anthropic, direkte APIs, private Cloud- und Dedicated-Setups, Together AI mit einem eigenen Tunnel sowie Open-Source-Modelle auf der eigenen Infrastruktur.</p>
+
+<div class="callout">
+  <strong class="callout-title">Kurzfazit f\xFCr Entscheider</strong>
+  <p>F\xFCr die meisten Unternehmen ist eine sauber konfigurierte Enterprise- oder API-L\xF6sung mit Auftragsverarbeitungsvertrag, klarer Region, kurzer oder keiner Speicherung, SSO/RBAC und deaktivierten Drittanbieter-Connectors ein sinnvoller Ausgangspunkt. Je sensibler die Daten, desto eher verschiebt sich die Empfehlung zu einer dedizierten privaten Umgebung oder zu lokal betriebenen Open-Source-Modellen.</p>
+</div>
+
+<h2>1. Was muss bei KI eigentlich gesch\xFCtzt werden?</h2>
+
+<p>Datenschutz wird oft zu eng verstanden. Es geht nicht nur um Namen, E-Mail-Adressen oder Kundennummern. Auch Gespr\xE4chsverl\xE4ufe, IP-Adressen, Bewerbungsunterlagen, Support-Tickets, Vertragsinhalte, Quellcode, Preislisten, Lieferkonditionen, Produkt-Roadmaps und interne Prognosen k\xF6nnen schutzw\xFCrdig sein. Ein Dokument bleibt nicht deshalb unkritisch, weil der Name darin fehlt.</p>
+
+<p>Die Datenschutzkonferenz weist darauf hin, dass personenbezogene Daten entlang des gesamten KI-Lebenszyklus betrachtet werden m\xFCssen: beim Upload, bei der Verarbeitung, in Protokollen, in Vektordatenbanken, bei Backups und bei der L\xF6schung. Auch pseudonymisierte oder aus Texten erzeugte Embeddings k\xF6nnen weiterhin einen Personenbezug haben.</p>
+
+<p>F\xFCr Gesch\xE4ftsgeheimnisse gilt zus\xE4tzlich: Selbst wenn keine DSGVO betroffen ist, kann ein Datenabfluss wirtschaftlich oder wettbewerbsrechtlich relevant sein. Ein Anbieter darf Daten zwar vertraglich nicht zum Training verwenden \u2013 trotzdem muss gekl\xE4rt sein, ob sie f\xFCr Abuse Monitoring, Support, Backups, Drittanbieter-Tools oder Suchfunktionen gespeichert und zug\xE4nglich gemacht werden.</p>
+
+<div class="callout callout--blue">
+  <strong class="callout-title">Vier Fragen vor jeder Freigabe</strong>
+  <ol>
+    <li>Welche Daten verlassen unser Unternehmen?</li>
+    <li>Wer kann sie sehen oder weiterverarbeiten?</li>
+    <li>Wie lange bleiben sie gespeichert?</li>
+    <li>K\xF6nnen wir Nutzung, Zugriff, L\xF6schung und Vorfall nachvollziehbar nachweisen?</li>
+  </ol>
+</div>
+
+<h2>2. Die Risikoklassifikation von 0 bis 10</h2>
+
+<p>Die Skala bewertet nicht die Intelligenz eines Modells und auch nicht den Ruf eines Anbieters. Sie bewertet, wie viel Kontrolle ein Unternehmen in einem konkreten Betriebsmodell \xFCber Daten und Sicherheitsma\xDFnahmen hat. Der gleiche Anbieter kann deshalb je nach Produkt, Vertrag und Einstellung in unterschiedlichen Klassen landen.</p>
+
+<p>Die Skala ist eine praxisnahe Sicherheits- und Kontrollskala, keine rechtliche Zertifizierung. Ein Wert von 10 bedeutet nicht, dass ein System risikofrei ist \u2013 nur, dass Datenfl\xFCsse und Schutzma\xDFnahmen im jeweiligen Szenario maximal kontrollierbar angelegt sind.</p>
+
+<div class="table-wrap">
+  <table class="crux-table crux-table--score-first">
+    <thead>
+      <tr>
+        <th scope="col">Score</th>
+        <th scope="col">Cluster</th>
+        <th scope="col">Typische Situation</th>
+        <th scope="col">Geeignete Daten</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="score">0\u20132</td>
+        <td>Extrem riskant</td>
+        <td>\xD6ffentlicher oder privater Consumer-Account; sensible Daten werden ohne Freigabe, Vertrag und klare L\xF6schregeln eingegeben.</td>
+        <td>Keine sensiblen Unternehmens- oder Personendaten.</td>
+      </tr>
+      <tr>
+        <td class="score">3\u20134</td>
+        <td>Niedrige Kontrolle</td>
+        <td>Unklare API-/SaaS-Konfiguration, unbekannte Aufbewahrung, viele Drittanbieter oder private Workarounds.</td>
+        <td>Allenfalls \xF6ffentliche oder synthetische Testdaten.</td>
+      </tr>
+      <tr>
+        <td class="score">5\u20136</td>
+        <td>Bedingt vertretbar</td>
+        <td>Corporate-Arbeitsbereich oder Standard-Cloud-API mit DPA und Trainingsausschluss, aber noch offenen Fragen bei Region, Logs, Connectors oder Berechtigungen.</td>
+        <td>Interne Informationen nach Freigabe und Datenminimierung.</td>
+      </tr>
+      <tr>
+        <td class="score">7\u20138</td>
+        <td>Gut kontrollierbar</td>
+        <td>Enterprise/API mit klarer Rollenverteilung, kurzer oder keiner Speicherung, EU-/EWR-Verarbeitung, SSO, Zugriffskontrollen und vorgeschaltetem Gateway.</td>
+        <td>Viele gesch\xE4ftliche Daten; personenbezogene Daten nur nach Pr\xFCfung.</td>
+      </tr>
+      <tr>
+        <td class="score">9\u201310</td>
+        <td>Extrem sicher angelegt</td>
+        <td>Dedizierte oder lokal betriebene Inferenz, segmentierte Infrastruktur, strikte Zugriffskontrolle, gepr\xFCfte Modelle, lokale RAG-Datenbank, Audit und \u2013 wenn n\xF6tig \u2013 Offline-Betrieb.</td>
+        <td>Sehr sensible Daten; immer abh\xE4ngig von Umsetzung und Governance.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout--warning">
+  <strong class="callout-title">Wichtig</strong>
+  <p>Ein hoher Score ersetzt keine Rechtsgrundlage, keine Datenschutz-Folgenabsch\xE4tzung und keine Sicherheitspr\xFCfung. Er ist ein Entscheidungsrahmen, damit Unternehmen Architektur- und Freigabeentscheidungen nachvollziehbar treffen k\xF6nnen.</p>
+</div>
+
+<h2>3. Die wichtigsten Betriebsmodelle im direkten Vergleich</h2>
+
+<p>Die folgende \xDCbersicht ist die zentrale Entscheidungshilfe dieses Beitrags. Die Werte sind Bandbreiten, weil sich das Risiko durch Konfiguration, Datenklasse und Integrationen deutlich ver\xE4ndern kann.</p>
+
+<div class="table-wrap">
+  <table class="crux-table">
+    <thead>
+      <tr>
+        <th scope="col">Betriebsmodell</th>
+        <th scope="col">Score</th>
+        <th scope="col">Einordnung</th>
+        <th scope="col">Worauf kommt es an?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>\xD6ffentlicher Gratis-Chatbot</td>
+        <td class="score">0\u20132</td>
+        <td>H\xF6chstes Risiko f\xFCr sensible Inhalte</td>
+        <td>Keine Unternehmensdaten eingeben; nur \xF6ffentliches oder k\xFCnstliches Material.</td>
+      </tr>
+      <tr>
+        <td>Enterprise-Chatoberfl\xE4che</td>
+        <td class="score">5\u20137</td>
+        <td>Gute Governance m\xF6glich</td>
+        <td>DPA/AVV, kein Training, SSO, Rollen, Retention und Connectors ausdr\xFCcklich pr\xFCfen.</td>
+      </tr>
+      <tr>
+        <td>Direkte SOTA-API</td>
+        <td class="score">7\u20138</td>
+        <td>Kontrollierbarer Datenfluss</td>
+        <td>Gateway f\xFCr Redaction, Region, Logs und Modellrouting; zustandsbehaftete Endpunkte pr\xFCfen.</td>
+      </tr>
+      <tr>
+        <td>Private Cloud / Dedicated Inference</td>
+        <td class="score">8\u20139</td>
+        <td>Hohe Isolation</td>
+        <td>Single-Tenant, private Netzwerkpfade, EU-Region, klare Support- und Subprozessorenregeln.</td>
+      </tr>
+      <tr>
+        <td>Together AI Standard + eigener Tunnel</td>
+        <td class="score">5\u20136</td>
+        <td>Transport gesch\xFCtzt, Daten bleiben extern</td>
+        <td>Tunnel verbessert Zugangskontrolle, \xE4ndert aber nicht die Sichtbarkeit beim Inferenzanbieter.</td>
+      </tr>
+      <tr>
+        <td>Together AI Dedicated / private</td>
+        <td class="score">8\u20139</td>
+        <td>Cloud mit deutlich mehr Kontrolle</td>
+        <td>Dedicated, ZDR, Region und private Networking m\xFCssen vertraglich und technisch aktiv sein.</td>
+      </tr>
+      <tr>
+        <td>Open-Source-Modell auf Firmenserver</td>
+        <td class="score">8</td>
+        <td>Daten bleiben im eigenen Verantwortungsbereich</td>
+        <td>Server, Logs, Backups, Modellquelle, Updates und RAG-Zugriffe konsequent absichern.</td>
+      </tr>
+      <tr>
+        <td>Open-Source-Modell isoliert/offline</td>
+        <td class="score">9\u201310</td>
+        <td>Maximale Datensouver\xE4nit\xE4t</td>
+        <td>Sinnvoll f\xFCr besonders sensible Daten; Offline-Betrieb erschwert Updates und Monitoring.</td>
+      </tr>
+      <tr>
+        <td>Hybrides Routing nach Datenklasse</td>
+        <td class="score">6\u20139</td>
+        <td>Pragmatische Kombination</td>
+        <td>Sensible Inhalte lokal, weniger kritische Aufgaben in gepr\xFCfter Cloud; Router darf nicht umgangen werden.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Die rote Linie verl\xE4uft nicht zwischen Cloud und On-Premise. Sie verl\xE4uft zwischen kontrolliertem und unkontrolliertem Datenfluss. Ein gut abgesicherter Cloud-Service kann sicherer sein als ein schlecht administrierter eigener Server. Umgekehrt kann ein vollst\xE4ndig lokales System die st\xE4rkste technische Datengrenze schaffen \u2013 aber nur, wenn auch die eigene Infrastruktur professionell betrieben wird.</p>
+
+<h2>4. SOTA-Modelle mit Corporate-Lizenz: Was \xE4ndert sich wirklich?</h2>
+
+<p>OpenAI, Gemini, Grok und Anthropic bieten Unternehmens- und API-Produkte mit deutlich besseren Schutzmechanismen als kostenlose Consumer-Zug\xE4nge. Typische Bausteine sind: kein Training mit Kundendaten als Standard, Auftragsverarbeitungsbedingungen, SSO, Rollen, Audit-Logs, Verschl\xFCsselung und teilweise regionale Verarbeitung. Diese Bausteine m\xFCssen aber aktiv ausgew\xE4hlt, richtig konfiguriert und dokumentiert werden.</p>
+
+<p>Wer nur den Markennamen betrachtet, vergleicht am falschen Punkt. F\xFCr den Datenschutz ist entscheidend, ob Sie eine Chatoberfl\xE4che, einen API-Endpunkt, eine Dateiablage, einen Agenten mit Tools oder eine eingebettete Suchfunktion nutzen. Jede zus\xE4tzliche Funktion kann neue Speicherorte, Subprozessoren und Berechtigungen einf\xFChren.</p>
+
+<div class="table-wrap">
+  <table class="crux-table">
+    <thead>
+      <tr>
+        <th scope="col">Anbieter / Zugang</th>
+        <th scope="col">Typischer Score</th>
+        <th scope="col">Datenschutzperspektive</th>
+        <th scope="col">Prim\xE4r pr\xFCfen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>OpenAI</td>
+        <td><span class="cell-note">Enterprise/API</span><span class="score">typischerweise 7\u20138</span></td>
+        <td>Gesch\xE4ftsdaten werden nach den aktuellen Business-Regeln standardm\xE4\xDFig nicht zum Training verwendet. Bei der API sind Standard-Logs und eligible ZDR-/Retention-Optionen zu unterscheiden; Chat, Dateien und stateful Funktionen k\xF6nnen eigene Speicherregeln haben.</td>
+        <td>Business- und API-Datenschutz; Your Data / Data Residency</td>
+      </tr>
+      <tr>
+        <td>Google Gemini</td>
+        <td><span class="cell-note">Workspace/Cloud</span><span class="score">typischerweise 7\u20138</span></td>
+        <td>Workspace- und Cloud-Umgebungen bieten Organisationsbindung, Admin-Kontrollen und \u2013 je nach Produkt \u2013 Datenregionen. Websuche, Maps, Notebook- und Drittanbieter-Integrationen k\xF6nnen Datenpfade und Aufbewahrung ver\xE4ndern.</td>
+        <td>Workspace AI Privacy Hub; Gemini Data Governance</td>
+      </tr>
+      <tr>
+        <td>Anthropic Claude</td>
+        <td><span class="cell-note">Commercial/API</span><span class="score">typischerweise 6\u20138</span></td>
+        <td>Kommerzielle Eingaben werden nach den aktuellen Standardregeln nicht zum Training verwendet. ZDR, Retention und regionale Verarbeitung h\xE4ngen vom Vertrag, Modell und Endpunkt ab; die \xF6ffentlich dokumentierte API-Geo kann global/US sein.</td>
+        <td>Commercial Terms; API Data Retention; Data Residency</td>
+      </tr>
+      <tr>
+        <td>xAI Grok</td>
+        <td><span class="cell-note">Business/API</span><span class="score">typischerweise 5\u20138</span></td>
+        <td>Die Consumer-Privacy-Policy ist nicht die API-Regelung. F\xFCr Business/API sind DPA, Subprozessoren, Transfers au\xDFerhalb Europas, Aufbewahrung und ein eventuelles ZDR-Setting im konkreten Vertrag zu pr\xFCfen.</td>
+        <td>Enterprise FAQ; DPA; Subprocessor List</td>
+      </tr>
+      <tr>
+        <td>Microsoft Copilot</td>
+        <td><span class="cell-note">M365-Umgebung</span><span class="score">typischerweise 7\u20138</span></td>
+        <td>Starke Tenant- und Identit\xE4tsbindung, Sensitivity Labels und Auditierbarkeit. Prompts und Antworten k\xF6nnen f\xFCr Audit/eDiscovery im Tenant gespeichert werden; Websuche und Drittanbieter-Tools sind separat zu bewerten.</td>
+        <td>Copilot Privacy; Enterprise Data Protection</td>
+      </tr>
+      <tr>
+        <td>AWS Bedrock</td>
+        <td><span class="cell-note">Private Cloud</span><span class="score">typischerweise 8\u20139</span></td>
+        <td>AWS dokumentiert, dass Modellanbieter keinen Zugriff auf Bedrock-Prompts und -Logs erhalten. VPC-Endpunkte, IAM, KMS, CloudTrail und regionale Profile geben zus\xE4tzliche Kontrolle; globale Cross-Region-Profile m\xFCssen bewusst gew\xE4hlt werden.</td>
+        <td>Bedrock Data Protection; VPC Endpoints</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Die Werte sind keine Anbieter-Rangliste. Sie zeigen, welches Niveau ein sauber konfiguriertes Modell erreichen kann. Ein nicht verwalteter Account desselben Anbieters f\xE4llt sofort in eine niedrigere Klasse.</p>
+
+<h2>5. Echte Entscheidungsfragen aus der Praxis</h2>
+
+<h3>Darf ich ChatGPT mit Kundendaten nutzen?</h3>
+<p>Nicht pauschal ja und nicht pauschal nein. Es kommt darauf an, ob Ihr Unternehmen f\xFCr den konkreten Zweck eine Rechtsgrundlage hat, ob der Anbieter als Auftragsverarbeiter eingebunden ist, ob die Daten notwendig und minimiert sind und ob Aufbewahrung, Zugriff, L\xF6schung und Drittlandtransfer beherrscht werden. In einem privaten Gratiszugang lautet die praktische Antwort f\xFCr Kundendaten: nein. In einer gepr\xFCften Enterprise- oder API-Umgebung kann die Verarbeitung vertretbar sein \u2013 nach Freigabe des konkreten Use-Cases.</p>
+
+<h3>Sind Corporate-Lizenzen automatisch DSGVO-konform?</h3>
+<p>Nein. Eine Corporate-Lizenz schafft meist bessere Vertrags- und Administrationsm\xF6glichkeiten. Sie beantwortet aber nicht automatisch die Fragen nach Zweck, Rechtsgrundlage, Datenminimierung, Speicherfrist, Drittlandtransfer oder menschlicher Kontrolle. DSGVO-Konformit\xE4t ist eine Eigenschaft des gesamten Prozesses.</p>
+
+<h3>Werden meine Prompts f\xFCr das Training verwendet?</h3>
+<p>Bei vielen kommerziellen Angeboten lautet die Standardeinstellung f\xFCr Business/API-Daten heute: kein Training mit Kundeneingaben. Trotzdem sollten Sie die konkrete Produktdokumentation und den Vertrag pr\xFCfen. Training ist nur ein Teil des Risikos. Logs, Abuse Monitoring, Feedback, Supportzugriff, Dateiablagen, Caches, Backups und verbundene Tools k\xF6nnen Daten ebenfalls verarbeiten.</p>
+
+<h3>Ist eine API sicherer als die Chatoberfl\xE4che?</h3>
+<p>Eine API ist nicht automatisch sicherer, bietet aber mehr M\xF6glichkeiten f\xFCr Governance: zentrale Redaction, Datenklassifizierung, Modellrouting, IP-Allowlisting, kurze Retention, eigene Protokolle und eine Sperre f\xFCr bestimmte Tools. Eine Enterprise-Chatoberfl\xE4che kann dagegen bei SSO, Rollen, Audit und Nutzerakzeptanz \xFCberlegen sein. Entscheidend ist, ob die Oberfl\xE4che oder API in eine kontrollierte Unternehmensarchitektur eingebettet ist.</p>
+
+<h3>Ist ein Server in der EU automatisch datenschutzsicher?</h3>
+<p>Nein. Der Standort ist ein Faktor, kein G\xFCtesiegel. Ein EU-Server kann schlecht abgesichert, falsch berechtigt oder unzureichend protokolliert sein. Umgekehrt kann ein US-Anbieter mit EU-Datenregion, passenden Vertragsklauseln und erg\xE4nzenden Ma\xDFnahmen ein vertretbares Szenario erm\xF6glichen. F\xFCr Transfers in Drittl\xE4nder sind Angemessenheitsbeschluss, SCCs, zus\xE4tzliche Ma\xDFnahmen und die tats\xE4chliche Zugriffsm\xF6glichkeit zu pr\xFCfen.</p>
+
+<h3>Sch\xFCtzt ein VPN oder Tunnel meine Daten vor dem KI-Anbieter?</h3>
+<p>Nein. Ein Tunnel sch\xFCtzt den Weg zwischen Ihrem Client und dem Tunnel-Endpunkt. Der Inferenzanbieter erh\xE4lt die Anfrage normalerweise weiterhin im Klartext, weil er sie sonst nicht bearbeiten kann. Ein Tunnel kann dennoch sehr sinnvoll sein: Er zentralisiert Authentifizierung, DLP, Logging, Routing, Rate Limits und die Auswahl zugelassener Modelle. Er erh\xF6ht also die Governance, ersetzt aber keine Anbieterpr\xFCfung.</p>
+
+<h3>Ist Open-Source-KI auf dem eigenen Server wirklich sicherer?</h3>
+<p>Aus Sicht der Datenhoheit meistens ja: Die Anfrage muss das Unternehmen nicht verlassen, und der Modellanbieter erh\xE4lt keinen Live-Zugriff. Das verschiebt Verantwortung aber nach innen. Das Unternehmen sch\xFCtzt nun selbst Server, Identit\xE4ten, Logs, Backups, Modellgewichte, Abh\xE4ngigkeiten, Updates und Schnittstellen. Ein ungepatchter lokaler Server mit offenen Ports kann riskanter sein als eine professionell betriebene Cloud-Plattform.</p>
+
+<h3>Kann RAG den Datenschutz verbessern?</h3>
+<p>Ja, wenn RAG \u2013 Retrieval-Augmented Generation \u2013 richtig umgesetzt wird. Statt vertrauliche Dokumente in das Modelltraining zu \xFCbernehmen, werden relevante Inhalte zur Laufzeit abgerufen. Das erleichtert Aktualisierung und L\xF6schung. Aber: Embeddings und Vektordatenbanken k\xF6nnen weiterhin personenbezogene Daten enthalten. Berechtigungen m\xFCssen vor dem Abruf gepr\xFCft werden; das Sprachmodell selbst ist keine zuverl\xE4ssige Zugriffskontrolle. RAG erh\xF6ht den Score nur, wenn Dokumente, Vektoren und Nutzerrechte sauber getrennt sind.</p>
+
+<h3>Darf KI Personalentscheidungen vorbereiten?</h3>
+<p>Nur mit besonderer Vorsicht \u2013 Stichwort EU AI Act. Bewerbungs-, Leistungs- oder Krankheitsdaten sind personenbezogen und teilweise besonders sensibel. Wenn KI Empfehlungen erzeugt, die Besch\xE4ftigte oder Bewerber erheblich beeinflussen, greifen erhebliche zus\xE4tzliche Anforderungen aus dem EU AI Act an Transparenz, menschliche Aufsicht und je nach Anwendungsfall an die Zul\xE4ssigkeit automatisierter Entscheidungen. Ein Mensch, der nur noch den Vorschlag abnickt, ist keine wirksame Kontrolle.</p>
+
+<h3>Welche KI ist f\xFCr ein mittelst\xE4ndisches Unternehmen die richtige?</h3>
+<p>Die Antwort h\xE4ngt von der Datenklasse und dem Use-Case ab. F\xFCr \xF6ffentliche Marketingtexte reicht ein kontrollierter Cloud-Zugang. F\xFCr interne Richtlinien oder nicht-personenbezogene Dokumente ist eine Enterprise-L\xF6sung mit DPA und SSO oft passend. F\xFCr HR, M&amp;A, Quellcode, Kundensupport mit Identit\xE4tsdaten oder strategische Produktinformationen sind ein dedizierter Zugang, ein lokales Modell oder ein hybrides Routing meist angemessener.</p>
+
+<h2>6. Together AI mit Tunnel: sinnvoll, aber nicht lokal</h2>
+
+<p>Together AI ist ein Beispiel f\xFCr ein wichtiges Zwischenmodell: Ein Unternehmen nutzt Open-Source-Modelle, l\xE4sst die Inferenz aber von einem Cloud-Anbieter ausf\xFChren. Das kann technologisch flexibel sein, ist aus Datenschutzsicht jedoch weiterhin eine externe Verarbeitung.</p>
+
+<h3>Was der Tunnel verbessert</h3>
+<ul>
+  <li>Zentrale Anmeldung statt vieler individueller API-Schl\xFCssel.</li>
+  <li>Redaction oder Pseudonymisierung, bevor ein Prompt den eigenen Verantwortungsbereich verl\xE4sst.</li>
+  <li>Policy Enforcement: nur freigegebene Modelle, Datenklassen und Tools.</li>
+  <li>Zentrale Protokollierung, Rate Limits, Sperrlisten und ein nachvollziehbarer Datenfluss.</li>
+  <li>Routing: einfache Aufgaben in die Cloud, sensible Aufgaben auf ein lokales Modell.</li>
+</ul>
+
+<h3>Was der Tunnel nicht verbessert</h3>
+<p>Together AI verarbeitet die Anfrage weiterhin, wenn sie zur Inferenz dorthin gesendet wird. Laut den aktuellen Anbieterangaben werden Inputs und Outputs standardm\xE4\xDFig nicht zum Training verwendet; tempor\xE4res Caching, Organisationseinstellungen, Passthrough zu Upstream-Providern und fehlende Regionswahl beim Standard-Serverless-Angebot m\xFCssen trotzdem gepr\xFCft werden. Dedicated Inference mit Single-Tenant-Isolation, ZDR, Region und privatem Networking kann deutlich h\xF6her eingeordnet werden.</p>
+
+<div class="callout">
+  <strong class="callout-title">Einfacher Merksatz</strong>
+  <blockquote>
+    <p>Tunnel = bessere Unternehmenssteuerung.<br />On-Premise = anderer Datenverantwortungsbereich.<br />Nur die zweite Aussage beschreibt echte lokale Datenhaltung.</p>
+  </blockquote>
+</div>
+
+<h2>7. Open-Source-Modelle auf dem Firmenserver</h2>
+
+<p>Ein lokal betriebenes Modell ist die direkteste M\xF6glichkeit, Daten im eigenen Kontrollbereich zu halten. Die Anfrage geht nicht an OpenAI, Google, Anthropic, xAI oder Together AI. Das ist ein gro\xDFer Vorteil f\xFCr Gesch\xE4ftsgeheimnisse und besonders sch\xFCtzenswerte personenbezogene Daten.</p>
+
+<p>Trotzdem ist \u201Elokal\u201C keine Abk\xFCrzung um Datenschutz und Informationssicherheit herum. Das Unternehmen bleibt verantwortlich f\xFCr Zweck, Berechtigung, L\xF6schung, Zugriff und Dokumentation. Au\xDFerdem entsteht eine eigene Lieferkette: Modellgewichte, Container, Inferenzserver, UI, Vektordatenbank und Plugins m\xFCssen auf Herkunft, Integrit\xE4t und Updatef\xE4higkeit gepr\xFCft werden.</p>
+
+<div class="table-wrap">
+  <table class="crux-table">
+    <thead>
+      <tr>
+        <th scope="col">Lokale Variante</th>
+        <th scope="col">Score</th>
+        <th scope="col">St\xE4rke</th>
+        <th scope="col">Pflichtkontrollen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Eigener Server, mit Internetzugang</td>
+        <td class="score">8</td>
+        <td>Sehr gute Datenhoheit, aber Angriffsfl\xE4che und Betriebsrisiko bleiben im Unternehmen.</td>
+        <td>Netzsegmentierung, Patchen, IAM, Monitoring, Backups, Modellpr\xFCfung.</td>
+      </tr>
+      <tr>
+        <td>Private EU-Cloud / eigener Tenant</td>
+        <td class="score">8\u20139</td>
+        <td>Starker Kontrollgewinn ohne vollst\xE4ndige eigene Hardware; Cloud- und Subprozessoren bleiben relevant.</td>
+        <td>DPA, Region, private Endpoints, Schl\xFCssel, Adminzugriffe, Logs.</td>
+      </tr>
+      <tr>
+        <td>On-Premise, getrenntes Netz</td>
+        <td class="score">9</td>
+        <td>Datenpfad bleibt im Unternehmen; Betrieb und Updates m\xFCssen kontrolliert erfolgen.</td>
+        <td>Physische Sicherheit, Identit\xE4ten, sichere Updates, Notfallbetrieb.</td>
+      </tr>
+      <tr>
+        <td>Air-Gapped / vollst\xE4ndig offline</td>
+        <td class="score">9\u201310</td>
+        <td>Maximale Begrenzung externer Datenabfl\xFCsse; nicht automatisch sicher gegen Insider oder lokale Fehler.</td>
+        <td>Medienkontrolle, Modellimport, Patchfenster, Rollen, Audit, Backup.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>RAG: der sinnvolle Mittelweg f\xFCr interne Wissensassistenten</h3>
+
+<p>F\xFCr viele KMU ist nicht das Training eines eigenen Modells das Ziel, sondern ein Assistent, der interne Dokumente findet und verst\xE4ndlich beantwortet. RAG kann daf\xFCr geeignet sein: Die Wissensbasis bleibt getrennt vom Grundmodell und kann aktualisiert oder gel\xF6scht werden. Die Vektordatenbank ist aber ein sch\xFCtzenswertes System und darf keine Berechtigungen aushebeln.</p>
+
+<ul>
+  <li>Dokumente nur aus freigegebenen Quellen indexieren.</li>
+  <li>Berechtigungen vor der Suche und vor der Ausgabe pr\xFCfen \u2013 nicht erst im Prompt.</li>
+  <li>Mandanten, Abteilungen und besonders sensible Dokumente logisch und technisch trennen.</li>
+  <li>Embeddings, Chatverl\xE4ufe und Logs wie potenziell personenbezogene Daten behandeln.</li>
+  <li>L\xF6schung in Original, Index, Cache, Backup und Protokollen nachvollziehbar umsetzen.</li>
+</ul>
+
+<h2>8. Hybride KI: oft die pragmatischste Sicherheitsarchitektur</h2>
+
+<p>Unternehmen m\xFCssen sich nicht zwischen \u201Ealles Cloud\u201C und \u201Ealles lokal\u201C entscheiden. Ein hybrides Modell kann den Schutzbedarf in die Architektur \xFCbersetzen. Eine lokale Datenklassifizierung oder ein Gateway entscheidet, welche Anfrage wohin darf. \xD6ffentliche Inhalte und allgemeine Recherche k\xF6nnen ein gepr\xFCftes SOTA-Modell nutzen. Interne, personenbezogene oder strategische Inhalte werden redigiert, pseudonymisiert oder lokal verarbeitet.</p>
+
+<div class="table-wrap">
+  <table class="crux-table">
+    <thead>
+      <tr>
+        <th scope="col">Datenklasse</th>
+        <th scope="col">Beispiele</th>
+        <th scope="col">Passendes Modell</th>
+        <th scope="col">Mindestanforderung</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>\xD6ffentlich</td>
+        <td>Website-Texte, allgemeine Marktinformationen</td>
+        <td>Cloud-SOTA mit Standardkontrollen</td>
+        <td>Kein Personenbezug, keine Geheimnisse.</td>
+      </tr>
+      <tr>
+        <td>Intern</td>
+        <td>Richtlinien, Prozessbeschreibungen, interne FAQs</td>
+        <td>Enterprise-Cloud oder private EU-Umgebung</td>
+        <td>SSO, Rollen, Retention und Connectoren begrenzen.</td>
+      </tr>
+      <tr>
+        <td>Vertraulich</td>
+        <td>Preislisten, Angebote, Quellcode, Vertr\xE4ge</td>
+        <td>Dediziert, private Cloud oder lokal</td>
+        <td>Keine offenen Tools; Gateway und Vier-Augen-Freigabe.</td>
+      </tr>
+      <tr>
+        <td>Hochsensibel</td>
+        <td>Gesundheit, Personal, M&amp;A, besonders kritische IP</td>
+        <td>Lokal, segmentiert oder offline</td>
+        <td>Use-Case- und Rechtspr\xFCfung vor Produktivbetrieb.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Der Router ist dabei ein sicherheitsrelevantes Bauteil. Wenn Mitarbeitende bei einem Fehler einfach einen anderen Cloud-Account verwenden k\xF6nnen, existiert die Policy nur auf dem Papier. Freigaben m\xFCssen technisch erzwungen und regelm\xE4\xDFig gepr\xFCft werden.</p>
+
+<h2>9. Was Unternehmen in DACH konkret pr\xFCfen sollten</h2>
+
+<p>Eine Entscheidung f\xFCr ein KI-Modell sollte wie eine kleine Beschaffungs- und Sicherheitspr\xFCfung behandelt werden. Die folgenden Fragen sind bewusst verst\xE4ndlich formuliert und k\xF6nnen als Freigabe-Checkliste verwendet werden.</p>
+
+<ol>
+  <li><strong>Use-Case beschreiben:</strong> Was soll die KI tun, wer nutzt sie und welche Entscheidung bleibt beim Menschen?</li>
+  <li><strong>Daten klassifizieren:</strong> \xF6ffentlich, intern, vertraulich oder hochsensibel \u2013 inklusive Anh\xE4ngen, Logs und Embeddings.</li>
+  <li><strong>Datenfluss zeichnen:</strong> Client, Gateway, Modellanbieter, Subprozessoren, Speicher, Tools, Backups und L\xF6schung.</li>
+  <li><strong>Vertrag pr\xFCfen:</strong> DPA/AVV, Rolle des Anbieters, Zweckbindung, Training, Unterauftragsverarbeiter, Supportzugriff und Vorfallmeldung.</li>
+  <li><strong>Region bewerten:</strong> Wo wird verarbeitet, wo gespeichert, wer kann aus welchem Land zugreifen und welcher Transfermechanismus gilt?</li>
+  <li><strong>Aufbewahrung begrenzen:</strong> Retention, Abuse Logs, Feedback, Caches, Dateien, Chatverlauf und Backups getrennt betrachten.</li>
+  <li><strong>Zugriffe minimieren:</strong> SSO, MFA, Rollen, Least Privilege, Tenant-Trennung und kein automatischer Zugriff auf das gesamte Laufwerk.</li>
+  <li><strong>Ausgaben kontrollieren:</strong> Halluzinationen, Prompt Injection, Datenabfluss, sensible Ableitungen und unzul\xE4ssige Entscheidungen testen.</li>
+  <li><strong>Menschen verantwortlich halten:</strong> KI darf Entw\xFCrfe und Hinweise liefern; die verantwortliche Person pr\xFCft und entscheidet.</li>
+  <li><strong>Dokumentieren und schulen:</strong> KI-Inventar, interne Richtlinie, Freigabeprozess, Schulungen und regelm\xE4\xDFige Neubewertung etablieren.</li>
+</ol>
+
+<div class="callout callout--blue">
+  <strong class="callout-title">Was in eine KI-Richtlinie geh\xF6rt</strong>
+  <ul>
+    <li>Erlaubte Tools und Konten</li>
+    <li>Verbotene Datenklassen</li>
+    <li>Freigabeweg f\xFCr neue Use-Cases</li>
+    <li>Umgang mit personenbezogenen Daten</li>
+    <li>Regeln f\xFCr Dateien, RAG und externe Tools</li>
+    <li>Protokollierung und L\xF6schung</li>
+    <li>Meldeweg bei Fehlversand oder Datenabfluss</li>
+    <li>Menschliche Kontrolle bei Entscheidungen</li>
+  </ul>
+</div>
+
+<h2>10. Die h\xE4ufigsten Denkfehler</h2>
+
+<div class="table-wrap">
+  <table class="crux-table crux-table--narrow">
+    <thead>
+      <tr>
+        <th scope="col">Denkfehler</th>
+        <th scope="col">Korrektur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>\u201EWir haben einen Vertrag, also ist alles erlaubt.\u201C</td>
+        <td>Der Vertrag regelt den Anbieter. Zweck, Rechtsgrundlage, Datenminimierung und interne Berechtigungen bleiben Aufgabe des Unternehmens.</td>
+      </tr>
+      <tr>
+        <td>\u201EDie Daten liegen in Europa, also besteht kein Risiko.\u201C</td>
+        <td>Standort, Zugriffsm\xF6glichkeiten, Subprozessoren und technische Absicherung m\xFCssen zusammen betrachtet werden.</td>
+      </tr>
+      <tr>
+        <td>\u201EDer Tunnel verschl\xFCsselt die Daten, also sieht Together AI nichts.\u201C</td>
+        <td>Der Inferenzanbieter muss den Prompt zur Bearbeitung entschl\xFCsseln k\xF6nnen. Der Tunnel sch\xFCtzt vor allem den Transport und die Unternehmenssteuerung.</td>
+      </tr>
+      <tr>
+        <td>\u201EOpen Source hei\xDFt automatisch sicher.\u201C</td>
+        <td>Offene oder frei verf\xFCgbare Gewichte k\xF6nnen ungepr\xFCfte Abh\xE4ngigkeiten, unklare Lizenzen oder gef\xE4hrliche Dateien enthalten.</td>
+      </tr>
+      <tr>
+        <td>\u201ERAG ist nur eine Suchfunktion.\u201C</td>
+        <td>RAG speichert Inhalte und Embeddings und muss deshalb wie ein eigenes Datenbanksystem mit Berechtigungen, L\xF6schung und Monitoring behandelt werden.</td>
+      </tr>
+      <tr>
+        <td>\u201EEin Mensch schaut am Ende kurz dar\xFCber.\u201C</td>
+        <td>Wirksame menschliche Kontrolle braucht Zeit, Informationen und echte Entscheidungskompetenz \u2013 besonders bei HR, Kundenbewertung und Risikof\xE4llen.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>11. Fazit: Sicherheit entsteht durch Architektur</h2>
+
+<p>F\xFCr Entscheidungstr\xE4ger in DACH gibt es keine einzelne \u201Edatenschutzkonforme KI\u201C, die jede Aufgabe gleicherma\xDFen l\xF6st. Es gibt passende Betriebsmodelle f\xFCr unterschiedliche Datenklassen.</p>
+
+<p>Die pragmatische Standardempfehlung f\xFCr viele Unternehmen lautet: Ein verwalteter Enterprise- oder API-Zugang mit DPA/AVV, klarer Datenregion, Trainingsausschluss, m\xF6glichst kurzer Retention, SSO, Rollen, Audit und einem Gateway, das Datenklassen und Tools steuert. Das liegt \u2013 bei sauberer Umsetzung \u2013 typischerweise im Bereich 7 bis 8.</p>
+
+<p>F\xFCr besonders vertrauliche oder stark regulierte Prozesse sind dedizierte private Umgebungen und lokal betriebene Open-Source-Modelle die kontrollierbarere Wahl. Sie k\xF6nnen 8 bis 10 erreichen, verlangen aber konsequente IT-Sicherheit, Modell- und Lieferkettenpr\xFCfung sowie belastbare Betriebsprozesse.</p>
+
+<p>Der wichtigste Gedanke bleibt: Ein eigener Server ist kein Selbstzweck, und ein SOTA-Modell ist kein Freibrief. Gute KI-Governance verbindet Schutzbedarf, Datenfluss, Vertrag und Technik. Genau dort liegt die Crux \u2013 der entscheidende Punkt, an dem aus KI-Euphorie eine belastbare Unternehmensl\xF6sung wird.</p>
+
+<div class="callout">
+  <strong class="callout-title">N\xE4chster sinnvoller Schritt</strong>
+  <p>Erstellen Sie ein KI-Inventar mit drei bis f\xFCnf realen Use-Cases, klassifizieren Sie die darin verarbeiteten Daten und zeichnen Sie den Datenfluss. Erst danach sollte die Entscheidung f\xFCr Anbieter, Tunnel, private Cloud oder On-Premise fallen.</p>
+</div>
+
+<h2>12. Quellen und weiterf\xFChrende Informationen</h2>
+
+<p>Die Einordnung basiert auf offiziellen Leitlinien, Beh\xF6rdeninformationen und den \xF6ffentlich zug\xE4nglichen Datenschutz- und Sicherheitsangaben der genannten Anbieter. Produktbedingungen und Datenresidenzoptionen k\xF6nnen sich \xE4ndern; vor einer Freigabe sollte die aktuelle Vertragsversion gepr\xFCft werden.</p>
+
+<ol class="sources">
+  <li><a href="https://www.datenschutzkonferenz-online.de/media/oh/20240506_DSK_Orientierungshilfe_KI_und_Datenschutz.pdf" target="_blank" rel="noopener noreferrer">Datenschutzkonferenz: Orientierungshilfe KI und Datenschutz</a> \u2014 Rollen, Datenfl\xFCsse, geschlossene/offene Systeme, Rechtsgrundlagen und Schutzma\xDFnahmen.</li>
+  <li><a href="https://www.datenschutzkonferenz-online.de/media/oh/DSK-OH_KI-Systeme.pdf" target="_blank" rel="noopener noreferrer">Datenschutzkonferenz: Technische und organisatorische Ma\xDFnahmen f\xFCr KI-Systeme</a> \u2014 Sicherheit \xFCber den gesamten KI-Lebenszyklus.</li>
+  <li><a href="https://www.datenschutzkonferenz-online.de/media/oh/DSK_OH_RAG.pdf" target="_blank" rel="noopener noreferrer">Datenschutzkonferenz: RAG und Datenschutz</a> \u2014 RAG, Vektordatenbanken, Berechtigungen und L\xF6schung.</li>
+  <li><a href="https://www.edpb.europa.eu/documents/opinion-of-the-board-art-64/opinion-282024-on-certain-data-protection-aspects-related-to_en" target="_blank" rel="noopener noreferrer">EDPB: Opinion 28/2024 on certain data protection aspects related to AI models</a> \u2014 Anonymit\xE4t, Rechtsgrundlage und Verantwortlichkeit bei KI-Modellen.</li>
+  <li><a href="https://www.edpb.europa.eu/documents/recommendation/recommendations-012020-on-measures-that-supplement-transfer-tools-to_en" target="_blank" rel="noopener noreferrer">EDPB: Recommendations 01/2020 on supplementary transfer measures</a> \u2014 Drittlandtransfers und erg\xE4nzende technische Ma\xDFnahmen.</li>
+  <li><a href="https://dsb.gv.at/kuenstlichebrintelligenz/kuenstliche-intelligenz-datenschutz" target="_blank" rel="noopener noreferrer">\xD6sterreichische Datenschutzbeh\xF6rde: K\xFCnstliche Intelligenz und Datenschutz</a> \u2014 DSGVO, AI Act, Verantwortlichkeit und Transparenz.</li>
+  <li><a href="https://www.edoeb.admin.ch/en/cross-border-transfer-of-personal-data" target="_blank" rel="noopener noreferrer">ED\xD6B/FDPIC: Cross-border transfer of personal data</a> \u2014 Schweizer Anforderungen und Schutzmechanismen bei Auslandtransfers.</li>
+  <li><a href="https://openai.com/enterprise-privacy/" target="_blank" rel="noopener noreferrer">OpenAI: Enterprise Privacy / API Your Data</a> \u2014 Business-Datenschutz und Enterprise-Kontrollen.</li>
+  <li><a href="https://knowledge.workspace.google.com/admin/generative-ai/generative-ai-in-google-workspace-privacy-hub" target="_blank" rel="noopener noreferrer">Google Workspace: Generative AI Privacy Hub</a> \u2014 Workspace-Daten, Admin-Kontrollen und Grenzen einzelner Funktionen.</li>
+  <li><a href="https://platform.claude.com/docs/en/manage-claude/api-and-data-retention" target="_blank" rel="noopener noreferrer">Anthropic: API Data Retention / Commercial Terms</a> \u2014 Retention, ZDR und kommerzielle Datenverarbeitung.</li>
+  <li><a href="https://x.ai/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">xAI: Enterprise DPA</a> \u2014 Verarbeiterrolle, Subprozessoren, Transfers und L\xF6schung f\xFCr Business/API.</li>
+  <li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy" target="_blank" rel="noopener noreferrer">Microsoft: Microsoft 365 Copilot privacy</a> \u2014 Tenantbindung, Speicherung, Audit und Websuche.</li>
+  <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html" target="_blank" rel="noopener noreferrer">AWS: Bedrock data protection</a> \u2014 Zugriff der Modellanbieter, VPC, IAM und regionale Inferenz.</li>
+  <li><a href="https://docs.together.ai/docs/privacy-and-security" target="_blank" rel="noopener noreferrer">Together AI: Privacy and Security</a> \u2014 Training, Caching, Standard- und Dedicated-Inference.</li>
+  <li><a href="https://opensource.org/ai/open-source-ai-definition" target="_blank" rel="noopener noreferrer">Open Source Initiative: Open Source AI Definition</a> \u2014 Abgrenzung von Open Source und Open Weights.</li>
+  <li><a href="https://huggingface.co/docs/hub/security-pickle" target="_blank" rel="noopener noreferrer">Hugging Face: Pickle scanning and security</a> \u2014 Risiken ausf\xFChrbarer Modelldateien und sichere Formate.</li>
+  <li><a href="https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/" target="_blank" rel="noopener noreferrer">OWASP: GenAI / LLM Top 10</a> \u2014 Prompt Injection, Datenabfluss, Supply Chain, Poisoning und Vektorrisiken.</li>
+</ol>
+`;
+
+// src/data/blog/ki-datenschutz-unternehmen.en.ts
+var contentEn = `
+<p class="lead">The decisive question is not: Which AI model is the best? It is: Which data may this model see in our specific operating model \u2013 and who keeps control over it?</p>
+
+<div class="callout callout--blue">
+  <strong class="callout-title">The short answer</strong>
+  <p>A corporate licence is an important building block, but not a free pass. What matters for security is the data flow, the contract, retention, access, integrations and the actual configuration. A tunnel protects the transport \u2013 it does not automatically turn a cloud provider into a local system.</p>
+</div>
+
+<p>Many companies in Germany, Austria and Switzerland face the same dilemma: business units want to work with modern AI models, while management, IT and data protection must prevent customer data, HR information or confidential business plans from leaking uncontrolled into third-party systems. The good news: data protection and modern AI are not mutually exclusive. The bad news: a corporate licence alone does not solve the task.</p>
+
+<p>This article places the most important options on a scale from 0 to 10 \u2013 from extremely risky to extremely secure. It compares public chatbots, enterprise offerings from OpenAI, Gemini, Grok and Anthropic, direct APIs, private cloud and dedicated setups, Together AI with a company-owned tunnel, and open-source models on your own infrastructure.</p>
+
+<div class="callout">
+  <strong class="callout-title">Executive summary</strong>
+  <p>For most companies, a properly configured enterprise or API solution with a data processing agreement, a clearly defined region, short or no retention, SSO/RBAC and disabled third-party connectors is a sensible starting point. The more sensitive the data, the more the recommendation shifts towards a dedicated private environment or locally operated open-source models.</p>
+</div>
+
+<h2>1. What actually needs to be protected when using AI?</h2>
+
+<p>Data protection is often understood too narrowly. It is not only about names, e-mail addresses or customer numbers. Conversation histories, IP addresses, job applications, support tickets, contract contents, source code, price lists, delivery terms, product roadmaps and internal forecasts can also be worthy of protection. A document does not become harmless simply because a name is missing from it.</p>
+
+<p>The German Data Protection Conference (Datenschutzkonferenz) points out that personal data must be considered along the entire AI lifecycle: at upload, during processing, in logs, in vector databases, in backups and at deletion. Even pseudonymised data or embeddings generated from text can still relate to identifiable persons.</p>
+
+<p>For trade secrets, an additional rule applies: even where the GDPR is not affected, a data leak can be relevant economically or under competition law. A provider may be contractually barred from using data for training \u2013 but it still has to be clarified whether the data is stored and made accessible for abuse monitoring, support, backups, third-party tools or search functions.</p>
+
+<div class="callout callout--blue">
+  <strong class="callout-title">Four questions before every approval</strong>
+  <ol>
+    <li>Which data leaves our company?</li>
+    <li>Who can see it or process it further?</li>
+    <li>How long is it stored?</li>
+    <li>Can we demonstrably trace usage, access, deletion and incidents?</li>
+  </ol>
+</div>
+
+<h2>2. The risk classification from 0 to 10</h2>
+
+<p>The scale does not rate the intelligence of a model, nor the reputation of a provider. It rates how much control a company has over data and security measures in a specific operating model. The same provider can therefore land in different classes depending on product, contract and configuration.</p>
+
+<p>The scale is a practical security and control scale, not a legal certification. A score of 10 does not mean a system is risk-free \u2013 only that data flows and safeguards in that scenario are designed to be as controllable as possible.</p>
+
+<div class="table-wrap">
+  <table class="crux-table crux-table--score-first">
+    <thead>
+      <tr>
+        <th scope="col">Score</th>
+        <th scope="col">Cluster</th>
+        <th scope="col">Typical situation</th>
+        <th scope="col">Suitable data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="score">0\u20132</td>
+        <td>Extremely risky</td>
+        <td>Public or private consumer account; sensitive data is entered without approval, contract or clear deletion rules.</td>
+        <td>No sensitive company or personal data.</td>
+      </tr>
+      <tr>
+        <td class="score">3\u20134</td>
+        <td>Low control</td>
+        <td>Unclear API/SaaS configuration, unknown retention, many third parties or private workarounds.</td>
+        <td>At most public or synthetic test data.</td>
+      </tr>
+      <tr>
+        <td class="score">5\u20136</td>
+        <td>Conditionally acceptable</td>
+        <td>Corporate workspace or standard cloud API with DPA and training exclusion, but open questions on region, logs, connectors or permissions.</td>
+        <td>Internal information after approval and data minimisation.</td>
+      </tr>
+      <tr>
+        <td class="score">7\u20138</td>
+        <td>Well controllable</td>
+        <td>Enterprise/API with clearly assigned roles, short or no retention, EU/EEA processing, SSO, access controls and an upstream gateway.</td>
+        <td>Many business data; personal data only after review.</td>
+      </tr>
+      <tr>
+        <td class="score">9\u201310</td>
+        <td>Designed to be extremely secure</td>
+        <td>Dedicated or locally operated inference, segmented infrastructure, strict access control, vetted models, local RAG database, audit and \u2013 where necessary \u2013 offline operation.</td>
+        <td>Highly sensitive data; always dependent on implementation and governance.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout--warning">
+  <strong class="callout-title">Important</strong>
+  <p>A high score does not replace a legal basis, a data protection impact assessment or a security review. It is a decision framework that helps companies make architecture and approval decisions in a traceable way.</p>
+</div>
+
+<h2>3. The main operating models in direct comparison</h2>
+
+<p>The following overview is the central decision aid of this article. The values are ranges, because the risk can change significantly depending on configuration, data class and integrations.</p>
+
+<div class="table-wrap">
+  <table class="crux-table">
+    <thead>
+      <tr>
+        <th scope="col">Operating model</th>
+        <th scope="col">Score</th>
+        <th scope="col">Assessment</th>
+        <th scope="col">What matters?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Public free chatbot</td>
+        <td class="score">0\u20132</td>
+        <td>Highest risk for sensitive content</td>
+        <td>Do not enter company data; only public or synthetic material.</td>
+      </tr>
+      <tr>
+        <td>Enterprise chat interface</td>
+        <td class="score">5\u20137</td>
+        <td>Good governance possible</td>
+        <td>Explicitly verify DPA, no training, SSO, roles, retention and connectors.</td>
+      </tr>
+      <tr>
+        <td>Direct SOTA API</td>
+        <td class="score">7\u20138</td>
+        <td>Controllable data flow</td>
+        <td>Gateway for redaction, region, logs and model routing; check stateful endpoints.</td>
+      </tr>
+      <tr>
+        <td>Private cloud / dedicated inference</td>
+        <td class="score">8\u20139</td>
+        <td>High isolation</td>
+        <td>Single tenant, private network paths, EU region, clear support and sub-processor rules.</td>
+      </tr>
+      <tr>
+        <td>Together AI Standard + own tunnel</td>
+        <td class="score">5\u20136</td>
+        <td>Transport protected, data remains external</td>
+        <td>The tunnel improves access control but does not change visibility at the inference provider.</td>
+      </tr>
+      <tr>
+        <td>Together AI Dedicated / private</td>
+        <td class="score">8\u20139</td>
+        <td>Cloud with significantly more control</td>
+        <td>Dedicated, ZDR, region and private networking must be active contractually and technically.</td>
+      </tr>
+      <tr>
+        <td>Open-source model on company server</td>
+        <td class="score">8</td>
+        <td>Data remains within your own area of responsibility</td>
+        <td>Consistently secure server, logs, backups, model source, updates and RAG access.</td>
+      </tr>
+      <tr>
+        <td>Open-source model isolated/offline</td>
+        <td class="score">9\u201310</td>
+        <td>Maximum data sovereignty</td>
+        <td>Sensible for particularly sensitive data; offline operation makes updates and monitoring harder.</td>
+      </tr>
+      <tr>
+        <td>Hybrid routing by data class</td>
+        <td class="score">6\u20139</td>
+        <td>Pragmatic combination</td>
+        <td>Sensitive content local, less critical tasks in a vetted cloud; the router must not be bypassable.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The red line does not run between cloud and on-premise. It runs between controlled and uncontrolled data flow. A well-secured cloud service can be safer than a poorly administered server of your own. Conversely, a fully local system can create the strongest technical data boundary \u2013 but only if your own infrastructure is operated professionally.</p>
+
+<h2>4. SOTA models with a corporate licence: what really changes?</h2>
+
+<p>OpenAI, Gemini, Grok and Anthropic offer enterprise and API products with significantly better safeguards than free consumer access. Typical building blocks are: no training on customer data by default, data processing terms, SSO, roles, audit logs, encryption and, in some cases, regional processing. These building blocks must, however, be actively selected, configured correctly and documented.</p>
+
+<p>Anyone who only looks at the brand name is comparing the wrong thing. For data protection, what matters is whether you use a chat interface, an API endpoint, a file storage, an agent with tools or an embedded search function. Every additional feature can introduce new storage locations, sub-processors and permissions.</p>
+
+<div class="table-wrap">
+  <table class="crux-table">
+    <thead>
+      <tr>
+        <th scope="col">Provider / access</th>
+        <th scope="col">Typical score</th>
+        <th scope="col">Data protection perspective</th>
+        <th scope="col">Check first</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>OpenAI</td>
+        <td><span class="cell-note">Enterprise/API</span><span class="score">typically 7\u20138</span></td>
+        <td>Under the current business terms, business data is not used for training by default. For the API, standard logs must be distinguished from eligible ZDR/retention options; chat, files and stateful features may have their own storage rules.</td>
+        <td>Business and API privacy; Your Data / Data Residency</td>
+      </tr>
+      <tr>
+        <td>Google Gemini</td>
+        <td><span class="cell-note">Workspace/Cloud</span><span class="score">typically 7\u20138</span></td>
+        <td>Workspace and Cloud environments offer organisational binding, admin controls and \u2013 depending on the product \u2013 data regions. Web search, Maps, Notebook and third-party integrations can change data paths and retention.</td>
+        <td>Workspace AI Privacy Hub; Gemini Data Governance</td>
+      </tr>
+      <tr>
+        <td>Anthropic Claude</td>
+        <td><span class="cell-note">Commercial/API</span><span class="score">typically 6\u20138</span></td>
+        <td>Under the current default rules, commercial inputs are not used for training. ZDR, retention and regional processing depend on contract, model and endpoint; the publicly documented API geography may be global/US.</td>
+        <td>Commercial Terms; API Data Retention; Data Residency</td>
+      </tr>
+      <tr>
+        <td>xAI Grok</td>
+        <td><span class="cell-note">Business/API</span><span class="score">typically 5\u20138</span></td>
+        <td>The consumer privacy policy is not the API arrangement. For Business/API, the DPA, sub-processors, transfers outside Europe, retention and a possible ZDR setting must be checked in the specific contract.</td>
+        <td>Enterprise FAQ; DPA; Subprocessor List</td>
+      </tr>
+      <tr>
+        <td>Microsoft Copilot</td>
+        <td><span class="cell-note">M365 environment</span><span class="score">typically 7\u20138</span></td>
+        <td>Strong tenant and identity binding, sensitivity labels and auditability. Prompts and responses can be stored in the tenant for audit/eDiscovery; web search and third-party tools must be assessed separately.</td>
+        <td>Copilot Privacy; Enterprise Data Protection</td>
+      </tr>
+      <tr>
+        <td>AWS Bedrock</td>
+        <td><span class="cell-note">Private cloud</span><span class="score">typically 8\u20139</span></td>
+        <td>AWS documents that model providers do not get access to Bedrock prompts and logs. VPC endpoints, IAM, KMS, CloudTrail and regional profiles provide additional control; global cross-region profiles must be chosen deliberately.</td>
+        <td>Bedrock Data Protection; VPC Endpoints</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>These values are not a provider ranking. They show the level a properly configured model can reach. An unmanaged account with the same provider immediately drops into a lower class.</p>
+
+<h2>5. Real decision questions from practice</h2>
+
+<h3>May I use ChatGPT with customer data?</h3>
+<p>Not a blanket yes, and not a blanket no. It depends on whether your company has a legal basis for the specific purpose, whether the provider is engaged as a processor, whether the data is necessary and minimised, and whether retention, access, deletion and third-country transfers are under control. In a private free account, the practical answer for customer data is: no. In a vetted enterprise or API environment, processing can be acceptable \u2013 after approval of the specific use case.</p>
+
+<h3>Are corporate licences automatically GDPR-compliant?</h3>
+<p>No. A corporate licence usually creates better contractual and administrative options. But it does not automatically answer the questions of purpose, legal basis, data minimisation, retention period, third-country transfer or human oversight. GDPR compliance is a property of the entire process.</p>
+
+<h3>Are my prompts used for training?</h3>
+<p>For many commercial offerings, the default setting for business/API data today is: no training on customer inputs. Nevertheless, you should check the specific product documentation and the contract. Training is only one part of the risk. Logs, abuse monitoring, feedback, support access, file storage, caches, backups and connected tools can also process data.</p>
+
+<h3>Is an API more secure than the chat interface?</h3>
+<p>An API is not automatically more secure, but it offers more options for governance: central redaction, data classification, model routing, IP allowlisting, short retention, your own logs and the ability to block specific tools. An enterprise chat interface, on the other hand, can be superior in terms of SSO, roles, audit and user acceptance. What matters is whether the interface or API is embedded in a controlled corporate architecture.</p>
+
+<h3>Is a server in the EU automatically data-protection-safe?</h3>
+<p>No. Location is one factor, not a seal of quality. An EU server can be poorly secured, wrongly permissioned or insufficiently logged. Conversely, a US provider with an EU data region, suitable contractual clauses and supplementary measures can enable an acceptable scenario. For transfers to third countries, the adequacy decision, SCCs, additional measures and the actual possibility of access must be examined.</p>
+
+<h3>Does a VPN or tunnel protect my data from the AI provider?</h3>
+<p>No. A tunnel protects the path between your client and the tunnel endpoint. The inference provider normally still receives the request in plain text, because otherwise it could not process it. A tunnel can nevertheless be very useful: it centralises authentication, DLP, logging, routing, rate limits and the selection of approved models. It therefore increases governance, but does not replace provider due diligence.</p>
+
+<h3>Is open-source AI on your own server really more secure?</h3>
+<p>From a data sovereignty perspective, usually yes: the request does not have to leave the company, and the model provider gets no live access. But this shifts responsibility inwards. The company now protects servers, identities, logs, backups, model weights, dependencies, updates and interfaces itself. An unpatched local server with open ports can be riskier than a professionally operated cloud platform.</p>
+
+<h3>Can RAG improve data protection?</h3>
+<p>Yes, if RAG \u2013 Retrieval-Augmented Generation \u2013 is implemented correctly. Instead of feeding confidential documents into model training, relevant content is retrieved at runtime. This makes updating and deletion easier. But: embeddings and vector databases can still contain personal data. Permissions must be checked before retrieval; the language model itself is not a reliable access control. RAG only raises the score if documents, vectors and user rights are cleanly separated.</p>
+
+<h3>May AI prepare HR decisions?</h3>
+<p>Only with particular caution \u2013 keyword: EU AI Act. Application, performance or health data is personal and in some cases especially sensitive. If AI generates recommendations that significantly affect employees or applicants, substantial additional requirements from the EU AI Act apply regarding transparency, human oversight and, depending on the use case, the permissibility of automated decisions. A person who merely rubber-stamps the suggestion is not an effective control.</p>
+
+<h3>Which AI is the right one for a mid-sized company?</h3>
+<p>The answer depends on the data class and the use case. For public marketing copy, a controlled cloud access is sufficient. For internal policies or non-personal documents, an enterprise solution with DPA and SSO is often appropriate. For HR, M&amp;A, source code, customer support involving identity data or strategic product information, a dedicated access, a local model or hybrid routing is usually more appropriate.</p>
+
+<h2>6. Together AI with a tunnel: sensible, but not local</h2>
+
+<p>Together AI is an example of an important intermediate model: a company uses open-source models but has the inference executed by a cloud provider. This can be technologically flexible, but from a data protection perspective it is still external processing.</p>
+
+<h3>What the tunnel improves</h3>
+<ul>
+  <li>Central sign-in instead of many individual API keys.</li>
+  <li>Redaction or pseudonymisation before a prompt leaves your own area of responsibility.</li>
+  <li>Policy enforcement: only approved models, data classes and tools.</li>
+  <li>Central logging, rate limits, blocklists and a traceable data flow.</li>
+  <li>Routing: simple tasks to the cloud, sensitive tasks to a local model.</li>
+</ul>
+
+<h3>What the tunnel does not improve</h3>
+<p>Together AI still processes the request when it is sent there for inference. According to the provider's current statements, inputs and outputs are not used for training by default; temporary caching, organisation settings, passthrough to upstream providers and the lack of region selection in the standard serverless offering must nevertheless be checked. Dedicated inference with single-tenant isolation, ZDR, region and private networking can be rated significantly higher.</p>
+
+<div class="callout">
+  <strong class="callout-title">A simple rule of thumb</strong>
+  <blockquote>
+    <p>Tunnel = better corporate control.<br />On-premise = a different area of data responsibility.<br />Only the second statement describes genuinely local data storage.</p>
+  </blockquote>
+</div>
+
+<h2>7. Open-source models on the company server</h2>
+
+<p>A locally operated model is the most direct way to keep data within your own area of control. The request does not go to OpenAI, Google, Anthropic, xAI or Together AI. That is a major advantage for trade secrets and particularly sensitive personal data.</p>
+
+<p>Nevertheless, "local" is not a shortcut around data protection and information security. The company remains responsible for purpose, authorisation, deletion, access and documentation. In addition, a supply chain of its own emerges: model weights, containers, inference servers, UI, vector database and plugins must be checked for origin, integrity and updatability.</p>
+
+<div class="table-wrap">
+  <table class="crux-table">
+    <thead>
+      <tr>
+        <th scope="col">Local variant</th>
+        <th scope="col">Score</th>
+        <th scope="col">Strength</th>
+        <th scope="col">Mandatory controls</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Own server, with internet access</td>
+        <td class="score">8</td>
+        <td>Very good data sovereignty, but attack surface and operational risk remain within the company.</td>
+        <td>Network segmentation, patching, IAM, monitoring, backups, model vetting.</td>
+      </tr>
+      <tr>
+        <td>Private EU cloud / own tenant</td>
+        <td class="score">8\u20139</td>
+        <td>Strong gain in control without fully owning the hardware; cloud and sub-processors remain relevant.</td>
+        <td>DPA, region, private endpoints, keys, admin access, logs.</td>
+      </tr>
+      <tr>
+        <td>On-premise, segregated network</td>
+        <td class="score">9</td>
+        <td>Data path stays within the company; operation and updates must be controlled.</td>
+        <td>Physical security, identities, secure updates, emergency operation.</td>
+      </tr>
+      <tr>
+        <td>Air-gapped / fully offline</td>
+        <td class="score">9\u201310</td>
+        <td>Maximum limitation of external data outflows; not automatically safe against insiders or local errors.</td>
+        <td>Media control, model import, patch windows, roles, audit, backup.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>RAG: the sensible middle way for internal knowledge assistants</h3>
+
+<p>For many SMEs, the goal is not to train a model of their own, but an assistant that finds internal documents and answers questions in an understandable way. RAG can be suitable for this: the knowledge base remains separate from the base model and can be updated or deleted. The vector database, however, is a system worthy of protection and must not undermine permissions.</p>
+
+<ul>
+  <li>Index documents only from approved sources.</li>
+  <li>Check permissions before the search and before the output \u2013 not just in the prompt.</li>
+  <li>Separate tenants, departments and particularly sensitive documents logically and technically.</li>
+  <li>Treat embeddings, chat histories and logs as potentially personal data.</li>
+  <li>Implement deletion traceably in the original, index, cache, backup and logs.</li>
+</ul>
+
+<h2>8. Hybrid AI: often the most pragmatic security architecture</h2>
+
+<p>Companies do not have to choose between "everything cloud" and "everything local". A hybrid model can translate the protection requirement into the architecture. A local data classification or a gateway decides which request may go where. Public content and general research can use a vetted SOTA model. Internal, personal or strategic content is redacted, pseudonymised or processed locally.</p>
+
+<div class="table-wrap">
+  <table class="crux-table">
+    <thead>
+      <tr>
+        <th scope="col">Data class</th>
+        <th scope="col">Examples</th>
+        <th scope="col">Suitable model</th>
+        <th scope="col">Minimum requirement</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Public</td>
+        <td>Website copy, general market information</td>
+        <td>Cloud SOTA with standard controls</td>
+        <td>No personal data, no secrets.</td>
+      </tr>
+      <tr>
+        <td>Internal</td>
+        <td>Policies, process descriptions, internal FAQs</td>
+        <td>Enterprise cloud or private EU environment</td>
+        <td>Restrict SSO, roles, retention and connectors.</td>
+      </tr>
+      <tr>
+        <td>Confidential</td>
+        <td>Price lists, offers, source code, contracts</td>
+        <td>Dedicated, private cloud or local</td>
+        <td>No open tools; gateway and four-eyes approval.</td>
+      </tr>
+      <tr>
+        <td>Highly sensitive</td>
+        <td>Health, HR, M&amp;A, particularly critical IP</td>
+        <td>Local, segmented or offline</td>
+        <td>Use-case and legal review before going live.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The router is a security-relevant component here. If employees can simply use a different cloud account when something fails, the policy exists only on paper. Approvals must be technically enforced and reviewed regularly.</p>
+
+<h2>9. What companies in the DACH region should specifically check</h2>
+
+<p>A decision in favour of an AI model should be treated like a small procurement and security review. The following questions are deliberately phrased in plain language and can be used as an approval checklist.</p>
+
+<ol>
+  <li><strong>Describe the use case:</strong> What should the AI do, who uses it, and which decision stays with a human?</li>
+  <li><strong>Classify the data:</strong> public, internal, confidential or highly sensitive \u2013 including attachments, logs and embeddings.</li>
+  <li><strong>Map the data flow:</strong> client, gateway, model provider, sub-processors, storage, tools, backups and deletion.</li>
+  <li><strong>Review the contract:</strong> DPA, role of the provider, purpose limitation, training, sub-processors, support access and incident notification.</li>
+  <li><strong>Assess the region:</strong> Where is data processed, where is it stored, who can access it from which country, and which transfer mechanism applies?</li>
+  <li><strong>Limit retention:</strong> consider retention, abuse logs, feedback, caches, files, chat history and backups separately.</li>
+  <li><strong>Minimise access:</strong> SSO, MFA, roles, least privilege, tenant separation and no automatic access to the entire drive.</li>
+  <li><strong>Control outputs:</strong> test for hallucinations, prompt injection, data leakage, sensitive inferences and impermissible decisions.</li>
+  <li><strong>Keep humans accountable:</strong> AI may provide drafts and hints; the responsible person reviews and decides.</li>
+  <li><strong>Document and train:</strong> establish an AI inventory, an internal policy, an approval process, training and regular reassessment.</li>
+</ol>
+
+<div class="callout callout--blue">
+  <strong class="callout-title">What belongs in an AI policy</strong>
+  <ul>
+    <li>Permitted tools and accounts</li>
+    <li>Prohibited data classes</li>
+    <li>Approval path for new use cases</li>
+    <li>Handling of personal data</li>
+    <li>Rules for files, RAG and external tools</li>
+    <li>Logging and deletion</li>
+    <li>Reporting path for misdirected data or data leakage</li>
+    <li>Human oversight of decisions</li>
+  </ul>
+</div>
+
+<h2>10. The most common misconceptions</h2>
+
+<div class="table-wrap">
+  <table class="crux-table crux-table--narrow">
+    <thead>
+      <tr>
+        <th scope="col">Misconception</th>
+        <th scope="col">Correction</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>"We have a contract, so everything is allowed."</td>
+        <td>The contract governs the provider. Purpose, legal basis, data minimisation and internal permissions remain the company's responsibility.</td>
+      </tr>
+      <tr>
+        <td>"The data is stored in Europe, so there is no risk."</td>
+        <td>Location, access possibilities, sub-processors and technical safeguards must be considered together.</td>
+      </tr>
+      <tr>
+        <td>"The tunnel encrypts the data, so Together AI sees nothing."</td>
+        <td>The inference provider must be able to decrypt the prompt in order to process it. The tunnel primarily protects transport and corporate control.</td>
+      </tr>
+      <tr>
+        <td>"Open source automatically means secure."</td>
+        <td>Open or freely available weights can contain unverified dependencies, unclear licences or dangerous files.</td>
+      </tr>
+      <tr>
+        <td>"RAG is just a search function."</td>
+        <td>RAG stores content and embeddings and must therefore be treated like a database system of its own, with permissions, deletion and monitoring.</td>
+      </tr>
+      <tr>
+        <td>"A human takes a quick look at the end."</td>
+        <td>Effective human oversight requires time, information and genuine decision-making authority \u2013 especially in HR, customer assessment and risk cases.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>11. Conclusion: security comes from architecture</h2>
+
+<p>For decision-makers in the DACH region, there is no single "GDPR-compliant AI" that solves every task equally well. There are suitable operating models for different data classes.</p>
+
+<p>The pragmatic default recommendation for many companies is: a managed enterprise or API access with DPA, a clear data region, training exclusion, retention as short as possible, SSO, roles, audit and a gateway that controls data classes and tools. When implemented properly, this typically falls within the 7 to 8 range.</p>
+
+<p>For particularly confidential or heavily regulated processes, dedicated private environments and locally operated open-source models are the more controllable choice. They can reach 8 to 10, but demand rigorous IT security, model and supply chain vetting, and robust operational processes.</p>
+
+<p>The most important thought remains: a server of your own is not an end in itself, and a SOTA model is not a blank cheque. Good AI governance connects protection needs, data flow, contract and technology. That is exactly where the crux lies \u2013 the decisive point at which AI enthusiasm becomes a robust enterprise solution.</p>
+
+<div class="callout">
+  <strong class="callout-title">Sensible next step</strong>
+  <p>Create an AI inventory with three to five real use cases, classify the data processed in them and map the data flow. Only then should the decision for a provider, tunnel, private cloud or on-premise be made.</p>
+</div>
+
+<h2>12. Sources and further information</h2>
+
+<p>This assessment is based on official guidelines, information from supervisory authorities and the publicly available data protection and security statements of the providers mentioned. Product terms and data residency options can change; the current contract version should be reviewed before any approval.</p>
+
+<ol class="sources">
+  <li><a href="https://www.datenschutzkonferenz-online.de/media/oh/20240506_DSK_Orientierungshilfe_KI_und_Datenschutz.pdf" target="_blank" rel="noopener noreferrer">Datenschutzkonferenz: Orientierungshilfe KI und Datenschutz</a> \u2014 Roles, data flows, closed/open systems, legal bases and safeguards (German).</li>
+  <li><a href="https://www.datenschutzkonferenz-online.de/media/oh/DSK-OH_KI-Systeme.pdf" target="_blank" rel="noopener noreferrer">Datenschutzkonferenz: Technische und organisatorische Ma\xDFnahmen f\xFCr KI-Systeme</a> \u2014 Security across the entire AI lifecycle (German).</li>
+  <li><a href="https://www.datenschutzkonferenz-online.de/media/oh/DSK_OH_RAG.pdf" target="_blank" rel="noopener noreferrer">Datenschutzkonferenz: RAG und Datenschutz</a> \u2014 RAG, vector databases, permissions and deletion (German).</li>
+  <li><a href="https://www.edpb.europa.eu/documents/opinion-of-the-board-art-64/opinion-282024-on-certain-data-protection-aspects-related-to_en" target="_blank" rel="noopener noreferrer">EDPB: Opinion 28/2024 on certain data protection aspects related to AI models</a> \u2014 Anonymity, legal basis and accountability for AI models.</li>
+  <li><a href="https://www.edpb.europa.eu/documents/recommendation/recommendations-012020-on-measures-that-supplement-transfer-tools-to_en" target="_blank" rel="noopener noreferrer">EDPB: Recommendations 01/2020 on supplementary transfer measures</a> \u2014 Third-country transfers and supplementary technical measures.</li>
+  <li><a href="https://dsb.gv.at/kuenstlichebrintelligenz/kuenstliche-intelligenz-datenschutz" target="_blank" rel="noopener noreferrer">Austrian Data Protection Authority: Artificial Intelligence and Data Protection</a> \u2014 GDPR, AI Act, accountability and transparency (German).</li>
+  <li><a href="https://www.edoeb.admin.ch/en/cross-border-transfer-of-personal-data" target="_blank" rel="noopener noreferrer">FDPIC (Switzerland): Cross-border transfer of personal data</a> \u2014 Swiss requirements and safeguards for transfers abroad.</li>
+  <li><a href="https://openai.com/enterprise-privacy/" target="_blank" rel="noopener noreferrer">OpenAI: Enterprise Privacy / API Your Data</a> \u2014 Business privacy and enterprise controls.</li>
+  <li><a href="https://knowledge.workspace.google.com/admin/generative-ai/generative-ai-in-google-workspace-privacy-hub" target="_blank" rel="noopener noreferrer">Google Workspace: Generative AI Privacy Hub</a> \u2014 Workspace data, admin controls and limits of individual features.</li>
+  <li><a href="https://platform.claude.com/docs/en/manage-claude/api-and-data-retention" target="_blank" rel="noopener noreferrer">Anthropic: API Data Retention / Commercial Terms</a> \u2014 Retention, ZDR and commercial data processing.</li>
+  <li><a href="https://x.ai/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">xAI: Enterprise DPA</a> \u2014 Processor role, sub-processors, transfers and deletion for Business/API.</li>
+  <li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy" target="_blank" rel="noopener noreferrer">Microsoft: Microsoft 365 Copilot privacy</a> \u2014 Tenant binding, storage, audit and web search.</li>
+  <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html" target="_blank" rel="noopener noreferrer">AWS: Bedrock data protection</a> \u2014 Model provider access, VPC, IAM and regional inference.</li>
+  <li><a href="https://docs.together.ai/docs/privacy-and-security" target="_blank" rel="noopener noreferrer">Together AI: Privacy and Security</a> \u2014 Training, caching, standard and dedicated inference.</li>
+  <li><a href="https://opensource.org/ai/open-source-ai-definition" target="_blank" rel="noopener noreferrer">Open Source Initiative: Open Source AI Definition</a> \u2014 Distinction between open source and open weights.</li>
+  <li><a href="https://huggingface.co/docs/hub/security-pickle" target="_blank" rel="noopener noreferrer">Hugging Face: Pickle scanning and security</a> \u2014 Risks of executable model files and safe formats.</li>
+  <li><a href="https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/" target="_blank" rel="noopener noreferrer">OWASP: GenAI / LLM Top 10</a> \u2014 Prompt injection, data leakage, supply chain, poisoning and vector risks.</li>
+</ol>
+`;
+
+// src/data/blog/ki-datenschutz-unternehmen.ts
+var kiDatenschutzUnternehmen = {
+  id: 9,
+  category: "AI EDUCATION",
+  slug: "ki-datenschutz-unternehmen",
+  title: {
+    en: "AI and Data Protection in Companies: The 0-to-10 Risk Check",
+    de: "KI und Datenschutz im Unternehmen: Der Risiko-Check von 0 bis 10"
+  },
+  summary: {
+    en: "Data protection does not depend on the model alone, but on the path the data takes. This article provides a clear comparison of the main AI operating models.",
+    de: "Nicht das Modell allein entscheidet \xFCber Datenschutz, sondern der Weg, den die Daten nehmen. Dieser Beitrag ordnet die wichtigsten Betriebsmodelle verst\xE4ndlich ein."
+  },
+  metaDescription: {
+    en: "Which AI is safe for companies in the DACH region? Corporate licences, APIs, tunnels and on-premise in a data protection check from 0 to 10.",
+    de: "Welche KI ist f\xFCr Unternehmen in DACH sicher? Corporate-Lizenzen, APIs, Tunnel und On-Premise im Datenschutz-Check von 0 bis 10."
+  },
+  keywords: [
+    "KI Datenschutz Unternehmen",
+    "DSGVO KI",
+    "Enterprise KI",
+    "Open-Source-KI",
+    "On-Premise KI",
+    "KI-Risikoklassifikation",
+    "RAG Datenschutz",
+    "Gesch\xE4ftsgeheimnisse KI"
+  ],
+  content: {
+    en: contentEn,
+    de: contentDe
+  },
+  image: "/lovable-uploads/ki-datenschutz-risikoklassifikation-16x9.png",
+  imageAlt: {
+    en: "Infographic showing the 0-to-10 risk classification for AI data protection in companies",
+    de: "Infografik zur Risikoklassifikation von KI-Datenschutz im Unternehmen"
+  },
+  date: "September 4, 2026",
+  publishedAt: "2026-09-04",
+  author: "Patrick Reverchon",
+  originalLanguage: "de",
+  hideTranslationNotice: true,
+  contentFormat: "semantic"
+};
+
 // src/data/blog/index.ts
 var blogPosts = [
   shouldYouAutomateThatProcess,
@@ -2541,7 +3571,8 @@ var blogPosts = [
   frustratingBotsToExpertTeammates,
   whyAiProjectsFail,
   tendersTheoryVsReality,
-  saveHoursOnRfpResponses
+  saveHoursOnRfpResponses,
+  kiDatenschutzUnternehmen
 ];
 
 // src/lib/mcp/tools/list-blog-posts.ts

@@ -6,7 +6,7 @@ import { Menu, ArrowLeft, Linkedin, Instagram } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { blogPosts, getCategoryColor, getMostRecentPosts } from "@/data/blogPosts";
+import { blogPosts, getCategoryColor, getMostRecentPosts, formatPostDate, getImageAlt } from "@/data/blogPosts";
 import { useTranslation } from 'react-i18next';
 import SEO from "@/components/SEO";
 
@@ -70,7 +70,7 @@ const Blog = () => {
               <Link key={post.id} to={`/${currentLang}/blog/${post.slug}`} className="block">
                 <Card className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border-gray-700 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
                   <div className="aspect-video bg-gray-700 overflow-hidden">
-                    <img src={post.image} alt={post.title[currentLang]} className="w-full h-full object-cover" />
+                    <img src={post.image} alt={getImageAlt(post, currentLang)} loading="lazy" className="w-full h-full object-cover" />
                   </div>
                   
                   <div className="p-6">
@@ -87,7 +87,7 @@ const Blog = () => {
                     </p>
                     
                     <div className="text-xs text-gray-400">
-                      {post.date} • {currentLang === 'de' ? 'Von' : 'By'} {post.author}
+                      {formatPostDate(post, currentLang)} • {currentLang === 'de' ? 'Von' : 'By'} {post.author}
                     </div>
                   </div>
                 </Card>

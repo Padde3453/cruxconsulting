@@ -3,67 +3,67 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://crux-consulting.ai</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://crux-consulting.ai/about</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://crux-consulting.ai/services</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://crux-consulting.ai/services/ai-chatbot</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://crux-consulting.ai/services/ai-compliance</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://crux-consulting.ai/services/automation</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://crux-consulting.ai/services/process-audit</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://crux-consulting.ai/services/workshops</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://crux-consulting.ai/services/tender-assistant</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://crux-consulting.ai/privacy</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://crux-consulting.ai/impressum</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -72,7 +72,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog"/>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -81,9 +81,99 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog"/>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://crux-consulting.ai/en/blog/ki-datenschutz-unternehmen</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/ki-datenschutz-unternehmen"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/ki-datenschutz-unternehmen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/ki-datenschutz-unternehmen"/>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crux-consulting.ai/de/blog/ki-datenschutz-unternehmen</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/ki-datenschutz-unternehmen"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/ki-datenschutz-unternehmen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/ki-datenschutz-unternehmen"/>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crux-consulting.ai/en/blog/save-hours-on-rfp-responses</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/save-hours-on-rfp-responses"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/save-hours-on-rfp-responses"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/save-hours-on-rfp-responses"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crux-consulting.ai/de/blog/save-hours-on-rfp-responses</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/save-hours-on-rfp-responses"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/save-hours-on-rfp-responses"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/save-hours-on-rfp-responses"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crux-consulting.ai/en/blog/tenders-theory-vs-reality</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/tenders-theory-vs-reality"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/tenders-theory-vs-reality"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/tenders-theory-vs-reality"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crux-consulting.ai/de/blog/tenders-theory-vs-reality</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/tenders-theory-vs-reality"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/tenders-theory-vs-reality"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/tenders-theory-vs-reality"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crux-consulting.ai/en/blog/why-AI-projects-fail</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/why-AI-projects-fail"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/why-AI-projects-fail"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/why-AI-projects-fail"/>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crux-consulting.ai/de/blog/why-AI-projects-fail</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/why-AI-projects-fail"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/why-AI-projects-fail"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/why-AI-projects-fail"/>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crux-consulting.ai/en/blog/frustrating-bots-to-expert-teammates</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/frustrating-bots-to-expert-teammates"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/frustrating-bots-to-expert-teammates"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/frustrating-bots-to-expert-teammates"/>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://crux-consulting.ai/de/blog/frustrating-bots-to-expert-teammates</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/frustrating-bots-to-expert-teammates"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/frustrating-bots-to-expert-teammates"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/frustrating-bots-to-expert-teammates"/>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://crux-consulting.ai/en/blog/5-tasks-to-automate-now</loc>
@@ -104,20 +194,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://crux-consulting.ai/en/blog/frustrating-bots-to-expert-teammates</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/frustrating-bots-to-expert-teammates"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/frustrating-bots-to-expert-teammates"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/frustrating-bots-to-expert-teammates"/>
-    <lastmod>2025-08-19</lastmod>
+    <loc>https://crux-consulting.ai/en/blog/what-ai-can-actually-do-for-your-business</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/what-ai-can-actually-do-for-your-business"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/what-ai-can-actually-do-for-your-business"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/what-ai-can-actually-do-for-your-business"/>
+    <lastmod>2025-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://crux-consulting.ai/de/blog/frustrating-bots-to-expert-teammates</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/frustrating-bots-to-expert-teammates"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/frustrating-bots-to-expert-teammates"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/frustrating-bots-to-expert-teammates"/>
-    <lastmod>2025-08-19</lastmod>
+    <loc>https://crux-consulting.ai/de/blog/what-ai-can-actually-do-for-your-business</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/what-ai-can-actually-do-for-your-business"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/what-ai-can-actually-do-for-your-business"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/what-ai-can-actually-do-for-your-business"/>
+    <lastmod>2025-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -154,60 +244,6 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/should-you-automate-that-process"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/should-you-automate-that-process"/>
     <lastmod>2025-03-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crux-consulting.ai/en/blog/tenders-theory-vs-reality</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/tenders-theory-vs-reality"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/tenders-theory-vs-reality"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/tenders-theory-vs-reality"/>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crux-consulting.ai/de/blog/tenders-theory-vs-reality</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/tenders-theory-vs-reality"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/tenders-theory-vs-reality"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/tenders-theory-vs-reality"/>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crux-consulting.ai/en/blog/what-ai-can-actually-do-for-your-business</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/what-ai-can-actually-do-for-your-business"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/what-ai-can-actually-do-for-your-business"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/what-ai-can-actually-do-for-your-business"/>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crux-consulting.ai/de/blog/what-ai-can-actually-do-for-your-business</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/what-ai-can-actually-do-for-your-business"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/what-ai-can-actually-do-for-your-business"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/what-ai-can-actually-do-for-your-business"/>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crux-consulting.ai/en/blog/why-AI-projects-fail</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/why-AI-projects-fail"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/why-AI-projects-fail"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/why-AI-projects-fail"/>
-    <lastmod>2025-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crux-consulting.ai/de/blog/why-AI-projects-fail</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://crux-consulting.ai/en/blog/why-AI-projects-fail"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://crux-consulting.ai/de/blog/why-AI-projects-fail"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://crux-consulting.ai/en/blog/why-AI-projects-fail"/>
-    <lastmod>2025-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -152,6 +152,360 @@
     margin: 0.5rem 0;
   }
 
+  /* ------------------------------------------------------------------
+     Blog article building blocks (tables, callouts, sources)
+     Scoped to .blog-content so nothing else on the site is affected.
+     ------------------------------------------------------------------ */
+
+  /* Horizontally scrollable table container (mobile-safe) */
+  .blog-content .table-wrap {
+    position: relative;
+    margin: 2rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 0.75rem;
+    /* Scroll shadows: hint that more columns exist to the right/left */
+    background:
+      linear-gradient(to right, #111827 30%, rgba(17, 24, 39, 0)),
+      linear-gradient(to right, rgba(17, 24, 39, 0), #111827 70%) 100% 0,
+      radial-gradient(farthest-side at 0 50%, rgba(1, 147, 127, 0.35), rgba(0, 0, 0, 0)),
+      radial-gradient(farthest-side at 100% 50%, rgba(39, 72, 225, 0.45), rgba(0, 0, 0, 0)) 100% 0;
+    background-color: #111827;
+    background-repeat: no-repeat;
+    background-size: 48px 100%, 48px 100%, 18px 100%, 18px 100%;
+    background-attachment: local, local, scroll, scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  }
+
+  .blog-content .table-wrap::-webkit-scrollbar {
+    height: 8px;
+  }
+  .blog-content .table-wrap::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 9999px;
+  }
+
+  .blog-content .crux-table {
+    width: 100%;
+    min-width: 42rem;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    background: transparent;
+  }
+
+  /* Narrow (2-column) tables may shrink to the viewport */
+  .blog-content .crux-table--narrow {
+    min-width: 28rem;
+  }
+
+  .blog-content .crux-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: rgba(39, 72, 225, 0.22);
+    color: #ededea;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    text-align: left;
+    vertical-align: top;
+    padding: 0.85rem 1rem;
+    border-bottom: 2px solid #2748E1;
+    white-space: normal;
+  }
+
+  .blog-content .crux-table tbody td {
+    padding: 0.85rem 1rem;
+    vertical-align: top;
+    color: #d1d5db;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Prevent columns from collapsing so narrow that single words break mid-word */
+  .blog-content .crux-table th,
+  .blog-content .crux-table td {
+    min-width: 7.5rem;
+  }
+  .blog-content .crux-table th:first-child,
+  .blog-content .crux-table td:first-child {
+    min-width: 9rem;
+  }
+  /* Tables whose first column is a short score range need far less room */
+  .blog-content .crux-table--score-first th:first-child,
+  .blog-content .crux-table--score-first td:first-child {
+    min-width: 4.5rem;
+  }
+
+  .blog-content .crux-table tbody tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .blog-content .crux-table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .blog-content .crux-table tbody td:first-child,
+  .blog-content .crux-table tbody th[scope="row"] {
+    color: #ededea;
+    font-weight: 500;
+  }
+
+  /* Score cells: Crux green accent, never wrap */
+  .blog-content .crux-table .score {
+    color: #01937F;
+    font-weight: 600;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .blog-content .crux-table span.score {
+    display: inline-block;
+  }
+
+  .blog-content .crux-table .cell-note {
+    display: block;
+    color: #9ca3af;
+    font-size: 0.85em;
+    margin: 0 0 0.15rem;
+  }
+
+  /* Blockquote inside a callout: no extra frame, just emphasis */
+  .blog-content .callout blockquote {
+    margin: 0;
+    padding-left: 1rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.25);
+    font-style: normal;
+    font-weight: 500;
+    color: #ededea;
+  }
+  .blog-content .callout blockquote p::before,
+  .blog-content .callout blockquote p::after {
+    content: none;
+  }
+
+  /* Mobile: slightly tighter cells but still readable */
+  @media (max-width: 640px) {
+    .blog-content .crux-table {
+      font-size: 0.9rem;
+    }
+    .blog-content .crux-table thead th,
+    .blog-content .crux-table tbody td {
+      padding: 0.7rem 0.8rem;
+    }
+  }
+
+  /* Callout boxes (replace 1x1 "tables" from the manuscript) */
+  .blog-content .callout {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid #01937F;
+    border-radius: 0 0.75rem 0.75rem 0;
+    background: rgba(1, 147, 127, 0.10);
+    color: #e5e7eb;
+  }
+
+  .blog-content .callout--blue {
+    border-left-color: #2748E1;
+    background: rgba(39, 72, 225, 0.12);
+  }
+
+  .blog-content .callout--warning {
+    border-left-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.10);
+  }
+
+  .blog-content .callout > :first-child {
+    margin-top: 0;
+  }
+  .blog-content .callout > :last-child {
+    margin-bottom: 0;
+  }
+
+  .blog-content .callout-title {
+    display: block;
+    color: #ededea;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-content .callout p {
+    margin: 0.5rem 0;
+    font-size: 1.05rem;
+  }
+
+  .blog-content .callout ul,
+  .blog-content .callout ol {
+    margin: 0.5rem 0 0;
+  }
+
+  .blog-content .callout li {
+    margin: 0.25rem 0;
+  }
+
+  .blog-content .lead {
+    font-size: 1.35rem;
+    line-height: 1.5;
+    color: #ededea;
+    font-weight: 500;
+  }
+
+  /* Sources list */
+  .blog-content .sources li {
+    margin: 0.6rem 0;
+  }
+  .blog-content .sources a {
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ------------------------------------------------------------------
+     Article typography — opt-in via contentFormat: 'semantic'
+     (older posts space paragraphs with <br> and are rendered unchanged)
+     ------------------------------------------------------------------ */
+  .blog-content--semantic {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #d1d5db;
+  }
+
+  .blog-content--semantic > :first-child {
+    margin-top: 0;
+  }
+
+  .blog-content--semantic p {
+    margin: 0 0 1.25rem;
+  }
+
+  .blog-content--semantic h2 {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    font-weight: 600;
+    color: #ededea;
+    margin: 3rem 0 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .blog-content--semantic h3 {
+    font-size: 1.25rem;
+    line-height: 1.35;
+    font-weight: 600;
+    color: #ededea;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .blog-content--semantic h2 + h3 {
+    margin-top: 1rem;
+  }
+
+  .blog-content--semantic strong {
+    font-weight: 600;
+    color: #ededea;
+  }
+
+  .blog-content--semantic em {
+    color: #e5e7eb;
+  }
+
+  .blog-content--semantic ul,
+  .blog-content--semantic ol {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .blog-content--semantic ul { list-style-type: disc; }
+  .blog-content--semantic ol { list-style-type: decimal; }
+
+  .blog-content--semantic li {
+    margin: 0.45rem 0;
+    padding-left: 0.35rem;
+  }
+  .blog-content--semantic li::marker {
+    color: #01937F;
+    font-weight: 500;
+  }
+  .blog-content--semantic li > ul,
+  .blog-content--semantic li > ol {
+    margin: 0.5rem 0 0.5rem;
+  }
+
+  .blog-content--semantic a {
+    color: #6d86ff; /* lighter tint of brand blue #2748E1 for AA contrast on dark ground */
+    text-decoration: underline;
+    text-decoration-color: rgba(109, 134, 255, 0.45);
+    text-underline-offset: 3px;
+    transition: color 150ms ease, text-decoration-color 150ms ease;
+  }
+  .blog-content--semantic a:hover {
+    color: #01937F;
+    text-decoration-color: #01937F;
+  }
+  .blog-content--semantic a:focus-visible {
+    outline: 2px solid #2748E1;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Stand-alone quotes (not inside a callout) */
+  .blog-content--semantic > blockquote {
+    margin: 2rem 0;
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    border-left: 3px solid #2748E1;
+    color: #e5e7eb;
+    font-style: italic;
+  }
+  .blog-content--semantic > blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  .blog-content--semantic hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    margin: 3rem 0;
+  }
+
+  .blog-content--semantic .lead {
+    margin-bottom: 1.75rem;
+  }
+
+  /* Headings directly followed by a table/callout keep a tighter rhythm */
+  .blog-content--semantic h2 + .table-wrap,
+  .blog-content--semantic h3 + .table-wrap,
+  .blog-content--semantic h2 + .callout,
+  .blog-content--semantic h3 + .callout {
+    margin-top: 1.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .blog-content--semantic {
+      font-size: 1.0625rem;
+    }
+    .blog-content--semantic h2 {
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .blog-content--semantic h3 {
+      font-size: 1.15rem;
+    }
+  }
+
+  /* Table caption used as an accessible title */
+  .blog-content .crux-table caption {
+    caption-side: top;
+    text-align: left;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem 0.25rem;
+  }
+
   /* Respect user's motion preferences */
   @media (prefers-reduced-motion: reduce) {
     *,
