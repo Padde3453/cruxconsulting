@@ -226,8 +226,18 @@
     vertical-align: top;
     color: #d1d5db;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
     hyphens: auto;
+  }
+
+  /* Prevent columns from collapsing so narrow that single words break mid-word */
+  .blog-content .crux-table th,
+  .blog-content .crux-table td {
+    min-width: 7.5rem;
+  }
+  .blog-content .crux-table th:first-child,
+  .blog-content .crux-table td:first-child {
+    min-width: 9rem;
   }
 
   .blog-content .crux-table tbody tr:nth-child(even) td {
@@ -246,11 +256,13 @@
 
   /* Score cells: Crux green accent, never wrap */
   .blog-content .crux-table .score {
-    display: inline-block;
     color: #01937F;
     font-weight: 600;
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
+  }
+  .blog-content .crux-table span.score {
+    display: inline-block;
   }
 
   .blog-content .crux-table .cell-note {
