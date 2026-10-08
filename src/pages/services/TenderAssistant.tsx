@@ -210,7 +210,7 @@ const TenderAssistant = ({ lang }: { lang?: Lang }) => {
           }`}
         >
           <div className="text-center mb-16 max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            <h1 lang={currentLang} className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 break-words hyphens-auto bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
               {t('tenderAssistant.title')}
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8">
