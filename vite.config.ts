@@ -41,6 +41,7 @@ function cruxPrerender(): Plugin {
           resolve: { alias: { "@": path.resolve(root, "./src") } },
           server: { middlewareMode: true, hmr: false, watch: null },
           appType: "custom",
+          ssr: { noExternal: ["react-helmet-async"] },
           optimizeDeps: { noDiscovery: true, include: [] },
         });
         const mod = await server.ssrLoadModule("/src/prerender/entry-server.tsx");
