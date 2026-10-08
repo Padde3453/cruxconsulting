@@ -9,7 +9,7 @@ import { auth, defineMcp } from "npm:@lovable.dev/mcp-js@0.26.1";
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.26.1";
 
 // src/lib/mcp/content.ts
-var SITE_URL = "https://crux-consulting.ai";
+var SITE_URL = "https://www.crux-consulting.ai";
 function resolveLanguage(language) {
   return language?.toLowerCase().startsWith("de") ? "de" : "en";
 }

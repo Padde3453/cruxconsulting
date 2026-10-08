@@ -5,6 +5,8 @@ import { Menu, Plus, ChevronDown } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from './LanguageToggle';
+import { ROUTE_PATHS } from '@/data/localizedRoutes';
+import { normalizeLang } from '@/data/site';
 
 const CLIENT_PORTAL_URL = "https://kundenportal.crux-consulting.ai";
 
@@ -18,7 +20,8 @@ const Header = ({ onBooking }: HeaderProps) => {
   const [dropdownTimeout, setDropdownTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = normalizeLang(i18n.language);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -98,7 +101,7 @@ const Header = ({ onBooking }: HeaderProps) => {
   };
 
   const serviceLinks = [
-    { path: '/services/tender-assistant', label: t('navigation.servicesMenu.tenderAssistant') },
+    { path: ROUTE_PATHS.tenderAssistant[currentLang], label: t('navigation.servicesMenu.tenderAssistant') },
     { path: '/services/workshops', label: t('navigation.servicesMenu.workshops') },
     { path: '/services/process-audit', label: t('navigation.servicesMenu.processAudit') },
     { path: '/services/automation', label: t('navigation.servicesMenu.automation') },

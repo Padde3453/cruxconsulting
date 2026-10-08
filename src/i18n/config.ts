@@ -20,12 +20,16 @@ i18n
       }
     },
     fallbackLng: 'en',
+    supportedLngs: ['en', 'de'],
+    nonExplicitSupportedLngs: true,
     debug: false,
     interpolation: {
       escapeValue: false
     },
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      // A /de/... or /en/... URL always wins over stored or browser preferences.
+      order: ['path', 'localStorage', 'navigator', 'htmlTag'],
+      lookupFromPathIndex: 0,
       caches: ['localStorage']
     }
   });

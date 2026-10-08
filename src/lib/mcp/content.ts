@@ -1,4 +1,4 @@
-export const SITE_URL = "https://crux-consulting.ai";
+export const SITE_URL = "https://www.crux-consulting.ai";
 
 export type SiteLanguage = "en" | "de";
 

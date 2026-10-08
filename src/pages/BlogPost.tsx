@@ -72,9 +72,9 @@ const BlogPost = () => {
     );
   }
 
-  const currentUrl = `https://crux-consulting.ai/${currentLang}/blog/${blogPost.slug}`;
-  const alternateUrl = currentLang === 'en' ? `https://crux-consulting.ai/de/blog/${blogPost.slug}` : `https://crux-consulting.ai/en/blog/${blogPost.slug}`;
-  const imageUrl = `https://crux-consulting.ai${blogPost.image}`;
+  const currentUrl = `https://www.crux-consulting.ai/${currentLang}/blog/${blogPost.slug}`;
+  const alternateUrl = currentLang === 'en' ? `https://www.crux-consulting.ai/de/blog/${blogPost.slug}` : `https://www.crux-consulting.ai/en/blog/${blogPost.slug}`;
+  const imageUrl = `https://www.crux-consulting.ai${blogPost.image}`;
   const displayDate = formatPostDate(blogPost, currentLang);
   const imageAlt = getImageAlt(blogPost, currentLang);
   const metaDescription = getMetaDescription(blogPost, currentLang);
@@ -105,7 +105,7 @@ const BlogPost = () => {
       "name": "Crux Consulting",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://crux-consulting.ai/LogoIconOnly.png"
+        "url": "https://www.crux-consulting.ai/LogoIconOnly.png"
       }
     },
     "mainEntityOfPage": {
@@ -157,7 +157,7 @@ const BlogPost = () => {
         {/* Hreflang for alternate language versions */}
         <link rel="alternate" hrefLang={currentLang === 'en' ? 'de' : 'en'} href={alternateUrl} />
         <link rel="alternate" hrefLang={currentLang} href={currentUrl} />
-        <link rel="alternate" hrefLang="x-default" href={`https://crux-consulting.ai/en/blog/${blogPost.slug}`} />
+        <link rel="alternate" hrefLang="x-default" href={`https://www.crux-consulting.ai/en/blog/${blogPost.slug}`} />
         
         {/* Structured Data */}
         <script type="application/ld+json">

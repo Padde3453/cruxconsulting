@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import { getCounterpartPath } from '@/data/localizedRoutes';
+import { normalizeLang } from '@/data/site';
 
 const LanguageToggle = () => {
   const { i18n } = useTranslation();
@@ -11,7 +13,7 @@ const LanguageToggle = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-  const currentLanguage = i18n.language;
+  const currentLanguage = normalizeLang(i18n.language);
 
   const languages = [
     { code: 'en', flag: '🇬🇧' },
@@ -24,6 +26,13 @@ const LanguageToggle = () => {
 
     // Update URL if on blog pages
     const currentPath = location.pathname;
+
+    // Language-specific service / solution pages: go to the real counterpart URL
+    const counterpart = getCounterpartPath(currentPath, normalizeLang(langCode));
+    if (counterpart) {
+      navigate(`${counterpart}${location.search}${location.hash}`, { replace: true });
+      return;
+    }
     
     // Check if we're on a language-prefixed blog route
     const blogMatch = currentPath.match(/^\/(en|de)\/blog(\/.*)?$/);
