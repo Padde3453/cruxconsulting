@@ -86,7 +86,7 @@ export const tenderAutofillDe: SolutionPage = {
     },
     {
       question: 'Welche Antworten darf die KI verwenden?',
-      answer: 'Nur Daten und Antworten, die Sie zur Wiederverwendung freigegeben haben. Fehlt eine passende Antwort, wird die Frage als offen markiert, statt etwas zu erfinden.',
+      answer: 'Nur Daten und Antworten, die Sie zur Wiederverwendung freigegeben haben. Fragen ohne passende freigegebene Antwort sollen als offen markiert und durch Ihr Team beantwortet werden. Prüfen Sie auch die vorgeschlagenen Antworten fachlich.',
     },
     {
       question: 'Was passiert mit veralteten Informationen?',
@@ -185,7 +185,7 @@ export const tenderAutofillEn: SolutionPage = {
     },
     {
       question: 'Which answers may the AI use?',
-      answer: 'Only data and answers you have approved for reuse. If no suitable answer exists, the question is flagged as open rather than made up.',
+      answer: 'Only data and answers you have approved for reuse. Questions without a suitable approved answer should be flagged as open for your team to answer. Proposed answers still need expert review.',
     },
     {
       question: 'What happens to outdated information?',
