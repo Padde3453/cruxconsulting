@@ -32,6 +32,9 @@ function cruxPrerender(): Plugin {
       if (!fs.existsSync(templatePath)) return;
       const { createServer } = await import("vite");
       let server: Awaited<ReturnType<typeof createServer>> | undefined;
+      // The SSR loader compiles JSX with the dev runtime, so load React's matching dev build.
+      const prevNodeEnv = process.env.NODE_ENV;
+      process.env.NODE_ENV = "development";
       try {
         server = await createServer({
           configFile: false,
@@ -63,6 +66,7 @@ function cruxPrerender(): Plugin {
         console.warn("[crux-prerender] prerender skipped:", e);
       } finally {
         await server?.close();
+        process.env.NODE_ENV = prevNodeEnv;
       }
     },
   };
