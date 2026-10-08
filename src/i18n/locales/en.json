@@ -716,7 +716,7 @@
   },
   "tenderAssistant": {
     "title": "Tender Assistant",
-    "subtitle": "You win tenders, you would have otherwise lost.",
+    "subtitle": "Assess tenders faster, work through them in a structured way and prepare standard answers in advance.",
     "shortDescription": "Win more tenders with AI-powered project management and auto-fill — faster, more accurate, fewer errors.",
     "challengesTitle": "The Challenges",
     "challenges": {
@@ -791,6 +791,32 @@
       "title": "Ready to Win More Tenders?",
       "description": "Ask questions, get in touch, or book a free demo — we're here to help you succeed.",
       "buttonText": "Book a Demo"
+    },
+    "intro": "The Tender Assistant supports AI-assisted tender management from the first assessment to the completed form: it helps you judge whether a tender fits your company, breaks the documents down into clear tasks with deadlines and required evidence, and prepares recurring answers based on your approved company data. Expert review and the final decision stay with your team.",
+    "seo": {
+      "title": "AI Tender Assistant for Companies | Crux Consulting",
+      "description": "Analyse tenders with AI, structure requirements and prepare standard answers. Discover the Crux Tender Assistant."
+    },
+    "breadcrumbHome": "Home",
+    "breadcrumbServices": "Services",
+    "related": {
+      "title": "More about the Tender Assistant",
+      "analysis": {
+        "label": "Analyse tenders with AI",
+        "description": "Check fit and mandatory criteria; capture requirements, deadlines and required documents as tasks."
+      },
+      "autofill": {
+        "label": "Prepare tender questionnaires with AI",
+        "description": "Reuse approved data and past answers – with expert sign-off."
+      },
+      "blogTheory": {
+        "label": "Tenders: Great in Theory, Tough on Companies in Reality",
+        "description": "Blog article on the typical hurdles of tenders."
+      },
+      "blogRfp": {
+        "label": "How to Save Hours on RFP Responses Without Sacrificing Quality",
+        "description": "Blog article on AI-assisted RFP automation."
+      }
     }
   },
   "newsletter": {
