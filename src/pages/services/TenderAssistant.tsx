@@ -7,6 +7,9 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import SEO from "@/components/SEO";
+import { BLOG_PATHS, ROUTE_PATHS } from "@/data/localizedRoutes";
+import { X_DEFAULT_LANG, normalizeLang, type Lang } from "@/data/site";
+import { buildServicePageGraph } from "@/lib/structuredData";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { useEffect, useState, useRef, useCallback } from "react";
@@ -93,10 +96,19 @@ const AnimatedProgressBar = ({ targetPercent, gradient }: { targetPercent: numbe
   );
 };
 
-const TenderAssistant = () => {
+const TenderAssistant = ({ lang }: { lang?: Lang }) => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const currentLang = i18n.language.startsWith('de') ? 'de' : 'en';
+  const currentLang: Lang = lang ?? normalizeLang(i18n.language);
+  const pagePath = ROUTE_PATHS.tenderAssistant[currentLang];
+  const seoTitle = t('tenderAssistant.seo.title');
+  const seoDescription = t('tenderAssistant.seo.description');
+  const relatedLinks = [
+    { path: ROUTE_PATHS.tenderAnalysis[currentLang], label: t('tenderAssistant.related.analysis.label'), description: t('tenderAssistant.related.analysis.description') },
+    { path: ROUTE_PATHS.tenderAutofill[currentLang], label: t('tenderAssistant.related.autofill.label'), description: t('tenderAssistant.related.autofill.description') },
+    { path: BLOG_PATHS.tendersTheoryVsReality(currentLang), label: t('tenderAssistant.related.blogTheory.label'), description: t('tenderAssistant.related.blogTheory.description') },
+    { path: BLOG_PATHS.saveHoursOnRfp(currentLang), label: t('tenderAssistant.related.blogRfp.label'), description: t('tenderAssistant.related.blogRfp.description') },
+  ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -150,8 +162,30 @@ const TenderAssistant = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden relative">
       <SEO
-        title="Tender Assistant — AI for RFP Responses"
-        description="Cut RFP response time without sacrificing quality. AI-powered tender assistant tailored to your win themes, content library, and process."
+        title={seoTitle}
+        description={seoDescription}
+        canonicalPath={pagePath}
+        lang={currentLang}
+        alternates={[
+          { hrefLang: 'de', path: ROUTE_PATHS.tenderAssistant.de },
+          { hrefLang: 'en', path: ROUTE_PATHS.tenderAssistant.en },
+          { hrefLang: 'x-default', path: ROUTE_PATHS.tenderAssistant[X_DEFAULT_LANG] },
+        ]}
+        jsonLd={[
+          buildServicePageGraph({
+            lang: currentLang,
+            path: pagePath,
+            title: seoTitle,
+            description: seoDescription,
+            serviceName: t('tenderAssistant.title'),
+            serviceDescription: t('tenderAssistant.intro'),
+            breadcrumbs: [
+              { name: t('tenderAssistant.breadcrumbHome'), path: '/' },
+              { name: t('tenderAssistant.breadcrumbServices'), path: '/services' },
+              { name: t('tenderAssistant.title'), path: pagePath },
+            ],
+          }),
+        ]}
       />
       <FloatingElements />
       <Header onBooking={handleBooking} />
@@ -176,11 +210,14 @@ const TenderAssistant = () => {
           }`}
         >
           <div className="text-center mb-16 max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            <h1 lang={currentLang} className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 break-words hyphens-auto bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
               {t('tenderAssistant.title')}
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12">
+            <p className="text-xl md:text-2xl text-gray-300 mb-8">
               {t('tenderAssistant.subtitle')}
+            </p>
+            <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4">
+              {t('tenderAssistant.intro')}
             </p>
           </div>
         </div>
@@ -304,6 +341,31 @@ const TenderAssistant = () => {
                 <CheckCircle className="w-7 h-7 text-brand-green flex-shrink-0" />
                 <span className="text-lg text-gray-200">{feature}</span>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related solution pages and articles (crawlable internal links) */}
+      <section className="py-16 relative">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              {t('tenderAssistant.related.title')}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {relatedLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="group block bg-gray-800/30 border border-gray-700 rounded-lg p-6 hover:bg-gray-800/50 hover:border-brand-blue/50 transition-all"
+              >
+                <span className="block text-lg font-semibold text-white mb-2 group-hover:text-brand-blue transition-colors hyphens-auto break-words" lang={currentLang}>
+                  {link.label}
+                </span>
+                <span className="block text-sm text-gray-300 leading-relaxed">{link.description}</span>
+              </Link>
             ))}
           </div>
         </div>

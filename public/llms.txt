@@ -12,7 +12,9 @@
 - [/services/process-audit](/services/process-audit): Business process analysis to identify automation and AI opportunities.
 - [/services/automation](/services/automation): Workflow and task automation implementation.
 - [/services/ai-compliance](/services/ai-compliance): AI governance, compliance, and risk management.
-- [/services/tender-assistant](/services/tender-assistant): AI-powered tender and RFP response assistance.
+- [/en/services/tender-assistant](https://www.crux-consulting.ai/en/services/tender-assistant): Tender Assistant — AI-assisted tender management: fit and qualification assessment, requirement/deadline/document extraction into tasks, project management and auto-fill of recurring answers from approved company data, with human review. German: [/de/services/tender-assistant](https://www.crux-consulting.ai/de/services/tender-assistant).
+- [/en/solutions/tender-analysis](https://www.crux-consulting.ai/en/solutions/tender-analysis): Analysing tender documents with AI (German: [/de/loesungen/ausschreibungen-analysieren](https://www.crux-consulting.ai/de/loesungen/ausschreibungen-analysieren)).
+- [/en/solutions/tender-questionnaire-autofill](https://www.crux-consulting.ai/en/solutions/tender-questionnaire-autofill): Preparing tender forms and questionnaires from approved data, with expert sign-off; no automatic submission (German: [/de/loesungen/ausschreibungsformulare-ausfuellen](https://www.crux-consulting.ai/de/loesungen/ausschreibungsformulare-ausfuellen)).
 - [/impressum](/impressum): Legal imprint and company information.
 - [/privacy](/privacy): Privacy policy and data protection information.
 
@@ -21,6 +23,7 @@
 - [/en/blog](/en/blog): Blog index with insights on AI, automation, and business strategy.
 - [/en/blog/why-ai-projects-fail](/en/blog/why-ai-projects-fail): Why AI Projects Fail — common pitfalls and how to avoid them.
 - [/en/blog/tenders-theory-vs-reality](/en/blog/tenders-theory-vs-reality): Tenders: Great in Theory, Tough on Companies in Reality.
+- [/en/blog/save-hours-on-rfp-responses](/en/blog/save-hours-on-rfp-responses): How to Save Hours on RFP Responses Without Sacrificing Quality.
 
 ## Optional
 

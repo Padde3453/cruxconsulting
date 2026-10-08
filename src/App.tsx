@@ -22,7 +22,7 @@ import Workshops from "./pages/services/Workshops";
 import ProcessAudit from "./pages/services/ProcessAudit";
 import Automation from "./pages/services/Automation";
 import AiCompliance from "./pages/services/AiCompliance";
-import TenderAssistant from "./pages/services/TenderAssistant";
+import { TenderAssistantRoute, SolutionRoute, LegacyTenderRedirect } from "./routes/LocalizedPages";
 import InstagramPost from "./pages/InstagramPost";
 import CruxChatbotScript from "./components/CruxChatbotScript";
 import LoadingScreen from "./components/LoadingScreen";
@@ -86,7 +86,11 @@ const App = () => {
               <Route path="/services/process-audit" element={<ProcessAudit />} />
               <Route path="/services/automation" element={<Automation />} />
               <Route path="/services/ai-compliance" element={<AiCompliance />} />
-              <Route path="/services/tender-assistant" element={<TenderAssistant />} />
+              <Route path="/services/tender-assistant" element={<LegacyTenderRedirect />} />
+              <Route path="/de/services/tender-assistant" element={<TenderAssistantRoute lang="de" />} />
+              <Route path="/en/services/tender-assistant" element={<TenderAssistantRoute lang="en" />} />
+              <Route path="/de/loesungen/:slug" element={<SolutionRoute lang="de" />} />
+              <Route path="/en/solutions/:slug" element={<SolutionRoute lang="en" />} />
               <Route path="/impressum" element={<Impressum />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/auth" element={<Auth />} />

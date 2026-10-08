@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ROUTE_PATHS } from '@/data/localizedRoutes';
 import { Button } from '@/components/ui/button';
 import {
   Bot,
@@ -24,7 +25,7 @@ const DetailedServicesCarousel = () => {
     {
       title: t('tenderAssistant.title'),
       description: t('tenderAssistant.shortDescription'),
-      path: '/services/tender-assistant',
+      path: ROUTE_PATHS.tenderAssistant[currentLang],
       icon: FileSearch,
     },
     {

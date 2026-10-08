@@ -716,7 +716,7 @@
   },
   "tenderAssistant": {
     "title": "Ausschreibungs-Assistent",
-    "subtitle": "Sie gewinnen Ausschreibungen, die Sie sonst verloren hätten.",
+    "subtitle": "Ausschreibungen schneller prüfen, strukturiert bearbeiten und Standardangaben vorbereiten.",
     "shortDescription": "Gewinnen Sie mehr Ausschreibungen mit KI-gestütztem Projektmanagement und Auto-Fill — schneller, genauer, weniger Fehler.",
     "challengesTitle": "Die Herausforderungen",
     "challenges": {
@@ -791,6 +791,32 @@
       "title": "Bereit, mehr Ausschreibungen zu gewinnen?",
       "description": "Stellen Sie Fragen, nehmen Sie Kontakt auf oder buchen Sie eine kostenlose Demo — wir helfen Ihnen gerne weiter.",
       "buttonText": "Demo buchen"
+    },
+    "intro": "Der Ausschreibungsassistent unterstützt die KI-gestützte Ausschreibungsbearbeitung von der ersten Prüfung bis zum ausgefüllten Formular: Er hilft Ihnen einzuschätzen, ob eine Ausschreibung zu Ihrem Unternehmen passt, gliedert die Unterlagen in klare Aufgaben mit Fristen und geforderten Nachweisen und bereitet wiederkehrende Angaben auf Basis Ihrer freigegebenen Unternehmensdaten vor. Fachliche Prüfung und Entscheidung bleiben bei Ihrem Team.",
+    "seo": {
+      "title": "KI-Ausschreibungsassistent für Unternehmen | Crux Consulting",
+      "description": "Ausschreibungen mit KI analysieren, Anforderungen strukturieren und Standardantworten vorbereiten. Lernen Sie den Ausschreibungsassistenten von Crux kennen."
+    },
+    "breadcrumbHome": "Startseite",
+    "breadcrumbServices": "Leistungen",
+    "related": {
+      "title": "Mehr zum Ausschreibungsassistenten",
+      "analysis": {
+        "label": "Ausschreibungen mit KI analysieren",
+        "description": "Passung und Muss-Kriterien prüfen, Anforderungen, Fristen und Nachweise als Aufgaben erfassen."
+      },
+      "autofill": {
+        "label": "Ausschreibungsformulare mit KI vorbereiten",
+        "description": "Freigegebene Daten und frühere Antworten wiederverwenden – mit fachlicher Freigabe."
+      },
+      "blogTheory": {
+        "label": "Ausschreibungen: In der Theorie großartig, in der Praxis herausfordernd",
+        "description": "Blogartikel über die typischen Hürden bei Ausschreibungen."
+      },
+      "blogRfp": {
+        "label": "So sparen Sie Stunden bei RFP-Antworten – ohne Qualitätsverlust",
+        "description": "Blogartikel über KI-gestützte RFP-Automatisierung."
+      }
     }
   },
   "newsletter": {
