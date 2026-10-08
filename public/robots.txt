@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://crux-consulting.ai/sitemap.xml
+Sitemap: https://www.crux-consulting.ai/sitemap.xml
