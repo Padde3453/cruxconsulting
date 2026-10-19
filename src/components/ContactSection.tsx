@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from 'react-i18next';
+import { supabase } from "@/integrations/supabase/client";
+import TurnstileWidget, { TurnstileHandle } from "@/components/TurnstileWidget";
 
 interface ContactSectionProps {
   onBooking: () => void;
@@ -20,6 +22,9 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [honey, setHoney] = useState("");
+  const captcha = useRef<TurnstileHandle>(null);
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
 
@@ -33,55 +38,32 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    console.log("Submitting form data:", formData);
-
-    try {
-      // Send to webhook
-      const webhookUrl = "https://n8n-j4ogc84ccogk8gwogc8s88cc.crux-consulting.ai/webhook/f009142b-95d3-4bae-9979-d9aad7ecfd04";
-      
-      const response = await fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        mode: "no-cors",
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          message: formData.message,
-          timestamp: new Date().toISOString(),
-          source: "Crux Consulting Website",
-        }),
-      });
-
-      console.log("Webhook request sent");
-      
-      toast({
-        title: "Message Sent!",
-        description: "We'll respond within 24 hours. Thank you for reaching out!",
-      });
-      
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        message: ""
-      });
-    } catch (error) {
-      console.error("Error sending form data:", error);
-      toast({
-        title: "Error",
-        description: "There was an issue sending your message. Please try again or email us directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
+    if (!captchaToken) {
+      toast({ title: t('captcha.title'), description: t('captcha.required'), variant: "destructive" });
+      return;
     }
+    setIsSubmitting(true);
+    const language = i18n.language.startsWith('de') ? 'de' : 'en';
+    const { data, error } = await supabase.functions.invoke('contact-submit', {
+      body: { ...formData, language, website: honey, captchaToken },
+    });
+    captcha.current?.reset();
+    setIsSubmitting(false);
+
+    if (error || !data?.ok) {
+      let code: string | undefined = data?.error;
+      if (!code && error && 'context' in error) {
+        try { code = (await (error as { context: Response }).context.json())?.error; } catch { /* ignore */ }
+      }
+      const description = code === 'captcha_failed' ? t('captcha.failed')
+        : code === 'rate_limited' ? t('newsletter.errors.rate_limited')
+        : t('captcha.contactError');
+      toast({ title: t('captcha.title'), description, variant: "destructive" });
+      return;
+    }
+
+    toast({ title: t('captcha.sentTitle'), description: t('captcha.sentText') });
+    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -208,6 +190,11 @@ const ContactSection = ({ onBooking }: ContactSectionProps) => {
                   disabled={isSubmitting}
                 />
               </div>
+
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true"
+                value={honey} onChange={(e) => setHoney(e.target.value)}
+                className="absolute -left-[9999px] h-0 w-0 opacity-0" />
+              <TurnstileWidget ref={captcha} onToken={setCaptchaToken} />
 
               <Button 
                 type="submit" 
