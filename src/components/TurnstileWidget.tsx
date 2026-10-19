@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Public Cloudflare Turnstile site key (safe to ship in the browser).
-export const TURNSTILE_SITE_KEY = '';
+export const TURNSTILE_SITE_KEY = '0x4AAAAAAFbbz0Ro1e9IDq8z';
 
 declare global {
   interface Window {
