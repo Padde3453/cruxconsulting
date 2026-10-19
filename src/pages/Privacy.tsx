@@ -120,6 +120,10 @@ const Privacy = () => {
                 <p>{t('privacy.newsletter.paragraph5')}</p>
               </div>
             </div>
+            <div className="border-t border-gray-700 pt-8" id="captcha">
+              <h2 className="text-2xl font-bold text-white mb-4">{t('privacy.captcha.title')}</h2>
+              <p className="text-gray-300">{t('privacy.captcha.paragraph1')}</p>
+            </div>
           </div>
         </div>
       </section>

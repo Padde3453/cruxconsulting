@@ -1,9 +1,12 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
 import { z } from 'npm:zod@4'
+import { verifyTurnstile } from '../_shared/turnstile.ts'
 
 const BodySchema = z.object({
   email: z.string().trim().email().max(255),
   language: z.enum(['en', 'de']).optional(),
+  website: z.string().optional(),
+  captchaToken: z.string().max(4096).optional(),
 })
 
 // Very small in-memory rate limiter (per isolate) to slow down abuse.
@@ -39,6 +42,8 @@ Deno.serve(async (req) => {
 
     const parsed = BodySchema.safeParse(await req.json().catch(() => null))
     if (!parsed.success) return json({ error: 'invalid_email' }, 400)
+    if (parsed.data.website) return json({ ok: true, status: 'pending' })
+    if (!(await verifyTurnstile(parsed.data.captchaToken, ip))) return json({ error: 'captcha_failed' }, 400)
 
     const apiKey = Deno.env.get('BEEHIIV_API_KEY')
     const publicationId = Deno.env.get('BEEHIIV_PUBLICATION_ID')

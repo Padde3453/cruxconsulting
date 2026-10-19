@@ -615,6 +615,10 @@
       "paragraph3": "Rechtsgrundlage der Verarbeitung ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit § 7 Abs. 2 Nr. 3 UWG. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, z. B. über den Abmeldelink am Ende jeder Newsletter-E-Mail oder per Nachricht an contact@crux-consulting.ai. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.",
       "paragraph4": "Für den Versand nutzen wir den Dienst beehiiv der beehiiv, Inc., 228 Park Ave S, PMB 41147, New York, NY 10003, USA. beehiiv verarbeitet Ihre Daten als Auftragsverarbeiter auf Grundlage eines Auftragsverarbeitungsvertrags gemäß Art. 28 DSGVO. Eine Übermittlung in die USA erfolgt auf Basis der EU-Standardvertragsklauseln (Art. 46 DSGVO) sowie ergänzender Schutzmaßnahmen. Weitere Informationen finden Sie in der Datenschutzerklärung von beehiiv unter https://www.beehiiv.com/privacy.",
       "paragraph5": "Die Newsletter enthalten übliche Messfunktionen (z. B. ob eine E-Mail geöffnet und welche Links angeklickt wurden). Diese Auswertung dient allein der Verbesserung unserer Inhalte und ist von Ihrer Einwilligung umfasst. Ihre Daten werden gespeichert, solange Sie den Newsletter abonniert haben; nach der Abmeldung speichern wir Ihre E-Mail-Adresse ausschließlich zum Nachweis der erteilten Einwilligung bzw. zur Umsetzung der Abmeldung (Sperrliste)."
+    },
+    "captcha": {
+      "title": "Spamschutz (Cloudflare Turnstile)",
+      "paragraph1": "Um unser Kontaktformular und die Newsletter-Anmeldung vor Bots zu schützen, nutzen wir Cloudflare Turnstile, einen Dienst der Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA. Turnstile prüft technische Browser- und Gerätedaten (z. B. IP-Adresse und Browsermerkmale), um Menschen von automatisierten Programmen zu unterscheiden. Werbe-Cookies werden dabei nicht eingesetzt. Rechtsgrundlage ist unser berechtigtes Interesse am Schutz unserer Website vor Missbrauch (Art. 6 Abs. 1 lit. f DSGVO). Eine Übermittlung in die USA ist möglich; Cloudflare ist unter dem EU-US Data Privacy Framework zertifiziert. Nachrichten aus dem Kontaktformular speichern wir auf unseren Servern, um sie beantworten zu können."
     }
   },
   "about": {
@@ -836,5 +840,13 @@
       "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
     },
     "privacyLink": "Datenschutzerklärung"
+  },
+  "captcha": {
+    "title": "Senden nicht möglich",
+    "required": "Bitte warten Sie kurz, bis die Sicherheitsprüfung unten abgeschlossen ist.",
+    "failed": "Die Sicherheitsprüfung ist fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "contactError": "Ihre Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns eine E-Mail.",
+    "sentTitle": "Nachricht gesendet!",
+    "sentText": "Vielen Dank für Ihre Nachricht! Wir melden uns in Kürze bei Ihnen."
   }
 }

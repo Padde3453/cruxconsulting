@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { z } from 'zod';
@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { supabase } from '@/integrations/supabase/client';
 import { Loader2, CheckCircle2 } from 'lucide-react';
+import TurnstileWidget, { TurnstileHandle } from '@/components/TurnstileWidget';
 
 const emailSchema = z.string().trim().email().max(255);
 
@@ -22,6 +23,9 @@ const NewsletterForm = ({ onSuccess, className = '', size = 'default' }: Newslet
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
   const [error, setError] = useState<string | null>(null);
+  const [token, setToken] = useState<string | null>(null);
+  const [honey, setHoney] = useState('');
+  const captcha = useRef<TurnstileHandle>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,14 +37,28 @@ const NewsletterForm = ({ onSuccess, className = '', size = 'default' }: Newslet
       return;
     }
 
+    if (!token) {
+      setError(t('captcha.required'));
+      return;
+    }
+
     setStatus('loading');
     const { data, error: fnError } = await supabase.functions.invoke(
       'newsletter-subscribe',
-      { body: { email: parsed.data, language } }
+      { body: { email: parsed.data, language, website: honey, captchaToken: token } }
     );
+    captcha.current?.reset();
 
     if (fnError || !data?.ok) {
-      const code = (data as { error?: string } | null)?.error;
+      let code = (data as { error?: string } | null)?.error;
+      if (!code && fnError && 'context' in fnError) {
+        try { code = (await (fnError as { context: Response }).context.json())?.error; } catch { /* ignore */ }
+      }
+      if (code === 'captcha_failed') {
+        setError(t('captcha.failed'));
+        setStatus('idle');
+        return;
+      }
       const key = ['invalid_email', 'rate_limited', 'not_configured'].includes(code ?? '')
         ? code
         : 'generic';
@@ -94,6 +112,10 @@ const NewsletterForm = ({ onSuccess, className = '', size = 'default' }: Newslet
           )}
         </Button>
       </div>
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true"
+        value={honey} onChange={(e) => setHoney(e.target.value)}
+        className="absolute -left-[9999px] h-0 w-0 opacity-0" />
+      <TurnstileWidget ref={captcha} onToken={setToken} className="mt-3" />
       {error && <p className={`mt-3 ${isLg ? 'text-base' : 'text-sm'} text-red-400`}>{error}</p>}
       <p className={`mt-3 ${isLg ? 'text-sm' : 'text-xs'} text-gray-500`}>
         {t('newsletter.privacyNote')}{' '}
