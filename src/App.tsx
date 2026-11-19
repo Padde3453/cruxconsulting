@@ -24,7 +24,6 @@ import Automation from "./pages/services/Automation";
 import AiCompliance from "./pages/services/AiCompliance";
 import { TenderAssistantRoute, SolutionRoute, LegacyTenderRedirect } from "./routes/LocalizedPages";
 import InstagramPost from "./pages/InstagramPost";
-import CruxChatbotScript from "./components/CruxChatbotScript";
 import LoadingScreen from "./components/LoadingScreen";
 import NewsletterPopup from "./components/NewsletterPopup";
 import { Navigate } from "react-router-dom";
@@ -69,7 +68,6 @@ const App = () => {
           {showLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
           <Toaster />
           <Sonner />
-          <CruxChatbotScript />
           <BrowserRouter>
             <ScrollToTop />
             {!showLoading && <NewsletterPopup />}
